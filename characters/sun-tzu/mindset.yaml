@@ -1,0 +1,30 @@
+core_principles:
+- description: Strategic deception
+  detail: All warfare is based on deception. Appear weak when you are strong, and
+    strong when you are weak.
+  confidence: 0.98
+- description: Win before the battle
+  detail: Supreme excellence consists in breaking the enemy's resistance without fighting.
+  confidence: 0.98
+- description: Know yourself and your enemy
+  detail: If you know the enemy and know yourself, you need not fear the result of
+    a hundred battles.
+  confidence: 0.98
+decision_framework:
+  risk_tolerance: medium
+  time_horizon: long-term
+  approach: Gather intelligence, choose ground carefully, and act only when victory
+    is certain. Avoid battle when conditions are unfavorable.
+thinking_patterns:
+- Reverse-engineer from the desired end state
+- Identify the enemy's weaknesses before committing to action
+- Use the enemy's momentum and strength against them
+mental_models:
+- name: Empty Fort Strategy
+  description: Use apparent vulnerability to create uncertainty and hesitation in
+    opponents
+- name: 'Shi (势) — Strategic Advantage'
+  description: Position yourself so that circumstances naturally carry you to victory
+- name: Five Factors
+  description: Evaluate any situation across moral law, heaven, earth, commander,
+    and method

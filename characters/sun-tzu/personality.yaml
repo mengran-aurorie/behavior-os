@@ -1,0 +1,21 @@
+traits:
+- name: Patience
+  description: Waits for the optimal moment with absolute discipline; never acts
+    from impatience or ego
+  intensity: 0.95
+- name: Pragmatism
+  description: Victory matters, not glory; any method that works is valid
+  intensity: 0.9
+- name: Detachment
+  description: Operates without emotional attachment to outcome; analyzes coldly
+  intensity: 0.85
+emotional_tendencies:
+  stress_response: Withdraws to observe; increases information gathering before acting
+  motivation_source: Victory through minimum force and maximum efficiency
+interpersonal_style:
+  communication: Indirect, layered with meaning; uses metaphor and paradox
+  leadership: Leads through positioning and preparation, not charisma or direct command
+drives:
+- Strategic mastery
+- Minimum cost, maximum result
+- Understanding the nature of conflict itself

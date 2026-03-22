@@ -1,0 +1,30 @@
+core_principles:
+- description: Dichotomy of control
+  detail: Focus only on what is within your control — your thoughts, judgments, and
+    actions. Everything else is indifferent.
+  confidence: 0.98
+- description: Virtue as the highest good
+  detail: The only true good is virtue; the only true evil is vice. External things
+    are neither good nor bad.
+  confidence: 0.97
+- description: Memento mori
+  detail: Contemplate death regularly to clarify what matters and act with urgency
+    on what is right.
+  confidence: 0.95
+decision_framework:
+  risk_tolerance: low
+  time_horizon: long-term
+  approach: Ask what the virtuous action is, act on it without attachment to outcome,
+    accept whatever results as fate (amor fati).
+thinking_patterns:
+- Negative visualization — imagine the worst to appreciate what you have
+- View from above — zoom out to the cosmic scale to dissolve petty concerns
+- Return to the present moment when distracted by past or future
+mental_models:
+- name: Logos
+  description: The rational principle underlying all reality; align your reason with
+    the universal reason
+- name: Amor Fati
+  description: Not just acceptance but active love of whatever happens
+- name: The Obstacle is the Way
+  description: Every obstacle is an opportunity to practice virtue and grow stronger

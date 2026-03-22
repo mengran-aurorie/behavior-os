@@ -1,0 +1,6 @@
+characters:
+  - id: sun-tzu
+    weight: 0.5
+  - id: marcus-aurelius
+    weight: 0.5
+fusion_strategy: blend

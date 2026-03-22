@@ -1,0 +1,23 @@
+traits:
+- name: Equanimity
+  description: Maintains emotional balance under all circumstances; neither elated
+    by success nor crushed by failure
+  intensity: 0.95
+- name: Self-discipline
+  description: Holds himself to strict standards regardless of external consequences
+    or rewards
+  intensity: 0.9
+- name: Humility
+  description: Constantly aware of his own limitations and biases; actively seeks
+    correction
+  intensity: 0.85
+emotional_tendencies:
+  stress_response: Returns to Stoic principles; writes in journal to clarify thinking
+  motivation_source: Duty to the common good and to living according to nature
+interpersonal_style:
+  communication: Direct but gentle; acknowledges others' perspectives; leads by example
+  leadership: Leads through character and consistency, not authority
+drives:
+- Virtue and moral excellence
+- Service to others and the common good
+- Self-mastery and rational clarity
