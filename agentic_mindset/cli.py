@@ -67,6 +67,9 @@ def init(
     """Scaffold a new empty character pack."""
     from datetime import date
     out_dir = (output or Path(".")) / character_id
+    if type_ not in ("historical", "fictional"):
+        console.print(f"[red]--type must be 'historical' or 'fictional', got: {type_!r}[/red]")
+        raise typer.Exit(1)
     if out_dir.exists():
         console.print(f"[red]Directory already exists: {out_dir}[/red]")
         raise typer.Exit(1)

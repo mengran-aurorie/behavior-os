@@ -34,6 +34,11 @@ def test_init_creates_files(tmp_path):
         assert (tmp_path / "my-hero" / fname).exists()
 
 
+def test_init_rejects_invalid_type(tmp_path):
+    result = runner.invoke(app, ["init", "my-hero", "--type", "living", "--output", str(tmp_path)])
+    assert result.exit_code != 0
+
+
 def test_list_shows_characters(minimal_pack_dir, tmp_path):
     named = tmp_path / "sun-tzu"
     shutil.copytree(minimal_pack_dir, named)
