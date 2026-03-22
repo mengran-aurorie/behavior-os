@@ -46,3 +46,6 @@ htmlcov/
 
 # Local registry override
 .agentic-mindset/
+
+# Claude Code
+.claude/
