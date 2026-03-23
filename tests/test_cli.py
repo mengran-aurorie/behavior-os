@@ -281,3 +281,31 @@ def test_generate_format_debug_json_weights(gen_registry):
     assert data["meta"]["characters"] == ["sun-tzu", "marcus-aurelius"]
     assert abs(data["meta"]["weights"][0] - 0.6) < 1e-9
     assert abs(data["meta"]["weights"][1] - 0.4) < 1e-9
+
+
+def test_generate_explain_goes_to_stderr(gen_registry):
+    result = runner.invoke(app, [
+        "generate", "sun-tzu", "marcus-aurelius",
+        "--weights", "6,4",
+        "--explain",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 0
+    assert "sun-tzu (60%)" in result.stderr
+    assert "marcus-aurelius (40%)" in result.stderr
+    assert "blend" in result.stderr
+    assert "1.0" in result.stderr
+    # stdout is the compiled text, not the explain summary
+    assert "THINKING FRAMEWORK" in result.output
+
+
+def test_generate_explain_does_not_pollute_stdout(gen_registry):
+    """--explain summary must NOT appear in stdout."""
+    result = runner.invoke(app, [
+        "generate", "sun-tzu",
+        "--explain",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 0
+    assert "Characters:" not in result.output
+    assert "Strategy:" not in result.output
