@@ -219,6 +219,39 @@ mindset preview --fusion my-blend.yaml
 
 ---
 
+## mindset run — 编译并注入 Claude
+
+`mindset run` 将思维方式编译后，通过 `--append-system-prompt-file` 直接注入 Claude CLI 会话。
+
+```bash
+# 单次查询
+mindset run claude --persona sun-tzu -- "分析竞争对手策略"
+
+# 多角色融合（带权重）
+mindset run claude --persona sun-tzu --persona marcus-aurelius --weights 6,4 -- "如何处理这次谈判？"
+
+# 交互模式（省略 -- QUERY）
+mindset run claude --persona sun-tzu
+
+# 启动前打印编译摘要
+mindset run claude --persona sun-tzu --explain -- "query"
+```
+
+### `mindset run` 选项
+
+| 选项 | 默认值 | 说明 |
+|---|---|---|
+| `<runtime>` | 必填 | 运行时名称（v0：仅支持 `claude`） |
+| `--persona` | 必填 | 角色 ID，可重复使用以指定多个角色 |
+| `--weights 6,4` | 等权重 | 各角色权重（自动归一化） |
+| `--strategy` | `blend` | `blend` \| `dominant` |
+| `--format` | `inject` | `text` \| `inject`（v0：等价） |
+| `--explain` | 关闭 | 将编译摘要打印到 stderr |
+| `--registry <path>` | 自动解析 | 覆盖角色注册表路径 |
+| `-- QUERY` | 无 | 单次查询内容，省略则进入交互模式 |
+
+---
+
 ## CLI 命令参考
 
 ```bash
@@ -228,6 +261,7 @@ mindset preview <path>                           # 预览 Context Block 输出
 mindset preview --fusion <fusion.yaml>           # 预览融合结果
 mindset list                                     # 列出可用角色
 mindset generate <id> [id ...]                   # 将思维方式编译成可注入的提示词块
+mindset run <runtime> --persona <id>             # 编译并注入到 Agent 运行时
 ```
 
 ### `mindset generate` 选项

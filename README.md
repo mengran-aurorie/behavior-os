@@ -219,6 +219,42 @@ mindset preview --fusion my-blend.yaml
 
 ---
 
+## mindset run — Compile & Inject into Claude
+
+`mindset run` compiles mindset(s) and injects them directly into a Claude CLI session via `--append-system-prompt-file`.
+
+```bash
+# One-shot query
+mindset run claude --persona sun-tzu -- "Analyze competitor strategy"
+
+# Multi-persona fusion with weights
+mindset run claude --persona sun-tzu --persona marcus-aurelius --weights 6,4 -- "How should I approach this negotiation?"
+
+# Interactive mode (omit -- QUERY)
+mindset run claude --persona sun-tzu
+
+# Print compilation summary before launching
+mindset run claude --persona sun-tzu --explain -- "query"
+
+# Custom registry
+mindset run claude --persona sun-tzu --registry ./my-chars -- "query"
+```
+
+### `mindset run` options
+
+| Option | Default | Description |
+|---|---|---|
+| `<runtime>` | required | Runtime name (v0: `claude` only) |
+| `--persona` | required | Character ID. Repeat for multi-persona. |
+| `--weights 6,4` | equal | Per-character weights (auto-normalized) |
+| `--strategy` | `blend` | `blend` \| `dominant` |
+| `--format` | `inject` | `text` \| `inject` (v0: equivalent) |
+| `--explain` | off | Print compilation summary to stderr |
+| `--registry <path>` | auto | Override character registry path |
+| `-- QUERY` | none | One-shot query. Omit for interactive mode. |
+
+---
+
 ## CLI Reference
 
 ```bash
@@ -228,6 +264,7 @@ mindset preview <path>                           # Preview the Context Block out
 mindset preview --fusion <fusion.yaml>           # Preview a fusion blend
 mindset list                                     # List available characters
 mindset generate <id> [id ...]                   # Compile mindset(s) into injectable prompt block
+mindset run <runtime> --persona <id>             # Compile & inject into agent runtime
 ```
 
 ### `mindset generate` options
