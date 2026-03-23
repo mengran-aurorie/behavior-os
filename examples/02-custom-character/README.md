@@ -77,8 +77,9 @@ Schema:     1.0
 The prompt block (stdout) begins with a section like:
 
 ```
-=== THINKING FRAMEWORK ===
-Core principles:
+You embody a synthesized mindset drawing from: Ada Lovelace (100%).
+
+THINKING FRAMEWORK:
 - Analytical imagination: The capacity to see both the abstract structure...
 ```
 

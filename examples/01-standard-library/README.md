@@ -50,8 +50,9 @@ mindset generate sun-tzu
 The compiled prompt block is printed to stdout. The first section looks like:
 
 ```
-=== THINKING FRAMEWORK ===
-Core principles:
+You embody a synthesized mindset drawing from: Sun Tzu (100%).
+
+THINKING FRAMEWORK:
 - Strategic deception: All warfare is based on deception...
 ```
 
