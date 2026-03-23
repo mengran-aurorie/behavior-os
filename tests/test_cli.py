@@ -136,3 +136,53 @@ def test_generate_unknown_character_exits_1(gen_registry):
     assert result.exit_code == 1
     assert "unknown-char" in result.stderr
     assert "mindset list" in result.stderr
+
+
+def test_generate_weights_count_mismatch(gen_registry):
+    result = runner.invoke(app, [
+        "generate", "sun-tzu", "marcus-aurelius",
+        "--weights", "6",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 1
+    assert "--weights has 1 values but 2 character IDs" in result.stderr
+
+
+def test_generate_weights_negative(gen_registry):
+    result = runner.invoke(app, [
+        "generate", "sun-tzu",
+        "--weights", "-1",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 1
+    assert "positive numbers" in result.stderr
+
+
+def test_generate_weights_all_zero(gen_registry):
+    result = runner.invoke(app, [
+        "generate", "sun-tzu",
+        "--weights", "0",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 1
+    assert "cannot all be zero" in result.stderr
+
+
+def test_generate_weights_non_numeric(gen_registry):
+    result = runner.invoke(app, [
+        "generate", "sun-tzu",
+        "--weights", "abc",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 1
+    assert "comma-separated numbers" in result.stderr
+
+
+def test_generate_weights_trailing_comma(gen_registry):
+    result = runner.invoke(app, [
+        "generate", "sun-tzu",
+        "--weights", "6,",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 1
+    assert "comma-separated numbers" in result.stderr
