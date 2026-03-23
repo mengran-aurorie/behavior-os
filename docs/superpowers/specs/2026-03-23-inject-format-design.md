@@ -150,10 +150,6 @@ def fuse_config(self, config: FusionConfig, report: "FusionReport | None" = None
     show_weights = config.fusion_strategy != FusionStrategy.sequential
 
     if report is not None:
-        normalized = [(self._registry.load_id(cid).meta.id, w)
-                      for (pack, w) in weighted_packs
-                      for cid, _ in raw_pairs if pack.meta.id == cid]
-        # Simpler: build from weighted_packs directly (pack.meta.id is available)
         report.personas = [(pack.meta.id, w) for pack, w in weighted_packs]
         report.strategy = config.fusion_strategy.value
         weights = [w for _, w in weighted_packs]
@@ -348,29 +344,31 @@ typer.echo(yaml.dump(data, default_flow_style=False, allow_unicode=True), err=Tr
 
 **`generate` command `--explain` pseudocode:**
 
-```python
-if explain:
-    report = FusionReport()
-    # Re-fuse with report to capture metadata
-    # Note: block was already built above; fuse again only for report population
-    engine.fuse(chars, strategy=strat, report=report)
+The `generate` command builds `block` via `engine.fuse(chars, strat)` (existing). When `--explain` is set, capture `report` and `weighted_packs` alongside:
 
-    risk_tol = _get_risk_tolerance(report, reg)   # load first pack, read decision_framework
-    time_hor = _get_time_horizon(report, reg)
+```python
+report = FusionReport() if explain else None
+block = engine.fuse(chars, strategy=strat, report=report)
+
+if explain:
+    weighted_packs = engine.prepare_packs(chars, strat)
+    dominant_pack = weighted_packs[0][0]   # highest-weight (or first by input order if equal)
 
     data = {
         "personas": [{cid: round(w, 4)} for cid, w in report.personas],
         "merged": {
             "decision_policy": _explain_decision_policy(report),
-            "risk_tolerance": risk_tol,
-            "time_horizon": time_hor,
+            "risk_tolerance": dominant_pack.mindset.decision_framework.risk_tolerance,
+            "time_horizon": dominant_pack.mindset.decision_framework.time_horizon,
         },
         "removed_conflicts": report.removed_items,
     }
     typer.echo(yaml.dump(data, default_flow_style=False, allow_unicode=True), err=True)
 ```
 
-For `generate`, since `block` is already built via `engine.fuse(chars, strat)` (without report), a second `fuse()` call with `report=` is needed to capture `removed_items`. This is acceptable because `generate` does not have a performance-critical code path. Alternatively, the `generate` command can be refactored to always call `fuse()` with `report=FusionReport()` and discard it when `--explain` is not set — but that is an implementation choice left to the implementer.
+`_explain_decision_policy(report)` is a local helper that implements the `decision_policy` string rules (single character → `{id}-only`; unequal weights → `{dominant_character}-dominant`; equal weights → `equal-blend`).
+
+`prepare_packs()` is called once here for field access — `weighted_packs[0][0]` is the pack with the highest weight (or first by post-deduplication order when weights are equal), providing direct access to typed schema fields without loading from registry again. When `--explain` is not set, `report` is `None` and `prepare_packs()` is not called.
 
 **YAML output example (multi-character):**
 
