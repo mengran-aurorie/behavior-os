@@ -188,6 +188,36 @@ def test_generate_weights_trailing_comma(gen_registry):
     assert "comma-separated numbers" in result.stderr
 
 
+def test_generate_weights_leading_comma(gen_registry):
+    result = runner.invoke(app, [
+        "generate", "sun-tzu",
+        "--weights", ",6",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 1
+    assert "comma-separated numbers" in result.stderr
+
+
+def test_generate_weights_double_comma(gen_registry):
+    result = runner.invoke(app, [
+        "generate", "sun-tzu",
+        "--weights", "6,,4",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 1
+    assert "comma-separated numbers" in result.stderr
+
+
+def test_generate_unknown_strategy_exits_1(gen_registry):
+    result = runner.invoke(app, [
+        "generate", "sun-tzu",
+        "--strategy", "bogus",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 1
+    assert "bogus" in result.stderr
+
+
 def test_generate_multi_character_blend(gen_registry):
     result = runner.invoke(app, [
         "generate", "sun-tzu", "marcus-aurelius",
