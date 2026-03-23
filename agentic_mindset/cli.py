@@ -25,6 +25,7 @@ def _format_output(text: str, fmt: str, meta: dict | None = None) -> str:
         return json.dumps({"type": "text", "text": text})
     if fmt == "debug-json":
         return json.dumps({"meta": meta, "type": "text", "text": text}, indent=2)
+    raise ValueError(f"Unknown output format: {fmt!r}")
 
 
 _TEMPLATE_META = {
@@ -92,7 +93,6 @@ def init(
     today = date.today().isoformat()
 
     def _render(template: dict) -> dict:
-        import json
         s = json.dumps(template)
         s = s.replace("{id}", character_id).replace("{name}", name)
         s = s.replace("{type}", type_).replace("{today}", today)

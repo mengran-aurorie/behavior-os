@@ -94,3 +94,8 @@ def test_format_output_debug_json_no_timestamp():
     result = json.loads(_format_output("hello", "debug-json", meta=meta))
     assert "timestamp" not in result
     assert "timestamp" not in result.get("meta", {})
+
+
+def test_format_output_invalid_fmt_raises():
+    with pytest.raises(ValueError, match="Unknown output format"):
+        _format_output("hello", "xml")
