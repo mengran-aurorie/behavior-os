@@ -231,7 +231,7 @@ def generate(
     strategy: str = typer.Option("blend", "--strategy", help="blend | dominant | sequential"),
     format_: str = typer.Option("text", "--format", help="text | anthropic-json | debug-json"),
     output: Optional[Path] = typer.Option(None, "--output", help="Write to file instead of stdout"),
-    explain: bool = typer.Option(False, "--explain", is_flag=True, help="Print compilation summary to stderr"),
+    explain: bool = typer.Option(False, "--explain", help="Print compilation summary to stderr"),
     registry: Optional[Path] = typer.Option(None, "--registry", help="Override registry path"),
 ):
     """Compile character mindset(s) into an injectable system prompt block."""
