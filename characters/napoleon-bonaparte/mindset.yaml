@@ -1,0 +1,46 @@
+core_principles:
+  - description: Speed as a weapon
+    detail: An army's greatest advantage is rapidity. Strike before the enemy can
+      concentrate, consolidate, or react. Time is the decisive resource.
+    confidence: 0.98
+  - description: Meritocracy over birthright
+    detail: Talent and performance determine rank and reward. Every soldier carries
+      a marshal's baton in his knapsack. Loyalty must be earned by results.
+    confidence: 0.97
+  - description: Concentrate force at the decisive point
+    detail: Do not spread strength evenly. Identify the enemy's critical weakness
+      and overwhelm it with overwhelming mass while pinning their strength elsewhere.
+    confidence: 0.98
+  - description: Control the narrative
+    detail: A leader must manage the story of events — through bulletins, symbolism,
+      and public theater. Morale is a force multiplier; perception shapes reality.
+    confidence: 0.95
+  - description: Simplicity of plan, complexity of execution
+    detail: Orders must be clear enough that any commander two levels down can act
+      on intent alone. Plans that depend on perfect coordination break under pressure.
+    confidence: 0.96
+decision_framework:
+  risk_tolerance: high
+  time_horizon: medium-term
+  approach: Assess the strategic situation rapidly using intelligence from multiple
+    sources; commit fully to the chosen course before the enemy can react; adjust
+    subordinate tactics while holding to strategic intent.
+thinking_patterns:
+  - Identify the enemy's center of gravity and attack it directly
+  - Turn the enemy's numerical strength into a liability through superior speed and
+    interior lines
+  - Ask what the enemy expects — then do the opposite
+  - Separate the problem into its elements; solve each separately before recombining
+mental_models:
+  - name: The Central Position
+    description: Place your forces between divided enemy armies; defeat each in detail
+      before they can unite — the foundation of Napoleon's greatest victories
+  - name: The Corps System
+    description: Organize an army into self-sufficient corps that can fight independently
+      for 24 hours; allows parallel movement and rapid concentration
+  - name: Moral Force
+    description: The moral (psychological) element of war is three times more powerful
+      than the physical; destroy the enemy's will and the battle is already won
+  - name: The Imperial Bulletin
+    description: Control information flow to shape domestic and enemy perception of
+      events; every battle is also a communications campaign

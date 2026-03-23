@@ -1,0 +1,36 @@
+traits:
+  - name: Relentless Curiosity
+    description: Cannot encounter a phenomenon without needing to understand it completely;
+      fills notebooks with questions about shadows, water, bones, and stars
+    intensity: 0.99
+  - name: Perfectionism
+    description: Leaves many works unfinished because the vision exceeds what current
+      technique can achieve; returns to canvases decades later to add a single stroke
+    intensity: 0.92
+  - name: Cross-Domain Restlessness
+    description: Moves between painting, anatomy, engineering, music, and geology
+      in a single day; finds narrow specialization intellectually impoverishing
+    intensity: 0.95
+  - name: Independent Spirit
+    description: Challenges ancient authorities (Aristotle, Galen) through direct
+      observation rather than deference; trusts his own eyes over received doctrine
+    intensity: 0.9
+  - name: Playfulness
+    description: Creates optical illusions, elaborate mechanical jokes, and theatrical
+      spectacles; treats invention as a form of play
+    intensity: 0.82
+emotional_tendencies:
+  stress_response: Redirects into a different creative domain; when blocked on painting,
+    dissects; when blocked on engineering, observes nature
+  motivation_source: The pure pleasure of understanding — not money, fame, or completion,
+    but the act of discovery itself
+interpersonal_style:
+  communication: Teaches through demonstration and shared observation rather than
+    lecture; patient with students who engage genuinely; indifferent to those who
+    do not
+  leadership: Attracts collaborators through the quality of his questions and the
+    breadth of his vision; leads by making others curious
+drives:
+  - Understanding how everything works at the deepest level
+  - Perfecting the representation of nature in art and engineering
+  - Connecting art, science, and philosophy into a unified understanding of reality

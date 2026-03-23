@@ -1,0 +1,16 @@
+id: napoleon-bonaparte
+name: Napoleon Bonaparte
+version: 1.0.0
+schema_version: '1.0'
+type: historical
+description: French military genius and Emperor (1769–1821) who reshaped Europe through
+  unmatched strategic speed, meritocracy, and sheer force of will.
+tags:
+  - strategy
+  - leadership
+  - military
+  - historical
+authors:
+  - name: agentic-mindset contributors
+    url: https://github.com/mengran-aurorie/AGENTIC-MINDSET
+created: '2026-03-23'

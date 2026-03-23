@@ -1,0 +1,14 @@
+sources:
+  - title: "Leonardo da Vinci (Walter Isaacson, 2017)"
+    type: book
+    accessed: "2026-03-23"
+  - title: "The Notebooks of Leonardo da Vinci (Jean Paul Richter, ed., 1883)"
+    type: book
+    url: "https://www.gutenberg.org/ebooks/5000"
+    accessed: "2026-03-23"
+  - title: "How to Think Like Leonardo da Vinci (Michael Gelb, 1998)"
+    type: book
+    accessed: "2026-03-23"
+  - title: "Leonardo da Vinci: The Complete Paintings and Drawings (Frank Zöllner, 2019)"
+    type: book
+    accessed: "2026-03-23"
