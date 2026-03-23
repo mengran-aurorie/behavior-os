@@ -186,3 +186,55 @@ def test_generate_weights_trailing_comma(gen_registry):
     ])
     assert result.exit_code == 1
     assert "comma-separated numbers" in result.stderr
+
+
+def test_generate_multi_character_blend(gen_registry):
+    result = runner.invoke(app, [
+        "generate", "sun-tzu", "marcus-aurelius",
+        "--weights", "6,4",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 0
+    assert "Sun Tzu" in result.output or "Marcus Aurelius" in result.output
+
+
+def test_generate_strategy_dominant(gen_registry):
+    result = runner.invoke(app, [
+        "generate", "sun-tzu", "marcus-aurelius",
+        "--strategy", "dominant",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 0
+    assert "THINKING FRAMEWORK" in result.output
+
+
+def test_generate_strategy_sequential(gen_registry):
+    result = runner.invoke(app, [
+        "generate", "sun-tzu", "marcus-aurelius",
+        "--strategy", "sequential",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 0
+    assert "THINKING FRAMEWORK" in result.output
+
+
+def test_generate_strategy_sequential_with_weights_warns(gen_registry):
+    """Sequential + --weights emits a warning to stderr but still succeeds."""
+    result = runner.invoke(app, [
+        "generate", "sun-tzu", "marcus-aurelius",
+        "--strategy", "sequential",
+        "--weights", "6,4",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 0
+    assert "--weights ignored" in result.stderr
+
+
+def test_generate_equal_weights_by_default(gen_registry):
+    """When --weights is omitted, characters receive equal weight."""
+    result = runner.invoke(app, [
+        "generate", "sun-tzu", "marcus-aurelius",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 0
+    assert "50%" in result.output or "Sun Tzu" in result.output
