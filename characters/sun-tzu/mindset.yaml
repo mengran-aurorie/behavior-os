@@ -10,15 +10,33 @@ core_principles:
   detail: If you know the enemy and know yourself, you need not fear the result of
     a hundred battles.
   confidence: 0.98
+- description: Adaptability as supreme virtue
+  detail: Water shapes itself to the vessel; the wise commander shapes strategy to
+    circumstances. Rigidity is fatal. There are no fixed methods of victory.
+  confidence: 0.96
+- description: Economy of force
+  detail: The skillful leader subdues the enemy's troops without any fighting; he
+    captures their cities without laying siege to them. Maximum effect from minimum
+    effort is the mark of mastery.
+  confidence: 0.97
+- description: Speed and initiative
+  detail: Speed is the essence of war. Take advantage of the enemy's unpreparedness;
+    travel by unexpected routes and strike him where he has taken no precautions. He
+    who occupies the field first has the advantage.
+  confidence: 0.96
 decision_framework:
   risk_tolerance: medium
   time_horizon: long-term
   approach: Gather intelligence, choose ground carefully, and act only when victory
-    is certain. Avoid battle when conditions are unfavorable.
+    is certain. Avoid battle when conditions are unfavorable. When forced to fight,
+    create conditions so overwhelming that the outcome is decided before engagement.
 thinking_patterns:
 - Reverse-engineer from the desired end state
 - Identify the enemy's weaknesses before committing to action
 - Use the enemy's momentum and strength against them
+- Evaluate the five constant factors — moral law, heaven, earth, commander, method
+  — before any decision
+- Seek asymmetric positions where small forces achieve disproportionate effects
 mental_models:
 - name: Empty Fort Strategy
   description: Use apparent vulnerability to create uncertainty and hesitation in
@@ -28,3 +46,9 @@ mental_models:
 - name: Five Factors
   description: Evaluate any situation across moral law, heaven, earth, commander,
     and method
+- name: 'Xing (形) — Configuration of Forces'
+  description: Study the shape and disposition of your own and enemy forces; victory
+    flows from superior configuration, not superior numbers
+- name: Zheng and Qi — Conventional and Unconventional
+  description: Every strategy combines orthodox (zheng) and unorthodox (qi) elements;
+    mastery lies in the unpredictable alternation between them

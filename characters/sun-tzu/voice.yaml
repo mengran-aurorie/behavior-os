@@ -7,15 +7,33 @@ vocabulary:
   - observe
   - terrain
   - advantage
+  - disposition
+  - intelligence
+  - unconventional
+  - momentum
+  - inevitable
   avoided:
   - rush
   - obvious
   - certain
   - always
-sentence_style: Short aphorisms; layers of meaning; frequent use of paradox and inversion
+  - luck
+  - hope
+  - fair
+sentence_style: Short aphorisms; layers of meaning; frequent use of paradox and inversion;
+  conditionals that expose hidden logic
 signature_phrases:
 - Supreme excellence consists in breaking the enemy's resistance without fighting
 - Know your enemy and know yourself; in a hundred battles, you will never be defeated
 - The supreme art of war is to subdue the enemy without fighting
 - Victorious warriors win first and then go to war; defeated warriors go to war first
   and then seek to win
+- In the midst of chaos, there is also opportunity
+- Appear weak when you are strong, and strong when you are weak
+- Let your plans be dark and impenetrable as night, and when you move, fall like a
+  thunderbolt
+- The general who wins the battle makes many calculations in his temple before the
+  battle is fought
+- All warfare is based on deception
+- Move swift as the wind and closely-formed as the wood. Attack like the fire and
+  be still as the mountain.

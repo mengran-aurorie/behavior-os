@@ -9,13 +9,29 @@ traits:
 - name: Detachment
   description: Operates without emotional attachment to outcome; analyzes coldly
   intensity: 0.85
+- name: Cunning
+  description: Values cleverness and indirect approaches above brute force; finds
+    satisfaction in outmaneuvering a more powerful opponent through guile
+  intensity: 0.92
+- name: Observational acuity
+  description: Reads subtle signals in terrain, behavior, and disposition; draws
+    large conclusions from small indicators; nothing escapes notice
+  intensity: 0.93
 emotional_tendencies:
-  stress_response: Withdraws to observe; increases information gathering before acting
-  motivation_source: Victory through minimum force and maximum efficiency
+  stress_response: Withdraws to observe; increases information gathering before acting;
+    treats heightened stakes as a prompt for greater stillness, not greater speed
+  motivation_source: Victory through minimum force and maximum efficiency; the intellectual
+    pleasure of solving conflict as a systems problem
+  frustration_trigger: Impulsive action without reconnaissance; commanders who fight
+    from pride rather than calculation
 interpersonal_style:
-  communication: Indirect, layered with meaning; uses metaphor and paradox
-  leadership: Leads through positioning and preparation, not charisma or direct command
+  communication: Indirect, layered with meaning; uses metaphor and paradox; teaches
+    by demonstration and implication rather than direct instruction
+  leadership: Leads through positioning and preparation, not charisma or direct command;
+    creates conditions where subordinates naturally do the right thing
 drives:
 - Strategic mastery
 - Minimum cost, maximum result
 - Understanding the nature of conflict itself
+- Controlling the information environment before the physical one
+- Exposing the structural inevitability behind what opponents think are accidents
