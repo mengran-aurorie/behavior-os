@@ -31,26 +31,28 @@ Separate `inject` from `text` so that `inject` produces a true **behavioral inst
 
 Four files change. Everything else stays the same.
 
-The key architectural decision: **inject rendering bypasses `ContextBlock`** because `ContextBlock.from_packs()` discards the typed schema fields (`DecisionFramework`, `InterpersonalStyle`, `VoiceSchema`, etc.) into flat strings. The inject renderer needs structured access to `risk_tolerance`, `interpersonal_style.communication`, `vocabulary.preferred`, etc. — none of which survive into `ContextBlock`.
+The key architectural decision: **inject rendering bypasses `ContextBlock`** because `ContextBlock.from_packs()` discards typed schema fields (`DecisionFramework`, `InterpersonalStyle`, `VoiceSchema`, etc.) into flat strings. The inject renderer needs structured access to `risk_tolerance`, `interpersonal_style.communication`, `vocabulary.preferred`, etc. — none of which survive into `ContextBlock`.
 
-Solution: a standalone function `render_inject_block(weighted_packs)` operates directly on the raw `list[tuple[CharacterPack, float]]` before flattening. `FusionEngine` gains a `prepare_packs()` method to expose the normalized sorted packs.
+Solution: a standalone function `render_inject_block(weighted_packs)` operates directly on the raw `list[tuple[CharacterPack, float]]`. `FusionEngine` gains a `prepare_packs()` method to expose normalized sorted packs. The `run()` command calls `fuse()` once (filling `FusionReport` and producing `ContextBlock` for text format), then calls `prepare_packs()` once more (pure, deterministic) to get packs for the inject renderer.
 
 ```
 CharacterPack(s)
       │
       ▼
-FusionEngine.prepare_packs()  ──►  list[tuple[CharacterPack, float]]
-      │                                         │
-      │                              ┌──────────┴──────────┐
-      │                              ▼                     ▼
-      │                    ContextBlock.from_packs()   render_inject_block()
-      │                              │                     │
-      │                         text format           inject format
-      │
-      └──►  FusionReport  (populated by fuse() in-place)
-                  │
-                  └──►  --explain YAML output (stderr)
+FusionEngine.fuse()  ──────────────────────────────────────────────► ContextBlock (text format)
+      │                                                                      │
+      │  (fills FusionReport in-place)                                       │
+      └──► FusionReport  ──►  --explain YAML output (stderr)                │
+                                                                             │
+FusionEngine.prepare_packs()  ──►  list[tuple[CharacterPack, float]]        │
+                                         │                                   │
+                                         ▼                                   │
+                               render_inject_block()  ──►  inject format    │
+                                                                             │
+                                                   render_for_runtime() routes based on fmt
 ```
+
+`prepare_packs()` is called at most twice per `run` invocation (once inside `fuse()` via `fuse_config()`, once directly in `run()` for the inject renderer). It is pure and deterministic — no side effects, same output given same inputs.
 
 ---
 
@@ -59,9 +61,9 @@ FusionEngine.prepare_packs()  ──►  list[tuple[CharacterPack, float]]
 | File | Change |
 |---|---|
 | `agentic_mindset/schema/behavior.py` | Add `anti_patterns: list[str] = []` (optional field) |
-| `agentic_mindset/fusion.py` | Add `FusionReport` dataclass; `fuse()` and `fuse_config()` accept optional `report`; add `prepare_packs()` |
+| `agentic_mindset/fusion.py` | Add `FusionReport` dataclass; `fuse()`, `fuse_config()`, `from_packs()` accept optional `report`; add `prepare_packs()` |
 | `agentic_mindset/context.py` | Add standalone `render_inject_block(weighted_packs)` function |
-| `agentic_mindset/cli.py` | `run()` uses `prepare_packs()` + `render_inject_block()`; `--explain` emits YAML |
+| `agentic_mindset/cli.py` | `render_for_runtime` updated signature; `run()` uses single `fuse()` + `prepare_packs()`; `generate` and `run` `--explain` emit YAML |
 
 ---
 
@@ -82,56 +84,107 @@ Existing packs omitting `anti_patterns` validate as before. The field is populat
 
 ---
 
-### 2. `FusionReport` dataclass and call chain
+### 2. `FusionReport` dataclass
 
 ```python
+from dataclasses import dataclass, field
+
 @dataclass
 class FusionReport:
-    personas: list[tuple[str, float]]   # [(id, normalized_weight), ...]
-    strategy: str
-    removed_items: list[str]            # items dropped during dedup in from_packs()
-    dominant_character: str | None      # id of highest-weight persona; None if equal weights
+    personas: list[tuple[str, float]] = field(default_factory=list)
+    strategy: str = ""
+    removed_items: list[str] = field(default_factory=list)
+    dominant_character: str | None = None
 ```
 
-**Who fills each field:**
+All fields have defaults, so the caller can construct `FusionReport()` with no arguments and pass it to `fuse()` to be populated.
 
-`fuse()` fills all four fields when `report` is not None:
-- `personas` — normalized `(id, weight)` pairs, same order as `weighted_packs`
-- `strategy` — the strategy enum value as string
-- `dominant_character` — id of the first (highest-weight) entry; `None` when all normalized weights are equal
-- `removed_items` — forwarded to `from_packs()` which appends dropped items in-place
+**`removed_conflicts` (YAML key) corresponds to `removed_items` (field name).** The field is named `removed_items` internally; the YAML output uses the key `removed_conflicts` for readability.
 
-**Call chain (report forwarding):**
+---
+
+### 3. `FusionEngine` changes
+
+#### 3a. `prepare_packs()` — public method
 
 ```python
-# FusionEngine
+def prepare_packs(
+    self,
+    characters: list[tuple[str, float]],
+    strategy: FusionStrategy = FusionStrategy.blend,
+) -> list[tuple["CharacterPack", float]]:
+    """Return normalized, sorted (pack, weight) pairs without building a ContextBlock.
+
+    Caller precondition: characters is non-empty and weights sum to > 0.
+    For sequential strategy, all weights are set to 1/N and order is preserved.
+    """
+    total = sum(w for _, w in characters)
+    if total == 0:
+        raise ValueError("Weights sum to zero — cannot normalize.")
+    if strategy == FusionStrategy.sequential:
+        return [
+            (self._registry.load_id(cid), 1.0 / len(characters))
+            for cid, _ in characters
+        ]
+    pairs = [(self._registry.load_id(cid), w / total) for cid, w in characters]
+    pairs.sort(key=lambda x: x[1], reverse=True)
+    return pairs
+```
+
+`prepare_packs()` is a public method intended for callers that need the typed pack objects (e.g., `run()` building the inject block). It is also called internally by `fuse_config()` to eliminate normalization duplication.
+
+#### 3b. Updated `fuse_config()` — delegates to `prepare_packs()`
+
+```python
+def fuse_config(self, config: FusionConfig, report: "FusionReport | None" = None) -> ContextBlock:
+    raw_pairs = config.characters
+    total = sum(w for _, w in raw_pairs)
+    if total == 0:
+        raise ValueError("Weights sum to zero — cannot normalize.")
+
+    if config.fusion_strategy == FusionStrategy.sequential:
+        if len({w for _, w in raw_pairs}) > 1:
+            print("Warning: sequential strategy ignores weights...", file=sys.stderr)
+
+    weighted_packs = self.prepare_packs(raw_pairs, config.fusion_strategy)
+    show_weights = config.fusion_strategy != FusionStrategy.sequential
+
+    if report is not None:
+        normalized = [(self._registry.load_id(cid).meta.id, w)
+                      for (pack, w) in weighted_packs
+                      for cid, _ in raw_pairs if pack.meta.id == cid]
+        # Simpler: build from weighted_packs directly (pack.meta.id is available)
+        report.personas = [(pack.meta.id, w) for pack, w in weighted_packs]
+        report.strategy = config.fusion_strategy.value
+        weights = [w for _, w in weighted_packs]
+        report.dominant_character = (
+            weighted_packs[0][0].meta.id
+            if len(set(weights)) > 1   # exact float equality after normalization
+            else None
+        )
+        report.removed_items = []  # will be appended by from_packs()
+
+    return ContextBlock.from_packs(weighted_packs, show_weights=show_weights, report=report)
+```
+
+Note on `dominant_character` equal-weights check: `len(set(weights)) > 1` uses exact float equality. After division by the same total, identical input weights produce identical floats in CPython (e.g., inputs `1,1,1` → `0.333...` three times → set size 1). This is safe for all practical integer weight inputs.
+
+#### 3c. Updated `fuse()` — forwards `report`
+
+```python
 def fuse(
     self,
     characters: list[tuple[str, float]],
     strategy: FusionStrategy = FusionStrategy.blend,
-    report: FusionReport | None = None,
+    report: "FusionReport | None" = None,
 ) -> ContextBlock:
     return self.fuse_config(
         FusionConfig(characters=characters, fusion_strategy=strategy),
         report=report,
     )
-
-def fuse_config(self, config: FusionConfig, report: FusionReport | None = None) -> ContextBlock:
-    # ... (existing normalization logic) ...
-    weighted_packs = [...]  # normalized, sorted
-    if report is not None:
-        report.personas = [(cid, w) for cid, w in normalized_pairs]
-        report.strategy = config.fusion_strategy.value
-        report.dominant_character = (
-            weighted_packs[0][0].meta.id
-            if len(set(w for _, w in weighted_packs)) > 1
-            else None
-        )
-        report.removed_items = []  # will be filled by from_packs()
-    return ContextBlock.from_packs(weighted_packs, show_weights=..., report=report)
 ```
 
-`ContextBlock.from_packs()` gains `report` parameter and appends to `report.removed_items` whenever an item is skipped due to dedup:
+#### 3d. `ContextBlock.from_packs()` — gains `report` parameter
 
 ```python
 @classmethod
@@ -142,35 +195,13 @@ def from_packs(
     report: "FusionReport | None" = None,
 ) -> "ContextBlock":
     ...
-    # when skipping a duplicate:
+    # existing dedup logic: when skipping a duplicate item:
     if report is not None:
-        report.removed_items.append(line)
+        report.removed_items.append(line)  # append the skipped string
+    ...
 ```
 
-**Backward compatibility:** both `fuse()` and `fuse_config()` and `from_packs()` accept `report=None` (default), preserving all existing call sites.
-
----
-
-### 3. `FusionEngine.prepare_packs()` — expose normalized packs
-
-```python
-def prepare_packs(
-    self,
-    characters: list[tuple[str, float]],
-    strategy: FusionStrategy = FusionStrategy.blend,
-) -> list[tuple["CharacterPack", float]]:
-    """Return normalized, sorted (pack, weight) pairs without building a ContextBlock."""
-    total = sum(w for _, w in characters)
-    if total == 0:
-        raise ValueError("Weights sum to zero — cannot normalize.")
-    if strategy == FusionStrategy.sequential:
-        return [(self._registry.load_id(cid), 1.0 / len(characters)) for cid, _ in characters]
-    pairs = [(self._registry.load_id(cid), w / total) for cid, w in characters]
-    pairs.sort(key=lambda x: x[1], reverse=True)
-    return pairs
-```
-
-This eliminates duplication: `fuse_config()` calls `prepare_packs()` internally.
+All three signatures (`fuse`, `fuse_config`, `from_packs`) default `report=None`, preserving all 96 existing call sites.
 
 ---
 
@@ -178,19 +209,25 @@ This eliminates duplication: `fuse_config()` calls `prepare_packs()` internally.
 
 A new top-level function (not a method on `ContextBlock`). Takes the raw weighted packs and produces the 5-section behavioral prompt directly from typed schema fields.
 
+**Caller precondition:** `weighted_packs` is non-empty. If empty, behavior is undefined. Callers (e.g., `run()`) guarantee non-empty via the existing character validation logic.
+
 **Field mapping:**
 
 | Section | Source fields | Rendering |
 |---|---|---|
-| `DECISION POLICY` | `mindset.core_principles` (sorted by confidence desc) + `decision_framework.approach` | One bullet per principle; approach as final bullet |
-| `UNCERTAINTY HANDLING` | `decision_framework.risk_tolerance + time_horizon` + `personality.emotional_tendencies.stress_response` | `risk_tolerance: X \| time_horizon: Y` line; stress_response as bullet |
+| `DECISION POLICY` | `mindset.core_principles` sorted by `confidence` desc (None sorts last) + `decision_framework.approach` | One bullet per principle; approach as final bullet |
+| `UNCERTAINTY HANDLING` | `decision_framework.risk_tolerance + time_horizon` + `personality.emotional_tendencies.stress_response` | `risk_tolerance: X \| time_horizon: Y` as first line; stress_response as bullet |
 | `INTERACTION RULES` | `personality.interpersonal_style.communication + leadership` + `behavior.conflict_style` | Labeled bullets |
 | `ANTI-PATTERNS` | `behavior.anti_patterns` (optional field) | `Do not ...` bullets; section omitted entirely if all packs have empty `anti_patterns` |
-| `STYLE` | `voice.tone` + `voice.vocabulary.preferred/avoided` + `voice.sentence_style` | Tone line; preferred/avoided as comma-separated lists |
+| `STYLE` | `voice.tone` + `voice.vocabulary.preferred/avoided` + `voice.sentence_style` | Tone line; preferred/avoided as comma-separated deduped lists |
 
-Multi-character blend: iterate packs in weight-descending order. Dedup identical strings within each section (same first-seen-wins logic as `from_packs()`).
+**Dedup rule (all sections):** First-seen-wins across packs iterated in weight-descending order. Duplicate strings (exact match) are skipped. For STYLE vocabulary lists: preferred terms and avoided terms are each deduped independently.
 
-**Example output (single character, Sun Tzu):**
+**confidence sort:** `sorted(core_principles, key=lambda p: p.confidence if p.confidence is not None else -1.0, reverse=True)` — principles with `confidence=None` sort after all principles with explicit confidence values.
+
+**Multi-character blend:** iterate packs in weight-descending order (already sorted by `prepare_packs()`). Apply dedup within each section across all packs.
+
+**Example output — single character, no `anti_patterns` (Sun Tzu):**
 
 ```
 You embody a synthesized mindset drawing from: Sun Tzu (100%).
@@ -216,7 +253,15 @@ STYLE:
 - Sentence style: short declarative statements; aphorisms preferred
 ```
 
-(ANTI-PATTERNS section omitted when all packs have empty `anti_patterns`.)
+(ANTI-PATTERNS section omitted because `sun_tzu.behavior.anti_patterns` is empty.)
+
+**Example output — with `anti_patterns` populated:**
+
+```
+ANTI-PATTERNS:
+- Do not commit resources before the strategic position is secured.
+- Do not telegraph intent to adversaries.
+```
 
 **Function signature:**
 
@@ -228,7 +273,7 @@ def render_inject_block(
     ...
 ```
 
-`ContextBlock.to_prompt()` is **not** modified. The `to_prompt()` signature stays as `Literal["plain_text", "xml_tagged"]`.
+`ContextBlock.to_prompt()` is **not** modified. Its signature remains `Literal["plain_text", "xml_tagged"]`.
 
 ---
 
@@ -249,25 +294,85 @@ def render_for_runtime(
     raise ValueError(f"Unknown runtime format: {fmt!r}")
 ```
 
-In the `run()` command:
+**Updated `run()` command — single fusion path:**
 
 ```python
-weighted_packs = engine.prepare_packs(chars, strat)
-block = ContextBlock.from_packs(weighted_packs)
-report = FusionReport(personas=[], strategy="", removed_items=[], dominant_character=None)
-engine.fuse(chars, strategy=strat, report=report)  # fills report fields
+# Single fuse() call produces ContextBlock + fills FusionReport
+report = FusionReport() if explain else None
+block = engine.fuse(chars, strategy=strat, report=report)
+
+# Inject format needs raw packs (pure, deterministic second call)
+if format_ == "inject":
+    weighted_packs = engine.prepare_packs(chars, strat)
+else:
+    weighted_packs = None
+
 injected = render_for_runtime(block, fmt=format_, weighted_packs=weighted_packs)
 ```
 
-(When `--explain` is not requested, `report` is not created and `fuse()` is called without `report`.)
+`ContextBlock` comes from the single `fuse()` call. `FusionReport.removed_items` is populated by the same `from_packs()` call that built `block`. There is no double-fusion.
 
 ---
 
-### 6. `--explain` YAML output
+### 6. `--explain` YAML output — both `generate` and `run`
 
-Both `generate` and `run` commands upgrade `--explain` from flat text to YAML. YAML is emitted via `import yaml` — already imported in `cli.py`.
+Both commands use the same YAML-building logic. `yaml` is already imported in `cli.py`.
 
-**New format (stderr):**
+**PyYAML serialization — `personas` list:**
+
+```python
+# personas emitted as an ordered list of single-key dicts
+personas_list = [{cid: round(w, 4)} for cid, w in report.personas]
+data = {
+    "personas": personas_list,
+    "merged": {
+        "decision_policy": _explain_decision_policy(report),
+        "risk_tolerance": report.personas[0][0]  # highest-weight pack's risk_tolerance
+        # ... (see rules below)
+    },
+    "removed_conflicts": report.removed_items,
+}
+typer.echo(yaml.dump(data, default_flow_style=False, allow_unicode=True), err=True)
+```
+
+`personas` is intentionally a list of single-key dicts (not a single dict) to preserve weight-descending order in the YAML output. This is valid YAML and unambiguous to human readers.
+
+**`merged` field rules:**
+
+- `decision_policy`:
+  - Single character: `f"{report.personas[0][0]}-only"`
+  - Multiple characters, `dominant_character` is not None: `f"{report.dominant_character}-dominant"`
+  - Multiple characters, `dominant_character` is None (equal weights or sequential): `"equal-blend"`
+- `risk_tolerance`: `decision_framework.risk_tolerance` from the pack whose id matches `report.personas[0][0]` (first/highest-weight after post-deduplication ordering). "Input order" means post-`_deduplicate()` order (i.e., the order IDs first appeared in the deduplicated list).
+- `time_horizon`: same rule as `risk_tolerance`.
+
+**`generate` command `--explain` pseudocode:**
+
+```python
+if explain:
+    report = FusionReport()
+    # Re-fuse with report to capture metadata
+    # Note: block was already built above; fuse again only for report population
+    engine.fuse(chars, strategy=strat, report=report)
+
+    risk_tol = _get_risk_tolerance(report, reg)   # load first pack, read decision_framework
+    time_hor = _get_time_horizon(report, reg)
+
+    data = {
+        "personas": [{cid: round(w, 4)} for cid, w in report.personas],
+        "merged": {
+            "decision_policy": _explain_decision_policy(report),
+            "risk_tolerance": risk_tol,
+            "time_horizon": time_hor,
+        },
+        "removed_conflicts": report.removed_items,
+    }
+    typer.echo(yaml.dump(data, default_flow_style=False, allow_unicode=True), err=True)
+```
+
+For `generate`, since `block` is already built via `engine.fuse(chars, strat)` (without report), a second `fuse()` call with `report=` is needed to capture `removed_items`. This is acceptable because `generate` does not have a performance-critical code path. Alternatively, the `generate` command can be refactored to always call `fuse()` with `report=FusionReport()` and discard it when `--explain` is not set — but that is an implementation choice left to the implementer.
+
+**YAML output example (multi-character):**
 
 ```yaml
 personas:
@@ -284,16 +389,6 @@ removed_conflicts:
   - "Works in sustained focused sessions..."
 ```
 
-**Rules:**
-
-- `merged.decision_policy`:
-  - Single character: `{id}-only`
-  - Multiple characters, unequal weights: `{dominant_character}-dominant`
-  - Multiple characters, equal weights or sequential strategy: `equal-blend`
-- `merged.risk_tolerance`: value from highest-weight character's `decision_framework`. When weights are equal, use the first character in input order.
-- `merged.time_horizon`: same rule as `risk_tolerance`.
-- `removed_conflicts`: contents of `FusionReport.removed_items`; empty list `[]` when no dedup occurred.
-
 **Schema line removed** — the `Schema: 1.0` line from old explain output is dropped.
 
 ---
@@ -306,10 +401,11 @@ removed_conflicts:
 | `mindset generate --format text` | Unchanged output |
 | `mindset run --format text` | Unchanged (routes to plain_text renderer) |
 | `mindset run` (default `--format inject`) | New 5-section behavioral output |
-| `mindset generate --explain` (old) | Now emits YAML instead of flat text |
-| `mindset run --explain` (old) | Now emits YAML instead of flat text |
-| `fuse()` called without `report` | Identical behavior to current (report=None is default) |
-| `from_packs()` called without `report` | Identical behavior to current (report=None is default) |
+| `mindset generate --explain` | Now emits YAML instead of flat text |
+| `mindset run --explain` | Now emits YAML instead of flat text |
+| `fuse()` called without `report` | Identical behavior to current (report=None default) |
+| `fuse_config()` called without `report` | Identical behavior to current (report=None default) |
+| `from_packs()` called without `report` | Identical behavior to current (report=None default) |
 
 ---
 
@@ -317,17 +413,18 @@ removed_conflicts:
 
 New tests needed:
 
-- `test_render_inject_single_character_no_anti_patterns` — pack without `anti_patterns` field → 4 sections, no ANTI-PATTERNS header
-- `test_render_inject_anti_patterns_present` — pack with `anti_patterns: ["..."]` → ANTI-PATTERNS section appears with `Do not ...` bullets
-- `test_render_inject_multi_character_blend` — two characters, items from higher-weight character appear first
-- `test_render_inject_decision_policy_no_risk_line` — `risk_tolerance`/`time_horizon` appear only in UNCERTAINTY HANDLING, not DECISION POLICY
-- `test_render_for_runtime_inject_calls_inject_block` — `render_for_runtime(..., "inject", weighted_packs=...)` returns inject-format string
-- `test_render_for_runtime_text_unchanged` — `render_for_runtime(..., "text")` still returns plain_text
-- `test_fusion_report_removed_items` — deduped items appear in `FusionReport.removed_items` after `fuse(..., report=report)`
-- `test_fusion_report_dominant_character_equal_weights` — equal weights → `dominant_character` is `None`
-- `test_explain_yaml_generate_single` — `mindset generate --explain` outputs YAML with `decision_policy: {id}-only` and `removed_conflicts: []`
+- `test_render_inject_single_character_no_anti_patterns` — pack without `anti_patterns` → 4 sections, no ANTI-PATTERNS header, DECISION POLICY has no risk line, UNCERTAINTY HANDLING has risk line
+- `test_render_inject_anti_patterns_present` — pack with `anti_patterns: ["avoid X"]` → ANTI-PATTERNS section with `Do not avoid X` bullets
+- `test_render_inject_multi_character_blend` — two characters, higher-weight character's items appear first in each section
+- `test_render_inject_confidence_none_sorts_last` — principle with `confidence=None` appears after principles with explicit confidence values in DECISION POLICY
+- `test_render_for_runtime_inject_calls_inject_block` — `render_for_runtime(..., "inject", weighted_packs=[...])` returns inject-format string
+- `test_render_for_runtime_text_unchanged` — `render_for_runtime(..., "text")` returns plain_text (unchanged)
+- `test_fusion_report_removed_items` — after `fuse(chars, report=report)` with two overlapping packs, `report.removed_items` contains the skipped duplicates
+- `test_fusion_report_dominant_character_equal_weights` — equal input weights → `report.dominant_character` is `None`
+- `test_fusion_report_dominant_character_unequal` — unequal weights → `report.dominant_character` is the id of the highest-weight character
+- `test_explain_yaml_generate_single` — `mindset generate sun-tzu --explain` outputs YAML with `decision_policy: sun-tzu-only` and `removed_conflicts: []`
 - `test_explain_yaml_generate_multi` — `mindset generate sun-tzu marcus-aurelius --weights 6,4 --explain` outputs YAML with `decision_policy: sun-tzu-dominant`
-- `test_explain_yaml_run` — `mindset run --explain` outputs YAML to stderr
+- `test_explain_yaml_run` — `mindset run claude --persona sun-tzu --explain "q"` outputs YAML to stderr
 - `test_explain_yaml_equal_weights` — equal weights → `decision_policy: equal-blend`
 
 Regression: all existing 96 tests must continue to pass.
