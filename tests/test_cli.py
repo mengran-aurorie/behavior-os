@@ -11,8 +11,6 @@ runner = CliRunner(mix_stderr=False)
 @pytest.fixture
 def gen_registry(minimal_pack_dir, tmp_path):
     """Registry dir with sun-tzu and marcus-aurelius packs."""
-    import shutil, yaml
-
     # sun-tzu
     sun = tmp_path / "sun-tzu"
     shutil.copytree(minimal_pack_dir, sun)

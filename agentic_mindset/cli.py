@@ -2,7 +2,6 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Optional
 import json
-import sys
 import typer
 import yaml
 from rich.console import Console
@@ -268,13 +267,10 @@ def generate(
     if strategy == "sequential" and weights is not None:
         typer.echo("Warning: --weights ignored when --strategy is sequential.", err=True)
 
-    invalid_strategy = None
     try:
         strat = FusionStrategy(strategy)
     except ValueError:
-        invalid_strategy = strategy
-    if invalid_strategy is not None:
-        typer.echo(f"Error: unknown strategy '{invalid_strategy}'.", err=True)
+        typer.echo(f"Error: unknown strategy '{strategy}'.", err=True)
         raise typer.Exit(1)
 
     chars = list(zip(ids_deduped, weights_deduped))
@@ -300,13 +296,10 @@ def generate(
 
     # --- output ---
     if output:
-        write_error: Optional[str] = None
         try:
             output.write_text(result_str, encoding="utf-8")
         except OSError as e:
-            write_error = e.strerror
-        if write_error is not None:
-            typer.echo(f"Error: cannot write to '{output}': {write_error}.", err=True)
+            typer.echo(f"Error: cannot write to '{output}': {e}.", err=True)
             raise typer.Exit(1)
     else:
         typer.echo(result_str)
