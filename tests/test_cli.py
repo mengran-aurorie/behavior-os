@@ -1,9 +1,11 @@
+import os
 import shutil
 import json
 import yaml
 import pytest
+from unittest.mock import patch, MagicMock
 from typer.testing import CliRunner
-from agentic_mindset.cli import app, _format_output
+from agentic_mindset.cli import app, _format_output, render_for_runtime
 
 runner = CliRunner(mix_stderr=False)
 
@@ -407,3 +409,30 @@ def test_generate_duplicate_id_with_weights_summed(gen_registry):
     data = json.loads(result.output)
     assert data["meta"]["characters"] == ["sun-tzu"]
     assert abs(data["meta"]["weights"][0] - 1.0) < 1e-9
+
+
+def test_render_for_runtime_inject(minimal_pack_dir):
+    from agentic_mindset.pack import CharacterPack
+    from agentic_mindset.context import ContextBlock
+    pack = CharacterPack.load(minimal_pack_dir)
+    block = ContextBlock.from_packs([(pack, 1.0)])
+    result = render_for_runtime(block, "inject")
+    assert "THINKING FRAMEWORK" in result
+    assert isinstance(result, str)
+
+
+def test_render_for_runtime_text_equals_inject(minimal_pack_dir):
+    from agentic_mindset.pack import CharacterPack
+    from agentic_mindset.context import ContextBlock
+    pack = CharacterPack.load(minimal_pack_dir)
+    block = ContextBlock.from_packs([(pack, 1.0)])
+    assert render_for_runtime(block, "text") == render_for_runtime(block, "inject")
+
+
+def test_render_for_runtime_unknown_fmt_raises(minimal_pack_dir):
+    from agentic_mindset.pack import CharacterPack
+    from agentic_mindset.context import ContextBlock
+    pack = CharacterPack.load(minimal_pack_dir)
+    block = ContextBlock.from_packs([(pack, 1.0)])
+    with pytest.raises(ValueError, match="Unknown runtime format"):
+        render_for_runtime(block, "xml")

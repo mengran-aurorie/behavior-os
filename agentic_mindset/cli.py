@@ -2,6 +2,10 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Optional
 import json
+import os
+import shutil
+import subprocess
+import tempfile
 import typer
 import yaml
 from rich.console import Console
@@ -26,6 +30,17 @@ def _format_output(text: str, fmt: str, meta: dict | None = None) -> str:
     if fmt == "debug-json":
         return json.dumps({"meta": meta, "type": "text", "text": text}, indent=2)
     raise ValueError(f"Unknown output format: {fmt!r}")
+
+
+def render_for_runtime(context_block: ContextBlock, fmt: str) -> str:
+    """Render a compiled ContextBlock for agent runtime injection.
+
+    v0: 'inject' and 'text' both produce plain-text output.
+    Future: 'inject' will become a dedicated Runtime Block format.
+    """
+    if fmt in ("text", "inject"):
+        return context_block.to_prompt(output_format="plain_text")
+    raise ValueError(f"Unknown runtime format: {fmt!r}")
 
 
 _TEMPLATE_META = {
