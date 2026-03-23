@@ -65,6 +65,7 @@ mindset run claude --persona sun-tzu --registry ./my-chars -- "query"
 | `--strategy` | `blend` | `blend` \| `dominant` |
 | `--format` | `inject` | `text` \| `inject` (v0: equivalent; `inject` reserved for future Runtime Block) |
 | `--registry` | auto-resolved | Override character registry path. Same resolution order as `generate`. |
+| `--explain` | `False` | Print compilation summary (characters, strategy, format) to stderr before launching Claude. Not written to the temp file and not sent to Claude. |
 | `-- QUERY` | none = interactive | Content after `--` is the one-shot query, passed verbatim to Claude. Omit for interactive mode. |
 
 **Mode detection:** if `-- QUERY` is provided, one-shot mode. If omitted, interactive mode.
@@ -99,7 +100,7 @@ write to temp file (fully written and closed before subprocess launch)
 verify shutil.which("claude") is not None
         ↓
 subprocess.run(
-    ["claude", "--append-system-prompt-file", tmpfile, query],   # one-shot
+    ["claude", "--append-system-prompt-file", tmpfile, query],   # one-shot: query is a single str element
     # or
     ["claude", "--append-system-prompt-file", tmpfile],          # interactive
     check=False,
@@ -169,7 +170,7 @@ CLI parsing errors (missing required flags, unrecognized values for `--strategy`
 |---|---|
 | `claude` executable not found | `Error: 'claude' not found. Install Claude CLI: https://claude.ai/code` → exit 1 |
 | Claude subprocess exits non-zero | Propagate Claude's exit code unchanged |
-| Keyboard interruption | Treat as runtime interruption (not compile error); clean up temp file; return non-zero |
+| Keyboard interruption | Treat as runtime interruption (not compile error); clean up temp file; return exit code 130 (SIGINT convention) |
 
 ### Stdout / stderr rules
 
@@ -226,6 +227,7 @@ All subprocess calls are mocked via `unittest.mock.patch("subprocess.run")`.
 | `test_run_tmpfile_cleaned_up` | After subprocess returns, temp file no longer exists |
 | `test_run_tmpfile_cleaned_up_on_error` | Subprocess raises exception, temp file still cleaned up |
 | `test_run_explain_not_in_tmpfile` | `--explain` content absent from temp file contents |
+| `test_run_explain_printed_to_stderr` | `--explain` output present on stderr when flag is set |
 
 ### Bonus coverage
 
