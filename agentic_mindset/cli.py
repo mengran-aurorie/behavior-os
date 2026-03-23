@@ -356,6 +356,10 @@ def run(
         )
         raise typer.Exit(1)
 
+    if strategy == "sequential":
+        typer.echo("Error: --strategy sequential is not supported by 'run' (v0).", err=True)
+        raise typer.Exit(1)
+
     try:
         strat = FusionStrategy(strategy)
     except ValueError:
