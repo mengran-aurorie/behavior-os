@@ -1,8 +1,9 @@
 import shutil
+import json
 import yaml
 import pytest
 from typer.testing import CliRunner
-from agentic_mindset.cli import app
+from agentic_mindset.cli import app, _format_output
 
 runner = CliRunner()
 
@@ -68,3 +69,28 @@ def test_preview_fusion_respects_registry_flag(minimal_pack_dir, tmp_path):
     ])
     assert result.exit_code == 0
     assert "Sun Tzu" in result.output
+
+
+def test_format_output_text():
+    assert _format_output("hello", "text") == "hello"
+
+
+def test_format_output_anthropic_json():
+    result = json.loads(_format_output("hello", "anthropic-json"))
+    assert result == {"type": "text", "text": "hello"}
+
+
+def test_format_output_debug_json():
+    meta = {"characters": ["sun-tzu"], "weights": [1.0], "strategy": "blend", "schema_version": "1.0"}
+    result = json.loads(_format_output("hello", "debug-json", meta=meta))
+    assert result["type"] == "text"
+    assert result["text"] == "hello"
+    assert result["meta"] == meta
+
+
+def test_format_output_debug_json_no_timestamp():
+    """debug-json must not include a timestamp (determinism guarantee)."""
+    meta = {"characters": ["sun-tzu"], "weights": [1.0], "strategy": "blend", "schema_version": "1.0"}
+    result = json.loads(_format_output("hello", "debug-json", meta=meta))
+    assert "timestamp" not in result
+    assert "timestamp" not in result.get("meta", {})

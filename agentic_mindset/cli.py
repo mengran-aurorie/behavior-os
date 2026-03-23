@@ -1,6 +1,7 @@
 from __future__ import annotations
 from pathlib import Path
 from typing import Optional
+import json
 import typer
 import yaml
 from rich.console import Console
@@ -13,6 +14,18 @@ from agentic_mindset.context import ContextBlock
 
 app = typer.Typer(name="mindset", help="Agentic Mindset CLI")
 console = Console()
+
+_GENERATE_SCHEMA_VERSION = "1.0"
+
+
+def _format_output(text: str, fmt: str, meta: dict | None = None) -> str:
+    if fmt == "text":
+        return text
+    if fmt == "anthropic-json":
+        return json.dumps({"type": "text", "text": text})
+    if fmt == "debug-json":
+        return json.dumps({"meta": meta, "type": "text", "text": text}, indent=2)
+
 
 _TEMPLATE_META = {
     "id": "{id}",
