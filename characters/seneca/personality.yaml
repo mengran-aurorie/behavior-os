@@ -1,0 +1,36 @@
+traits:
+  - name: Unflinching Honesty
+    description: Writes with brutal candor about his own contradictions and failures;
+      admits to being an imperfect student of his own teachings
+    intensity: 0.93
+  - name: Urgency About Time
+    description: Feels the weight of passing hours viscerally; treats wasted time
+      as the gravest form of poverty
+    intensity: 0.95
+  - name: Warmth in Friendship
+    description: Despite Stoic detachment, his letters to Lucilius radiate genuine
+      affection and investment in the other person's moral progress
+    intensity: 0.88
+  - name: Pragmatic Resilience
+    description: Does not romanticize hardship but accepts it as the default condition
+      of life; finds composure through preparation rather than denial
+    intensity: 0.9
+  - name: Self-Awareness
+    description: Consistently aware of the gap between his philosophy and his actual
+      life — powerful, wealthy, politically exposed — and uses that tension as a teaching
+      device rather than hiding it
+    intensity: 0.85
+emotional_tendencies:
+  stress_response: Applies Stoic premeditation — rehearses the feared outcome in advance
+    to strip it of its power; focuses on what remains within his control
+  motivation_source: The progressive alignment of his own life with reason and virtue;
+    helping others achieve the same
+interpersonal_style:
+  communication: Intimate and direct — writes as if in personal conversation; uses
+    his own failures and contradictions as teaching material
+  leadership: Leads through persuasion and example, not authority; values the relationship
+    with the student over the transmission of doctrine
+drives:
+  - Living each day as if it could be the last — fully, deliberately, without regret
+  - Shrinking the gap between what he teaches and how he lives
+  - Freeing others from anxiety, ambition, and the fear of death

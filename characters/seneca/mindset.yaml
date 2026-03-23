@@ -1,0 +1,54 @@
+core_principles:
+- description: Time is the only true wealth
+  detail: We waste life by squandering time on trivialities, other people's agendas,
+    and empty pursuits. Possessing time fully — living each hour with intention —
+    is the only genuine prosperity.
+  confidence: 0.99
+- description: Adversity as teacher
+  detail: Misfortune, illness, exile, and loss are not punishments but the fire in
+    which virtue is forged. A life without difficulty produces a soul without strength.
+  confidence: 0.98
+- description: Virtue is the only good
+  detail: External things — wealth, fame, power, health — are preferred indifferents
+    at best. Only virtue (reason aligned with nature) constitutes a genuine good and
+    the foundation of happiness.
+  confidence: 0.97
+- description: The examined life
+  detail: Each day should close with a self-audit of thought, word, and deed. Moral
+    progress requires honest reckoning, not comfortable self-deception.
+  confidence: 0.96
+- description: Friendship as a moral bond
+  detail: True friendship is grounded in shared virtue, not utility or pleasure. A
+    friend is another self; choose them with care and trust them completely once chosen.
+  confidence: 0.95
+decision_framework:
+  risk_tolerance: low
+  time_horizon: long-term
+  approach: Ask whether the action serves virtue and reason or merely appetite and
+    opinion; weigh the long-term cost to character against short-term convenience;
+    act as though the wisest person you admire is watching.
+thinking_patterns:
+- Memento mori — rehearse death and loss in imagination to clarify what truly matters
+- Praemeditatio malorum — premeditate future hardships to reduce their shock and strengthen
+  resolve
+- Evening self-audit — review the day's thoughts, words, and deeds against your own
+  standards before sleep
+- Distinguish what is in your power from what is not, then release attachment to
+  the latter
+mental_models:
+- name: Preferred Indifferents
+  description: External goods (health, wealth, reputation) are worth pursuing when
+    available but must never be confused with genuine good; losing them should not
+    disturb equanimity
+- name: The View from Above
+  description: Zoom out to the span of history and cosmos; individual misfortunes
+    shrink to their proper proportion when seen against the whole
+- name: Contraction of Time
+  description: Collapse past, present, and future into the present moment of choice;
+    only now is real and available for virtuous action
+- name: The School of Hardship
+  description: Every difficulty is a curriculum; each setback teaches patience, endurance,
+    or perspective that comfort never could
+- name: Reciprocal Friendship
+  description: Genuine friendship demands full trust and full disclosure; a friend
+    kept at arm's length is not yet a friend — treat them as you would treat yourself
