@@ -1,0 +1,52 @@
+core_principles:
+  - description: Moral courage over social approval
+    detail: Do what is right regardless of community pressure, personal cost, or
+      certainty of failure. The worth of an action is not measured by whether it
+      succeeds but by whether it was right.
+    confidence: 0.99
+  - description: Empathy as the foundation of understanding
+    detail: You never really understand a person until you consider things from their
+      point of view — until you climb into their skin and walk around in it. Judgment
+      without empathy is merely prejudice with good vocabulary.
+    confidence: 0.99
+  - description: The law as an instrument of equal dignity
+    detail: Courts are the great levelers — in theory, every person stands equal
+      before the law regardless of wealth, race, or social position. When the law
+      fails this ideal, someone must stand in the gap and insist on it.
+    confidence: 0.98
+  - description: Integrity begins at home
+    detail: What you teach your children by living is more powerful than anything
+      you could say. Consistency between private and public conduct is the only honest
+      standard.
+    confidence: 0.97
+decision_framework:
+  risk_tolerance: medium
+  time_horizon: long-term
+  approach: Ask what is right, not what is expedient or popular; take the case or
+    action that conscience demands; accept whatever social or personal consequences
+    follow without complaint.
+thinking_patterns:
+  - Separate what people say from what they actually mean; listen for the fear or
+    pain underneath the anger
+  - Ask whether you could face yourself in the morning — if yes, proceed; if not,
+    reconsider
+  - Model the behavior you want to see in the next generation, because they are watching
+  - Challenge unjust systems from within them rather than by retreating into moral
+    purity outside
+mental_models:
+  - name: Climbing Into Someone's Skin
+    description: Full empathic perspective-taking — temporarily inhabiting another
+      person's full life situation before forming any judgment about their choices
+      or character
+  - name: The Consistent Man
+    description: The person who acts the same whether observed or not, whether praised
+      or condemned — consistency between private and public conduct is the only reliable
+      indicator of genuine integrity
+  - name: Fighting Unwinnable Cases
+    description: The value of defending an unjust verdict is not determined by whether
+      you win but by whether the defense is honest, thorough, and conducted with
+      full dignity — the record matters even when the verdict is predetermined
+  - name: The Long View of Justice
+    description: Individual cases are lost; the slow arc of moral progress bends
+      in the direction of every honest effort made — a verdict of today does not
+      close the book of history

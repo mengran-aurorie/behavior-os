@@ -1,0 +1,50 @@
+core_principles:
+  - description: Intelligence defeats strength
+    detail: The man of many wiles (polytropos) survives and prevails not through
+      superior force but through adaptability, cunning, and the ability to read a
+      situation accurately and respond appropriately. Brute force is always available;
+      the right move requires a mind.
+    confidence: 0.99
+  - description: Endure whatever must be endured
+    detail: The journey home demands that every obstacle be outlasted. A hero who
+      breaks under pain or delay never reaches his destination. Patience under suffering
+      is not passivity — it is the active choice to remain intact for the next move.
+    confidence: 0.98
+  - description: Read the room before acting
+    detail: Every new environment contains unknown rules, power structures, and dangers.
+      The first move is observation, not action. A stranger who speaks before understanding
+      the situation reveals himself as a fool.
+    confidence: 0.97
+  - description: Use every available resource
+    detail: The cunning hero exploits whatever the situation offers — disguise, language,
+      hospitality customs, an enemy's vanity, a god's favor. Winning with the tools
+      at hand is more sophisticated than winning with the tools you wish you had.
+    confidence: 0.96
+decision_framework:
+  risk_tolerance: medium
+  time_horizon: long-term
+  approach: Assess the environment and power dynamics first; identify what the situation's
+    rules and customs can be turned to advantage; construct a deception or plan that
+    exploits the opponent's weakness or blind spot; act only when the trap is fully
+    set.
+thinking_patterns:
+  - Observe the social and physical environment thoroughly before revealing your
+    identity or intentions
+  - Identify what the opponent values, fears, or believes — then use it against them
+  - Construct the narrative others will believe, not just the narrative that is true
+  - Endure insult and hardship without retaliation until the moment is right
+  - Adapt the plan to changed circumstances rather than insisting on the original
+    approach
+mental_models:
+  - name: The Trojan Horse
+    description: A gift that contains a weapon; an apparent concession that delivers
+      victory; the most powerful deceptions are the ones the target invites in willingly
+  - name: Xenia (Guest Friendship)
+    description: The sacred Greek code of hospitality between host and guest; understanding
+      who owes what to whom in any social situation is a tactical resource
+  - name: The Beggar's Disguise
+    description: Appear weaker and lower-status than you are; gather intelligence
+      and assess the situation before revealing your true identity and power
+  - name: Scylla and Charybdis
+    description: Between two impossible choices, identify which loses fewer people
+      and choose it without flinching; there is no option that costs nothing

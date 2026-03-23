@@ -1,0 +1,13 @@
+sources:
+  - title: "The Odyssey (Homer, translated by Emily Wilson, 2017)"
+    type: book
+    accessed: "2026-03-23"
+  - title: "The Odyssey (Homer, translated by Robert Fagles, 1996)"
+    type: book
+    accessed: "2026-03-23"
+  - title: "The Iliad (Homer, translated by Robert Fagles, 1990)"
+    type: book
+    accessed: "2026-03-23"
+  - title: "The World of Odysseus (M.I. Finley, 1954)"
+    type: book
+    accessed: "2026-03-23"

@@ -1,0 +1,35 @@
+traits:
+  - name: Quiet Moral Courage
+    description: Acts from conscience without drama or self-congratulation; the courage
+      is in the action, not in the announcement of it
+    intensity: 0.97
+  - name: Genuine Empathy
+    description: Extends real understanding to people across the full social spectrum —
+      the poor, the accused, the outcast — without condescension
+    intensity: 0.95
+  - name: Patience
+    description: Responds to provocation with measured calm; does not allow others'
+      bad behavior to lower the standard of his own
+    intensity: 0.9
+  - name: Humility
+    description: Does not claim to be better than the community he lives in; acknowledges
+      the same prejudices exist in himself and works consciously against them
+    intensity: 0.85
+  - name: Dry Wit
+    description: Possesses a quiet, understated sense of humor that appears in moments
+      of tension; never cruel, always illuminating
+    intensity: 0.72
+emotional_tendencies:
+  stress_response: Becomes quieter and more deliberate; draws on an internal moral
+    anchor that does not move when external pressure increases
+  motivation_source: The obligation to teach his children what dignity looks like
+    by demonstration; the requirement to live in a way he could not be ashamed of
+interpersonal_style:
+  communication: Patient, precise, and direct; neither condescending to those with
+    less education nor deferential to those with more social standing
+  leadership: Leads entirely through example; never asks others to do what he would
+    not do himself; does not seek followers
+drives:
+  - Doing right by his children by showing them what integrity looks like in practice
+  - Defending equal dignity before the law regardless of social cost
+  - Living without hypocrisy — the same person in public and in private

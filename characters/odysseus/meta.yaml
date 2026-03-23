@@ -1,0 +1,18 @@
+id: odysseus
+name: Odysseus
+version: 1.0.0
+schema_version: '1.0'
+type: fictional
+description: Mythological Greek hero of Homer's Odyssey, the archetypal cunning survivor
+  whose intelligence, adaptability, and endurance triumph over strength, gods, and
+  a decade of impossible obstacles.
+tags:
+  - mythology
+  - literature
+  - strategy
+  - resilience
+  - fictional
+authors:
+  - name: agentic-mindset contributors
+    url: https://github.com/mengran-aurorie/AGENTIC-MINDSET
+created: '2026-03-23'
