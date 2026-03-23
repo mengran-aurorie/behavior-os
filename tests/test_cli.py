@@ -479,11 +479,12 @@ def test_run_query_passed_verbatim(gen_registry):
     with patch("agentic_mindset.cli.shutil.which", return_value="/usr/bin/claude"):
         with patch("agentic_mindset.cli.subprocess.run") as mock_sub:
             mock_sub.return_value = MagicMock(returncode=0)
-            runner.invoke(app, [
+            result = runner.invoke(app, [
                 "run", "claude",
                 "--persona", "sun-tzu",
                 "--registry", str(gen_registry),
                 query,
             ])
+    assert result.exit_code == 0
     call_args = mock_sub.call_args[0][0]
     assert query in call_args
