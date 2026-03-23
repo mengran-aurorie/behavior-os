@@ -5,7 +5,26 @@ import pytest
 from typer.testing import CliRunner
 from agentic_mindset.cli import app, _format_output
 
-runner = CliRunner()
+runner = CliRunner(mix_stderr=False)
+
+
+@pytest.fixture
+def gen_registry(minimal_pack_dir, tmp_path):
+    """Registry dir with sun-tzu and marcus-aurelius packs."""
+    import shutil, yaml
+
+    # sun-tzu
+    sun = tmp_path / "sun-tzu"
+    shutil.copytree(minimal_pack_dir, sun)
+
+    # marcus-aurelius — minimal clone with different id/name
+    marcus = tmp_path / "marcus-aurelius"
+    shutil.copytree(minimal_pack_dir, marcus)
+    meta = yaml.safe_load((marcus / "meta.yaml").read_text())
+    meta["id"] = "marcus-aurelius"
+    meta["name"] = "Marcus Aurelius"
+    (marcus / "meta.yaml").write_text(yaml.dump(meta))
+    return tmp_path
 
 
 def test_validate_valid_pack(minimal_pack_dir):
@@ -99,3 +118,23 @@ def test_format_output_debug_json_no_timestamp():
 def test_format_output_invalid_fmt_raises():
     with pytest.raises(ValueError, match="Unknown output format"):
         _format_output("hello", "xml")
+
+
+def test_generate_single_character_text(gen_registry):
+    result = runner.invoke(app, [
+        "generate", "sun-tzu",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 0
+    assert "THINKING FRAMEWORK" in result.output
+    assert "Sun Tzu" in result.output
+
+
+def test_generate_unknown_character_exits_1(gen_registry):
+    result = runner.invoke(app, [
+        "generate", "unknown-char",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 1
+    assert "unknown-char" in result.stderr
+    assert "mindset list" in result.stderr

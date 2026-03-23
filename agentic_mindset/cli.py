@@ -2,6 +2,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Optional
 import json
+import sys
 import typer
 import yaml
 from rich.console import Console
@@ -152,6 +153,63 @@ def preview(
     console.print(Panel(block.to_prompt(output_format=output_format), title="Context Block"))
 
 
+def _parse_weights(weights_str: Optional[str], ids: list[str]) -> Optional[list[float]]:
+    """Parse --weights string into a list of floats. Prints errors to stderr and returns None on failure."""
+    if weights_str is None:
+        return [1.0] * len(ids)
+
+    # reject trailing/leading commas or empty segments
+    if weights_str.startswith(",") or weights_str.endswith(",") or ",," in weights_str:
+        typer.echo(
+            "Error: --weights must be comma-separated numbers (e.g. --weights 6,4).",
+            err=True,
+        )
+        return None
+
+    parts = weights_str.split(",")
+
+    # count must match number of original IDs
+    if len(parts) != len(ids):
+        typer.echo(
+            f"Error: --weights has {len(parts)} values but {len(ids)} character IDs were given.",
+            err=True,
+        )
+        return None
+
+    parsed: list[float] = []
+    for part in parts:
+        try:
+            val = float(part)
+        except ValueError:
+            typer.echo(
+                "Error: --weights must be comma-separated numbers (e.g. --weights 6,4).",
+                err=True,
+            )
+            return None
+        if val < 0:
+            typer.echo("Error: --weights values must be positive numbers.", err=True)
+            return None
+        parsed.append(val)
+
+    if all(w == 0.0 for w in parsed):
+        typer.echo("Error: --weights values cannot all be zero.", err=True)
+        return None
+
+    return parsed
+
+
+def _deduplicate(ids: list[str], weights: list[float]) -> tuple[list[str], list[float]]:
+    """Merge duplicate IDs by summing their weights, then normalize to sum=1.0."""
+    merged: dict[str, float] = {}
+    for cid, w in zip(ids, weights):
+        merged[cid] = merged.get(cid, 0.0) + w
+
+    total = sum(merged.values())
+    ids_out = list(merged.keys())
+    weights_out = [merged[cid] / total for cid in ids_out]
+    return ids_out, weights_out
+
+
 @app.command("list")
 def list_characters(
     registry: Optional[Path] = typer.Option(None, "--registry", help="Override registry path"),
@@ -164,3 +222,91 @@ def list_characters(
         console.print("[yellow]No characters found.[/yellow]")
     for cid in ids:
         console.print(f"  {cid}")
+
+
+@app.command()
+def generate(
+    ids: list[str] = typer.Argument(..., help="Character IDs to compile"),
+    weights: Optional[str] = typer.Option(None, "--weights", help="Comma-separated weights"),
+    strategy: str = typer.Option("blend", "--strategy", help="blend | dominant | sequential"),
+    format_: str = typer.Option("text", "--format", help="text | anthropic-json | debug-json"),
+    output: Optional[Path] = typer.Option(None, "--output", help="Write to file instead of stdout"),
+    explain: bool = typer.Option(False, "--explain", is_flag=True, help="Print compilation summary to stderr"),
+    registry: Optional[Path] = typer.Option(None, "--registry", help="Override registry path"),
+):
+    """Compile character mindset(s) into an injectable system prompt block."""
+    search_paths = [registry] if registry else None
+    reg = CharacterRegistry(search_paths=search_paths)
+
+    # --- parse and validate weights ---
+    parsed_weights = _parse_weights(weights, ids)
+    if parsed_weights is None:
+        raise typer.Exit(1)
+
+    # --- deduplicate IDs, summing weights ---
+    ids_deduped, weights_deduped = _deduplicate(ids, parsed_weights)
+
+    # --- load characters (validate existence) ---
+    missing_cid = None
+    for cid in ids_deduped:
+        try:
+            reg.load_id(cid)
+        except KeyError:
+            missing_cid = cid
+            break
+    if missing_cid is not None:
+        typer.echo(
+            f"Error: character '{missing_cid}' not found. Run 'mindset list' to see available characters.",
+            err=True,
+        )
+        raise typer.Exit(1)
+
+    # --- fuse ---
+    engine = FusionEngine(reg)
+
+    # sequential warning
+    if strategy == "sequential" and weights is not None:
+        typer.echo("Warning: --weights ignored when --strategy is sequential.", err=True)
+
+    invalid_strategy = None
+    try:
+        strat = FusionStrategy(strategy)
+    except ValueError:
+        invalid_strategy = strategy
+    if invalid_strategy is not None:
+        typer.echo(f"Error: unknown strategy '{invalid_strategy}'.", err=True)
+        raise typer.Exit(1)
+
+    chars = list(zip(ids_deduped, weights_deduped))
+    block = engine.fuse(chars, strategy=strat)
+    text = block.to_prompt(output_format="plain_text")
+
+    # --- format ---
+    meta = {
+        "characters": ids_deduped,
+        "weights": weights_deduped,
+        "strategy": strategy,
+        "schema_version": _GENERATE_SCHEMA_VERSION,
+    }
+    result_str = _format_output(text, format_, meta=meta)
+
+    # --- explain ---
+    if explain:
+        pct = [f"{cid} ({w*100:.0f}%)" for cid, w in zip(ids_deduped, weights_deduped)]
+        typer.echo(f"Characters: {', '.join(pct)}", err=True)
+        typer.echo(f"Strategy:   {strategy}", err=True)
+        typer.echo(f"Format:     {format_}", err=True)
+        typer.echo(f"Schema:     {_GENERATE_SCHEMA_VERSION}", err=True)
+
+    # --- output ---
+    if output:
+        write_error: Optional[str] = None
+        try:
+            output.write_text(result_str, encoding="utf-8")
+        except OSError as e:
+            write_error = e.strerror
+        if write_error is not None:
+            typer.echo(f"Error: cannot write to '{output}': {write_error}.", err=True)
+            raise typer.Exit(1)
+    else:
+        typer.echo(result_str)
