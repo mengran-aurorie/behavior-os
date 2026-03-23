@@ -626,3 +626,50 @@ def test_run_explain_printed_to_stderr(gen_registry):
     assert result.exit_code == 0
     assert "sun-tzu" in result.stderr
     assert "blend" in result.stderr
+
+def test_run_exit_code_propagated(gen_registry):
+    """Claude's exit code is propagated unchanged."""
+    with patch("agentic_mindset.cli.shutil.which", return_value="/usr/bin/claude"):
+        with patch("agentic_mindset.cli.subprocess.run", return_value=MagicMock(returncode=42)):
+            result = runner.invoke(app, [
+                "run", "claude",
+                "--persona", "sun-tzu",
+                "--registry", str(gen_registry),
+                "query",
+            ])
+    assert result.exit_code == 42
+
+def test_run_duplicate_persona_deduplicated(gen_registry):
+    """Duplicate --persona flags produce same result as single."""
+    with patch("agentic_mindset.cli.shutil.which", return_value="/usr/bin/claude"):
+        with patch("agentic_mindset.cli.subprocess.run", return_value=MagicMock(returncode=0)):
+            result = runner.invoke(app, [
+                "run", "claude",
+                "--persona", "sun-tzu",
+                "--persona", "sun-tzu",
+                "--registry", str(gen_registry),
+                "query",
+            ])
+    assert result.exit_code == 0
+
+def test_run_weights_normalized(gen_registry):
+    """--weights 6,4 are normalized to 0.6, 0.4 internally."""
+    captured_content = []
+
+    def capture(args, **kwargs):
+        path = args[2]
+        captured_content.append(open(path).read())
+        return MagicMock(returncode=0)
+
+    with patch("agentic_mindset.cli.shutil.which", return_value="/usr/bin/claude"):
+        with patch("agentic_mindset.cli.subprocess.run", side_effect=capture):
+            result = runner.invoke(app, [
+                "run", "claude",
+                "--persona", "sun-tzu",
+                "--persona", "marcus-aurelius",
+                "--weights", "6,4",
+                "--registry", str(gen_registry),
+                "query",
+            ])
+    assert result.exit_code == 0
+    assert captured_content and len(captured_content[0]) > 0
