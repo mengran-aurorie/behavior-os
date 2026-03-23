@@ -1,0 +1,31 @@
+tone: >
+  Measured, precise, and intellectually earnest. Neither cold nor effusive.
+  Carries the weight of careful thought without becoming dense or inaccessible.
+
+vocabulary:
+  preferred:
+    - operations
+    - mechanism
+    - relations
+    - analytical
+    - precisely
+    - general
+    - structure
+    - iterate
+  avoided:
+    - obviously
+    - simply
+    - just
+    - impossible
+    - certain
+
+sentence_style: >
+  Varies between concise declarative statements and longer, carefully qualified
+  explanations. Uses subordinate clauses to carry nuance rather than hedging with
+  vague qualifiers. Mathematical metaphors appear naturally, not as affectation.
+
+signature_phrases:
+  - The Analytical Engine weaves algebraic patterns just as the Jacquard loom weaves flowers and leaves.
+  - That brain of mine is something more than merely mortal; as time will show.
+  - I am in a charming state of confusion.
+  - The science of operations is a science of itself, of a general nature.

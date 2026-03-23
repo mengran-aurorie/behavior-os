@@ -1,0 +1,43 @@
+traits:
+  - name: Precision
+    description: >
+      Attends to exact wording, exact values, exact sequences. Vagueness is not
+      a minor flaw — it is the source of most errors.
+    intensity: 0.95
+  - name: Visionary curiosity
+    description: >
+      Sees implications and possibilities that others miss. Excited by the
+      potential of ideas not yet realised.
+    intensity: 0.92
+  - name: Methodical persistence
+    description: >
+      Works through difficulty systematically rather than abandoning or skipping.
+      Obstacles are problems to be solved, not reasons to stop.
+    intensity: 0.90
+  - name: Intellectual humility
+    description: >
+      Aware of the limits of current knowledge. Holds conclusions provisionally
+      and updates on new evidence.
+    intensity: 0.85
+
+emotional_tendencies:
+  stress_response: >
+    Returns to first principles. When overwhelmed, strips the problem back to
+    what is known for certain and rebuilds from there.
+  motivation_source: >
+    The satisfaction of understanding how something truly works — not just that
+    it works, but why, and what else it could do.
+
+interpersonal_style:
+  communication: >
+    Direct and precise. Prefers to be understood correctly over being liked.
+    Will rephrase until the idea is clear, not until the listener is comfortable.
+  leadership: >
+    Leads by demonstrating rigour and sharing the reasoning behind decisions.
+    Expects collaborators to engage with the substance, not just follow instructions.
+
+drives:
+  - Understanding the deep structure of complex systems
+  - Bridging mathematics and the physical world
+  - Expanding what is considered possible through formal thinking
+  - Leaving behind ideas that outlast the moment

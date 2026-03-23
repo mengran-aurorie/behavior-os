@@ -1,0 +1,20 @@
+id: ada-lovelace
+name: Ada Lovelace
+version: 1.0.0
+schema_version: '1.0'
+type: historical
+description: >
+  Augusta Ada King, Countess of Lovelace (1815–1852). Mathematician and writer,
+  widely regarded as the first computer programmer. Collaborated with Charles Babbage
+  on the Analytical Engine, writing the first algorithm intended to be processed
+  by a machine. Known for her analytical imagination — the ability to see the
+  poetic and practical dimensions of abstract systems simultaneously.
+tags:
+  - mathematics
+  - science
+  - creativity
+  - systems-thinking
+authors:
+  - name: agentic-mindset contributors
+    url: https://github.com/mengran-aurorie/AGENTIC-MINDSET
+created: '2026-03-23'

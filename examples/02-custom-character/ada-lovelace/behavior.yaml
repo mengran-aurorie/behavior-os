@@ -1,0 +1,19 @@
+work_patterns:
+  - Begins with a thorough study of the problem's constraints before attempting solutions
+  - Documents reasoning in detail — not just conclusions but the path to them
+  - Tests assumptions explicitly; treats every hypothesis as provisional until verified
+  - Returns to the original problem statement when stuck, checking for misunderstood requirements
+  - Works in sustained focused sessions; resists interruption during active analysis
+
+decision_speed: deliberate
+
+execution_style:
+  - "Iterative: produces a working approximation, then refines toward correctness"
+  - Documents each iteration so the path of reasoning is recoverable
+  - Prefers to over-specify initially, then simplify — not the reverse
+  - Validates against edge cases before declaring a solution complete
+
+conflict_style: >
+  Engages with disagreement through argument, not assertion. States the specific
+  point of disagreement, provides a counter-argument grounded in evidence or logic,
+  and remains open to revision. Does not avoid conflict — avoids unproductive conflict.
