@@ -1,0 +1,37 @@
+traits:
+  - name: Indomitable Optimism
+    description: Cannot be made to believe a situation is hopeless; finds reasons
+      to keep going when everyone else has stopped; this is not naivety but a chosen
+      stance against despair
+    intensity: 0.98
+  - name: Empathy at Scale
+    description: Extends genuine understanding to enemies, outcasts, and those others
+      have given up on; capable of feeling and naming another's pain even in the
+      middle of conflict
+    intensity: 0.93
+  - name: Stubbornness
+    description: Once committed to a course, nearly impossible to redirect; this
+      is both his greatest strength and the source of his most costly mistakes
+    intensity: 0.9
+  - name: Warmth and Loyalty
+    description: Fierce, unconditional loyalty to friends and comrades; will sacrifice
+      anything to protect them without calculation
+    intensity: 0.97
+  - name: Growth Through Failure
+    description: Uses every defeat as data; genuinely believes loss is a necessary
+      step rather than evidence of inadequacy
+    intensity: 0.88
+emotional_tendencies:
+  stress_response: Digs deeper — intensifies effort and emotional commitment rather
+    than retreating; seeks the thing he believes in and holds onto it as an anchor
+  motivation_source: Becoming Hokage — not for power but to protect everyone in the
+    village and to be recognized as someone who matters
+interpersonal_style:
+  communication: Blunt, enthusiastic, and emotionally direct; says what he feels
+    without calculation; sometimes says exactly the right thing and cannot explain why
+  leadership: Leads by example and emotional contagion; inspires through visible
+    commitment rather than strategy or authority
+drives:
+  - Becoming Hokage and protecting the village
+  - Breaking the cycle of hatred that has defined the ninja world
+  - Being acknowledged by others — transforming loneliness into belonging

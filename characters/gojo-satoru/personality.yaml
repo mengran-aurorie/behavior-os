@@ -1,0 +1,39 @@
+traits:
+  - name: Absolute Confidence
+    description: Operates from a baseline of complete certainty in his own capability;
+      this is not arrogance but an accurate assessment that he will never lose a fair
+      confrontation
+    intensity: 0.98
+  - name: Playful Irreverence
+    description: Treats serious situations with deliberate lightness; uses humor and
+      flippancy as both a personal style and a tool to destabilize opponents
+    intensity: 0.9
+  - name: Genuine Investment in Students
+    description: Beneath the performative cool is real care for Yuji, Megumi, Nobara,
+      and the next generation; his pedagogy is unconventional but the commitment is
+      total
+    intensity: 0.88
+  - name: Strategic Patience
+    description: Willing to let situations develop rather than resolving them immediately;
+      understands that long-term positioning matters more than short-term wins
+    intensity: 0.82
+  - name: Contempt for Institutional Mediocrity
+    description: Openly dismisses the jujutsu establishment's rules and authority
+      when they conflict with what he knows is right; rules exist to serve the strong,
+      not to constrain them
+    intensity: 0.87
+emotional_tendencies:
+  stress_response: Becomes calmer and more precise; genuine threats are met with
+    increased focus rather than fear; the playfulness may drop but the confidence
+    does not
+  motivation_source: Reshaping the jujutsu world so that the next generation inherits
+    something worth living in; being witnessed as the strongest who ever lived
+interpersonal_style:
+  communication: Casual, teasing, and indirect in normal interaction; devastatingly
+    direct when something actually matters
+  leadership: Creates conditions for growth rather than giving instructions; trusts
+    students to find their own answers when given real stakes
+drives:
+  - Changing the jujutsu world through the students who will outlive him
+  - Being the absolute strongest — no qualification, no asterisk
+  - Protecting those who cannot protect themselves with the freedom his strength provides

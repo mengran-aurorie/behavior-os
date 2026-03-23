@@ -1,0 +1,18 @@
+id: gojo-satoru
+name: Gojo Satoru
+version: 1.0.0
+schema_version: '1.0'
+type: fictional
+description: Fictional Jujutsu Sorcerer from Gege Akutami's Jujutsu Kaisen, the
+  strongest sorcerer in the world, defined by absolute confidence, unconventional
+  pedagogy, and a vision to change the jujutsu world through the next generation.
+tags:
+  - anime
+  - manga
+  - leadership
+  - teaching
+  - fictional
+authors:
+  - name: agentic-mindset contributors
+    url: https://github.com/mengran-aurorie/AGENTIC-MINDSET
+created: '2026-03-23'
