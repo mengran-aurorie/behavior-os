@@ -436,3 +436,54 @@ def test_render_for_runtime_unknown_fmt_raises(minimal_pack_dir):
     block = ContextBlock.from_packs([(pack, 1.0)])
     with pytest.raises(ValueError, match="Unknown runtime format"):
         render_for_runtime(block, "xml")
+
+
+def test_run_single_persona_oneshot(gen_registry):
+    with patch("agentic_mindset.cli.shutil.which", return_value="/usr/bin/claude"):
+        with patch("agentic_mindset.cli.subprocess.run") as mock_sub:
+            mock_sub.return_value = MagicMock(returncode=0)
+            result = runner.invoke(app, [
+                "run", "claude",
+                "--persona", "sun-tzu",
+                "--registry", str(gen_registry),
+                "Analyze competitor strategy",
+            ])
+    assert result.exit_code == 0
+    mock_sub.assert_called_once()
+    call_args = mock_sub.call_args[0][0]
+    assert call_args[0] == "claude"
+    assert "--append-system-prompt-file" in call_args
+    assert "Analyze competitor strategy" in call_args
+
+
+def test_run_uses_inject_format_by_default(gen_registry):
+    captured = {}
+    original_render = render_for_runtime
+    def spy(block, fmt):
+        captured["fmt"] = fmt
+        return original_render(block, fmt)
+    with patch("agentic_mindset.cli.render_for_runtime", side_effect=spy):
+        with patch("agentic_mindset.cli.shutil.which", return_value="/usr/bin/claude"):
+            with patch("agentic_mindset.cli.subprocess.run", return_value=MagicMock(returncode=0)):
+                runner.invoke(app, [
+                    "run", "claude",
+                    "--persona", "sun-tzu",
+                    "--registry", str(gen_registry),
+                    "q",
+                ])
+    assert captured.get("fmt") == "inject"
+
+
+def test_run_query_passed_verbatim(gen_registry):
+    query = "How do I handle a negotiation under pressure?"
+    with patch("agentic_mindset.cli.shutil.which", return_value="/usr/bin/claude"):
+        with patch("agentic_mindset.cli.subprocess.run") as mock_sub:
+            mock_sub.return_value = MagicMock(returncode=0)
+            runner.invoke(app, [
+                "run", "claude",
+                "--persona", "sun-tzu",
+                "--registry", str(gen_registry),
+                query,
+            ])
+    call_args = mock_sub.call_args[0][0]
+    assert query in call_args

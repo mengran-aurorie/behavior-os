@@ -318,3 +318,89 @@ def generate(
             raise typer.Exit(1)
     else:
         typer.echo(result_str)
+
+
+@app.command()
+def run(
+    runtime: str = typer.Argument(..., help="Runtime name (v0: claude only)"),
+    persona: list[str] = typer.Option(..., "--persona", help="Character ID. Repeat for multi-persona."),
+    weights: Optional[str] = typer.Option(None, "--weights", help="Comma-separated weights, auto-normalized"),
+    strategy: str = typer.Option("blend", "--strategy", help="blend | dominant"),
+    format_: str = typer.Option("inject", "--format", help="text | inject (v0: equivalent)"),
+    registry: Optional[Path] = typer.Option(None, "--registry", help="Override registry path"),
+    explain: bool = typer.Option(False, "--explain", help="Print compilation summary to stderr"),
+    query: Optional[str] = typer.Argument(None, help="One-shot query. Omit for interactive mode."),
+):
+    """Compile mindset(s) and inject into an agent runtime."""
+    # --- compile phase ---
+    search_paths = [registry] if registry else None
+    reg = CharacterRegistry(search_paths=search_paths)
+
+    parsed_weights = _parse_weights(weights, persona)
+    if parsed_weights is None:
+        raise typer.Exit(1)
+
+    ids_deduped, weights_deduped = _deduplicate(persona, parsed_weights)
+
+    missing_cid = None
+    for cid in ids_deduped:
+        try:
+            reg.load_id(cid)
+        except KeyError:
+            missing_cid = cid
+            break
+    if missing_cid is not None:
+        typer.echo(
+            f"Error: character '{missing_cid}' not found. Run 'mindset list' to see available characters.",
+            err=True,
+        )
+        raise typer.Exit(1)
+
+    try:
+        strat = FusionStrategy(strategy)
+    except ValueError:
+        typer.echo(f"Error: unknown strategy '{strategy}'.", err=True)
+        raise typer.Exit(1)
+
+    engine = FusionEngine(reg)
+    chars = list(zip(ids_deduped, weights_deduped))
+    block = engine.fuse(chars, strategy=strat)
+    injected = render_for_runtime(block, fmt=format_)
+
+    # --- explain (before subprocess, stderr only) ---
+    if explain:
+        pct = [f"{cid} ({w*100:.0f}%)" for cid, w in zip(ids_deduped, weights_deduped)]
+        typer.echo(f"Characters: {', '.join(pct)}", err=True)
+        typer.echo(f"Strategy:   {strategy}", err=True)
+        typer.echo(f"Format:     {format_}", err=True)
+
+    # --- write temp file ---
+    fd, tmppath = tempfile.mkstemp(suffix=".txt", prefix="mindset_run_")
+    try:
+        try:
+            with os.fdopen(fd, "w", encoding="utf-8") as f:
+                f.write(injected)
+        except OSError as e:
+            typer.echo(f"Error: failed to write temporary file: {e}.", err=True)
+            raise typer.Exit(1)
+
+        # --- runtime phase ---
+        if shutil.which(runtime) is None:
+            typer.echo(
+                f"Error: '{runtime}' not found. Install Claude CLI: https://claude.ai/code",
+                err=True,
+            )
+            raise typer.Exit(1)
+
+        cmd = [runtime, "--append-system-prompt-file", tmppath]
+        if query is not None:
+            cmd.append(query)
+
+        proc = subprocess.run(cmd, check=False)
+        raise typer.Exit(proc.returncode)
+
+    finally:
+        try:
+            os.unlink(tmppath)
+        except OSError:
+            pass  # best-effort cleanup
