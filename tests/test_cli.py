@@ -521,3 +521,29 @@ def test_run_interactive_mode(gen_registry):
     assert len(call_args) == 3
     assert call_args[0] == "claude"
     assert call_args[1] == "--append-system-prompt-file"
+
+def test_run_unknown_persona_exits_1(gen_registry):
+    with patch("agentic_mindset.cli.shutil.which", return_value="/usr/bin/claude"):
+        with patch("agentic_mindset.cli.subprocess.run"):
+            result = runner.invoke(app, [
+                "run", "claude",
+                "--persona", "nonexistent-char",
+                "--registry", str(gen_registry),
+                "query",
+            ])
+    assert result.exit_code == 1
+    assert "nonexistent-char" in result.stderr
+    assert "mindset list" in result.stderr
+
+def test_run_claude_not_found_exits_1(gen_registry):
+    with patch("agentic_mindset.cli.shutil.which", return_value=None):
+        with patch("agentic_mindset.cli.subprocess.run"):
+            result = runner.invoke(app, [
+                "run", "claude",
+                "--persona", "sun-tzu",
+                "--registry", str(gen_registry),
+                "query",
+            ])
+    assert result.exit_code == 1
+    assert "not found" in result.stderr
+    assert "claude.ai" in result.stderr
