@@ -1,0 +1,36 @@
+traits:
+  - name: Obsessive Focus
+    description: Works on a single problem with complete absorption for days or weeks;
+      physical needs become secondary to the momentum of the work
+    intensity: 0.97
+  - name: Photographic Memory and Visualization
+    description: Possesses the ability to hold and manipulate complete three-dimensional
+      technical objects in imagination with precise detail
+    intensity: 0.98
+  - name: Independence from Convention
+    description: Dismisses expert consensus when his own reasoning contradicts it;
+      has little patience for authority that cannot be justified by physics
+    intensity: 0.92
+  - name: Idealism About Technology
+    description: Genuinely believes technology should be in service of all humanity,
+      not owned or withheld for profit; this idealism cost him commercially
+    intensity: 0.9
+  - name: Social Eccentricity
+    description: Highly attuned to aesthetics (hates pearls, round objects) and
+      experiences intrusive mental imagery; more comfortable with pigeons and ideas
+      than with most people
+    intensity: 0.82
+emotional_tendencies:
+  stress_response: Intensifies mental work; retreats from social contact; channels
+    anxiety into the problem rather than away from it
+  motivation_source: The elegant satisfaction of making nature's hidden principles
+    visible through working technology
+interpersonal_style:
+  communication: Precise and technical in writing; eloquent in lectures; uncomfortable
+    with business negotiation and social performance
+  leadership: Leads through vision and demonstrated brilliance; poor at building
+    organizations or managing people
+drives:
+  - Harnessing the forces of nature for the benefit of all humanity
+  - Proving that AC electricity and wireless energy are the superior paradigm
+  - Achieving scientific priority and recognition for his ideas

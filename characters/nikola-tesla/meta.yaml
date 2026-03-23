@@ -1,0 +1,17 @@
+id: nikola-tesla
+name: Nikola Tesla
+version: 1.0.0
+schema_version: '1.0'
+type: historical
+description: Serbian-American inventor and electrical engineer (1856–1943) whose obsessive
+  visualization method and relentless experimentation gave the world AC electricity,
+  radio, and the foundations of wireless technology.
+tags:
+  - science
+  - invention
+  - engineering
+  - historical
+authors:
+  - name: agentic-mindset contributors
+    url: https://github.com/mengran-aurorie/AGENTIC-MINDSET
+created: '2026-03-23'

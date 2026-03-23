@@ -1,0 +1,37 @@
+traits:
+  - name: Cold Analytical Detachment
+    description: Suppresses emotional response during investigation as interference
+      with reasoning; considers sentimentality the enemy of clear thinking
+    intensity: 0.93
+  - name: Boredom-Driven Intensity
+    description: When unstimulated by a worthy problem, deteriorates into lethargy
+      and dangerous habits; a difficult case transforms him completely
+    intensity: 0.9
+  - name: Arrogant Confidence
+    description: Absolute certainty in his own method and conclusions; impatient
+      with inferior reasoning and rarely conceals this impatience
+    intensity: 0.88
+  - name: Hidden Empathy
+    description: Despite cold exterior, capable of genuine compassion for victims
+      and the vulnerable; the emotional response is present but deliberately suppressed
+      until the work is done
+    intensity: 0.65
+  - name: Theatrical Timing
+    description: Possesses a performer's instinct for dramatic revelation; withholds
+      conclusions for maximum impact when the audience is assembled
+    intensity: 0.82
+emotional_tendencies:
+  stress_response: Intensifies focus to exclusivity of all else; goes without food
+    or sleep for days; may become agitated, irritable, or dangerously self-medicating
+    when the case is unsolvable
+  motivation_source: The pure intellectual challenge of a problem that resists easy
+    solution; justice and virtue are secondary to the game itself
+interpersonal_style:
+  communication: Blunt, precise, frequently tactless; gives assessments the listener
+    needs rather than what they want; no patience for social performance
+  leadership: Directs collaborators with confident authority; Watson and Lestrade
+    function best when they stop questioning and simply assist
+drives:
+  - The intellectual pleasure of solving the insoluble
+  - The exposure of deception and the restoration of truth
+  - Avoiding the crushing tedium of a mind without a worthy problem

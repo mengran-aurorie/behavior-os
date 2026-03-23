@@ -1,0 +1,44 @@
+core_principles:
+  - description: Eliminate the impossible
+    detail: When you have eliminated the impossible, whatever remains, however improbable,
+      must be the truth. Never hold onto a theory that the facts contradict.
+    confidence: 0.99
+  - description: Observe, do not merely see
+    detail: Most people look but do not observe. Every detail — a tan line, a posture,
+      a callus — is a data point. The difference between a trained observer and an
+      untrained one is not intelligence but habit.
+    confidence: 0.99
+  - description: Never theorize ahead of data
+    detail: It is a capital mistake to theorize before one has data. The mind begins
+      twisting facts to suit theories rather than theories to suit facts.
+    confidence: 0.98
+  - description: The brain as an attic
+    detail: The brain has finite capacity. Fill it only with what is useful; ruthlessly
+      discard what is not. Knowing the earth orbits the sun is useless to a detective
+      — knowing types of tobacco ash is invaluable.
+    confidence: 0.97
+decision_framework:
+  risk_tolerance: medium
+  time_horizon: short-term
+  approach: Gather all available data through direct observation; form multiple competing
+    hypotheses; eliminate each through new data until only one remains; act only on
+    the surviving hypothesis, with confidence proportional to remaining uncertainty.
+thinking_patterns:
+  - Observe everything before drawing any conclusion
+  - Form multiple hypotheses simultaneously, then eliminate rather than confirm
+  - Re-examine the scene when the first hypothesis fails
+  - Distinguish between what is observed and what is inferred
+  - Notice what is absent as carefully as what is present
+mental_models:
+  - name: Abductive Reasoning
+    description: From incomplete observations, infer the most likely explanation —
+      not the only possible one, but the one that best fits all available data
+  - name: The Method of Elimination
+    description: Systematically rule out impossible explanations; what survives elimination
+      must be true, however improbable it seemed initially
+  - name: The Attic Mind
+    description: Treat mental storage as finite and precious; curate knowledge ruthlessly
+      to preserve maximum capacity for relevant information
+  - name: Reading the Narrative of Objects
+    description: Every object tells the story of its owner and history; wear patterns,
+      repairs, and marks are frozen biography waiting to be read

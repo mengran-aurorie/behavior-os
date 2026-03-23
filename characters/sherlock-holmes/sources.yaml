@@ -1,0 +1,17 @@
+sources:
+  - title: "The Complete Sherlock Holmes (Arthur Conan Doyle)"
+    type: book
+    url: "https://www.gutenberg.org/ebooks/1661"
+    accessed: "2026-03-23"
+  - title: "A Study in Scarlet (Arthur Conan Doyle, 1887)"
+    type: book
+    url: "https://www.gutenberg.org/ebooks/244"
+    accessed: "2026-03-23"
+  - title: "The Sign of the Four (Arthur Conan Doyle, 1890)"
+    type: book
+    url: "https://www.gutenberg.org/ebooks/2097"
+    accessed: "2026-03-23"
+  - title: "The Adventures of Sherlock Holmes (Arthur Conan Doyle, 1892)"
+    type: book
+    url: "https://www.gutenberg.org/ebooks/1661"
+    accessed: "2026-03-23"
