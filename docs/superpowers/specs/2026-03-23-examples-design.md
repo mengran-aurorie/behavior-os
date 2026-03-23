@@ -60,7 +60,7 @@ No additional files needed. All characters used are from the standard library.
 | 2 | `mindset generate sun-tzu` | Compile single character, output to stdout |
 | 3 | `mindset generate sun-tzu marcus-aurelius --weights 6,4 --explain` | Multi-character fusion with summary |
 | 4 | `mindset run claude --persona sun-tzu -- "Analyze competitor strategy"` | One-shot injection into Claude |
-| 5 | `mindset run claude --persona sun-tzu --persona marcus-aurelius --weights 6,4` | Interactive mode |
+| 5 | `mindset run claude --persona sun-tzu --persona marcus-aurelius --weights 6,4` | Interactive mode — omitting `-- QUERY` launches Claude in a live interactive session |
 
 Each step includes: the exact command, a truncated expected output snippet, and a one-sentence explanation.
 
@@ -88,13 +88,15 @@ All six YAML files are fully populated (no TODO placeholders):
 
 ### Steps covered
 
+All commands in Steps 2–4 are run from `examples/02-custom-character/`. `validate` takes a **directory path** (`ada-lovelace/`); `generate` and `run` take a **character ID** resolved via `--registry .` (which points to `examples/02-custom-character/`, the parent of `ada-lovelace/`).
+
 | Step | Command | Purpose |
 |---|---|---|
 | 1 | — | Understand the 6-file character structure |
-| 2 | `mindset validate ada-lovelace/` | Validate schema compliance |
-| 3 | `mindset generate ada-lovelace --registry . --explain` | Compile with registry override |
+| 2 | `mindset validate ada-lovelace/` | Validate schema — takes a **path** to the character directory |
+| 3 | `mindset generate ada-lovelace --registry . --explain` | Compile — takes a **character ID**, registry overridden to current directory |
 | 4 | `mindset run claude --persona ada-lovelace --registry . -- "How would you approach this engineering problem?"` | One-shot injection into Claude |
-| 5 | `mindset init my-character --type historical` | Scaffold your own character |
+| 5 | `mindset init my-character --type historical` | Scaffold your own character — run from **your own project directory**, not from within `examples/` |
 
 ---
 
