@@ -547,3 +547,82 @@ def test_run_claude_not_found_exits_1(gen_registry):
     assert result.exit_code == 1
     assert "not found" in result.stderr
     assert "claude.ai" in result.stderr
+
+def test_run_tmpfile_cleaned_up(gen_registry):
+    """Temp file must not exist after subprocess returns."""
+    captured_path = []
+
+    def capture_tmpfile(args, **kwargs):
+        captured_path.append(args[2])
+        return MagicMock(returncode=0)
+
+    with patch("agentic_mindset.cli.shutil.which", return_value="/usr/bin/claude"):
+        with patch("agentic_mindset.cli.subprocess.run", side_effect=capture_tmpfile):
+            runner.invoke(app, [
+                "run", "claude",
+                "--persona", "sun-tzu",
+                "--registry", str(gen_registry),
+                "query",
+            ])
+
+    assert captured_path, "subprocess was never called"
+    assert not os.path.exists(captured_path[0]), "tmpfile was not cleaned up"
+
+def test_run_tmpfile_cleaned_up_on_error(gen_registry):
+    """Temp file must be cleaned up even if subprocess raises."""
+    captured_path = []
+
+    def capture_and_raise(args, **kwargs):
+        captured_path.append(args[2])
+        raise RuntimeError("subprocess exploded")
+
+    with patch("agentic_mindset.cli.shutil.which", return_value="/usr/bin/claude"):
+        with patch("agentic_mindset.cli.subprocess.run", side_effect=capture_and_raise):
+            runner.invoke(app, [
+                "run", "claude",
+                "--persona", "sun-tzu",
+                "--registry", str(gen_registry),
+                "query",
+            ])
+
+    assert captured_path, "subprocess was never called"
+    assert not os.path.exists(captured_path[0]), "tmpfile was not cleaned up on error"
+
+def test_run_explain_not_in_tmpfile(gen_registry):
+    """--explain output must NOT be written to the temp file."""
+    tmpfile_content = []
+
+    def capture_content(args, **kwargs):
+        path = args[2]
+        tmpfile_content.append(open(path).read())
+        return MagicMock(returncode=0)
+
+    with patch("agentic_mindset.cli.shutil.which", return_value="/usr/bin/claude"):
+        with patch("agentic_mindset.cli.subprocess.run", side_effect=capture_content):
+            runner.invoke(app, [
+                "run", "claude",
+                "--persona", "sun-tzu",
+                "--explain",
+                "--registry", str(gen_registry),
+                "query",
+            ])
+
+    assert tmpfile_content, "subprocess was never called"
+    content = tmpfile_content[0]
+    assert "Characters:" not in content
+    assert "Strategy:" not in content
+
+def test_run_explain_printed_to_stderr(gen_registry):
+    """--explain prints compilation summary to stderr."""
+    with patch("agentic_mindset.cli.shutil.which", return_value="/usr/bin/claude"):
+        with patch("agentic_mindset.cli.subprocess.run", return_value=MagicMock(returncode=0)):
+            result = runner.invoke(app, [
+                "run", "claude",
+                "--persona", "sun-tzu",
+                "--explain",
+                "--registry", str(gen_registry),
+                "query",
+            ])
+    assert result.exit_code == 0
+    assert "sun-tzu" in result.stderr
+    assert "blend" in result.stderr
