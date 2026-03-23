@@ -26,7 +26,7 @@ Sun Tzu (60%) + Marcus Aurelius (40%)  →  Context Block  →  AI Agent
 
 - **Character Packs** — structured YAML profiles covering mindset, personality, behavior, voice, and sources
 - **Fusion Engine** — blend N characters with weighted merging, dominant, or sequential strategies
-- **CLI** — `mindset init`, `validate`, `preview`, `list`
+- **CLI** — `mindset init`, `validate`, `preview`, `list`, `generate`
 - **Standard Library** — curated historical and fictional characters ready to use
 - **Language-agnostic core** — Python SDK included; the data format works with any language
 
@@ -66,6 +66,77 @@ messages = [{"role": "system", "content": system_prompt}, ...]
 ```bash
 mindset preview characters/sun-tzu/
 mindset preview --fusion examples/sun-tzu-aurelius.yaml
+```
+
+---
+
+## mindset generate — Compile & Inject
+
+`mindset generate` compiles one or more character mindsets into an injectable prompt block. Pure compiler: deterministic, no network requests.
+
+### Single character
+
+```bash
+mindset generate sun-tzu
+```
+
+### Multi-character fusion with weights
+
+```bash
+# Weights are auto-normalized (6,4 → 60%, 40%)
+mindset generate sun-tzu marcus-aurelius --weights 6,4
+```
+
+### Output formats
+
+```bash
+# Plain text (default) — paste directly into any system prompt
+mindset generate sun-tzu
+
+# Anthropic API content block — ready to append to the system array
+mindset generate sun-tzu --format anthropic-json
+
+# Full debug JSON with metadata
+mindset generate sun-tzu marcus-aurelius --weights 6,4 --format debug-json
+```
+
+### Fusion strategy
+
+```bash
+mindset generate sun-tzu marcus-aurelius --strategy blend       # default
+mindset generate sun-tzu marcus-aurelius --strategy dominant
+mindset generate sun-tzu marcus-aurelius --strategy sequential
+```
+
+### Other options
+
+```bash
+--explain          # Print compilation summary to stderr
+--output <path>    # Write to file instead of stdout
+--registry <path>  # Override character registry path
+```
+
+### Python integration (Anthropic API)
+
+```python
+import anthropic, subprocess, json
+
+block = json.loads(subprocess.run(
+    ["mindset", "generate", "sun-tzu", "--format", "anthropic-json"],
+    capture_output=True, text=True
+).stdout)
+
+client = anthropic.Anthropic()
+resp = client.messages.create(
+    model="claude-opus-4-6",
+    max_tokens=1024,
+    system=[
+        {"type": "text", "text": "You are my assistant."},
+        block,   # injected mindset
+    ],
+    messages=[{"role": "user", "content": "How should I approach this negotiation?"}]
+)
+print(resp.content[0].text)
 ```
 
 ---
@@ -129,21 +200,46 @@ mindset preview --fusion my-blend.yaml
 |---|---|---|
 | `sun-tzu` | Sun Tzu | strategy, military, philosophy |
 | `marcus-aurelius` | Marcus Aurelius | stoicism, philosophy, leadership |
+| `confucius` | Confucius | philosophy, ethics, education |
+| `seneca` | Seneca | stoicism, philosophy, writing |
+| `nikola-tesla` | Nikola Tesla | science, invention, engineering |
+| `napoleon-bonaparte` | Napoleon Bonaparte | strategy, leadership, military |
+| `leonardo-da-vinci` | Leonardo da Vinci | creativity, science, art |
 
-**Fictional characters** *(coming soon)*:
-- `naruto-uzumaki`, `levi-ackermann`, `sherlock-holmes`, `odysseus`, and more
+**Fictional characters:**
+
+| ID | Name | Tags |
+|---|---|---|
+| `sherlock-holmes` | Sherlock Holmes | deduction, logic, observation |
+| `odysseus` | Odysseus | strategy, resilience, cunning |
+| `atticus-finch` | Atticus Finch | justice, integrity, empathy |
+| `naruto-uzumaki` | Naruto Uzumaki | perseverance, growth, leadership |
+| `levi-ackermann` | Levi Ackermann | discipline, precision, duty |
+| `gojo-satoru` | Gojo Satoru | confidence, mastery, creativity |
 
 ---
 
 ## CLI Reference
 
 ```bash
-mindset init <id> --type historical|fictional   # Scaffold a new character pack
+mindset init <id> --type historical|fictional    # Scaffold a new character pack
 mindset validate <path>                          # Validate schema compliance
 mindset preview <path>                           # Preview the Context Block output
 mindset preview --fusion <fusion.yaml>           # Preview a fusion blend
 mindset list                                     # List available characters
+mindset generate <id> [id ...]                   # Compile mindset(s) into injectable prompt block
 ```
+
+### `mindset generate` options
+
+| Option | Default | Description |
+|---|---|---|
+| `--weights 6,4` | equal | Per-character weights (auto-normalized) |
+| `--strategy` | `blend` | `blend` \| `dominant` \| `sequential` |
+| `--format` | `text` | `text` \| `anthropic-json` \| `debug-json` |
+| `--output <path>` | stdout | Write to file instead of stdout |
+| `--explain` | off | Print compilation summary to stderr |
+| `--registry <path>` | auto | Override character registry path |
 
 ---
 
