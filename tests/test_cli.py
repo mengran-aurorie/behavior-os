@@ -238,3 +238,46 @@ def test_generate_equal_weights_by_default(gen_registry):
     ])
     assert result.exit_code == 0
     assert "50%" in result.output or "Sun Tzu" in result.output
+
+
+def test_generate_format_anthropic_json(gen_registry):
+    result = runner.invoke(app, [
+        "generate", "sun-tzu",
+        "--format", "anthropic-json",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 0
+    block = json.loads(result.output)
+    assert block["type"] == "text"
+    assert "THINKING FRAMEWORK" in block["text"]
+
+
+def test_generate_format_debug_json(gen_registry):
+    result = runner.invoke(app, [
+        "generate", "sun-tzu",
+        "--format", "debug-json",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 0
+    data = json.loads(result.output)
+    assert data["type"] == "text"
+    assert "THINKING FRAMEWORK" in data["text"]
+    assert data["meta"]["characters"] == ["sun-tzu"]
+    assert data["meta"]["strategy"] == "blend"
+    assert data["meta"]["schema_version"] == "1.0"
+    assert "timestamp" not in data
+    assert "timestamp" not in data["meta"]
+
+
+def test_generate_format_debug_json_weights(gen_registry):
+    result = runner.invoke(app, [
+        "generate", "sun-tzu", "marcus-aurelius",
+        "--weights", "6,4",
+        "--format", "debug-json",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 0
+    data = json.loads(result.output)
+    assert data["meta"]["characters"] == ["sun-tzu", "marcus-aurelius"]
+    assert abs(data["meta"]["weights"][0] - 0.6) < 1e-9
+    assert abs(data["meta"]["weights"][1] - 0.4) < 1e-9
