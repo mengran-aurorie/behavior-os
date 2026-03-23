@@ -41,7 +41,7 @@ Expected output (partial):
 
 ---
 
-## Step 2 — Compile a single character
+## Step 2 — Generate a single character
 
 ```bash
 mindset generate sun-tzu
