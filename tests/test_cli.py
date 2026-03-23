@@ -348,3 +348,32 @@ def test_generate_output_unwritable_path(gen_registry):
     ])
     assert result.exit_code == 1
     assert "cannot write to" in result.stderr
+
+
+def test_generate_duplicate_id_treated_as_single(gen_registry):
+    """Duplicate IDs produce same result as single ID (weights summed → normalized to 1.0)."""
+    single = runner.invoke(app, [
+        "generate", "sun-tzu",
+        "--registry", str(gen_registry),
+    ])
+    duplicate = runner.invoke(app, [
+        "generate", "sun-tzu", "sun-tzu",
+        "--registry", str(gen_registry),
+    ])
+    assert single.exit_code == 0
+    assert duplicate.exit_code == 0
+    assert single.output == duplicate.output
+
+
+def test_generate_duplicate_id_with_weights_summed(gen_registry):
+    """sun-tzu sun-tzu --weights 3,7 → one entry weight 10 → normalized 1.0."""
+    result = runner.invoke(app, [
+        "generate", "sun-tzu", "sun-tzu",
+        "--weights", "3,7",
+        "--format", "debug-json",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 0
+    data = json.loads(result.output)
+    assert data["meta"]["characters"] == ["sun-tzu"]
+    assert abs(data["meta"]["weights"][0] - 1.0) < 1e-9
