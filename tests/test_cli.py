@@ -309,3 +309,42 @@ def test_generate_explain_does_not_pollute_stdout(gen_registry):
     assert result.exit_code == 0
     assert "Characters:" not in result.output
     assert "Strategy:" not in result.output
+
+
+def test_generate_output_writes_file(gen_registry, tmp_path):
+    out_file = tmp_path / "system_prompt.txt"
+    result = runner.invoke(app, [
+        "generate", "sun-tzu",
+        "--output", str(out_file),
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 0
+    assert result.output.strip() == ""   # stdout is empty on success
+    assert out_file.exists()
+    content = out_file.read_text()
+    assert "THINKING FRAMEWORK" in content
+
+
+def test_generate_output_with_explain_empty_stdout(gen_registry, tmp_path):
+    """--output + --explain: file gets content, stdout empty, stderr has summary."""
+    out_file = tmp_path / "out.txt"
+    result = runner.invoke(app, [
+        "generate", "sun-tzu",
+        "--output", str(out_file),
+        "--explain",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 0
+    assert result.output.strip() == ""
+    assert "Characters:" in result.stderr
+    assert out_file.read_text() != ""
+
+
+def test_generate_output_unwritable_path(gen_registry):
+    result = runner.invoke(app, [
+        "generate", "sun-tzu",
+        "--output", "/nonexistent_dir/out.txt",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 1
+    assert "cannot write to" in result.stderr
