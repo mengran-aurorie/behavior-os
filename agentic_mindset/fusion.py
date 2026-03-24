@@ -65,35 +65,39 @@ class FusionEngine:
         self,
         characters: list[tuple[str, float]],
         strategy: FusionStrategy = FusionStrategy.blend,
+        report: "FusionReport | None" = None,
     ) -> ContextBlock:
-        return self.fuse_config(FusionConfig(characters=characters, fusion_strategy=strategy))
+        return self.fuse_config(
+            FusionConfig(characters=characters, fusion_strategy=strategy),
+            report=report,
+        )
 
-    def fuse_config(self, config: FusionConfig) -> ContextBlock:
+    def fuse_config(self, config: FusionConfig, report: "FusionReport | None" = None) -> ContextBlock:
         raw_pairs = config.characters
         total = sum(w for _, w in raw_pairs)
         if total == 0:
             raise ValueError("Weights sum to zero — cannot normalize.")
 
         if config.fusion_strategy == FusionStrategy.sequential:
-            # Warn if weights are non-equal (they are ignored in sequential mode)
-            weights = [w for _, w in raw_pairs]
-            if len(set(weights)) > 1:
+            if len({w for _, w in raw_pairs}) > 1:
                 print(
                     "Warning: sequential strategy ignores weights. "
                     "Character list order determines precedence.",
                     file=sys.stderr,
                 )
-            # Sequential: preserve list order, equal display weights, no % in preamble
-            weighted_packs = [
-                (self._registry.load_id(cid), 1.0 / len(raw_pairs))
-                for cid, _ in raw_pairs
-            ]
-            return ContextBlock.from_packs(weighted_packs, show_weights=False)
 
-        # blend / dominant: normalize and sort by weight descending
-        weighted_packs = [
-            (self._registry.load_id(cid), w / total)
-            for cid, w in raw_pairs
-        ]
-        weighted_packs.sort(key=lambda x: x[1], reverse=True)
-        return ContextBlock.from_packs(weighted_packs, show_weights=True)
+        weighted_packs = self.prepare_packs(raw_pairs, config.fusion_strategy)
+        show_weights = config.fusion_strategy != FusionStrategy.sequential
+
+        if report is not None:
+            report.personas = [(pack.meta.id, w) for pack, w in weighted_packs]
+            report.strategy = config.fusion_strategy.value
+            weights = [w for _, w in weighted_packs]
+            report.dominant_character = (
+                weighted_packs[0][0].meta.id
+                if len(set(weights)) > 1
+                else None
+            )
+            report.removed_items = []  # reset; from_packs() will append
+
+        return ContextBlock.from_packs(weighted_packs, show_weights=show_weights, report=report)

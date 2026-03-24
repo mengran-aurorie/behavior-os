@@ -1,5 +1,6 @@
 from agentic_mindset.context import ContextBlock
 from agentic_mindset.pack import CharacterPack
+from agentic_mindset.fusion import FusionReport
 
 
 def test_to_prompt_contains_all_sections(minimal_pack_dir):
@@ -47,4 +48,20 @@ def test_no_weights_in_preamble_when_show_weights_false(minimal_pack_dir):
     pack = CharacterPack.load(minimal_pack_dir)
     block = ContextBlock.from_packs([(pack, 1.0)], show_weights=False)
     assert "%" not in block.preamble
+    assert "Sun Tzu" in block.preamble
+
+
+def test_from_packs_report_removed_items(minimal_pack_dir):
+    """from_packs() appends duplicate items to report.removed_items."""
+    pack = CharacterPack.load(minimal_pack_dir)
+    report = FusionReport()
+    # Fuse the same pack twice — second pack's items are all duplicates
+    ContextBlock.from_packs([(pack, 0.6), (pack, 0.4)], report=report)
+    assert len(report.removed_items) > 0
+
+
+def test_from_packs_no_report_unchanged(minimal_pack_dir):
+    """from_packs() without report= behaves identically to before."""
+    pack = CharacterPack.load(minimal_pack_dir)
+    block = ContextBlock.from_packs([(pack, 1.0)])
     assert "Sun Tzu" in block.preamble

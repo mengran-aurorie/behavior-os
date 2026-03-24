@@ -125,3 +125,41 @@ def test_prepare_packs_zero_weights_raises(minimal_pack_dir, tmp_path):
     engine = FusionEngine(registry)
     with pytest.raises(ValueError, match="sum to zero"):
         engine.prepare_packs([("sun-tzu", 0.0)])
+
+
+def test_fusion_report_filled_by_fuse(minimal_pack_dir, tmp_path):
+    """fuse() fills all FusionReport fields when report is provided."""
+    registry = _make_registry(minimal_pack_dir, tmp_path, "marcus-aurelius")
+    engine = FusionEngine(registry)
+    report = FusionReport()
+    engine.fuse([("sun-tzu", 0.6), ("marcus-aurelius", 0.4)], report=report)
+    assert len(report.personas) == 2
+    assert report.personas[0][0] == "sun-tzu"   # higher weight first
+    assert report.strategy == "blend"
+    assert report.dominant_character == "sun-tzu"
+
+
+def test_fusion_report_dominant_none_for_equal_weights(minimal_pack_dir, tmp_path):
+    registry = _make_registry(minimal_pack_dir, tmp_path, "marcus-aurelius")
+    engine = FusionEngine(registry)
+    report = FusionReport()
+    engine.fuse([("sun-tzu", 1.0), ("marcus-aurelius", 1.0)], report=report)
+    assert report.dominant_character is None
+
+
+def test_fusion_report_removed_items(minimal_pack_dir, tmp_path):
+    """Duplicate items across packs are captured in report.removed_items."""
+    # sun-tzu and marcus-aurelius are clones — all of marcus's items are duplicates
+    registry = _make_registry(minimal_pack_dir, tmp_path, "marcus-aurelius")
+    engine = FusionEngine(registry)
+    report = FusionReport()
+    engine.fuse([("sun-tzu", 0.6), ("marcus-aurelius", 0.4)], report=report)
+    assert len(report.removed_items) > 0
+
+
+def test_fuse_without_report_unchanged(minimal_pack_dir, tmp_path):
+    """Calling fuse() without report= produces same ContextBlock as before."""
+    registry = _make_registry(minimal_pack_dir, tmp_path)
+    engine = FusionEngine(registry)
+    block = engine.fuse([("sun-tzu", 1.0)])
+    assert "Sun Tzu" in block.preamble  # existing behavior unchanged
