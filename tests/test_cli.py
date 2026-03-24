@@ -324,10 +324,10 @@ def test_generate_explain_goes_to_stderr(gen_registry):
         "--registry", str(gen_registry),
     ])
     assert result.exit_code == 0
-    assert "sun-tzu (60%)" in result.stderr
-    assert "marcus-aurelius (40%)" in result.stderr
-    assert "blend" in result.stderr
-    assert "1.0" in result.stderr
+    data = yaml.safe_load(result.stderr)
+    assert any("sun-tzu" in p for p in data["personas"])
+    assert any("marcus-aurelius" in p for p in data["personas"])
+    assert "decision_policy" in data["merged"]
     # stdout is the compiled text, not the explain summary
     assert "THINKING FRAMEWORK" in result.output
 
@@ -369,7 +369,8 @@ def test_generate_output_with_explain_empty_stdout(gen_registry, tmp_path):
     ])
     assert result.exit_code == 0
     assert result.output.strip() == ""
-    assert "Characters:" in result.stderr
+    data = yaml.safe_load(result.stderr)
+    assert "personas" in data
     assert out_file.read_text() != ""
 
 
@@ -628,8 +629,9 @@ def test_run_explain_printed_to_stderr(gen_registry):
                 "query",
             ])
     assert result.exit_code == 0
-    assert "sun-tzu" in result.stderr
-    assert "blend" in result.stderr
+    data = yaml.safe_load(result.stderr)
+    assert "sun-tzu" in str(data["personas"])
+    assert "decision_policy" in data["merged"]
 
 def test_run_exit_code_propagated(gen_registry):
     """Claude's exit code is propagated unchanged."""
@@ -720,3 +722,74 @@ def test_run_inject_format_produces_5_sections(gen_registry):
             "test query",
         ])
     assert result.exit_code == 0
+
+
+def test_explain_yaml_generate_single(gen_registry):
+    """--explain on single character produces YAML with decision_policy: {id}-only."""
+    result = runner.invoke(app, [
+        "generate", "sun-tzu", "--explain",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 0
+    data = yaml.safe_load(result.stderr)
+    assert len(data["personas"]) == 1
+    assert "sun-tzu" in data["personas"][0]
+    assert data["merged"]["decision_policy"] == "sun-tzu-only"
+    assert data["removed_conflicts"] == []
+
+
+def test_explain_yaml_generate_multi_dominant(gen_registry):
+    """--explain with unequal weights produces decision_policy: {dominant}-dominant."""
+    result = runner.invoke(app, [
+        "generate", "sun-tzu", "marcus-aurelius",
+        "--weights", "6,4", "--explain",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 0
+    data = yaml.safe_load(result.stderr)
+    assert len(data["personas"]) == 2
+    assert data["merged"]["decision_policy"] == "sun-tzu-dominant"
+    assert isinstance(data["removed_conflicts"], list)
+
+
+def test_explain_yaml_generate_equal_weights(gen_registry):
+    """--explain with equal weights produces decision_policy: equal-blend."""
+    result = runner.invoke(app, [
+        "generate", "sun-tzu", "marcus-aurelius",
+        "--explain",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 0
+    data = yaml.safe_load(result.stderr)
+    assert data["merged"]["decision_policy"] == "equal-blend"
+
+
+def test_explain_yaml_generate_has_risk_tolerance(gen_registry):
+    """--explain merged block includes risk_tolerance and time_horizon."""
+    result = runner.invoke(app, [
+        "generate", "sun-tzu", "--explain",
+        "--registry", str(gen_registry),
+    ])
+    assert result.exit_code == 0
+    data = yaml.safe_load(result.stderr)
+    assert data["merged"]["risk_tolerance"] == "medium"
+    assert data["merged"]["time_horizon"] == "long-term"
+
+
+def test_explain_yaml_run(gen_registry):
+    """mindset run --explain outputs YAML to stderr."""
+    with patch("agentic_mindset.cli.shutil.which", return_value="/usr/bin/claude"), \
+         patch("agentic_mindset.cli.subprocess.run", return_value=MagicMock(returncode=0)):
+        result = runner.invoke(app, [
+            "run", "claude",
+            "--persona", "sun-tzu",
+            "--registry", str(gen_registry),
+            "--explain",
+            "test query",
+        ])
+    assert result.exit_code == 0
+    data = yaml.safe_load(result.stderr)
+    assert "personas" in data
+    assert "merged" in data
+    assert "removed_conflicts" in data
+    assert data["merged"]["decision_policy"] == "sun-tzu-only"

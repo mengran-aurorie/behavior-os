@@ -51,6 +51,15 @@ def render_for_runtime(
     raise ValueError(f"Unknown runtime format: {fmt!r}")
 
 
+def _explain_decision_policy(report: "FusionReport") -> str:
+    """Build the decision_policy string for --explain YAML output."""
+    if len(report.personas) == 1:
+        return f"{report.personas[0][0]}-only"
+    if report.dominant_character is not None:
+        return f"{report.dominant_character}-dominant"
+    return "equal-blend"
+
+
 _TEMPLATE_META = {
     "id": "{id}",
     "name": "{name}",
@@ -301,7 +310,8 @@ def generate(
         raise typer.Exit(1)
 
     chars = list(zip(ids_deduped, weights_deduped))
-    block = engine.fuse(chars, strategy=strat)
+    report = FusionReport() if explain else None
+    block = engine.fuse(chars, strategy=strat, report=report)
     text = block.to_prompt(output_format="plain_text")
 
     # --- format ---
@@ -315,11 +325,21 @@ def generate(
 
     # --- explain ---
     if explain:
-        pct = [f"{cid} ({w*100:.0f}%)" for cid, w in zip(ids_deduped, weights_deduped)]
-        typer.echo(f"Characters: {', '.join(pct)}", err=True)
-        typer.echo(f"Strategy:   {strategy}", err=True)
-        typer.echo(f"Format:     {format_}", err=True)
-        typer.echo(f"Schema:     {_GENERATE_SCHEMA_VERSION}", err=True)
+        weighted_packs_ex = engine.prepare_packs(chars, strat)
+        dominant_pack = weighted_packs_ex[0][0]
+        explain_data = {
+            "personas": [{cid: round(w, 4)} for cid, w in report.personas],
+            "merged": {
+                "decision_policy": _explain_decision_policy(report),
+                "risk_tolerance": dominant_pack.mindset.decision_framework.risk_tolerance,
+                "time_horizon": dominant_pack.mindset.decision_framework.time_horizon,
+            },
+            "removed_conflicts": report.removed_items,
+        }
+        typer.echo(
+            yaml.dump(explain_data, default_flow_style=False, allow_unicode=True),
+            err=True,
+        )
 
     # --- output ---
     if output:
@@ -395,10 +415,20 @@ def run(
 
     # --- explain (before subprocess, stderr only) ---
     if explain:
-        pct = [f"{cid} ({w*100:.0f}%)" for cid, w in zip(ids_deduped, weights_deduped)]
-        typer.echo(f"Characters: {', '.join(pct)}", err=True)
-        typer.echo(f"Strategy:   {strategy}", err=True)
-        typer.echo(f"Format:     {format_}", err=True)
+        dominant_pack = weighted_packs_ex[0][0]
+        explain_data = {
+            "personas": [{cid: round(w, 4)} for cid, w in report.personas],
+            "merged": {
+                "decision_policy": _explain_decision_policy(report),
+                "risk_tolerance": dominant_pack.mindset.decision_framework.risk_tolerance,
+                "time_horizon": dominant_pack.mindset.decision_framework.time_horizon,
+            },
+            "removed_conflicts": report.removed_items,
+        }
+        typer.echo(
+            yaml.dump(explain_data, default_flow_style=False, allow_unicode=True),
+            err=True,
+        )
 
     # --- write temp file ---
     fd, tmppath = tempfile.mkstemp(suffix=".txt", prefix="mindset_run_")
