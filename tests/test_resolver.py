@@ -24,6 +24,13 @@ def test_conflict_pairs_leadership_has_positioning_directive():
     assert ("positioning", "directive") in SLOT_CONFLICT_PAIRS["leadership"]
 
 
+def test_conflict_pairs_are_one_directional_consumers_check_both():
+    """Pairs are stored in one direction only. Consumers must check (a,b) AND (b,a)."""
+    pairs = SLOT_CONFLICT_PAIRS["communication"]
+    assert ("indirect", "direct") in pairs
+    assert ("direct", "indirect") not in pairs  # only one direction stored
+
+
 def test_fallback_template_wildcard_primary():
     assert ("communication", "*", "direct") in MODIFIER_FALLBACK_TEMPLATES
     assert ("conflict_style", "*", "confrontational") in MODIFIER_FALLBACK_TEMPLATES

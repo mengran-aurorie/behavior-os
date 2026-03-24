@@ -1,7 +1,8 @@
 MODIFIER_THRESHOLD: float = 0.3
 SOFT_THRESHOLD: float = 0.35
 
-# (slot_name) → set of conflicting value pairs (checked symmetrically)
+# (slot_name) → set of conflicting value pairs, stored as (primary, secondary).
+# Consumers MUST check both directions: (a, b) and (b, a).
 SLOT_CONFLICT_PAIRS: dict[str, set[tuple[str, str]]] = {
     "communication": {
         ("indirect", "direct"),
