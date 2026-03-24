@@ -142,3 +142,118 @@ class ContextBlock:
         parts.append(section("voice-and-style", self.voice_and_style))
         parts.append("</character-context>")
         return "\n".join(p for p in parts if p)
+
+
+def render_inject_block(
+    weighted_packs: list[tuple["CharacterPack", float]],
+    show_weights: bool = True,
+) -> str:
+    """Render a 5-section behavioral instruction block from weighted character packs.
+
+    Unlike ContextBlock/to_prompt(), this function reads typed schema fields directly
+    (decision_framework, interpersonal_style, vocabulary, etc.) which are not preserved
+    in ContextBlock's flat string lists.
+
+    Caller precondition: weighted_packs is non-empty.
+    Sections: DECISION POLICY, UNCERTAINTY HANDLING, INTERACTION RULES,
+              ANTI-PATTERNS (omitted if empty), STYLE.
+    Dedup rule: first-seen-wins across packs iterated in weight-descending order.
+    """
+    if show_weights:
+        names = [f"{p.meta.name} ({w:.0%})" for p, w in weighted_packs]
+    else:
+        names = [p.meta.name for p, _ in weighted_packs]
+    preamble = "You embody a synthesized mindset drawing from: " + ", ".join(names) + "."
+
+    lines = [preamble, ""]
+
+    # --- DECISION POLICY ---
+    dp_items: list[str] = []
+    for pack, _ in weighted_packs:
+        m = pack.mindset
+        sorted_principles = sorted(
+            m.core_principles,
+            key=lambda p: p.confidence if p.confidence is not None else -1.0,
+            reverse=True,
+        )
+        for principle in sorted_principles:
+            item = f"{principle.description}: {principle.detail}"
+            if item not in dp_items:
+                dp_items.append(item)
+        approach_item = f"Approach: {m.decision_framework.approach}"
+        if approach_item not in dp_items:
+            dp_items.append(approach_item)
+    if dp_items:
+        lines += ["DECISION POLICY:"] + [f"- {i}" for i in dp_items] + [""]
+
+    # --- UNCERTAINTY HANDLING ---
+    uh_items: list[str] = []
+    for pack, _ in weighted_packs:
+        m = pack.mindset
+        p = pack.personality
+        risk_line = (
+            f"risk_tolerance: {m.decision_framework.risk_tolerance} | "
+            f"time_horizon: {m.decision_framework.time_horizon}"
+        )
+        if risk_line not in uh_items:
+            uh_items.append(risk_line)
+        stress_item = f"Stress response: {p.emotional_tendencies.stress_response}"
+        if stress_item not in uh_items:
+            uh_items.append(stress_item)
+    if uh_items:
+        lines += ["UNCERTAINTY HANDLING:"] + [f"- {i}" for i in uh_items] + [""]
+
+    # --- INTERACTION RULES ---
+    ir_items: list[str] = []
+    for pack, _ in weighted_packs:
+        p = pack.personality
+        b = pack.behavior
+        for item in [
+            f"Communication: {p.interpersonal_style.communication}",
+            f"Leadership: {p.interpersonal_style.leadership}",
+            f"Under conflict: {b.conflict_style}",
+        ]:
+            if item not in ir_items:
+                ir_items.append(item)
+    if ir_items:
+        lines += ["INTERACTION RULES:"] + [f"- {i}" for i in ir_items] + [""]
+
+    # --- ANTI-PATTERNS (omitted entirely when all packs have empty anti_patterns) ---
+    ap_items: list[str] = []
+    for pack, _ in weighted_packs:
+        for ap in pack.behavior.anti_patterns:
+            if ap not in ap_items:
+                ap_items.append(ap)
+    if ap_items:
+        lines += ["ANTI-PATTERNS:"] + [f"- {i}" for i in ap_items] + [""]
+
+    # --- STYLE ---
+    tones: list[str] = []
+    all_preferred: list[str] = []
+    all_avoided: list[str] = []
+    sent_styles: list[str] = []
+    for pack, _ in weighted_packs:
+        v = pack.voice
+        if v.tone not in tones:
+            tones.append(v.tone)
+        for w in v.vocabulary.preferred:
+            if w not in all_preferred:
+                all_preferred.append(w)
+        for w in v.vocabulary.avoided:
+            if w not in all_avoided:
+                all_avoided.append(w)
+        if v.sentence_style not in sent_styles:
+            sent_styles.append(v.sentence_style)
+    style_items: list[str] = []
+    if tones:
+        style_items.append(f"Tone: {', '.join(tones)}")
+    if all_preferred:
+        style_items.append(f"Preferred: {', '.join(all_preferred)}")
+    if all_avoided:
+        style_items.append(f"Avoided: {', '.join(all_avoided)}")
+    if sent_styles:
+        style_items.append(f"Sentence style: {', '.join(sent_styles)}")
+    if style_items:
+        lines += ["STYLE:"] + [f"- {i}" for i in style_items]
+
+    return "\n".join(lines).strip()
