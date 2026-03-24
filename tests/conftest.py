@@ -69,3 +69,21 @@ def minimal_pack_dir():
     })
     yield tmp
     shutil.rmtree(tmp)
+
+
+@pytest.fixture
+def anti_patterns_pack_dir(minimal_pack_dir):
+    """A copy of minimal_pack_dir with anti_patterns populated in behavior.yaml."""
+    import shutil, tempfile
+    from pathlib import Path
+    tmp = Path(tempfile.mkdtemp())
+    shutil.copytree(minimal_pack_dir, tmp / "sun-tzu-ap")
+    pack_dir = tmp / "sun-tzu-ap"
+    data = yaml.safe_load((pack_dir / "behavior.yaml").read_text())
+    data["anti_patterns"] = [
+        "Do not commit before the position is secured",
+        "Do not telegraph intent",
+    ]
+    write_yaml(pack_dir / "behavior.yaml", data)
+    yield pack_dir
+    shutil.rmtree(tmp)
