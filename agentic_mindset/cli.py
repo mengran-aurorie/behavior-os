@@ -242,7 +242,7 @@ def list_characters(
 def generate(
     ids: list[str] = typer.Argument(..., help="Character IDs to compile"),
     weights: Optional[str] = typer.Option(None, "--weights", help="Comma-separated weights"),
-    strategy: str = typer.Option("blend", "--strategy", help="blend | dominant | sequential"),
+    strategy: str = typer.Option("blend", "--strategy", help="blend | dominant"),
     format_: str = typer.Option("text", "--format", help="text | anthropic-json | debug-json"),
     output: Optional[Path] = typer.Option(None, "--output", help="Write to file instead of stdout"),
     explain: bool = typer.Option(False, "--explain", help="Print compilation summary to stderr"),
@@ -261,6 +261,10 @@ def generate(
     ids_deduped, weights_deduped = _deduplicate(ids, parsed_weights)
 
     # --- load characters (validate existence) ---
+    # Note: reg.load_id() is called here for early validation with a clear error message.
+    # FusionEngine.fuse() takes (id, weight) pairs and re-loads from registry internally.
+    # This double-load is intentional: the validation pass gives a targeted error before
+    # any fusion work begins.
     missing_cid = None
     for cid in ids_deduped:
         try:
@@ -278,9 +282,9 @@ def generate(
     # --- fuse ---
     engine = FusionEngine(reg)
 
-    # sequential warning
-    if strategy == "sequential" and weights is not None:
-        typer.echo("Warning: --weights ignored when --strategy is sequential.", err=True)
+    if strategy == "sequential":
+        typer.echo("Error: --strategy sequential is not supported in v0.", err=True)
+        raise typer.Exit(1)
 
     try:
         strat = FusionStrategy(strategy)

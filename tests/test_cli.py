@@ -240,26 +240,26 @@ def test_generate_strategy_dominant(gen_registry):
     assert "THINKING FRAMEWORK" in result.output
 
 
-def test_generate_strategy_sequential(gen_registry):
+def test_generate_strategy_sequential_not_supported(gen_registry):
+    """sequential is not exposed in v0 — exits 1 with an error message."""
     result = runner.invoke(app, [
         "generate", "sun-tzu", "marcus-aurelius",
         "--strategy", "sequential",
         "--registry", str(gen_registry),
     ])
-    assert result.exit_code == 0
-    assert "THINKING FRAMEWORK" in result.output
+    assert result.exit_code == 1
+    assert "sequential" in result.stderr
 
 
-def test_generate_strategy_sequential_with_weights_warns(gen_registry):
-    """Sequential + --weights emits a warning to stderr but still succeeds."""
+def test_generate_strategy_sequential_with_weights_not_supported(gen_registry):
+    """sequential + --weights also exits 1 (sequential blocked regardless of weights)."""
     result = runner.invoke(app, [
         "generate", "sun-tzu", "marcus-aurelius",
         "--strategy", "sequential",
         "--weights", "6,4",
         "--registry", str(gen_registry),
     ])
-    assert result.exit_code == 0
-    assert "--weights ignored" in result.stderr
+    assert result.exit_code == 1
 
 
 def test_generate_equal_weights_by_default(gen_registry):
