@@ -13,8 +13,8 @@ from rich.panel import Panel
 
 from agentic_mindset.pack import CharacterPack, PackLoadError
 from agentic_mindset.registry import CharacterRegistry
-from agentic_mindset.fusion import FusionEngine, FusionStrategy
-from agentic_mindset.context import ContextBlock
+from agentic_mindset.fusion import FusionEngine, FusionStrategy, FusionReport
+from agentic_mindset.context import ContextBlock, render_inject_block
 
 app = typer.Typer(name="mindset", help="Agentic Mindset CLI")
 console = Console()
@@ -32,13 +32,21 @@ def _format_output(text: str, fmt: str, meta: dict | None = None) -> str:
     raise ValueError(f"Unknown output format: {fmt!r}")
 
 
-def render_for_runtime(context_block: ContextBlock, fmt: str) -> str:
-    """Render a compiled ContextBlock for agent runtime injection.
+def render_for_runtime(
+    context_block: ContextBlock,
+    fmt: str,
+    weighted_packs: list | None = None,
+) -> str:
+    """Render a compiled mindset for agent runtime injection.
 
-    v0: 'inject' and 'text' both produce plain-text output.
-    Future: 'inject' will become a dedicated Runtime Block format.
+    fmt='inject': produces 5-section behavioral instruction block (requires weighted_packs).
+    fmt='text':   produces plain-text character description (unchanged from v0).
     """
-    if fmt in ("text", "inject"):
+    if fmt == "inject":
+        if weighted_packs is None:
+            raise ValueError("weighted_packs required for inject format")
+        return render_inject_block(weighted_packs)
+    if fmt == "text":
         return context_block.to_prompt(output_format="plain_text")
     raise ValueError(f"Unknown runtime format: {fmt!r}")
 
@@ -372,8 +380,16 @@ def run(
 
     engine = FusionEngine(reg)
     chars = list(zip(ids_deduped, weights_deduped))
-    block = engine.fuse(chars, strategy=strat)
-    injected = render_for_runtime(block, fmt=format_)
+
+    # fuse once; report filled only when --explain is requested (Task 6)
+    report = FusionReport() if explain else None
+    block = engine.fuse(chars, strategy=strat, report=report)
+
+    # prepare_packs only when needed (inject format or explain)
+    needs_packs = (format_ == "inject") or explain
+    weighted_packs_ex = engine.prepare_packs(chars, strat) if needs_packs else None
+
+    injected = render_for_runtime(block, fmt=format_, weighted_packs=weighted_packs_ex)
 
     # --- explain (before subprocess, stderr only) ---
     if explain:

@@ -6,6 +6,7 @@ import pytest
 from unittest.mock import patch, MagicMock
 from typer.testing import CliRunner
 from agentic_mindset.cli import app, _format_output, render_for_runtime
+from agentic_mindset.context import ContextBlock
 
 runner = CliRunner(mix_stderr=False)
 
@@ -413,20 +414,23 @@ def test_generate_duplicate_id_with_weights_summed(gen_registry):
 
 def test_render_for_runtime_inject(minimal_pack_dir):
     from agentic_mindset.pack import CharacterPack
-    from agentic_mindset.context import ContextBlock
     pack = CharacterPack.load(minimal_pack_dir)
     block = ContextBlock.from_packs([(pack, 1.0)])
-    result = render_for_runtime(block, "inject")
-    assert "THINKING FRAMEWORK" in result
+    result = render_for_runtime(block, "inject", weighted_packs=[(pack, 1.0)])
+    assert "DECISION POLICY:" in result
     assert isinstance(result, str)
 
 
 def test_render_for_runtime_text_equals_inject(minimal_pack_dir):
+    """inject and text now produce different output — inject uses 5-section format."""
     from agentic_mindset.pack import CharacterPack
-    from agentic_mindset.context import ContextBlock
     pack = CharacterPack.load(minimal_pack_dir)
     block = ContextBlock.from_packs([(pack, 1.0)])
-    assert render_for_runtime(block, "text") == render_for_runtime(block, "inject")
+    text_result = render_for_runtime(block, "text")
+    inject_result = render_for_runtime(block, "inject", weighted_packs=[(pack, 1.0)])
+    # text uses plain_text format, inject uses 5-section behavioral format
+    assert "THINKING FRAMEWORK:" in text_result
+    assert "DECISION POLICY:" in inject_result
 
 
 def test_render_for_runtime_unknown_fmt_raises(minimal_pack_dir):
@@ -459,9 +463,9 @@ def test_run_single_persona_oneshot(gen_registry):
 def test_run_uses_inject_format_by_default(gen_registry):
     captured = {}
     original_render = render_for_runtime
-    def spy(block, fmt):
+    def spy(block, fmt, weighted_packs=None):
         captured["fmt"] = fmt
-        return original_render(block, fmt)
+        return original_render(block, fmt, weighted_packs=weighted_packs)
     with patch("agentic_mindset.cli.render_for_runtime", side_effect=spy):
         with patch("agentic_mindset.cli.shutil.which", return_value="/usr/bin/claude"):
             with patch("agentic_mindset.cli.subprocess.run", return_value=MagicMock(returncode=0)):
@@ -673,3 +677,46 @@ def test_run_weights_normalized(gen_registry):
             ])
     assert result.exit_code == 0
     assert captured_content and len(captured_content[0]) > 0
+
+
+def test_render_for_runtime_inject_calls_inject_block(minimal_pack_dir):
+    """render_for_runtime with fmt='inject' returns inject-format string."""
+    from agentic_mindset.pack import CharacterPack
+    pack = CharacterPack.load(minimal_pack_dir)
+    block = ContextBlock.from_packs([(pack, 1.0)])
+    result = render_for_runtime(block, "inject", weighted_packs=[(pack, 1.0)])
+    assert "DECISION POLICY:" in result
+    assert "UNCERTAINTY HANDLING:" in result
+    assert "STYLE:" in result
+
+
+def test_render_for_runtime_text_still_plain(minimal_pack_dir):
+    """render_for_runtime with fmt='text' still returns plain-text format (unchanged)."""
+    from agentic_mindset.pack import CharacterPack
+    pack = CharacterPack.load(minimal_pack_dir)
+    block = ContextBlock.from_packs([(pack, 1.0)])
+    result = render_for_runtime(block, "text")
+    assert "THINKING FRAMEWORK:" in result
+    assert "DECISION POLICY:" not in result
+
+
+def test_render_for_runtime_inject_requires_weighted_packs(minimal_pack_dir):
+    """render_for_runtime with inject but no weighted_packs raises ValueError."""
+    from agentic_mindset.pack import CharacterPack
+    pack = CharacterPack.load(minimal_pack_dir)
+    block = ContextBlock.from_packs([(pack, 1.0)])
+    with pytest.raises(ValueError, match="weighted_packs required"):
+        render_for_runtime(block, "inject")
+
+
+def test_run_inject_format_produces_5_sections(gen_registry):
+    """mindset run with default --format inject writes behavioral block to tempfile."""
+    with patch("shutil.which", return_value="/usr/bin/claude"), \
+         patch("subprocess.run", return_value=MagicMock(returncode=0)):
+        result = runner.invoke(app, [
+            "run", "claude",
+            "--persona", "sun-tzu",
+            "--registry", str(gen_registry),
+            "test query",
+        ])
+    assert result.exit_code == 0
