@@ -26,7 +26,7 @@ Sun Tzu (60%) + Marcus Aurelius (40%)  →  Context Block  →  AI Agent
 
 - **Character Packs** — structured YAML profiles covering mindset, personality, behavior, voice, and sources
 - **Fusion Engine** — blend N characters with weighted merging, dominant, or sequential strategies
-- **CLI** — `mindset init`, `validate`, `preview`, `list`, `generate`
+- **CLI** — `mindset init`, `validate`, `preview`, `list`, `generate`, `run`
 - **Standard Library** — curated historical and fictional characters ready to use
 - **Language-agnostic core** — Python SDK included; the data format works with any language
 
@@ -105,15 +105,28 @@ mindset generate sun-tzu marcus-aurelius --weights 6,4 --format debug-json
 ```bash
 mindset generate sun-tzu marcus-aurelius --strategy blend       # default
 mindset generate sun-tzu marcus-aurelius --strategy dominant
-mindset generate sun-tzu marcus-aurelius --strategy sequential
 ```
 
 ### Other options
 
 ```bash
---explain          # Print compilation summary to stderr
+--explain          # Print structured YAML to stderr (personas, merged policy, removed conflicts)
 --output <path>    # Write to file instead of stdout
 --registry <path>  # Override character registry path
+```
+
+### `--explain` output
+
+```yaml
+personas:
+- sun-tzu: 0.6
+- marcus-aurelius: 0.4
+merged:
+  decision_policy: sun-tzu-dominant
+  risk_tolerance: high
+  time_horizon: long-term
+removed_conflicts:
+- 'Precision (intensity 0.95): ...'
 ```
 
 ### Python integration (Anthropic API)
@@ -150,7 +163,7 @@ sun-tzu/
 ├── meta.yaml          # Identity, type, schema version
 ├── mindset.yaml       # Principles, decision framework, mental models
 ├── personality.yaml   # Traits, emotional tendencies, drives
-├── behavior.yaml      # Work patterns, decision speed, conflict style
+├── behavior.yaml      # Work patterns, decision speed, conflict style (+ optional anti_patterns)
 ├── voice.yaml         # Tone, vocabulary, signature phrases
 └── sources.yaml       # Source material references
 ```
@@ -188,7 +201,7 @@ mindset preview --fusion my-blend.yaml
 |---|---|
 | `blend` | Weighted merge of all attributes |
 | `dominant` | Highest-weight character leads; others fill gaps |
-| `sequential` | Characters apply in list order; weights ignored |
+| `sequential` | Characters apply in list order; weights ignored (preview only; not supported in `generate` v0) |
 
 ---
 
@@ -233,12 +246,41 @@ mindset run claude --persona sun-tzu --persona marcus-aurelius --weights 6,4 -- 
 # Interactive mode (omit -- QUERY)
 mindset run claude --persona sun-tzu
 
-# Print compilation summary before launching
+# Print structured YAML summary before launching
 mindset run claude --persona sun-tzu --explain -- "query"
 
 # Custom registry
 mindset run claude --persona sun-tzu --registry ./my-chars -- "query"
 ```
+
+### Inject format
+
+The default `--format inject` produces a **behavioral instruction block** — actionable directives for the agent rather than a character description:
+
+```
+You embody a synthesized mindset drawing from: Sun Tzu (100%).
+
+DECISION POLICY:
+- Strategic deception: Misdirect before committing.
+- Approach: Win before the battle begins.
+
+UNCERTAINTY HANDLING:
+- risk_tolerance: high | time_horizon: long-term
+- Stress response: retreat to preparation, reassess terrain.
+
+INTERACTION RULES:
+- Communication: indirect, layered
+- Leadership: leads through positioning
+- Under conflict: avoidant of direct confrontation
+
+STYLE:
+- Tone: measured, aphoristic
+- Preferred: position, terrain, advantage
+- Avoided: rush, obvious
+- Sentence style: short aphorisms
+```
+
+Use `--format text` to get the plain-text character description instead.
 
 ### `mindset run` options
 
@@ -248,8 +290,8 @@ mindset run claude --persona sun-tzu --registry ./my-chars -- "query"
 | `--persona` | required | Character ID. Repeat for multi-persona. |
 | `--weights 6,4` | equal | Per-character weights (auto-normalized) |
 | `--strategy` | `blend` | `blend` \| `dominant` |
-| `--format` | `inject` | `text` \| `inject` (v0: equivalent) |
-| `--explain` | off | Print compilation summary to stderr |
+| `--format` | `inject` | `inject` (behavioral block) \| `text` (character description) |
+| `--explain` | off | Print structured YAML to stderr |
 | `--registry <path>` | auto | Override character registry path |
 | `-- QUERY` | none | One-shot query. Omit for interactive mode. |
 
@@ -272,10 +314,10 @@ mindset run <runtime> --persona <id>             # Compile & inject into agent r
 | Option | Default | Description |
 |---|---|---|
 | `--weights 6,4` | equal | Per-character weights (auto-normalized) |
-| `--strategy` | `blend` | `blend` \| `dominant` \| `sequential` |
+| `--strategy` | `blend` | `blend` \| `dominant` |
 | `--format` | `text` | `text` \| `anthropic-json` \| `debug-json` |
 | `--output <path>` | stdout | Write to file instead of stdout |
-| `--explain` | off | Print compilation summary to stderr |
+| `--explain` | off | Print structured YAML to stderr |
 | `--registry <path>` | auto | Override character registry path |
 
 ---
