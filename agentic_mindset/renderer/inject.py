@@ -88,6 +88,11 @@ class ClaudeRenderer(InjectRenderer):
         normal = [m for m in slot.modifiers if m.provenance in ("pack", "fallback")]
         weak   = [m for m in slot.modifiers if m.provenance == "weak"]
 
+        _known = {"pack", "fallback", "weak"}
+        for m in slot.modifiers:
+            if m.provenance not in _known:
+                raise ValueError(f"Unknown modifier provenance: {m.provenance!r}")
+
         if normal:
             if len(normal) == 1:
                 cond = self._render_conditions(normal[0])

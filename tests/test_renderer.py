@@ -143,3 +143,11 @@ def test_render_for_runtime_unknown_format_raises():
     ir = _simple_ir()
     with pytest.raises(ValueError, match="Unknown runtime format"):
         render_for_runtime(ir, "xml_tagged")
+
+
+def test_render_unknown_provenance_raises():
+    mod = ConditionModifier(value="direct", condition=[], source="marcus", provenance="weak")
+    mod.provenance = "unknown_prov"  # dataclass fields are mutable
+    ir = _simple_ir(comm_modifiers=[mod])
+    with pytest.raises(ValueError, match="Unknown modifier provenance"):
+        ClaudeRenderer().render(ir)
