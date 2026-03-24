@@ -7,6 +7,18 @@ if TYPE_CHECKING:
     from agentic_mindset.fusion import FusionReport
 
 
+def _build_preamble(
+    weighted_packs: list[tuple["CharacterPack", float]],
+    show_weights: bool = True,
+) -> str:
+    """Build preamble text from weighted character packs."""
+    if show_weights:
+        names = [f"{p.meta.name} ({w:.0%})" for p, w in weighted_packs]
+    else:
+        names = [p.meta.name for p, _ in weighted_packs]
+    return "You embody a synthesized mindset drawing from: " + ", ".join(names) + "."
+
+
 @dataclass
 class ContextBlock:
     preamble: str
@@ -30,11 +42,7 @@ class ContextBlock:
         When report is provided, duplicate items skipped during dedup are appended to
         report.removed_items.
         """
-        if show_weights:
-            names = [f"{p.meta.name} ({w:.0%})" for p, w in weighted_packs]
-        else:
-            names = [p.meta.name for p, _ in weighted_packs]
-        preamble = "You embody a synthesized mindset drawing from: " + ", ".join(names) + "."
+        preamble = _build_preamble(weighted_packs, show_weights)
 
         thinking: list[str] = []
         personality: list[str] = []
@@ -159,11 +167,7 @@ def render_inject_block(
               ANTI-PATTERNS (omitted if empty), STYLE.
     Dedup rule: first-seen-wins across packs iterated in weight-descending order.
     """
-    if show_weights:
-        names = [f"{p.meta.name} ({w:.0%})" for p, w in weighted_packs]
-    else:
-        names = [p.meta.name for p, _ in weighted_packs]
-    preamble = "You embody a synthesized mindset drawing from: " + ", ".join(names) + "."
+    preamble = _build_preamble(weighted_packs, show_weights)
 
     lines = [preamble, ""]
 
@@ -173,7 +177,7 @@ def render_inject_block(
         m = pack.mindset
         sorted_principles = sorted(
             m.core_principles,
-            key=lambda p: p.confidence if p.confidence is not None else -1.0,
+            key=lambda cp: cp.confidence if cp.confidence is not None else -1.0,
             reverse=True,
         )
         for principle in sorted_principles:
