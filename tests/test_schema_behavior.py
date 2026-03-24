@@ -43,3 +43,34 @@ def test_anti_patterns_accepts_list():
     )
     assert len(b.anti_patterns) == 2
     assert "Do not rush to conclusions" in b.anti_patterns
+
+
+from agentic_mindset.schema.behavior import BehaviorSchema
+from agentic_mindset.schema.personality import ConditionalSlot
+
+
+def test_conflict_style_plain_string_is_promoted():
+    b = BehaviorSchema(
+        work_patterns=["Prepare"],
+        decision_speed="deliberate",
+        execution_style=["Act"],
+        conflict_style="avoidant",
+    )
+    assert isinstance(b.conflict_style, ConditionalSlot)
+    assert str(b.conflict_style) == "avoidant"
+
+
+def test_conflict_style_full_format_accepted():
+    b = BehaviorSchema(
+        work_patterns=["Prepare"],
+        decision_speed="deliberate",
+        execution_style=["Act"],
+        conflict_style={
+            "default": "avoidant",
+            "conditional": [
+                {"value": "confrontational", "applies_when": ["advantage_secured"]}
+            ],
+        },
+    )
+    assert b.conflict_style.default == "avoidant"
+    assert b.conflict_style.conditional[0].value == "confrontational"

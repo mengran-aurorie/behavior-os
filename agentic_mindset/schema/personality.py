@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Union
 from pydantic import BaseModel, field_validator
 
 
@@ -20,9 +20,38 @@ class EmotionalTendencies(BaseModel):
     motivation_source: str
 
 
+class ConditionalVariant(BaseModel):
+    value: str
+    applies_when: list[str] = []
+    note: Optional[str] = None
+
+
+class ConditionalSlot(BaseModel):
+    default: str
+    conditional: list[ConditionalVariant] = []
+
+    def __str__(self) -> str:
+        return self.default
+
+    def __eq__(self, other) -> bool:
+        if isinstance(other, str):
+            return self.default == other
+        return super().__eq__(other)
+
+    def __hash__(self) -> int:
+        return hash(self.default)
+
+
 class InterpersonalStyle(BaseModel):
-    communication: str
-    leadership: str
+    communication: Union[str, ConditionalSlot]
+    leadership: Union[str, ConditionalSlot]
+
+    @field_validator("communication", "leadership", mode="before")
+    @classmethod
+    def normalize_slot(cls, v):
+        if isinstance(v, str):
+            return ConditionalSlot(default=v, conditional=[])
+        return v
 
 
 class PersonalitySchema(BaseModel):

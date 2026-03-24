@@ -96,7 +96,7 @@ class ContextBlock:
             if beh.conflict_style not in behavioral:
                 behavioral.append(beh.conflict_style)
             elif report is not None:
-                report.removed_items.append(beh.conflict_style)
+                report.removed_items.append(str(beh.conflict_style))
 
             v = pack.voice
             tone_line = f"Tone: {v.tone}"
