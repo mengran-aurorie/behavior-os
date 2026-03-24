@@ -87,3 +87,68 @@ def anti_patterns_pack_dir(minimal_pack_dir):
     write_yaml(pack_dir / "behavior.yaml", data)
     yield pack_dir
     shutil.rmtree(tmp)
+
+
+@pytest.fixture
+def conflict_registry(tmp_path):
+    """Registry with sun-tzu (indirect) and marcus-aurelius (direct) communication."""
+    base = tmp_path / "conflict_reg"
+    for pack_id, communication, conflict_style in [
+        ("sun-tzu",        "indirect", "avoidant"),
+        ("marcus-aurelius", "direct",  "confrontational"),
+    ]:
+        d = base / pack_id
+        d.mkdir(parents=True)
+        write_yaml(d / "meta.yaml", {
+            "id": pack_id,
+            "name": pack_id.replace("-", " ").title(),
+            "version": "1.0.0",
+            "schema_version": "1.0",
+            "type": "historical",
+            "description": f"{pack_id} test pack.",
+            "tags": [],
+            "authors": [{"name": "Test", "url": "https://github.com/test"}],
+            "created": "2026-03-24",
+        })
+        write_yaml(d / "mindset.yaml", {
+            "core_principles": [{"description": "Principle A", "detail": "Detail A"}],
+            "decision_framework": {
+                "risk_tolerance": "medium",
+                "time_horizon": "long-term",
+                "approach": "Think first",
+            },
+            "thinking_patterns": ["Observe"],
+            "mental_models": [{"name": "Model A", "description": "Desc A"}],
+        })
+        write_yaml(d / "personality.yaml", {
+            "traits": [{"name": "Focus", "description": "Focused", "intensity": 0.8}],
+            "emotional_tendencies": {
+                "stress_response": "reassess",
+                "motivation_source": "mastery",
+            },
+            "interpersonal_style": {
+                "communication": communication,
+                "leadership": "lead by positioning",
+            },
+            "drives": ["Excellence"],
+        })
+        write_yaml(d / "behavior.yaml", {
+            "work_patterns": ["Prepare thoroughly"],
+            "decision_speed": "deliberate",
+            "execution_style": ["Act decisively"],
+            "conflict_style": conflict_style,
+        })
+        write_yaml(d / "voice.yaml", {
+            "tone": "measured",
+            "vocabulary": {"preferred": ["clarity"], "avoided": ["rush"]},
+            "sentence_style": "concise",
+            "signature_phrases": [],
+        })
+        write_yaml(d / "sources.yaml", {
+            "sources": [
+                {"title": f"Source 1 {pack_id}", "type": "book", "accessed": "2026-03-24"},
+                {"title": f"Source 2 {pack_id}", "type": "book", "accessed": "2026-03-24"},
+                {"title": f"Source 3 {pack_id}", "type": "book", "accessed": "2026-03-24"},
+            ]
+        })
+    yield base
