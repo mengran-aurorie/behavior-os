@@ -421,7 +421,7 @@ def test_render_for_runtime_inject(minimal_pack_dir):
     assert isinstance(result, str)
 
 
-def test_render_for_runtime_text_equals_inject(minimal_pack_dir):
+def test_render_for_runtime_inject_and_text_differ(minimal_pack_dir):
     """inject and text now produce different output — inject uses 5-section format."""
     from agentic_mindset.pack import CharacterPack
     pack = CharacterPack.load(minimal_pack_dir)
@@ -711,8 +711,8 @@ def test_render_for_runtime_inject_requires_weighted_packs(minimal_pack_dir):
 
 def test_run_inject_format_produces_5_sections(gen_registry):
     """mindset run with default --format inject writes behavioral block to tempfile."""
-    with patch("shutil.which", return_value="/usr/bin/claude"), \
-         patch("subprocess.run", return_value=MagicMock(returncode=0)):
+    with patch("agentic_mindset.cli.shutil.which", return_value="/usr/bin/claude"), \
+         patch("agentic_mindset.cli.subprocess.run", return_value=MagicMock(returncode=0)):
         result = runner.invoke(app, [
             "run", "claude",
             "--persona", "sun-tzu",

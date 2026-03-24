@@ -387,6 +387,8 @@ def run(
 
     # prepare_packs only when needed (inject format or explain)
     needs_packs = (format_ == "inject") or explain
+    # TODO: double I/O — fuse() already calls prepare_packs() internally via fuse_config().
+    # Fix in a future version by surfacing weighted_packs from FusionReport or fuse() return value.
     weighted_packs_ex = engine.prepare_packs(chars, strat) if needs_packs else None
 
     injected = render_for_runtime(block, fmt=format_, weighted_packs=weighted_packs_ex)
