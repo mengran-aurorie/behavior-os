@@ -158,30 +158,47 @@ class BehaviorIR:
     # DECISION POLICY — additive, sorted by confidence desc
     decision_policy_items: list[str] = field(default_factory=list)
 
-    # UNCERTAINTY HANDLING
+    # UNCERTAINTY HANDLING (non-slot scalar fields)
     risk_tolerance: str = ""   # v1: primary pack's value; blend deferred
     time_horizon: str = ""     # v1: primary pack's value; blend deferred
-    stress_response: ResolvedSlot | None = None
-
-    # INTERACTION RULES
-    communication: ResolvedSlot | None = None
-    leadership: ResolvedSlot | None = None
-    conflict_style: ResolvedSlot | None = None
 
     # ANTI-PATTERNS — additive dedup
     anti_patterns: list[str] = field(default_factory=list)
 
-    # STYLE
-    tone: ResolvedSlot | None = None
+    # STYLE (non-slot scalar fields)
     vocabulary_preferred: list[str] = field(default_factory=list)
     vocabulary_avoided: list[str] = field(default_factory=list)
-    sentence_style: ResolvedSlot | None = None
 
-    # Generic slot access (for renderers, explain, benchmarks)
+    # All ResolvedSlots — single source of truth
     slots: dict[str, ResolvedSlot] = field(default_factory=dict)
+
+    # Typed accessors — convenience properties, not stored fields
+    @property
+    def stress_response(self) -> ResolvedSlot | None:
+        return self.slots.get("stress_response")
+
+    @property
+    def communication(self) -> ResolvedSlot | None:
+        return self.slots.get("communication")
+
+    @property
+    def leadership(self) -> ResolvedSlot | None:
+        return self.slots.get("leadership")
+
+    @property
+    def conflict_style(self) -> ResolvedSlot | None:
+        return self.slots.get("conflict_style")
+
+    @property
+    def tone(self) -> ResolvedSlot | None:
+        return self.slots.get("tone")
+
+    @property
+    def sentence_style(self) -> ResolvedSlot | None:
+        return self.slots.get("sentence_style")
 ```
 
-`slots` mirrors all `ResolvedSlot` typed fields as a dict for generic access. Both representations are always consistent; `build_ir()` populates both.
+`slots` is the only stored source of truth for all `ResolvedSlot` data. Typed properties are read-only aliases over `slots` — they are never written directly, eliminating dual-write risk. `build_ir()` only writes to `slots`; renderers and explain output access slots via either the dict or the typed properties interchangeably.
 
 `risk_tolerance` and `time_horizon` are plain strings in v1. Numeric blend (weighted average over ordered enum) is deferred — the values are semantically context-dependent and the gain from blending them does not justify the risk of producing a value that is numerically coherent but semantically misleading (e.g., `high × 0.6 + medium × 0.4 → medium` where the character's risk profile is actually context-split).
 
@@ -246,6 +263,18 @@ for each secondary in values[1:]:
     → dropped(reason="no_condition")
 ```
 
+**Modifier sort order (deterministic output):**
+
+After all secondaries are processed, the `modifiers` list is sorted before being stored in `ResolvedSlot`:
+
+```python
+PROVENANCE_ORDER = {"pack": 0, "fallback": 1, "weak": 2}
+
+modifiers.sort(key=lambda m: (PROVENANCE_ORDER[m.provenance], -m.primary_weight))
+```
+
+Where `primary_weight` is the weight of the secondary pack that contributed the modifier (stored temporarily during resolution). This ensures: pack conditions appear before fallback, fallback before weak; within the same provenance tier, higher-weight secondaries appear first. The sort is stable and fully deterministic given the same inputs.
+
 **`is_conflict()` implementation:**
 
 ```python
@@ -289,14 +318,27 @@ Values not in the taxonomy are not considered conflicting. Winner-takes-all appl
 ### 4.5 Fallback templates (`agentic_mindset/resolver/policies.py`)
 
 ```python
-# (slot_name, secondary_value) → list[condition_labels]
-MODIFIER_FALLBACK_TEMPLATES: dict[tuple[str, str], list[str]] = {
-    ("communication", "direct"):                ["clarity_critical", "time_pressure"],
-    ("conflict_style", "confrontational"):      ["advantage_secured"],
-    ("conflict_style", "direct confrontation"): ["advantage_secured"],
-    ("leadership", "directive"):                ["execution_phase", "time_pressure"],
+# (slot_name, primary_value, secondary_value) → list[condition_labels]
+# Use "*" as primary_value wildcard for primary-agnostic templates.
+# Lookup order: exact (slot, primary, secondary) first, then (slot, "*", secondary).
+MODIFIER_FALLBACK_TEMPLATES: dict[tuple[str, str, str], list[str]] = {
+    ("communication", "*", "direct"):                ["clarity_critical", "time_pressure"],
+    ("conflict_style", "*", "confrontational"):      ["advantage_secured"],
+    ("conflict_style", "*", "direct confrontation"): ["advantage_secured"],
+    ("leadership",    "*", "directive"):             ["execution_phase", "time_pressure"],
 }
 ```
+
+**Template lookup:**
+```python
+def _get_fallback_conditions(slot: str, primary: str, secondary: str) -> list[str]:
+    specific = MODIFIER_FALLBACK_TEMPLATES.get((slot, primary.lower().strip(), secondary.lower().strip()))
+    if specific is not None:
+        return specific
+    return MODIFIER_FALLBACK_TEMPLATES.get((slot, "*", secondary.lower().strip()), [])
+```
+
+The three-key structure enables primary-specific overrides. For example, `("communication", "reserved", "open")` could have a different template than `("communication", "indirect", "open")`. The wildcard `"*"` primary covers the common case and remains the default until a specific override is needed.
 
 Not all `SLOT_CONFLICT_PAIRS` entries require a fallback template. Secondary values without a matching template become `weak` modifiers if `weight >= SOFT_THRESHOLD`, else are discarded (`reason="no_condition"`). For example, the pairs `("layered","blunt")`, `("reserved","open")` in `communication` have no fallback template in v1 — conflicts on those value pairs degrade to `weak` or are dropped. This is intentional: the fallback table grows as pack authors demonstrate need.
 
@@ -334,7 +376,19 @@ class ConditionLabel(str, Enum):
     trust_fragile        = "trust_fragile"
 ```
 
-Unknown labels in a pack's `applies_when` field raise a `ValidationError` at pack load time. Labels unknown to the renderer fall back to `label.replace("_", " ")` with a warning.
+**Strict enforcement (both layers):**
+
+- **Schema validation:** Unknown labels in a pack's `applies_when` field raise `ValidationError` at pack load time. No silent acceptance.
+- **Renderer:** Unknown labels in `ConditionModifier.condition` raise `ValueError`. This should be unreachable in production (schema validation runs first), but protects against internal bugs where IR is constructed without going through pack validation.
+
+```python
+# renderer/_render_conditions()
+for label in modifier.condition:
+    if label not in CONDITION_TEXT_EN:
+        raise ValueError(f"Unknown condition label: {label!r}. Add to CONDITION_TEXT_EN or ConditionLabel enum.")
+```
+
+There is no silent fallback in either layer. If a label is valid enough to pass schema validation, it must have a renderer mapping. Adding a new label requires updating both `ConditionLabel` and `CONDITION_TEXT_EN` — the enum and renderer are kept in sync as a hard constraint.
 
 Not all labels in `ConditionLabel` appear in `MODIFIER_FALLBACK_TEMPLATES`. Labels like `high_tension`, `public_confrontation`, and `trust_fragile` are reserved for pack-level `conditional` variants. The enum defines the full valid vocabulary; fallback templates use only the subset they need.
 
@@ -408,7 +462,7 @@ CONDITION_TEXT_EN: dict[str, str] = {
 }
 ```
 
-Renderer uses `CONDITION_TEXT_EN.get(label, label.replace("_", " "))` — unknown labels render gracefully rather than raising.
+Renderer uses `CONDITION_TEXT_EN[label]` — unknown labels raise `ValueError`. Both `ConditionLabel` enum and `CONDITION_TEXT_EN` must be updated together when adding a new label (strict co-evolution).
 
 Multi-condition joining: `conjunction="any"` → `" or ".join(texts)`, prefixed with `"when "`.
 
@@ -661,7 +715,11 @@ The IR layer enables the following without changing the resolver or schema:
 
 - **Multi-runtime adapters:** New `XxxRenderer(InjectRenderer)` subclass; no other changes.
 - **IR diff / benchmark:** Compare `BehaviorIR` instances across personas or sessions; `has_conflict` and `dropped` fields provide structured signal.
-- **Subagent slices:** Extract a subset of IR slots for a specialized subagent role (e.g., only `communication` + `leadership` for a meeting context).
-- **Strategy engine:** Derive planning biases from `communication.primary`, `conflict_style.primary`, and modifier patterns.
+- **Subagent slices:** `ir.slice(["communication", "leadership"])` returns a new `BehaviorIR` containing only the specified slots. Enables single-purpose agents (negotiation agent, leadership advisor, etc.) derived from the same fusion result.
+- **Strategy engine:** `BehaviorIR` is the input to any strategy engine — not text, not prompt. Derive planning biases from `communication.primary`, `conflict_style.primary`, and modifier patterns.
 - **`decision_policy` resolution:** Extend `ConflictResolver` to resolve `core_principles` conflicts by adding a `PolicyItem` dataclass with source/weight tracking (noted in §3.6).
 - **Condition vocabulary expansion:** Defined process: PR to `ConditionLabel` enum + `CONDITION_TEXT_EN` entry + optional pack updates.
+- **IR hash:** `BehaviorIR.hash() -> str` over `(slots, personas, risk_tolerance, time_horizon)`. Enables caching, exact-match deduplication across sessions, and reproducibility guarantees for benchmarks.
+- **IR serialization:** `BehaviorIR.to_dict()` / `BehaviorIR.from_dict()` for cross-language interop, API exposure, and database storage. The `slots` dict structure maps directly to a JSON schema.
+- **Renderer debug header:** An optional stable header in the rendered output (`# Mindset IR v1 | personas: sun-tzu(0.6), marcus(0.4)`) for downstream parsing and human-readable attribution. Disabled by default; enabled via `ClaudeRenderer(header=True)`.
+- **Fallback table primary-specific overrides:** The `(slot, primary, secondary)` key structure already supports this. As pack diversity grows, primary-specific conditions can be registered without schema changes.
