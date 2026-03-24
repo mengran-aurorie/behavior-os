@@ -2,7 +2,7 @@ import shutil
 import yaml
 import pytest
 from pathlib import Path
-from agentic_mindset.fusion import FusionEngine, FusionConfig, FusionStrategy
+from agentic_mindset.fusion import FusionEngine, FusionConfig, FusionStrategy, FusionReport
 from agentic_mindset.registry import CharacterRegistry
 
 
@@ -88,3 +88,40 @@ def test_blend_higher_weight_leads(minimal_pack_dir, tmp_path):
     engine = FusionEngine(registry)
     block = engine.fuse([("sun-tzu", 0.3), ("marcus-aurelius", 0.7)])
     assert block.preamble.index("Marcus Aurelius") < block.preamble.index("Sun Tzu")
+
+
+def test_fusion_report_default_construction():
+    """FusionReport() can be constructed with no arguments."""
+    report = FusionReport()
+    assert report.personas == []
+    assert report.strategy == ""
+    assert report.removed_items == []
+    assert report.dominant_character is None
+
+
+def test_prepare_packs_returns_normalized_sorted(minimal_pack_dir, tmp_path):
+    registry = _make_registry(minimal_pack_dir, tmp_path, "marcus-aurelius")
+    engine = FusionEngine(registry)
+    packs = engine.prepare_packs([("sun-tzu", 0.3), ("marcus-aurelius", 0.7)])
+    # higher weight first
+    assert packs[0][0].meta.id == "marcus-aurelius"
+    assert packs[1][0].meta.id == "sun-tzu"
+    # weights normalized (sum = 1.0)
+    total = sum(w for _, w in packs)
+    assert abs(total - 1.0) < 1e-9
+
+
+def test_prepare_packs_single_character(minimal_pack_dir, tmp_path):
+    registry = _make_registry(minimal_pack_dir, tmp_path)
+    engine = FusionEngine(registry)
+    packs = engine.prepare_packs([("sun-tzu", 1.0)])
+    assert len(packs) == 1
+    assert packs[0][0].meta.id == "sun-tzu"
+    assert abs(packs[0][1] - 1.0) < 1e-9
+
+
+def test_prepare_packs_zero_weights_raises(minimal_pack_dir, tmp_path):
+    registry = _make_registry(minimal_pack_dir, tmp_path)
+    engine = FusionEngine(registry)
+    with pytest.raises(ValueError, match="sum to zero"):
+        engine.prepare_packs([("sun-tzu", 0.0)])
