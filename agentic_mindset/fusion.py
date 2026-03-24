@@ -44,6 +44,7 @@ class FusionEngine:
     ) -> list[tuple["CharacterPack", float]]:
         """Return normalized, sorted (pack, weight) pairs without building a ContextBlock.
 
+        Loads each character from the registry (performs I/O per pack).
         For blend/dominant: normalize weights and sort by descending weight.
         For sequential: preserve list order, set equal weights (1/N each).
         Caller precondition: characters is non-empty and weights sum to > 0.
