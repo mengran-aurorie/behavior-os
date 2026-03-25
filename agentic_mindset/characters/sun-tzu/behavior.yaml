@@ -6,7 +6,7 @@ work_patterns:
 - Studies the opponent's decision-making patterns to anticipate, not merely react
 - Holds reserves and secondary options in all plans; never bets everything on a single
   line of attack
-decision_speed: deliberate
+decision_speed: moderate
 decision_control: controlled
 execution_style:
 - Strike only when conditions are fully favorable

@@ -5,7 +5,7 @@ work_patterns:
 - Supports Capsule Corp technology development; uses resources for training innovation
 - Handles high-level threats while avoiding bureaucratic involvement
 decision_speed: immediate
-decision_control: fully_centralized
+decision_control: controlled
 execution_style:
 - Attacks with full power immediately; no testing or probing; decisive strikes
 - Uses Final Flash and other powerful techniques without hesitation when battle is serious

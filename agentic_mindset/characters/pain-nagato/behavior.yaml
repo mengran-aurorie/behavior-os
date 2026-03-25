@@ -4,7 +4,7 @@ work_patterns:
 - Uses Akatsuki alliance for high-level operations while Pain serves different strategic purpose
 - Maintains Nagato identity separate; Pain is a role Nagato plays, not who he is
 decision_speed: slow
-decision_control: centralized
+decision_control: controlled
 execution_style:
 - Coordinates all six paths simultaneously; each serves specific tactical function
 - Uses Deva Path's gravitational abilities for battlefield control and capture

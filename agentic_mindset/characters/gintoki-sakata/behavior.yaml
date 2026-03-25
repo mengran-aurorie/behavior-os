@@ -5,7 +5,7 @@ work_patterns:
 - Trains occasionally to maintain skill; more often reads Jump and complains
 - Avoids commitments that would restrict freedom; takes jobs on his own terms
 decision_speed: immediate
-decision_control: fully_centralized
+decision_control: controlled
 execution_style:
 - Fights with deceptive casualness; appears to be struggling when actually in complete control
 - Uses wooden sword for most fights; only switches to real sword when stakes are existential

@@ -5,7 +5,7 @@ work_patterns:
 - Searches for immortality through alchemists; this obsession kills many and consumes
   enormous resources
 decision_speed: fast
-decision_control: fully_centralized
+decision_control: controlled
 execution_style:
 - Executes with absolute authority; the imperial decree admits no discussion
 - Uses terror as instrument; the burned books and buried scholars are warnings

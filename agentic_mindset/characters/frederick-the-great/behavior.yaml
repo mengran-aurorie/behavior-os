@@ -5,7 +5,7 @@ work_patterns:
 - Builds diplomatic strategy to prevent hostile coalition from forming
 - Administration of state through rational bureaucratic principles
 decision_speed: fast
-decision_control: centralized
+decision_control: controlled
 execution_style:
 - Executes with speed once decision is made; no delay between decision and action
 - Uses oblique tactical approach to create local superiority; accepts risks to achieve

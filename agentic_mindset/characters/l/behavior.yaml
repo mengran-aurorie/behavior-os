@@ -4,7 +4,7 @@ work_patterns:
 - Shares progress only when certainty is achieved; does not speculate to others
 - Maintains Kira task force through careful management of Light's access to information
 decision_speed: slow
-decision_control: fully_centralized
+decision_control: controlled
 execution_style:
 - Acts only when evidence reaches threshold of certainty; never before
 - Uses task force resources but keeps investigation core completely controlled

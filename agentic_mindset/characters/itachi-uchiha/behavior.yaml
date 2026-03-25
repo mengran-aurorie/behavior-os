@@ -5,7 +5,7 @@ work_patterns:
 - Uses Amaterasu and Tsukuyomi with absolute precision when missions demand
 - Shares information with village through covert channels only when absolutely safe
 decision_speed: slow
-decision_control: highly_centralized
+decision_control: controlled
 execution_style:
 - Acts with perfect precision when decision is made; no wasted motion or emotion
 - Maintains cover through small acts of apparent loyalty to Akatsuki

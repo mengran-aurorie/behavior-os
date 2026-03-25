@@ -4,7 +4,7 @@ work_patterns:
 - Uses diplomacy and tribute demands to weaken enemies before attack
 - Maintains absolute control over campaign strategy; subordinates execute
 decision_speed: immediate
-decision_control: fully_centralized
+decision_control: controlled
 execution_style:
 - Uses overwhelming mounted archery and speed; the engagement is decided before
   the enemy can properly respond

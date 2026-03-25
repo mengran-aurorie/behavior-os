@@ -4,7 +4,7 @@ work_patterns:
 - Constantly maintains weapon and combat readiness; practices swordplay even when not in danger
 - Searches for information about the Brand and how to remove it
 decision_speed: immediate
-decision_control: fully_centralized
+decision_control: controlled
 execution_style:
 - Acts with brutal decisive violence; no hesitation once decision is made to fight
 - Uses overwhelming strength and the Dragonslayer's mass to destroy opposition completely

@@ -4,7 +4,7 @@ work_patterns:
 - Eliminates threats through network action; never gets hands dirty
 - Continually develops new operations while Holmes dismantles old ones
 decision_speed: slow
-decision_control: highly_centralized
+decision_control: controlled
 execution_style:
 - Operates entirely through intermediaries; no direct involvement in operations
 - Maintains absolute composure even when operations fail; failures are data points

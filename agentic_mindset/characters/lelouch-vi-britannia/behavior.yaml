@@ -5,7 +5,7 @@ work_patterns:
 - Builds coalition of convenience among diverse resistance factions; subordinates differences
   to common cause
 decision_speed: fast
-decision_control: centralized
+decision_control: controlled
 execution_style:
 - Executes complex multi-stage plans with precision; coordinates simultaneous actions across theater
 - Uses himself as visible target to draw enemy attention and protect larger operation

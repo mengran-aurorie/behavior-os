@@ -1,7 +1,7 @@
 work_patterns:
   - balanced workload
   - regular check-ins
-decision_speed: deliberate
+decision_speed: moderate
 decision_control: controlled
 execution_style:
   - steady

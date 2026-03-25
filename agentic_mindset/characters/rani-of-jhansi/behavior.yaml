@@ -4,7 +4,7 @@ work_patterns:
 - Coordinates with other rebellion leaders across the region for simultaneous action
 - Makes tactical decisions personally at battlefield; does not delegate combat decisions
 decision_speed: fast
-decision_control: decentralized
+decision_control: reactive
 execution_style:
 - Moves quickly when opportunity appears; does not hesitate when tactical window opens
 - Fights at front when engagement is necessary; personal presence changes morale calculations

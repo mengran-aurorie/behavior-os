@@ -3,8 +3,8 @@ work_patterns:
 - Maintains cover of love madness while investigating through Rosencrantz and Guildenstern
 - Contemplates existence and death while waiting for certainty to emerge
 - Distributes his ring to Horatio as final instructions before the fencing match
-decision_speed: extremely_slow
-decision_control: fully_centralized
+decision_speed: slow
+decision_control: controlled
 execution_style:
 - Acts only when absolutely forced by circumstance; otherwise contemplative delay
 - When action comes, it is sudden and irrevocable; kills Polonius without thinking

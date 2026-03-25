@@ -5,7 +5,7 @@ work_patterns:
   - Coordinates crews and alliances through vision and persuasion rather than command
   - Maintains long-term orientation even when immediate pleasure or safety would
     require abandoning the journey
-decision_speed: deliberate
+decision_speed: moderate
 decision_control: controlled
 execution_style:
   - Construct the deception fully before executing; an incomplete trap catches nothing

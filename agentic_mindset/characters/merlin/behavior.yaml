@@ -3,8 +3,8 @@ work_patterns:
 - Positions young Arthur through a lifetime of careful guidance
 - Maintains magical presence subtle enough to avoid being seen as political threat
 - Watches for threats to Camelot's long-term survival; acts only when necessary
-decision_speed: extremely_slow
-decision_control: decentralized
+decision_speed: slow
+decision_control: reactive
 execution_style:
 - Acts through others; rarely appears directly in matters of state
 - When forced to act, uses magic with absolute decisiveness; no half-measures

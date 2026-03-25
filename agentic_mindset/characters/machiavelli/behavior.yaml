@@ -4,7 +4,7 @@ work_patterns:
 - Maintains analysis independent of who is in power; does not flatter current ruler
 - Reads ancient texts (Livy, Thucydides) not for moral lessons but for behavioral patterns
 decision_speed: fast
-decision_control: autonomous
+decision_control: controlled
 execution_style:
 - Acts quickly when political windows open; delays when windows are closed
 - Maintains multiple options simultaneously rather than committing to single path

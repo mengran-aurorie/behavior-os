@@ -5,7 +5,7 @@ work_patterns:
 - Maintains Nezuko's physical safety and humanity through regular contact and speech
 - Builds relationships with other Hashira and demon slayers for information and support
 decision_speed: moderate
-decision_control: centralized
+decision_control: controlled
 execution_style:
 - Uses Water Breathing's directional forms for precise, adaptive combat
 - Maintains forward pressure on demons while protecting any humans in area

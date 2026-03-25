@@ -4,8 +4,8 @@ work_patterns:
 - Uses the Regents to maintain authority while accumulating power for the eventual bid
 - At Sekigahara, coordinates the largest battle in Japanese history through superior
   intelligence and positioning
-decision_speed: extremely_slow
-decision_control: highly_centralized
+decision_speed: slow
+decision_control: controlled
 execution_style:
 - Delegates military operations to capable subordinates when position is established
 - Moves personally only when the strategic situation requires direct involvement

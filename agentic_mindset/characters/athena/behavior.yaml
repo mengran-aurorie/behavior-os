@@ -6,7 +6,7 @@ work_patterns:
 - Fosters crafts and civilization through mortals; the olive tree and the ship are her gifts
 - Maintains balance among gods; prevents any single deity from dominating mortal affairs
 decision_speed: slow
-decision_control: fully_centralized
+decision_control: controlled
 execution_style:
 - Acts through mortal agents; rarely appears directly in mortal affairs
 - When appearing, maintains divine dignity and authority; never acts rashly

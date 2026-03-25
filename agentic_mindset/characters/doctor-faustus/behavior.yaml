@@ -4,7 +4,7 @@ work_patterns:
 - "The uses become progressively more trivial; the grandeur that justified the bargain proves hollow"
 - Spends final hours in mounting terror; attempts to pray but cannot
 decision_speed: immediate
-decision_control: fully_centralized
+decision_control: controlled
 execution_style:
 - Commands spirits through the authority of the signed contract; Mephistopheles serves
   because the contract binds him

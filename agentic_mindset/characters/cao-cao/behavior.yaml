@@ -6,7 +6,7 @@ work_patterns:
 - Investigates potential threats through intelligence networks; acts decisively when
   evidence is sufficient
 decision_speed: fast
-decision_control: fully_centralized
+decision_control: controlled
 execution_style:
 - Moves armies with strategic precision; victory at Guandu against numerically superior
   forces demonstrates tactical mastery

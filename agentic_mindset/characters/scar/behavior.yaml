@@ -5,7 +5,7 @@ work_patterns:
 - Builds intelligence network through Ishvalan refugee community
 - Later coordinates with other Ishvalan survivors for larger operations
 decision_speed: fast
-decision_control: fully_centralized
+decision_control: controlled
 execution_style:
 - Kills with precision and controlled violence; no unnecessary cruelty
 - Uses alkahestry defensively to avoid killing when possible

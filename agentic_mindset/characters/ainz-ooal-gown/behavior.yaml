@@ -6,7 +6,7 @@ work_patterns:
   other agents
 - Maintains perfect ruler persona through careful word choice and emotional control
 decision_speed: slow
-decision_control: centralized
+decision_control: controlled
 execution_style:
 - Delegates most operations to competent subordinates with clear objectives
 - Intervenes personally only for high-value targets or when subordinates are insufficient

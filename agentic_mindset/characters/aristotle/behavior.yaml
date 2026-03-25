@@ -6,8 +6,8 @@ work_patterns:
 - Teaches by asking questions that lead the student to discover the principle rather
   than stating it directly
 - Writes in treatises that build systematically from definitions to conclusions
-decision_speed: deliberate
-decision_control: principled
+decision_speed: moderate
+decision_control: controlled
 execution_style:
 - Acts only after establishing the correct principle that applies to the situation
 - Executes with consistency once the correct action is identified; avoids impulsive deviation

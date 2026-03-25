@@ -4,7 +4,7 @@ work_patterns:
 - Builds networks of obligation; those who owe him find themselves indebted at critical moments
 - Exploits the certainty of others; assume nothing and you will never be surprised
 decision_speed: immediate
-decision_control: fully_centralized
+decision_control: controlled
 execution_style:
 - Acts through deception and misdirection; rarely appears as himself in his own schemes
 - Maintains multiple exit strategies; never commit to a single path

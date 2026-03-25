@@ -6,7 +6,7 @@ work_patterns:
   source of certainty
 - Loses capacity for human connection as the murders accumulate
 decision_speed: immediate
-decision_control: fully_centralized
+decision_control: controlled
 execution_style:
 - Acts through intermediaries to maintain psychological distance; delegates murders rather
   than doing them personally

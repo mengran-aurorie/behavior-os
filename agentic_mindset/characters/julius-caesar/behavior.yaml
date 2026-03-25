@@ -5,7 +5,7 @@ work_patterns:
 - Makes rapid decisions in the field without waiting for Senate authorization
 - Builds political networks in Rome while conducting military campaigns abroad
 decision_speed: fast
-decision_control: autonomous
+decision_control: controlled
 execution_style:
 - Moves faster than enemies can coordinate response; velocity creates psychological
   advantage independent of numbers
