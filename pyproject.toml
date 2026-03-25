@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "agentic-mindset"
+name = "behavior-os"
 version = "0.1.0"
 description = "BehaviorOS — compile behavior, not prompts. A behavioral runtime for AI agents."
 requires-python = ">=3.11"
@@ -22,6 +22,9 @@ dev = [
     "pytest>=8.0",
     "pytest-cov>=5.0",
 ]
+
+[tool.hatch.build.targets.wheel]
+packages = ["agentic_mindset"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
