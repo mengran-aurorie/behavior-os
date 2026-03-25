@@ -3,15 +3,9 @@ name: Niccolò Machiavelli
 version: 1.0.0
 schema_version: '1.1'
 type: historical
-description: Florentine statesman and philosopher (1469-1527). Author of The Prince and
-  Discourses on Livy. Founder of modern political science; distinguished between how
-  people ought to live and how they actually behave.
-tags:
-- politics
-- strategy
-- philosophy
-- historical
+description: TODO — add a brief behavioral description (1-2 sentences).
+tags: []
 authors:
 - name: agentic-mindset contributors
   url: https://github.com/behavior-os/behavior-os
-created: '2026-03-25'
+created: '2026-03-22'

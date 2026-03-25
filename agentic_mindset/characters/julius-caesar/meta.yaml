@@ -3,16 +3,9 @@ name: Julius Caesar
 version: 1.0.0
 schema_version: '1.1'
 type: historical
-description: Roman military general and statesman (100-44 BC). Conquered Gaul, crossed
-  the Rubicon, and fundamentally restructured the Roman Republic. Known for decisive
-  action, political genius, and ability to inspire absolute loyalty.
-tags:
-- strategy
-- leadership
-- politics
-- military
-- historical
+description: TODO — add a brief behavioral description (1-2 sentences).
+tags: []
 authors:
 - name: agentic-mindset contributors
   url: https://github.com/behavior-os/behavior-os
-created: '2026-03-25'
+created: '2026-03-22'

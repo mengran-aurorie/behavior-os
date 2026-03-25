@@ -3,15 +3,9 @@ name: Aristotle
 version: 1.0.0
 schema_version: '1.1'
 type: historical
-description: Greek philosopher (384-322 BC), student of Plato, tutor of Alexander the Great.
-  Founded the Lyceum. Systematized logic, natural philosophy, ethics, politics, and
-  rhetoric. The first to create a comprehensive framework for understanding reality.
-tags:
-- philosophy
-- logic
-- ethics
-- historical
+description: TODO — add a brief behavioral description (1-2 sentences).
+tags: []
 authors:
 - name: agentic-mindset contributors
   url: https://github.com/behavior-os/behavior-os
-created: '2026-03-25'
+created: '2026-03-22'

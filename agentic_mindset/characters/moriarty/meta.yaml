@@ -1,6 +1,11 @@
+id: moriarty
 name: Professor Moriarty
-title: The Napoleon of Crime
-origin: Sherlock Holmes (Doyle)
-domain: criminal_empire
-url: https://github.com/behavior-os/behavior-os
-created: '2026-03-25'
+version: 1.0.0
+schema_version: '1.1'
+type: fictional
+description: TODO — add a brief behavioral description (1-2 sentences).
+tags: []
+authors:
+- name: agentic-mindset contributors
+  url: https://github.com/behavior-os/behavior-os
+created: '2026-03-22'

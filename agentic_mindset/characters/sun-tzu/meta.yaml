@@ -3,13 +3,8 @@ name: Sun Tzu
 version: 1.0.0
 schema_version: '1.1'
 type: historical
-description: Chinese military strategist (544-496 BC), author of The Art of War.
-  Master of strategic patience, deception, and winning without direct conflict.
-tags:
-- strategy
-- philosophy
-- military
-- historical
+description: TODO — add a brief behavioral description (1-2 sentences).
+tags: []
 authors:
 - name: agentic-mindset contributors
   url: https://github.com/behavior-os/behavior-os

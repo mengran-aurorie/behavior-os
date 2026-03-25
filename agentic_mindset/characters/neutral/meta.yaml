@@ -1,12 +1,11 @@
 id: neutral
 name: Neutral Baseline
 version: 1.0.0
-schema_version: "1.0"
-type: fictional
-description: Default neutral persona
-tags:
-  - baseline
-  - neutral
+schema_version: '1.1'
+type: historical
+description: TODO — add a brief behavioral description (1-2 sentences).
+tags: []
 authors:
-  - name: TODO
-created: "2026-03-25"
+- name: agentic-mindset contributors
+  url: https://github.com/behavior-os/behavior-os
+created: '2026-03-22'

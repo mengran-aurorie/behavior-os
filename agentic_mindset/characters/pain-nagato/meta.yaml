@@ -1,6 +1,11 @@
+id: pain-nagato
 name: Pain (Nagato)
-title: The Deva Path of Catastrophe
-origin: Naruto
-domain: cycle_of_pain
-url: https://github.com/behavior-os/behavior-os
-created: '2026-03-25'
+version: 1.0.0
+schema_version: '1.1'
+type: fictional
+description: TODO — add a brief behavioral description (1-2 sentences).
+tags: []
+authors:
+- name: agentic-mindset contributors
+  url: https://github.com/behavior-os/behavior-os
+created: '2026-03-22'

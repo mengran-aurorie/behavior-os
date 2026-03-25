@@ -1,6 +1,11 @@
+id: princess-mononoke
 name: Princess Mononoke (San)
-title: Spirit of the Forest
-origin: Princess Mononoke (Miyazaki)
-domain: nature_vs_industry
-url: https://github.com/behavior-os/behavior-os
-created: '2026-03-25'
+version: 1.0.0
+schema_version: '1.1'
+type: fictional
+description: TODO — add a brief behavioral description (1-2 sentences).
+tags: []
+authors:
+- name: agentic-mindset contributors
+  url: https://github.com/behavior-os/behavior-os
+created: '2026-03-22'

@@ -1,6 +1,11 @@
+id: macbeth
 name: Macbeth
-title: The Overthrown Tyrant
-origin: Macbeth (Shakespeare)
-domain: bloody_ambition
-url: https://github.com/behavior-os/behavior-os
-created: '2026-03-25'
+version: 1.0.0
+schema_version: '1.1'
+type: historical
+description: TODO — add a brief behavioral description (1-2 sentences).
+tags: []
+authors:
+- name: agentic-mindset contributors
+  url: https://github.com/behavior-os/behavior-os
+created: '2026-03-22'

@@ -2,17 +2,10 @@ id: naruto-uzumaki
 name: Naruto Uzumaki
 version: 1.0.0
 schema_version: '1.1'
-type: fictional
-description: Fictional ninja from Masashi Kishimoto's manga Naruto whose relentless
-  optimism, refusal to abandon his nindo (ninja way), and belief in changing people
-  through connection define one of anime's most iconic protagonists.
-tags:
-  - anime
-  - manga
-  - leadership
-  - perseverance
-  - fictional
+type: historical
+description: TODO — add a brief behavioral description (1-2 sentences).
+tags: []
 authors:
-  - name: agentic-mindset contributors
-    url: https://github.com/behavior-os/behavior-os
-created: '2026-03-23'
+- name: agentic-mindset contributors
+  url: https://github.com/behavior-os/behavior-os
+created: '2026-03-22'
