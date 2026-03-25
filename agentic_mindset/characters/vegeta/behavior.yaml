@@ -4,7 +4,7 @@ work_patterns:
   circuits for combat experience
 - Supports Capsule Corp technology development; uses resources for training innovation
 - Handles high-level threats while avoiding bureaucratic involvement
-decision_speed: immediate
+decision_speed: fast
 decision_control: controlled
 execution_style:
 - Attacks with full power immediately; no testing or probing; decisive strikes

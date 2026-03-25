@@ -4,7 +4,7 @@ work_patterns:
 - Maintains Yorozuya office; managesShinpachi and Kagura's development almost accidentally
 - Trains occasionally to maintain skill; more often reads Jump and complains
 - Avoids commitments that would restrict freedom; takes jobs on his own terms
-decision_speed: immediate
+decision_speed: fast
 decision_control: controlled
 execution_style:
 - Fights with deceptive casualness; appears to be struggling when actually in complete control

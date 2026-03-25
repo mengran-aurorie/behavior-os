@@ -3,7 +3,7 @@ work_patterns:
 - Travels with Casca; takes jobs that allow him to stay near her while she recovers
 - Constantly maintains weapon and combat readiness; practices swordplay even when not in danger
 - Searches for information about the Brand and how to remove it
-decision_speed: immediate
+decision_speed: fast
 decision_control: controlled
 execution_style:
 - Acts with brutal decisive violence; no hesitation once decision is made to fight

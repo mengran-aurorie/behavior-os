@@ -2,7 +2,7 @@ work_patterns:
 - Leads Myrmidon contingent in coordinated Greek operations
 - Spends time in his tent when not fighting; maintains the wrath that keeps him from battle
 - Returns to battle after Patroclus's death with complete disregard for personal safety
-decision_speed: immediate
+decision_speed: fast
 decision_control: controlled
 execution_style:
 - Fights with complete disregard for his own safety; accepts wounds as price of glory

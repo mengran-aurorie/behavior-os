@@ -5,7 +5,7 @@ work_patterns:
 - Consults the witches multiple times; increasingly relies on the prophecies as the only
   source of certainty
 - Loses capacity for human connection as the murders accumulate
-decision_speed: immediate
+decision_speed: fast
 decision_control: controlled
 execution_style:
 - Acts through intermediaries to maintain psychological distance; delegates murders rather

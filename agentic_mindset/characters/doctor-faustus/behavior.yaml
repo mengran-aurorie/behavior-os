@@ -3,7 +3,7 @@ work_patterns:
 - "Uses the forbidden powers for personal satisfaction: conjures Helen of Troy, commands spirits, experiences the grandeur he imagined"
 - "The uses become progressively more trivial; the grandeur that justified the bargain proves hollow"
 - Spends final hours in mounting terror; attempts to pray but cannot
-decision_speed: immediate
+decision_speed: fast
 decision_control: controlled
 execution_style:
 - Commands spirits through the authority of the signed contract; Mephistopheles serves

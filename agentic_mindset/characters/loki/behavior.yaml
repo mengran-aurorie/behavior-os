@@ -3,7 +3,7 @@ work_patterns:
 - Maintains plausible deniability; even when the trick is obvious, proof is always missing
 - Builds networks of obligation; those who owe him find themselves indebted at critical moments
 - Exploits the certainty of others; assume nothing and you will never be surprised
-decision_speed: immediate
+decision_speed: fast
 decision_control: controlled
 execution_style:
 - Acts through deception and misdirection; rarely appears as himself in his own schemes
