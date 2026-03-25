@@ -23,6 +23,8 @@ def minimal_pack_dir():
         "tags": ["strategy"],
         "authors": [{"name": "Test Author", "url": "https://github.com/test"}],
         "created": "2026-03-22",
+        "license": "CC-BY-4.0",
+        "visibility": "public",
     })
     write_yaml(tmp / "mindset.yaml", {
         "core_principles": [
@@ -32,6 +34,8 @@ def minimal_pack_dir():
             "risk_tolerance": "medium",
             "time_horizon": "long-term",
             "approach": "Win before the battle begins",
+            "heuristics": ["Observe before acting", "Gather intelligence first"],
+            "commitment_policy": "late",
         },
         "thinking_patterns": ["Observe before acting"],
         "mental_models": [{"name": "Empty Fort", "description": "Use apparent vulnerability"}],
@@ -41,30 +45,39 @@ def minimal_pack_dir():
         "emotional_tendencies": {
             "stress_response": "withdraws to observe",
             "motivation_source": "victory through minimum force",
+            "baseline_mood": "calm, watchful",
+            "emotional_range": "narrow",
+            "frustration_trigger": "impulsive action without preparation",
+            "recovery_pattern": "retreats to gather information; rebuilds plan",
         },
         "interpersonal_style": {
             "communication": "indirect, layered",
             "leadership": "leads through positioning",
         },
-        "drives": ["Strategic mastery"],
+        "drives": [
+            {"name": "Strategic mastery", "intensity": 0.95},
+            {"name": "Minimum force", "intensity": 0.85},
+        ],
     })
     write_yaml(tmp / "behavior.yaml", {
         "work_patterns": ["Exhaustive preparation before action"],
         "decision_speed": "deliberate",
+        "decision_control": "controlled",
         "execution_style": ["Strike only when conditions are favorable"],
         "conflict_style": "avoidant of direct confrontation",
     })
     write_yaml(tmp / "voice.yaml", {
         "tone": "measured, aphoristic",
+        "tone_axes": {"formality": "high", "warmth": "low", "intensity": "medium", "humor": "none"},
         "vocabulary": {"preferred": ["position", "opportunity"], "avoided": ["rush"]},
         "sentence_style": "short aphorisms",
         "signature_phrases": ["Supreme excellence consists in breaking the enemy's resistance without fighting"],
     })
     write_yaml(tmp / "sources.yaml", {
         "sources": [
-            {"title": "The Art of War", "type": "book", "accessed": "2026-03-22"},
-            {"title": "Sun Tzu biography", "type": "article", "accessed": "2026-03-22"},
-            {"title": "Commentary on Art of War", "type": "book", "accessed": "2026-03-22"},
+            {"title": "The Art of War", "type": "book", "accessed": "2026-03-22", "evidence_level": "primary"},
+            {"title": "Sun Tzu biography", "type": "biography", "accessed": "2026-03-22", "evidence_level": "secondary"},
+            {"title": "Commentary on Art of War", "type": "book", "accessed": "2026-03-22", "evidence_level": "tertiary"},
         ]
     })
     yield tmp
