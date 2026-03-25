@@ -57,13 +57,14 @@ def test_decision_framework_with_all_new_fields():
     )
     assert df.heuristics == ["Gather intel before committing", "Prefer indirect routes"]
     assert df.commitment_policy == "late"
+    assert df.default_strategy == "Position for inevitable victory through preparation"
+    assert df.fallback_strategy == "Retreat and regroup; never pursue desperate battle"
 
 
 def test_decision_framework_commitment_policy_enum():
     """commitment_policy only accepts early | deliberate | late."""
     from agentic_mindset.schema.mindset import DecisionFramework
-    import pytest
-    with pytest.raises(Exception):
+    with pytest.raises(ValidationError):
         DecisionFramework(
             risk_tolerance="medium",
             time_horizon="long-term",
