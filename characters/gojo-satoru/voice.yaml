@@ -1,5 +1,10 @@
 tone: Casual and playful by default; shifts to absolute authority without warning
   when something genuinely important is being said
+tone_axes:
+  formality: low
+  warmth: medium
+  intensity: high
+  humor: playful
 vocabulary:
   preferred:
     - strongest

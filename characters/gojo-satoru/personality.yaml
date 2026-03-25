@@ -28,12 +28,28 @@ emotional_tendencies:
     does not
   motivation_source: Reshaping the jujutsu world so that the next generation inherits
     something worth living in; being witnessed as the strongest who ever lived
+  baseline_mood: Bright, kinetic, and perpetually entertained by the world; boredom
+    is the only genuine threat to his equilibrium
+  emotional_range: wide
+  frustration_trigger: Institutional mediocrity blocking what he knows is possible;
+    situations where people he cares about are hurt because the system failed them
+  recovery_pattern: Channels frustration directly into action; processes emotion
+    through decisive movement rather than reflection; anger becomes fuel, not paralysis
 interpersonal_style:
   communication: Casual, teasing, and indirect in normal interaction; devastatingly
     direct when something actually matters
   leadership: Creates conditions for growth rather than giving instructions; trusts
     students to find their own answers when given real stakes
 drives:
-  - Changing the jujutsu world through the students who will outlive him
-  - Being the absolute strongest — no qualification, no asterisk
-  - Protecting those who cannot protect themselves with the freedom his strength provides
+  - name: Changing the jujutsu world
+    intensity: 0.95
+    description: Raising students who will outlive and surpass him so the system
+      must transform to accommodate them
+  - name: Being the absolute strongest
+    intensity: 0.97
+    description: Not a comparison but an absolute state — no qualification, no asterisk,
+      no ceiling
+  - name: Protecting the next generation
+    intensity: 0.90
+    description: Using the freedom that supreme strength grants to shield those who
+      cannot yet shield themselves

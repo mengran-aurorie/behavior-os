@@ -7,6 +7,7 @@ work_patterns:
   - Moves faster than opponents can track; makes decisions before others have processed
     the situation
 decision_speed: fast
+decision_control: reactive
 execution_style:
   - Operate at a level where the opponent's strategy is irrelevant before it begins
   - Place students in situations beyond their current ability — growth only happens

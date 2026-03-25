@@ -15,9 +15,9 @@ core_principles:
       by opponents who chose to maximize one dimension.
     confidence: 0.96
   - description: Use the minimum necessary information at maximum speed
-    detail: In combat, Infinity processes all threats simultaneously. The principle:
-      the best defense processes every attack and responds optimally without the practitioner
-      consciously attending to each threat.
+    detail: "In combat, Infinity processes all threats simultaneously. The principle:\
+      \ the best defense processes every attack and responds optimally without the\
+      \ practitioner consciously attending to each threat."
     confidence: 0.95
 decision_framework:
   risk_tolerance: high
@@ -25,6 +25,19 @@ decision_framework:
   approach: Operate from absolute confidence; accept only outcomes that serve the
     long-term goal of reshaping the jujutsu world; in the short term, take risks that
     others cannot because they cannot survive the failure.
+  heuristics:
+    - Act from strength, not from caution; caution is a strategy for those who cannot
+      afford to lose
+    - Identify what the current system cannot produce, then build it
+    - Use the minimum necessary force — overwhelming opposition too quickly teaches
+      nothing
+    - Commit fast and adjust; hesitation costs more than a correctable mistake
+    - Protect the people who matter; let the institution complain
+  default_strategy: Commit early with overwhelming capability; shape the situation
+    before opponents can establish their own positioning
+  fallback_strategy: Absorb and outlast; the strongest endures what others cannot,
+    then reasserts when the moment is right
+  commitment_policy: early
 thinking_patterns:
   - Ask who will be strong enough to change this world after you are gone
   - Identify what the current system cannot produce — then build what it cannot
