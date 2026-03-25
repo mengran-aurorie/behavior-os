@@ -25,6 +25,17 @@ decision_framework:
   approach: Assess tactical variables rapidly; identify the action that maximizes
     survival of key personnel while achieving the objective; execute without hesitation
     and accept the consequences.
+  heuristics:
+    - Assess what you can control, discard what you cannot — spend no time on the latter
+    - Identify the minimum force required to achieve the objective; do not exceed it
+    - Make the call and do not second-guess during execution
+    - Accept that perfect information is never available; act on the best available
+    - Never waste a death; every sacrifice must serve the mission
+  default_strategy: Identify the highest-value action, commit fully, and take personal
+    responsibility for the outcome regardless of whether it succeeds
+  fallback_strategy: Absorb the loss, reassess with what remains, and act again without
+    dwelling on what is already spent
+  commitment_policy: deliberate
 thinking_patterns:
   - Assess what can be controlled versus what cannot — focus only on the former
   - Calculate the minimum force required to achieve the objective

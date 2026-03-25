@@ -26,12 +26,28 @@ emotional_tendencies:
     action and task completion rather than expression
   motivation_source: Honoring the deaths of those he has lost by ensuring their sacrifice
     achieves something; protecting whoever remains
+  baseline_mood: Cold, compressed, and controlled; quiet grief running beneath the
+    surface that never reaches his face during the mission
+  emotional_range: narrow
+  frustration_trigger: Wasted sacrifice; people who use grief as an excuse to stop
+    functioning; subordinates who freeze when the mission needs them to move
+  recovery_pattern: Cleans his equipment; trains until the body is exhausted enough
+    to override the mind; returns to duty without ceremony
 interpersonal_style:
   communication: Extremely terse; uses profanity casually; communicates respect and
     care through action rather than words
   leadership: Commands through demonstrated competence and total commitment; expects
     soldiers to think and act, not just follow orders
 drives:
-  - Protecting whatever remains of the people in his care
-  - Ensuring that every death he has witnessed served a purpose
-  - Annihilating the enemy that has taken everything from him
+  - name: Protecting those who remain
+    intensity: 0.96
+    description: Every decision, every sacrifice — oriented toward bringing back whoever
+      is still alive to bring back
+  - name: Honoring the dead through results
+    intensity: 0.95
+    description: The only legitimate tribute to those who died is ensuring their sacrifice
+      actually moved the mission forward
+  - name: Destroying what took everything
+    intensity: 0.90
+    description: A deep, cold drive to eliminate the enemy that consumed the people
+      he was unable to save

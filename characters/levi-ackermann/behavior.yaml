@@ -8,6 +8,7 @@ work_patterns:
   - Speaks minimally during planning; listens more than he contributes until the
     moment for decision
 decision_speed: fast
+decision_control: controlled
 execution_style:
   - Move to the point of maximum impact immediately; do not wait for perfect conditions
   - Take personal responsibility for the worst outcomes rather than distributing

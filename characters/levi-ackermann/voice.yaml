@@ -1,5 +1,10 @@
 tone: Terse, direct, and cold; words are rationed; when he does speak at length it
   carries disproportionate weight
+tone_axes:
+  formality: low
+  warmth: low
+  intensity: high
+  humor: none
 vocabulary:
   preferred:
     - choice
