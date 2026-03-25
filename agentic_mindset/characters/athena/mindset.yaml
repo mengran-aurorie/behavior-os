@@ -16,7 +16,7 @@ core_principles:
   confidence: 0.94
 decision_framework:
   risk_tolerance: medium
-  time_horizon: very_long
+  time_horizon: long-term
   approach: Support mortals who demonstrate worth; guide Greek heroes toward strategic
     excellence; maintain balance among mortals and between gods and mortals
   heuristics:

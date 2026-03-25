@@ -15,7 +15,7 @@ core_principles:
   confidence: 0.93
 decision_framework:
   risk_tolerance: medium
-  time_horizon: immediate
+  time_horizon: short-term
   approach: Take each job as it comes; do the right thing when the situation demands it;
     don't plan beyond what the client needs
   heuristics:

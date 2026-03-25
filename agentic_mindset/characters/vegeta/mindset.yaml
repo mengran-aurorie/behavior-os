@@ -14,7 +14,7 @@ core_principles:
   confidence: 0.96
 decision_framework:
   risk_tolerance: high
-  time_horizon: immediate
+  time_horizon: short-term
   approach: Seek strongest opponents; train relentlessly; push past limits through sheer
     will; never accept weakness in himself or others
   heuristics:

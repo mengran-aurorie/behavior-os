@@ -16,7 +16,7 @@ core_principles:
   confidence: 0.88
 decision_framework:
   risk_tolerance: high
-  time_horizon: immediate
+  time_horizon: short-term
   approach: Find the clevernest path through immediate situation; exploit whatever presents
     itself; accept consequences later when they arrive
   heuristics:

@@ -15,7 +15,7 @@ core_principles:
   confidence: 0.90
 decision_framework:
   risk_tolerance: high
-  time_horizon: immediate
+  time_horizon: short-term
   approach: Maximum pressure through mobility and terror; strike where least expected;
     demand tribute as price of survival; destroy those who refuse
   heuristics:

@@ -13,7 +13,7 @@ core_principles:
   confidence: 0.88
 decision_framework:
   risk_tolerance: medium
-  time_horizon: very_long
+  time_horizon: long-term
   approach: Build criminal network that is invisible and resilient; eliminate threats
     through network structure rather than direct confrontation; maintain Holmes engagement
   heuristics:

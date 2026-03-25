@@ -8,7 +8,7 @@ core_principles:
   confidence: 0.91
 decision_framework:
   risk_tolerance: high
-  time_horizon: immediate
+  time_horizon: short-term
   approach: Secure the crown through immediate action; eliminate all threats through
     increasing violence; maintain power through fear
   heuristics:

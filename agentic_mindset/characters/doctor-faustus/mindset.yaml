@@ -15,7 +15,7 @@ core_principles:
   confidence: 0.90
 decision_framework:
   risk_tolerance: high
-  time_horizon: immediate
+  time_horizon: short-term
   approach: Maximize the use of the twenty-four years; accumulate as much experience,
     knowledge, and power as possible before the final hour arrives
   heuristics:

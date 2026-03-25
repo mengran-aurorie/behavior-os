@@ -16,7 +16,7 @@ core_principles:
   confidence: 0.94
 decision_framework:
   risk_tolerance: high
-  time_horizon: immediate
+  time_horizon: short-term
   approach: Seek maximum glory in every engagement; destroy as many Trojans as possible;
     avenge Patroclus with complete destruction of Hector
   heuristics:

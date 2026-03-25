@@ -16,7 +16,7 @@ core_principles:
   confidence: 0.93
 decision_framework:
   risk_tolerance: low
-  time_horizon: very_long
+  time_horizon: long-term
   approach: Build overwhelming position before committing; move when victory is certain;
     never rush when waiting serves
   heuristics:

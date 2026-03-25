@@ -15,7 +15,7 @@ core_principles:
   confidence: 0.93
 decision_framework:
   risk_tolerance: high
-  time_horizon: very_long
+  time_horizon: long-term
   approach: Play all sides while protecting village; ensure Sasuke survives and ultimately
     learns truth; maintain cover even as it costs him personally
   heuristics:

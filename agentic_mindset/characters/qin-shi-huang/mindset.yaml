@@ -13,7 +13,7 @@ core_principles:
   confidence: 0.92
 decision_framework:
   risk_tolerance: high
-  time_horizon: very_long
+  time_horizon: long-term
   approach: Conquer all Warring States; standardize everything; build infrastructure
     that binds China together; rule through legalist principles
   heuristics:

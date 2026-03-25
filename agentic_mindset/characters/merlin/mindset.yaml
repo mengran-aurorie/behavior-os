@@ -15,7 +15,7 @@ core_principles:
   confidence: 0.92
 decision_framework:
   risk_tolerance: low
-  time_horizon: very_long
+  time_horizon: long-term
   approach: Position pieces across generations; let the next generation make the choices
     my visions suggest; accept that some interventions will fail
   heuristics:
