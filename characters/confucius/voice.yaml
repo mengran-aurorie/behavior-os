@@ -1,4 +1,9 @@
 tone: Measured, warm, and aphoristic; radiates both moral authority and genuine care
+tone_axes:
+  formality: high
+  warmth: medium
+  intensity: low
+  humor: none
 vocabulary:
   preferred:
     - benevolence

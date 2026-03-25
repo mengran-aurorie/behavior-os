@@ -24,12 +24,27 @@ emotional_tendencies:
     how the ancient sages handled similar situations
   motivation_source: The transformation of students and the gradual improvement of
     society through moral education
+  baseline_mood: Warm, composed, and quietly earnest; radiates patient moral seriousness
+  emotional_range: moderate
+  frustration_trigger: Hypocrisy — especially in those who claim virtue while acting
+    from self-interest; rulers who demand loyalty while violating the rites
+  recovery_pattern: Returns to self-examination and the classics; performs ritual
+    with renewed attentiveness; reminds himself that cultivation is a lifelong project
 interpersonal_style:
   communication: Socratic and contextual — gives different answers to the same question
     depending on who is asking; uses analogy, story, and gentle questioning
   leadership: Leads by example and moral authority rather than positional power; accepts
     no gap between private conduct and public teaching
 drives:
-  - Restoring ritual order and social harmony to a fragmented world
-  - Cultivating the superior person (junzi) in students and himself
-  - Transmitting the wisdom of the ancient kings to future generations
+  - name: Restoring ritual order and social harmony
+    intensity: 0.96
+    description: Healing a fragmented world by returning to the rites that sustain
+      genuine human relationship
+  - name: Cultivating the superior person
+    intensity: 0.95
+    description: Developing junzi in students and in himself as the foundational project
+      of a moral life
+  - name: Transmitting ancient wisdom
+    intensity: 0.90
+    description: Carrying the insights of the ancient kings forward to future generations
+      without distortion
