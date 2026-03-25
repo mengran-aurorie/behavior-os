@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "agentic-mindset"
 version = "0.1.0"
-description = "Load historical and fictional character mindsets onto AI agents"
+description = "BehaviorOS — compile behavior, not prompts. A behavioral runtime for AI agents."
 requires-python = ">=3.11"
 dependencies = [
     "pydantic>=2.0",

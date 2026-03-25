@@ -1,13 +1,11 @@
-# Agentic Mindset
+# BehaviorOS
+
+**Compile behavior, not prompts.**
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.11+-blue.svg" alt="Python 3.11+">
   <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT License">
   <img src="https://img.shields.io/badge/Schema-1.1-orange.svg" alt="Schema 1.1">
-</p>
-
-<p align="center">
-  <strong>将 AI Persona 从「提示词模板」进化为「可编译的行为系统」</strong>
 </p>
 
 ---
@@ -18,7 +16,7 @@
 > 它们无法解释自己为什么这样行为。
 > 更糟的是 — 它们开始虚构身份。
 
-**Agentic Mindset** 不一样。
+**BehaviorOS** 不一样。
 
 ---
 
@@ -26,13 +24,13 @@
 
 *Personas 描述风格。Policies 定义行为。*
 
-Agentic Mindset 将角色思维方式编译成**行为指令**，而非角色描述。系统解析冲突、应用条件规则，输出可验证。
+BehaviorOS 将角色思维方式编译成**行为指令**，而非角色描述。系统解析冲突，应用条件规则，输出可验证。
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│  CharacterPack(s)  →  ConflictResolver  →  BehaviorIR           │
-│                                          →  ClaudeRenderer       │
-│                                          →  AI Agent            │
+│  CharacterPack(s)  →  ConflictResolver  →  BehaviorIR            │
+│                                           →  ClaudeRenderer      │
+│                                           →  AI Agent           │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -117,13 +115,26 @@ communication:
 
 ## 三种不会坍缩的行为
 
-| 主张 | Agentic Mindset 如何实现 |
+| 主张 | BehaviorOS 如何实现 |
 |---|---|
 | **Persona 改变输出** | 解析器逐槽位选优；渲染器以指令形式强制执行 |
 | **融合产生涌现行为** | `no_conflict` 策略丢弃不冲突的特质；新的组合出现，单角色都不具备 |
 | **Explain 预测输出** | 被丢弃的特质有标签标注；基准测试套件验证其不出现 |
 
 基准测试套件（`tests/test_benchmark_assertions.py`）验证以上全部——包括 `no fabricated specifics`：系统不会虚构传记事实来填充 persona 框架。
+
+---
+
+## 为什么叫 "OS"？
+
+BehaviorOS 不是传统意义上的操作系统。
+
+它是一个**行为运行时层**，具备：
+- 将策略编译成确定性行为指令
+- 解析竞争性角色特质之间的冲突
+- 向 AI Agent 注入可验证、可解释的行为
+
+可以把它理解为：管理 Agent 如何决策和行动的"操作系统"——而不是管理代码执行的操作系统。
 
 ---
 

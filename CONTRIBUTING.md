@@ -1,4 +1,4 @@
-# Contributing to Agentic Mindset
+# Contributing to BehaviorOS
 
 ## Character Pack Contributions
 
@@ -40,8 +40,8 @@ The standard library accepts:
 ### Setup
 
 ```bash
-git clone https://github.com/aurorie/agentic-mindset
-cd agentic-mindset
+git clone https://github.com/behavior-os/behavior-os
+cd behavior-os
 pip install -e ".[dev]"
 ```
 
@@ -56,14 +56,15 @@ pytest tests/ -v --cov=agentic_mindset
 ```
 agentic_mindset/     # Core Python package
   schema/            # Pydantic schema models
+  ir/                # BehaviorIR models and conditions
+  resolver/          # ConflictResolver and policies
+  renderer/          # ClaudeRenderer (inject path)
   pack.py            # CharacterPack loader
   registry.py        # Registry path resolution
   context.py         # ContextBlock output
   fusion.py          # FusionEngine
   cli.py             # Typer CLI
 characters/          # Standard library packs
-examples/            # Example fusion configs
-prompts/             # LLM extraction prompt templates
-tests/               # Test suite
-docs/                # Design specs and implementation plans
+tests/               # Test suite (254 tests)
+docs/                # Documentation
 ```

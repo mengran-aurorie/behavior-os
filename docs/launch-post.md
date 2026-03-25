@@ -6,11 +6,11 @@
 >
 > They collapse when you mix them. They can't explain themselves. They hallucinate identity.
 >
-> We built a system that compiles behavior instead of prompting personas.
+> We built BehaviorOS — a system that compiles behavior instead of prompting personas.
 >
 > Demo + link ↓
 >
-> github.com/mengran-aurorie/agentic-mindset
+> github.com/behavior-os
 
 ---
 
@@ -18,13 +18,13 @@
 
 **Title:**
 
-We built a system that makes AI personas composable, testable, and explainable
+BehaviorOS: a behavioral runtime for AI agents that doesn't hallucinate identity
 
 **Body:**
 
 Most "AI personas" are prompt templates with personality adjectives. Blend two and you get generic hedging. Ask the system why it behaved a certain way and you get nothing.
 
-Agentic Mindset is a behavior compilation system — not prompt engineering.
+BehaviorOS is a behavior compilation system — not prompt engineering.
 
 Three independently testable stages:
 
@@ -37,7 +37,7 @@ CharacterPack(s) → ConflictResolver → BehaviorIR → ClaudeRenderer → AI A
 Same question, different behavior:
 
 - *Negotiating with a stronger competitor*
-- Claude (baseline): "consider both approaches..."
+- Baseline: "consider both approaches..."
 - Sun Tzu: "shape the terrain so agreement favors you"
 - Steve Jobs: "are they necessary? what's the minimum you need?"
 - Sun Tzu + Jobs blend: "position first — then act precisely, not aggressively"
@@ -48,4 +48,4 @@ The benchmark suite verifies all critical claims — including that dropped trai
 
 Demo: `mindset run claude --persona sun-tzu --persona steve-jobs --weights 6,4 -- "We are negotiating with a much larger competitor."`
 
-GitHub: https://github.com/mengran-aurorie/AGENTIC-MINDSET
+GitHub: https://github.com/behavior-os

@@ -1,4 +1,4 @@
-# Persona Injection Demo — Behavioral Comparison
+# BehaviorOS Demo — Behavioral Comparison
 
 **Runtime:** MiniMax-M2.7 via `mindset run` + `cmini-wrapper`
 **Command used:** `mindset run ./cmini-wrapper --persona <ids> --weights <w> --registry characters --explain -- "<prompt>"`

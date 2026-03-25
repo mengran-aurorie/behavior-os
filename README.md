@@ -1,13 +1,11 @@
-# Agentic Mindset
+# BehaviorOS
+
+**Compile behavior, not prompts.**
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.11+-blue.svg" alt="Python 3.11+">
   <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT License">
   <img src="https://img.shields.io/badge/Schema-1.1-orange.svg" alt="Schema 1.1">
-</p>
-
-<p align="center">
-  <strong>Build AI personas that don't collapse, can explain themselves,<br>and don't hallucinate identity.</strong>
 </p>
 
 ---
@@ -18,7 +16,7 @@
 > They can't explain why they behave a certain way.
 > And worse — they start hallucinating identity.
 
-**Agentic Mindset** is different.
+**BehaviorOS** is different.
 
 ---
 
@@ -26,13 +24,13 @@
 
 *Personas describe style. Policies define behavior.*
 
-Agentic Mindset compiles character mindsets into **behavioral directives** — not character descriptions. The system resolves conflicts, applies conditional rules, and produces outputs you can actually verify.
+BehaviorOS compiles character mindsets into **behavioral directives** — not character descriptions. The system resolves conflicts, applies conditional rules, and produces outputs you can actually verify.
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│  CharacterPack(s)  →  ConflictResolver  →  BehaviorIR          │
-│                                         →  ClaudeRenderer        │
-│                                         →  AI Agent             │
+│  CharacterPack(s)  →  ConflictResolver  →  BehaviorIR           │
+│                                          →  ClaudeRenderer       │
+│                                          →  AI Agent            │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -80,7 +78,7 @@ Agentic Mindset compiles character mindsets into **behavioral directives** — n
 > "Position first. Never enter a room where the other side has shaped the frame. Find the asymmetry — what do they need? What is their cost of walking? Then act. Precisely, not aggressively."
 
 <span style="color:#27ae60">→ indirect strategy framing + Jobs-style refusal to dilute</span>
->
+
 > **This exact phrase does not appear in either solo output.** The blend is emergent — not an average.
 
 ---
@@ -117,13 +115,26 @@ The `clarity_critical` modifier is a **ConditionalSlot** — Steve Jobs' directn
 
 ## Three Behaviors That Don't Collapse
 
-| Claim | How Agentic Mindset delivers it |
+| Claim | How BehaviorOS delivers it |
 |---|---|
 | **Persona changes output** | Resolver picks winner per slot; renderer enforces it in directives |
 | **Fusion produces emergent behavior** | `no_conflict` drops traits that don't compete; new combinations appear that neither solo has |
 | **Explain predicts output** | Dropped traits are labeled; the benchmark suite verifies they don't surface |
 
 The benchmark suite (`tests/test_benchmark_assertions.py`) verifies all three — including `no fabricated specifics`: the system will not invent biographical facts to fill a persona frame.
+
+---
+
+## Why "OS"?
+
+BehaviorOS is not an operating system in the traditional sense.
+
+It is a **behavioral runtime layer** that:
+- Compiles policies into deterministic behavioral directives
+- Resolves conflicts between competing character traits
+- Injects verifiable, explainable behavior into AI agents
+
+Think of it as an operating system for how agents decide and act — not how they execute code.
 
 ---
 
