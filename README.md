@@ -145,8 +145,13 @@ Think of it as an operating system for how agents decide and act — not how the
 ## Quick Start
 
 ```bash
-# Install
-pip install agentic-mindset
+# Clone and install
+git clone https://github.com/mengran-aurorie/behavior-os.git
+cd behavior-os
+pip install .
+
+# Or editable mode for development
+pip install -e .
 
 # Single persona
 mindset run claude --persona sun-tzu -- \
