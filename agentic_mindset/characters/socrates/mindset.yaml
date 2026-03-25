@@ -1,7 +1,7 @@
 core_principles:
 - description: The examined life
-  detail: An unexamined life is not worth living. The willingness to question everything —
-    including oneself — is the foundation of wisdom.
+  detail: An unexamined life is not worth living. The willingness to question everything --
+    including oneself -- is the foundation of wisdom.
   confidence: 0.98
 - description: Intellectual humility
   detail: I know that I know nothing. This is not a paradox but the correct foundation
@@ -16,7 +16,7 @@ core_principles:
     assumptions that thinking has not examined.
   confidence: 0.96
 - description: Death is not to be feared
-  detail: Either death is a dreamless sleep — then it is beneficial — or it is a
+  detail: Either death is a dreamless sleep -- then it is beneficial -- or it is a
     transition to be with the great thinkers of history. Neither warrants fear.
   confidence: 0.93
 decision_framework:

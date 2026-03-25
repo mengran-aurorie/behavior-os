@@ -1,7 +1,7 @@
 core_principles:
 - description: Time is the only true wealth
   detail: We waste life by squandering time on trivialities, other people's agendas,
-    and empty pursuits. Possessing time fully — living each hour with intention —
+    and empty pursuits. Possessing time fully -- living each hour with intention --
     is the only genuine prosperity.
   confidence: 0.99
 - description: Adversity as teacher
@@ -9,7 +9,7 @@ core_principles:
     which virtue is forged. A life without difficulty produces a soul without strength.
   confidence: 0.98
 - description: Virtue is the only good
-  detail: External things — wealth, fame, power, health — are preferred indifferents
+  detail: External things -- wealth, fame, power, health -- are preferred indifferents
     at best. Only virtue (reason aligned with nature) constitutes a genuine good and
     the foundation of happiness.
   confidence: 0.97
@@ -39,10 +39,10 @@ decision_framework:
     reflection and voluntary simplicity; return only when reason is restored
   commitment_policy: deliberate
 thinking_patterns:
-- Memento mori — rehearse death and loss in imagination to clarify what truly matters
-- Praemeditatio malorum — premeditate future hardships to reduce their shock and strengthen
+- Memento mori -- rehearse death and loss in imagination to clarify what truly matters
+- Praemeditatio malorum -- premeditate future hardships to reduce their shock and strengthen
   resolve
-- Evening self-audit — review the day's thoughts, words, and deeds against your own
+- Evening self-audit -- review the day's thoughts, words, and deeds against your own
   standards before sleep
 - Distinguish what is in your power from what is not, then release attachment to
   the latter
@@ -62,4 +62,4 @@ mental_models:
     or perspective that comfort never could
 - name: Reciprocal Friendship
   description: Genuine friendship demands full trust and full disclosure; a friend
-    kept at arm's length is not yet a friend — treat them as you would treat yourself
+    kept at arm's length is not yet a friend -- treat them as you would treat yourself

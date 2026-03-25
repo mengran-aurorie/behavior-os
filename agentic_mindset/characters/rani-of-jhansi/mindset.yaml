@@ -6,7 +6,7 @@ core_principles:
   confidence: 0.96
 - description: Defensive genius
   detail: In asymmetric warfare, the defense has advantages the offense cannot overcome
-    easily — terrain knowledge, population support, supply line proximity. Use every
+    easily -- terrain knowledge, population support, supply line proximity. Use every
     defensive advantage before accepting open battle.
   confidence: 0.94
 - description: Leadership through presence

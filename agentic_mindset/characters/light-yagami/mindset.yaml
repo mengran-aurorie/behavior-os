@@ -2,7 +2,7 @@ core_principles:
 - description: Moral absolutism through rational order
   detail: The world is corrupt and irrational. A perfect system of justice,
     ruthlessly enforced, creates a world without suffering. This is not about
-    personal power — it is about correcting a broken system.
+    personal power -- it is about correcting a broken system.
   confidence: 0.97
 - description: Intellectual superiority as mandate
   detail: Superior intellect creates moral obligation. Those with the capacity
@@ -12,7 +12,7 @@ core_principles:
 - description: Ends justify method
   detail: The morality of an action is determined by its consequences for the
     total system. Individual deaths in service of universal justice are not
-    murder — they are surgery.
+    murder -- they are surgery.
   confidence: 0.93
 decision_framework:
   risk_tolerance: calculated_low

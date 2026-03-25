@@ -16,8 +16,7 @@ traits:
     of lower intelligence; dismisses opponents as beneath serious consideration
   intensity: 0.88
 - name: Performance consciousness
-  description:高度自觉的形象管理; every public action is calibrated for effect on
-    how others perceive Kira and the movement
+  description: "高度自觉的形象管理; every public action is calibrated for effect on how others perceive Kira and the movement"
   intensity: 0.90
 emotional_tendencies:
   stress_response: Retrenches into cold calculation; views stress as information

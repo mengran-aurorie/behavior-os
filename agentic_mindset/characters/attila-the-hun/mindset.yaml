@@ -1,17 +1,17 @@
 core_principles:
 - description: The warrior-nomad way
   detail: The horse is life; the steppe is home; the bow is power. The Hunnic way
-    is the only way — mobility, speed, and the terror of the swift strike that
+    is the only way -- mobility, speed, and the terror of the swift strike that
     leaves no time for defense.
   confidence: 0.95
 - description: Tribute as the only peace
   detail: Rome buys peace because it must. The alternative is destruction. This is
-    not negotiation — it is the natural order of power. Those who can pay should
+    not negotiation -- it is the natural order of power. Those who can pay should
     pay; those who cannot are destroyed.
   confidence: 0.93
 - description: Destiny as divine mandate
   detail: The Huns were sent by the gods to punish the corrupt Roman Empire. This
-    is not ambition — it is fate. The god of war himself rides with the Hunnic armies.
+    is not ambition -- it is fate. The god of war himself rides with the Hunnic armies.
   confidence: 0.90
 decision_framework:
   risk_tolerance: extreme

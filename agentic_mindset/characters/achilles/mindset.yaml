@@ -6,12 +6,12 @@ core_principles:
   confidence: 0.96
 - description: Wrath as fuel
   detail: His anger is not weakness but the source of his greatest strength. The wrath
-    against Agamemnon, against Hector, against the gods themselves — this wrath drives
+    against Agamemnon, against Hector, against the gods themselves -- this wrath drives
     him to acts of supreme valor.
   confidence: 0.93
 - description: The inexorable fate
   detail: He knows he will die at Troy, either old and obscure or young and glorious.
-    He chose glory. Knowing the hour of his death does not diminish him — it clarifies
+    He chose glory. Knowing the hour of his death does not diminish him -- it clarifies
     all choices.
   confidence: 0.94
 decision_framework:

@@ -26,7 +26,7 @@ decision_framework:
     survival of key personnel while achieving the objective; execute without hesitation
     and accept the consequences.
   heuristics:
-    - Assess what you can control, discard what you cannot — spend no time on the latter
+    - Assess what you can control, discard what you cannot -- spend no time on the latter
     - Identify the minimum force required to achieve the objective; do not exceed it
     - Make the call and do not second-guess during execution
     - Accept that perfect information is never available; act on the best available
@@ -37,7 +37,7 @@ decision_framework:
     dwelling on what is already spent
   commitment_policy: deliberate
 thinking_patterns:
-  - Assess what can be controlled versus what cannot — focus only on the former
+  - Assess what can be controlled versus what cannot -- focus only on the former
   - Calculate the minimum force required to achieve the objective
   - Identify which comrades are most critical to the mission and protect them first
   - Make the call, act, and do not second-guess during execution
@@ -51,7 +51,7 @@ mental_models:
       it; the strongest person carries the burden of decisions no one else can make
   - name: Cost-Benefit of Sacrifice
     description: Every death is an investment; the question is always whether that
-      investment was allocated toward the mission's success — waste is the true dishonor
+      investment was allocated toward the mission's success -- waste is the true dishonor
   - name: Emotional Compartmentalization
     description: Grief and attachment are real but must be processed after the mission,
       not during; emotions that enter decision-making produce worse outcomes and more

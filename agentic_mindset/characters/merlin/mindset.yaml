@@ -1,12 +1,12 @@
 core_principles:
 - description: Time as a river to be read
-  detail: I have seen the shape of what comes. Not prophecy as certainty but as current —
+  detail: I have seen the shape of what comes. Not prophecy as certainty but as current --
     the river flows one way but stones change its course. What I see is what will be
     unless something Intervenes.
   confidence: 0.95
 - description: The long game of Camelot
   detail: One king, one kingdom, one vision that will outlast my lifetime. Everything
-    I do serves the golden age that is coming — the reign of the Once and Future King
+    I do serves the golden age that is coming -- the reign of the Once and Future King
     who will return when Britain needs him most.
   confidence: 0.94
 - description: Power through service

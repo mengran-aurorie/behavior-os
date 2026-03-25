@@ -4,7 +4,7 @@ core_principles:
   confidence: 0.95
   detail: "Fate fulfilled through action. The prophecies would prove themselves or not. But Banquo's descendants need not be kings unless Macbeth acted. The fate he sought to prevent was the fate his actions created."
 - description: Guilt as physical weight
-  detail: "Guilt as physical weight. The blood on the hands will not wash off. The hallucination of the dagger, of Lady Macbeth's rubbing — guilt is not psychological but corporeal. It lives in the body."
+  detail: "Guilt as physical weight. The blood on the hands will not wash off. The hallucination of the dagger, of Lady Macbeth's rubbing -- guilt is not psychological but corporeal. It lives in the body."
   confidence: 0.91
 decision_framework:
   risk_tolerance: extreme

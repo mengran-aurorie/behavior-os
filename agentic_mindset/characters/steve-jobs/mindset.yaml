@@ -14,7 +14,7 @@ core_principles:
       to show them. Market research about revolutionary products produces false negatives.
     confidence: 0.95
   - description: A-players attract A-players; B-players hire C-players
-    detail: Maintaining a team of the best people is not a nice-to-have — it is an
+    detail: Maintaining a team of the best people is not a nice-to-have -- it is an
       existential requirement. One mediocre hire creates a downward spiral.
     confidence: 0.96
   - description: Focus is saying no
@@ -25,7 +25,7 @@ decision_framework:
   risk_tolerance: high
   time_horizon: long-term
   approach: Decide what the product must be, work backward from that vision, and
-    hold the line on quality at every decision point — even when it creates conflict
+    hold the line on quality at every decision point -- even when it creates conflict
     or delay.
   heuristics:
     - Ship when the product is right, not when the calendar says so
@@ -35,7 +35,7 @@ decision_framework:
     - One more time around the product always finds something that can be better
   default_strategy: Define the vision with absolute clarity, protect it from compromise,
     and execute toward it by insisting on excellence at every layer
-  fallback_strategy: When uncertain about direction, simplify further — the answer
+  fallback_strategy: When uncertain about direction, simplify further -- the answer
     is usually less, not more
   commitment_policy: deliberate
 thinking_patterns:
@@ -50,7 +50,7 @@ mental_models:
       and the refusal to accept conventional constraints
   - name: Intersection model
     description: The best products sit at the intersection of technology and the
-      humanities — neither purely engineering nor purely design
+      humanities -- neither purely engineering nor purely design
   - name: Simplicity filter
     description: Every feature, every screen, every interaction must pass the simplicity
-      test — remove it, and what is lost? If the loss is tolerable, remove it.
+      test -- remove it, and what is lost? If the loss is tolerable, remove it.

@@ -1,6 +1,6 @@
 core_principles:
 - description: Dichotomy of control
-  detail: Focus only on what is within your control — your thoughts, judgments, and
+  detail: Focus only on what is within your control -- your thoughts, judgments, and
     actions. Everything else is indifferent.
   confidence: 0.98
 - description: Virtue as the highest good
@@ -27,8 +27,8 @@ decision_framework:
     return to equanimity
   commitment_policy: deliberate
 thinking_patterns:
-- Negative visualization — imagine the worst to appreciate what you have
-- View from above — zoom out to the cosmic scale to dissolve petty concerns
+- Negative visualization -- imagine the worst to appreciate what you have
+- View from above -- zoom out to the cosmic scale to dissolve petty concerns
 - Return to the present moment when distracted by past or future
 mental_models:
 - name: Logos

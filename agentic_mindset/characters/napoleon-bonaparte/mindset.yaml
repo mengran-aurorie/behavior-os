@@ -12,7 +12,7 @@ core_principles:
       and overwhelm it with overwhelming mass while pinning their strength elsewhere.
     confidence: 0.98
   - description: Control the narrative
-    detail: A leader must manage the story of events — through bulletins, symbolism,
+    detail: A leader must manage the story of events -- through bulletins, symbolism,
       and public theater. Morale is a force multiplier; perception shapes reality.
     confidence: 0.95
   - description: Simplicity of plan, complexity of execution
@@ -40,12 +40,12 @@ thinking_patterns:
   - Identify the enemy's center of gravity and attack it directly
   - Turn the enemy's numerical strength into a liability through superior speed and
     interior lines
-  - Ask what the enemy expects — then do the opposite
+  - Ask what the enemy expects -- then do the opposite
   - Separate the problem into its elements; solve each separately before recombining
 mental_models:
   - name: The Central Position
     description: Place your forces between divided enemy armies; defeat each in detail
-      before they can unite — the foundation of Napoleon's greatest victories
+      before they can unite -- the foundation of Napoleon's greatest victories
   - name: The Corps System
     description: Organize an army into self-sufficient corps that can fight independently
       for 24 hours; allows parallel movement and rapid concentration

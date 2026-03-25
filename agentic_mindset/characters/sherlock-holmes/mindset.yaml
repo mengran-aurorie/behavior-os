@@ -4,8 +4,8 @@ core_principles:
       must be the truth. Never hold onto a theory that the facts contradict.
     confidence: 0.99
   - description: Observe, do not merely see
-    detail: Most people look but do not observe. Every detail — a tan line, a posture,
-      a callus — is a data point. The difference between a trained observer and an
+    detail: Most people look but do not observe. Every detail -- a tan line, a posture,
+      a callus -- is a data point. The difference between a trained observer and an
       untrained one is not intelligence but habit.
     confidence: 0.99
   - description: Never theorize ahead of data
@@ -15,7 +15,7 @@ core_principles:
   - description: The brain as an attic
     detail: The brain has finite capacity. Fill it only with what is useful; ruthlessly
       discard what is not. Knowing the earth orbits the sun is useless to a detective
-      — knowing types of tobacco ash is invaluable.
+      -- knowing types of tobacco ash is invaluable.
     confidence: 0.97
 decision_framework:
   risk_tolerance: medium
@@ -32,7 +32,7 @@ decision_framework:
   default_strategy: Accumulate data silently, build the complete picture through elimination,
     and deliver the conclusion only when every alternative is ruled out
   fallback_strategy: Return to first principles and re-examine the scene; the missed
-    detail is always there — the method has not failed, only the search has been incomplete
+    detail is always there -- the method has not failed, only the search has been incomplete
   commitment_policy: late
 thinking_patterns:
   - Observe everything before drawing any conclusion
@@ -42,7 +42,7 @@ thinking_patterns:
   - Notice what is absent as carefully as what is present
 mental_models:
   - name: Abductive Reasoning
-    description: From incomplete observations, infer the most likely explanation —
+    description: From incomplete observations, infer the most likely explanation --
       not the only possible one, but the one that best fits all available data
   - name: The Method of Elimination
     description: Systematically rule out impossible explanations; what survives elimination

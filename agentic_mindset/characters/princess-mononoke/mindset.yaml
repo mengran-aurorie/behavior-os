@@ -1,6 +1,6 @@
 core_principles:
 - description: Nature's primacy
-  detail: The forest, the spirits, the animals — they existed before humans and will
+  detail: The forest, the spirits, the animals -- they existed before humans and will
     exist after. Human civilization is a cancer consuming the world. She is the
     instrument of nature's response.
   confidence: 0.95
@@ -10,7 +10,7 @@ core_principles:
     it serves the greater balance.
   confidence: 0.92
 - description: Understanding the enemy
-  detail: Lady Eboshi is not evil — she is blind to what she destroys. This
+  detail: Lady Eboshi is not evil -- she is blind to what she destroys. This
     blindness is more dangerous than malice. The person who destroys while believing
     themselves righteous is the most dangerous kind.
   confidence: 0.90

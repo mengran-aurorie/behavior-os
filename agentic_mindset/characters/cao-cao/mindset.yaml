@@ -6,7 +6,7 @@ core_principles:
   confidence: 0.95
 - description: Use the worthy, discard the rest
   detail: Rank and status matter less than capability. His legendary assessment of
-    talent — knowing exactly who to promote and who to remove — built the empire.
+    talent -- knowing exactly who to promote and who to remove -- built the empire.
   confidence: 0.94
 - description: Pragmatism over virtue
   detail: Confucian virtue is a luxury for peacetime. In an age of war and chaos,
@@ -35,7 +35,7 @@ thinking_patterns:
 - Evaluates people with extraordinary accuracy; knows exactly who can be trusted with what
 - Long-term vision with short-term adaptability; the unification of China is the goal
   but the path changes with circumstances
-- "The famous paradox: \"I am a hero in the morning, a villain at night\" — both are true"
+- "The famous paradox: \"I am a hero in the morning, a villain at night\" -- both are true"
 mental_models:
 - name: The Heroic Tyrant
   description: He is both the man who would save China and the warlord who will do

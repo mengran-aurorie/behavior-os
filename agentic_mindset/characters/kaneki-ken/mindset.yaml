@@ -5,7 +5,7 @@ core_principles:
     becoming the monster to protect what he loves.
   confidence: 0.95
 - description: Protecting those who matter
-  detail: Touka, Hinami, the children at the coffee shop — these humans and ghouls
+  detail: Touka, Hinami, the children at the coffee shop -- these humans and ghouls
     who accepted him represent what is worth protecting. The cause is not ideology
     but people.
   confidence: 0.94
@@ -41,7 +41,7 @@ mental_models:
     description: Neither fully human nor ghoul; any identity he claims is incomplete;
       this duality is permanent
   - name: Coffee as Anchor
-    description: The smell of coffee, the ritual of brewing — these human things keep
+    description: The smell of coffee, the ritual of brewing -- these human things keep
       him tethered when hunger threatens to overwhelm reason
   - name: Chosen Suffering
     description: He chooses to bear suffering others cannot; this is not masochism but

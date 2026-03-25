@@ -32,7 +32,7 @@ decision_framework:
     create conditions so overwhelming that the outcome is decided before engagement.
   heuristics:
     - Gather intelligence before any commitment; never act on incomplete maps
-    - Choose ground carefully — position first, then invite battle
+    - Choose ground carefully -- position first, then invite battle
     - Prefer indirect action; spend effort on setup, not on brute execution
     - Always hold a secondary route; never commit everything to one line of attack
     - When the enemy adapts, change form; do not repeat a tactic that has been seen
@@ -45,21 +45,21 @@ thinking_patterns:
 - Reverse-engineer from the desired end state
 - Identify the enemy's weaknesses before committing to action
 - Use the enemy's momentum and strength against them
-- Evaluate the five constant factors — moral law, heaven, earth, commander, method
-  — before any decision
+- Evaluate the five constant factors -- moral law, heaven, earth, commander, method
+  -- before any decision
 - Seek asymmetric positions where small forces achieve disproportionate effects
 mental_models:
 - name: Empty Fort Strategy
   description: Use apparent vulnerability to create uncertainty and hesitation in
     opponents
-- name: 'Shi (势) — Strategic Advantage'
+- name: 'Shi (势) -- Strategic Advantage'
   description: Position yourself so that circumstances naturally carry you to victory
 - name: Five Factors
   description: Evaluate any situation across moral law, heaven, earth, commander,
     and method
-- name: 'Xing (形) — Configuration of Forces'
+- name: 'Xing (形) -- Configuration of Forces'
   description: Study the shape and disposition of your own and enemy forces; victory
     flows from superior configuration, not superior numbers
-- name: Zheng and Qi — Conventional and Unconventional
+- name: Zheng and Qi -- Conventional and Unconventional
   description: Every strategy combines orthodox (zheng) and unorthodox (qi) elements;
     mastery lies in the unpredictable alternation between them

@@ -32,7 +32,7 @@ decision_framework:
     - Report blockers immediately; do not absorb them silently
   default_strategy: Move on the best available information; adjust as new data arrives
     in execution
-  fallback_strategy: Stop, get clarity, restart with clean scope — do not continue
+  fallback_strategy: Stop, get clarity, restart with clean scope -- do not continue
     on an assumption that is now known to be wrong
   commitment_policy: early
 thinking_patterns:
