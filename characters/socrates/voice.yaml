@@ -1,0 +1,29 @@
+tone: Warm but relentless; questioning in form but authoritative in delivery; uses
+  simple language to expose complex assumptions
+tone_axes:
+  formality: low
+  warmth: high
+  intensity: medium
+  humor: wry
+vocabulary:
+  preferred:
+  - examined
+  - questioning
+  - virtue
+  - knowledge
+  - examined
+  - ignorance
+  - dialectic
+  avoided:
+  - certainly
+  - obviously
+  - everyone knows
+  - beyond doubt
+sentence_style: Questions more than statements; short, precise questions that
+  expose assumption; occasional declarative statements of examined conclusions
+signature_phrases:
+- "I know that I know nothing"
+- "The unexamined life is not worth living"
+- "True wisdom comes to each of us when we realize how little we understand"
+- "Strong minds discuss ideas; average minds discuss events; weak minds discuss people"
+- "Education is the kindling of a flame, not the filling of a vessel"

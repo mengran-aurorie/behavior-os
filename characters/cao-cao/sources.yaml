@@ -1,0 +1,12 @@
+sources:
+- title: "Romance of the Three Kingdoms (Luo Guanzhong)"
+  type: primary
+  url: https://en.wikipedia.org/wiki/Romance_of_the_Three_Kingdoms
+  accessed: '2026-03-25'
+- title: "Records of the Three Kingdoms (Chen Shou)"
+  type: primary
+  accessed: '2026-03-25'
+- title: "Three Kingdoms period scholarship"
+  type: secondary
+  url: https://en.wikipedia.org/wiki/Cao_Cao
+  accessed: '2026-03-25'

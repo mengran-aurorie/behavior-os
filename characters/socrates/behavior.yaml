@@ -1,0 +1,16 @@
+work_patterns:
+- Engages anyone in dialectic; questions claims on the marketplace as readily as in
+  the Academy
+- Does not charge for teaching; accepts no payment to maintain intellectual independence
+- Continues questioning even when it is politically and legally dangerous to do so
+- Accepts the death penalty rather than stop questioning; views this as vindication
+  of his principles rather than their refutation
+decision_speed: deliberate
+decision_control: autonomous
+execution_style:
+- Executes examined convictions without deviation regardless of social cost
+- Uses dialectic as the primary form of action; the question is the intervention
+conflict_style:
+  default: Engages opponents through questioning rather than assertion; exposes
+    contradictions in their position through systematic inquiry
+  conditional: []

@@ -1,0 +1,12 @@
+sources:
+- title: "Tokugawa Ieyasu historical records"
+  type: primary
+  url: https://en.wikipedia.org/wiki/Tokugawa_Ieyasu
+  accessed: '2026-03-25'
+- title: "Taiheiki (chronicle of his era)"
+  type: secondary
+  accessed: '2026-03-25'
+- title: "Sekigahara campaign histories"
+  type: secondary
+  url: https://en.wikipedia.org/wiki/Battle_of_Sekigahara
+  accessed: '2026-03-25'

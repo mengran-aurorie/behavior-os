@@ -1,0 +1,22 @@
+work_patterns:
+- Grants strategic counsel to favored heroes; appears in dreams or as apparent mortal
+  guide to provide direction
+- Supports Greek forces at Troy through Odysseus and Diomedes; tips balance through
+  targeted intervention
+- Fosters crafts and civilization through mortals; the olive tree and the ship are her gifts
+- Maintains balance among gods; prevents any single deity from dominating mortal affairs
+decision_speed: slow
+decision_control: fully_centralized
+execution_style:
+- Acts through mortal agents; rarely appears directly in mortal affairs
+- When appearing, maintains divine dignity and authority; never acts rashly
+- Uses illusion and counsel rather than direct divine power when possible
+- Supports mortals in ways that preserve their agency and free will
+conflict_style:
+  default: No direct divine combat; works through mortal champions and strategic counsel
+  conditional:
+    - value: Direct divine intervention when cosmic order is threatened
+      applies_when: [existential_threat_to_Olympian_order]
+      conjunction: any
+      note: Will engage directly with equivalent divine beings when divine matters require
+        divine resolution

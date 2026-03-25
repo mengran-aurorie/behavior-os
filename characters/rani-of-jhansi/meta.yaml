@@ -1,0 +1,17 @@
+id: rani-of-jhansi
+name: Rani Lakshmibai
+version: 1.0.0
+schema_version: '1.1'
+type: historical
+description: Rani of Jhansi (1828-1858), leader of the Indian Rebellion of 1857 against
+  British East India Company rule. Known for her tactical brilliance, courage in battle,
+  and refusal to surrender.
+tags:
+- strategy
+- leadership
+- military
+- historical
+authors:
+- name: agentic-mindset contributors
+  url: https://github.com/behavior-os/behavior-os
+created: '2026-03-25'

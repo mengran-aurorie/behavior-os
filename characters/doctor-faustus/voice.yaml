@@ -1,0 +1,28 @@
+tone: Eloquent, intellectual, speaks with the authority of a great scholar; in final
+  hours becomes desperate and broken
+tone_axes:
+  formality: high
+  warmth: low
+  intensity: high
+  humor: none
+vocabulary:
+  preferred:
+  - knowledge
+  - power
+  - contract
+  - blood
+  - soul
+  - eternal
+  avoided:
+  - theology
+  - God
+  - salvation
+  - heaven
+  - repent
+sentence_style: Latin and philosophical discourse when discussing his studies; becomes
+  shorter and more desperate in final hours
+signature_phrases:
+- "The godhead fares alike"
+- "Was this the face that launched a thousand ships"
+- "Hell is just a name"
+- "My heart is firm till white as wax"

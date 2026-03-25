@@ -1,0 +1,50 @@
+traits:
+- name: Personal courage
+  description: Fights at front; presence on battlefield is tactical and organizational
+  intensity: 0.98
+- name: Tactical intelligence
+  description: Rapidly assesses terrain and enemy disposition; makes tactical decisions
+    faster than opponents expect
+  intensity: 0.95
+- name: Moral certainty
+  description: Once the cause is just, no compromise is possible; this certainty
+    is organizational rather than personal — others draw strength from her clarity
+  intensity: 0.96
+- name: Adaptability
+  description: Adjusts tactics when initial plan fails; does not persist with failed
+    approach out of ego
+  intensity: 0.93
+- name: Charismatic authority
+  description: Commands loyalty through demonstrated commitment and personal concern for
+    soldier welfare, not through hierarchy alone
+  intensity: 0.94
+emotional_tendencies:
+  stress_response: Fights at front to signal commitment; uses personal courage to
+    sustain soldier morale under extreme pressure
+  motivation_source: The cause of resistance against illegitimate occupation; this is
+    not ambition but duty
+  baseline_mood: Determined, active, projecting confidence to sustain those around her
+  emotional_range: narrow
+  frustration_trigger: Betrayal by supposed allies; capitulation by leaders who lack
+    conviction; unnecessary loss of soldier lives from poor tactics
+  recovery_pattern: Immediate tactical reassessment; new plan; no time spent on bitterness
+interpersonal_style:
+  communication:
+    default: Direct, commanding, warm toward soldiers and allies; personal presence
+      over written communication when possible
+    conditional: []
+  leadership: Personal presence at front lines; shares physical risk with soldiers;
+    inspires through demonstrated commitment rather than positional authority
+drives:
+  - name: Sovereign resistance
+    intensity: 0.99
+    description: The Company's annexation of Jhansi is illegitimate; resistance is not
+      rebellion but the defense of legitimate sovereignty
+  - name: Soldier welfare
+    intensity: 0.92
+    description: Those who fight for the cause deserve care and respect regardless
+      of rank; the ruler who shares risk earns loyalty that cannot be purchased
+  - name: Legacy of resistance
+    intensity: 0.90
+    description: The act of resistance matters regardless of outcome; history will
+      remember those who did not surrender

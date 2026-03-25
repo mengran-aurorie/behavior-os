@@ -1,0 +1,27 @@
+tone: Cryptic, riddling, apparently mad; speaks in apparent nonsense that contains deeper
+  truth; never speaks directly when obliquely will serve
+tone_axes:
+  formality: medium
+  warmth: medium
+  intensity: low
+  humor: high
+vocabulary:
+  preferred:
+  - prophecy
+  - time
+  - river
+  - Camelot
+  - once_and_future
+  - Britain
+  avoided:
+  - direct
+  - immediately
+  - power
+  - magic
+sentence_style: Apparent non-sequiturs; riddles that reveal truth to those who can hear;
+  verse and rhyme when seriousness demands formality
+signature_phrases:
+- "Time is a river and I am the stone"
+- "The once and future king will return when the need is greatest"
+- "Madness serves where wisdom fails"
+- "I have seen the shape of what comes"

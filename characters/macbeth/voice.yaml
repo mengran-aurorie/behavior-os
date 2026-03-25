@@ -1,0 +1,27 @@
+tone: Grim, compressed, speaks in short hard sentences; the eloquence of earlier scenes
+  fades as guilt accumulates
+tone_axes:
+  formality: high
+  warmth: low
+  intensity: high
+  humor: none
+vocabulary:
+  preferred:
+  - blood
+  - crown
+  - prophecy
+  - death
+  - murder
+  - power
+  avoided:
+  - guilt
+  - conscience
+  - regret
+  - Banquo
+sentence_style: Short, stark sentences; fewer words as the play progresses; the
+  imagery becomes dominated by blood and darkness
+signature_phrases:
+- "So foul and fair a day I have not seen"
+- "Is this a dagger which I see before me"
+- "Blood will have blood"
+- "I am in blood stepped in so far that should I wade no more"

@@ -1,0 +1,20 @@
+work_patterns:
+- Analyzes political situations through comparison with historical precedent
+- Writes rapidly and prolifically when political situation is in flux
+- Maintains analysis independent of who is in power; does not flatter current ruler
+- Reads ancient texts (Livy, Thucydides) not for moral lessons but for behavioral patterns
+decision_speed: fast
+decision_control: autonomous
+execution_style:
+- Acts quickly when political windows open; delays when windows are closed
+- Maintains multiple options simultaneously rather than committing to single path
+- Uses written persuasion to influence even when political power is removed
+conflict_style:
+  default: Political analysis is the primary weapon; understanding who benefits from
+    which outcomes illuminates where opposition will emerge
+  conditional:
+    - value: Decisive elimination of political threats when legally and practically possible
+      applies_when: [survival_critical]
+      conjunction: any
+      note: When survival of the republic or of the political order requires it,
+        acts decisively and does not flinch from necessary force

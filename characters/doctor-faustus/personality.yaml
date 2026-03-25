@@ -1,0 +1,51 @@
+traits:
+- name: Immense intellectual capacity
+  description: Greatest scholar of his age; but all that learning could not answer the
+    fundamental questions; this failure is what drove him to the forbidden bargain
+  intensity: 0.97
+- name: Restless ambition
+  description: The ordinary was never sufficient; whatever he could imagine, he needed
+    to possess; this hunger made the Devil's offer irresistible
+  intensity: 0.95
+- name: Self-awareness of damnation
+  description: Faustus knows throughout what he has done and what it costs; this knowledge
+    does not prevent the choice but poisons every moment of the power gained
+  intensity: 0.93
+- name: Final regret
+  description: The last hours are spent in genuine horror at what approaches; the Good
+    Angel's words return to memory with full force
+  intensity: 0.91
+- name: Intellectual pride
+  description: Believes he is above the common run of humanity; this pride is what
+    makes him believe he can outwit the terms of the contract
+  intensity: 0.90
+emotional_tendencies:
+  stress_response: Immediate return to Mephistopheles; the power and knowledge must
+    be used before the hour arrives
+  motivation_source: Accumulating as much experience as possible in the remaining time;
+    every moment must be filled with the power he purchased
+  baseline_mood: Grim satisfaction mixed with underlying terror; enjoys the power while
+    knowing the cost
+  emotional_range: wide
+  frustration_trigger: Being reminded of the bargain's consequences; the Good Angel's
+    continued attempts to recall him to repentance
+  recovery_pattern: Returns to using the forbidden powers; the knowledge and experience
+    available is too seductive to abandon for abstract theological warning
+interpersonal_style:
+  communication:
+    default: Eloquent when discussing intellectual matters; becomes desperate in final hours
+    conditional: []
+  leadership: Does not lead; uses powers for personal satisfaction rather than governance
+drives:
+  - name: Absolute knowledge
+    intensity: 0.97
+    description: The questions theology and philosophy could not answer will be answered
+      through forbidden means; this is the original hunger that drove the bargain
+  - name: Power without limit
+    intensity: 0.93
+    description: Twenty-four years of doing whatever he imagines; the scope of the
+      possible is intoxicating
+  - name: Salvation lost
+    intensity: 0.88
+    description: The final hour arrives regardless; the bargain's terms cannot be renegotiated;
+      the soul is forfeit

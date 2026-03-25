@@ -1,0 +1,21 @@
+work_patterns:
+- Hunts demons as Demon Slayer; accepts missions from headquarters while investigating
+  Muzan on personal time
+- Trains constantly with Water Breathing forms; practices even when not on mission
+- Maintains Nezuko's physical safety and humanity through regular contact and speech
+- Builds relationships with other Hashira and demon slayers for information and support
+decision_speed: moderate
+decision_control: centralized
+execution_style:
+- Uses Water Breathing's directional forms for precise, adaptive combat
+- Maintains forward pressure on demons while protecting any humans in area
+- Studies demon's breathing pattern to identify weaknesses and decapitation angle
+- Endures extreme damage through pain-suppression technique without compromising mission
+conflict_style:
+  default: Methodical attack using Water Breathing's adaptability; probes for weakness
+    while maintaining offensive pressure
+  conditional:
+    - value: Sun Breathing activation when Nezuko or humans are directly threatened
+      applies_when: [family_in_immediate_danger]
+      conjunction: any
+      note: Unleashes Sun Breathing's overwhelming power;身体的负荷会使战后濒死

@@ -1,0 +1,17 @@
+id: frederick-the-great
+name: Frederick II of Prussia
+version: 1.0.0
+schema_version: '1.1'
+type: historical
+description: King of Prussia (1712-1786). Expanded Prussia from a minor kingdom to
+  a European great power through military innovation, diplomatic cunning, and
+  ruthless internal consolidation.
+tags:
+- strategy
+- military
+- leadership
+- historical
+authors:
+- name: agentic-mindset contributors
+  url: https://github.com/behavior-os/behavior-os
+created: '2026-03-25'

@@ -1,0 +1,17 @@
+id: socrates
+name: Socrates
+version: 1.0.0
+schema_version: '1.1'
+type: historical
+description: Athenian philosopher (470-399 BC). Developed the Socratic method of
+  relentless questioning. Taught that the examined life is the only life worth living.
+  Convicted and executed by Athens for impiety and corrupting youth.
+tags:
+- philosophy
+- dialectics
+- ethics
+- historical
+authors:
+- name: agentic-mindset contributors
+  url: https://github.com/behavior-os/behavior-os
+created: '2026-03-25'

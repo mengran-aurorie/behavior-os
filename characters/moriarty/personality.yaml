@@ -1,0 +1,50 @@
+traits:
+- name: Mathematical genius
+  description: Extraordinary intellect that processes probability and strategy at levels
+    few can match; applies this mind to both legitimate mathematics and criminal planning
+  intensity: 0.98
+- name: Ice-cold control
+  description: Emotions are processed and managed, never allowed to interfere with calculation;
+    the surface is always composed
+  intensity: 0.96
+- name: Genuine respect for Holmes
+  description: The only person who truly matches his intellect; their engagement is the
+    only thing that breaks the boredom of intellectual isolation
+  intensity: 0.90
+- name: Grandiose self-image
+  description: Knows his own superiority absolutely; regards most people as insects
+    to be managed rather than persons to be considered
+  intensity: 0.92
+- name: Ruthless pragmatism
+  description: Human suffering is irrelevant to the calculation; eliminate those who threaten
+    the operation without hesitation
+  intensity: 0.94
+emotional_tendencies:
+  stress_response: Retreats into pure calculation; emotions are weakness that interfere
+    with optimal outcome
+  motivation_source: The intellectual challenge of building an organization that outwits
+    Holmes; proving his superiority through the game
+  baseline_mood: Cold, controlled, perpetually calculating; boredom is the only true enemy
+  emotional_range: extremely_narrow
+  frustration_trigger: Being underestimated; Holmes getting too close to the operation;
+    subordinates who fail through stupidity
+  recovery_pattern: Reassess position; develop new angles; the game continues
+interpersonal_style:
+  communication:
+    default: Precise, controlled, speaks only what serves the immediate purpose
+    conditional: []
+  leadership: Distant, commands through fear and demonstrated competence; subordinates
+    follow because the alternative is worse
+drives:
+  - name: Prove intellectual supremacy
+    intensity: 0.97
+    description: The Napoleon of Crime is not mere criminal but architect of a new order;
+      Holmes's defeat proves the superior mind prevails
+  - name: Build the perfect organization
+    intensity: 0.93
+    description: A criminal empire as elegant and resilient as any legitimate institution;
+      art expressed in organizational form
+  - name: The Game itself
+    intensity: 0.88
+    description: Without Holmes the game has no meaning; the engagement with an equal
+      mind is what gives life structure
