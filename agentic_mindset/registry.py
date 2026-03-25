@@ -23,6 +23,11 @@ class CharacterRegistry:
             paths.append(Path(env))
         paths.append(_DEFAULT_USER_REGISTRY)
         paths.append(_DEFAULT_LOCAL_REGISTRY)
+        # Also search within the installed package (characters/ inside the package dir)
+        pkg_root = Path(__file__).parent.parent
+        pkg_characters = pkg_root / "agentic_mindset" / "characters"
+        if pkg_characters.is_dir():
+            paths.append(pkg_characters)
         return paths
 
     def load_path(self, path: Path) -> CharacterPack:

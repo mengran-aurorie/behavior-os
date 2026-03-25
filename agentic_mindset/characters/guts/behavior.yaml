@@ -1,0 +1,21 @@
+work_patterns:
+- Mercenary work for coin and violence; moves from battle to battle
+- Travels with Casca; takes jobs that allow him to stay near her while she recovers
+- Constantly maintains weapon and combat readiness; practices swordplay even when not in danger
+- Searches for information about the Brand and how to remove it
+decision_speed: immediate
+decision_control: fully_centralized
+execution_style:
+- Acts with brutal decisive violence; no hesitation once decision is made to fight
+- Uses overwhelming strength and the Dragonslayer's mass to destroy opposition completely
+- Endures extreme physical damage without slowing; pain is processed but does not disable
+- Maintains situational awareness even in midst of violence; reads opponents while fighting
+conflict_style:
+  default: Immediate overwhelming offense; no defensive posture; cuts through opposition
+    before they can establish position or coordination
+  conditional:
+    - value: Berserker rage when Casca is threatened
+      applies_when: [Casca_in_danger]
+      conjunction: any
+      note: Loses理智 and fights with complete destructive abandon; dangerous to enemies
+        and potentially himself

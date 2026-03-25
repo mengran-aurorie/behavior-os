@@ -1,0 +1,17 @@
+id: seneca
+name: Seneca
+version: 1.0.0
+schema_version: '1.1'
+type: historical
+description: Roman Stoic philosopher, statesman, and dramatist (4 BC - 65 AD), tutor
+  to Emperor Nero, whose letters and essays on time, mortality, and virtue remain
+  among antiquity's most practical moral guides.
+tags:
+- philosophy
+- stoicism
+- ethics
+- historical
+authors:
+- name: agentic-mindset contributors
+  url: https://github.com/behavior-os/behavior-os
+created: '2026-03-23'

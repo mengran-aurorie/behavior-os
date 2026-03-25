@@ -1,0 +1,13 @@
+sources:
+  - title: "To Kill a Mockingbird (Harper Lee, 1960)"
+    type: book
+    accessed: "2026-03-23"
+  - title: "Go Set a Watchman (Harper Lee, 2015)"
+    type: book
+    accessed: "2026-03-23"
+  - title: "To Kill a Mockingbird (film, Robert Mulligan, 1962)"
+    type: screenplay
+    accessed: "2026-03-23"
+  - title: "Atticus Finch: The Biography (Joseph Crespino, 2018)"
+    type: book
+    accessed: "2026-03-23"

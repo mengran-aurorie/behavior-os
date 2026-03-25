@@ -1,0 +1,51 @@
+traits:
+- name: Spirit-enhanced combat
+  description: Raised by wolf gods; fights with supernatural strength and the power
+    of the forest; wolf form is as natural as human
+  intensity: 0.96
+- name: Dual nature
+  description: Part human, raised by wolves; belongs fully to neither world; this
+    liminality is both isolation and unique perspective
+  intensity: 0.94
+- name: Righteous fury
+  description: The forest's champion; when it is threatened, rage emerges that the
+    wolf blood makes nearly uncontrollable
+  intensity: 0.93
+- name: Growing complexity
+  description: Initial hatred of humans evolves through contact with Ashitaka; comes
+    to see humans as capable of coexisting with nature, not just destroying it
+  intensity: 0.88
+- name: Fierce independence
+  description: Raised wild; no one tells her what to do; acts according to her
+    understanding of what the forest needs
+  intensity: 0.91
+emotional_tendencies:
+  stress_response: Shifts toward wolf nature; rage and violence increase; the human
+    side recedes under stress
+  motivation_source: The forest's survival; everything serves this cause
+  baseline_mood: Fierce, wild, connected to the natural world; communicates more
+    easily with spirits than with humans
+  emotional_range: narrow
+  frustration_trigger: Humans destroying the forest; anyone threatening the Forest
+    Spirit; being treated as human when she is wolf
+  recovery_pattern: Returns to forest; the connection to nature restores balance that
+    human contact disrupts
+interpersonal_style:
+  communication:
+    default: Sharp, hostile toward humans; communicates in short aggressive statements
+    conditional: []
+  leadership: Leads the wolf clan through demonstrated capability and the Forest
+    Spirit's blessing
+drives:
+  - name: Forest preservation
+    intensity: 0.99
+    description: The forest must survive; this is the absolute priority that justifies
+      all violence
+  - name: Spirit balance
+    intensity: 0.94
+    description: The Forest Spirit must be protected; the death of the forest spirits
+      means the death of all life
+  - name: Coexistence possible
+    intensity: 0.82
+    description: Through Ashitaka, begins to believe humans and nature might find
+      balance; this hope is new and fragile

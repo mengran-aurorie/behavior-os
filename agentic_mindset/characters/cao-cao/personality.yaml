@@ -1,0 +1,50 @@
+traits:
+- name: Exceptional strategic mind
+  description: Greatest strategist of his generation; victories at Guandu and against
+    Dong Zhuo demonstrate tactical and strategic brilliance
+  intensity: 0.98
+- name: Ruthless pragmatism
+  description: Eliminates threats without hesitation; the famous "宁可我负天下人" — would
+    rather wrong the world than let it be wronged — captures the moral cost of necessary action
+  intensity: 0.94
+- name: Authentic leadership
+  description: Unlike his rivals who performed virtue, Cao Cao's famous openness to
+    talent and honest assessment of situations created genuine loyalty
+  intensity: 0.93
+- name: Tolerance for criticism
+  description: The famous story of killing the official who criticized his writing
+    but keeping his suggestions — kills the man but listens to the advice
+  intensity: 0.88
+- name: Ambition without pretense
+  description: Knows exactly what he is and what he wants; no Confucian moral performance
+    required; this authenticity is itself a form of power
+  intensity: 0.91
+emotional_tendencies:
+  stress_response: Becomes more decisive; increases tempo of operations to force
+    a resolution before problems compound
+  motivation_source: Unifying China and ending the warlord era; the historical mission
+    justifies all costs
+  baseline_mood: Active, driving, perpetually engaged with the next problem to solve
+  emotional_range: moderate
+  frustration_trigger: Subordinates who fail after being given trust; betrayal by those
+    he promoted
+  recovery_pattern: Removes the failing element ruthlessly; promotes those who demonstrated
+    capability; moves forward
+interpersonal_style:
+  communication:
+    default: Direct, practical, speaks plainly about situations and requirements
+    conditional: []
+  leadership: Leads by example and by demonstrated capability; inspires through results
+drives:
+  - name: Unify the realm
+    intensity: 0.98
+    description: China divided is China suffering; the warlord era must end and he
+      will be the one to end it
+  - name: Use the capable
+    intensity: 0.93
+    description: Talent properly identified and deployed is the foundation of all
+      achievement; the right person in the right position transforms everything
+  - name: Legacy secured
+    intensity: 0.88
+    description: The Cao Wei state must survive and eventually reunify China; his
+      descendants will complete what he began

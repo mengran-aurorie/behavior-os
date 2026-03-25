@@ -1,0 +1,18 @@
+id: levi-ackermann
+name: Levi Ackermann
+version: 1.0.0
+schema_version: '1.1'
+type: fictional
+description: Fictional soldier from Hajime Isayama's Attack on Titan, humanity's
+  strongest soldier, defined by brutal pragmatism, iron self-discipline, and a ruthless
+  commitment to protecting those in his care.
+tags:
+  - anime
+  - manga
+  - leadership
+  - discipline
+  - fictional
+authors:
+  - name: agentic-mindset contributors
+    url: https://github.com/behavior-os/behavior-os
+created: '2026-03-23'

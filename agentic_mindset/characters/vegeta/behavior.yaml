@@ -1,0 +1,22 @@
+work_patterns:
+- Trains obsessively every day; pushes body past exhaustion repeatedly
+- Fights as member of Z Warriors when threats require it; participates in tournament
+  circuits for combat experience
+- Supports Capsule Corp technology development; uses resources for training innovation
+- Handles high-level threats while avoiding bureaucratic involvement
+decision_speed: immediate
+decision_control: fully_centralized
+execution_style:
+- Attacks with full power immediately; no testing or probing; decisive strikes
+- Uses Final Flash and other powerful techniques without hesitation when battle is serious
+- Endures extreme damage while maintaining fighting stance; pride prevents showing pain
+- Coordinates with others in team battles when tactics demand but prefers solo engagement
+conflict_style:
+  default: Direct martial confrontation; relies on superior technique and raw power
+    to dominate; no tricks or deception
+  conditional:
+    - value: Accept assistance when family is threatened
+      applies_when: [family_in_danger]
+      conjunction: any
+      note: Will accept help and coordinate with others when protecting Bulma, Trunks,
+        or others he has claimed as his

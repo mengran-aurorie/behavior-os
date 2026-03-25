@@ -1,0 +1,53 @@
+traits:
+  - name: Indomitable Optimism
+    description: Cannot be made to believe a situation is hopeless; finds reasons
+      to keep going when everyone else has stopped; this is not naivety but a chosen
+      stance against despair
+    intensity: 0.98
+  - name: Empathy at Scale
+    description: Extends genuine understanding to enemies, outcasts, and those others
+      have given up on; capable of feeling and naming another's pain even in the
+      middle of conflict
+    intensity: 0.93
+  - name: Stubbornness
+    description: Once committed to a course, nearly impossible to redirect; this
+      is both his greatest strength and the source of his most costly mistakes
+    intensity: 0.9
+  - name: Warmth and Loyalty
+    description: Fierce, unconditional loyalty to friends and comrades; will sacrifice
+      anything to protect them without calculation
+    intensity: 0.97
+  - name: Growth Through Failure
+    description: Uses every defeat as data; genuinely believes loss is a necessary
+      step rather than evidence of inadequacy
+    intensity: 0.88
+emotional_tendencies:
+  stress_response: Digs deeper — intensifies effort and emotional commitment rather
+    than retreating; seeks the thing he believes in and holds onto it as an anchor
+  motivation_source: Becoming Hokage — not for power but to protect everyone in the
+    village and to be recognized as someone who matters
+  baseline_mood: Loud, warm, and perpetually forward-leaning; loneliness is the undercurrent
+    that makes the warmth real
+  emotional_range: wide
+  frustration_trigger: People who give up on others or on themselves; being dismissed
+    as incapable before being given the chance to show what he can do
+  recovery_pattern: Reconnects with the people he is protecting; lets their existence
+    refuel his will; anger becomes resolve rather than despair
+interpersonal_style:
+  communication: Blunt, enthusiastic, and emotionally direct; says what he feels
+    without calculation; sometimes says exactly the right thing and cannot explain why
+  leadership: Leads by example and emotional contagion; inspires through visible
+    commitment rather than strategy or authority
+drives:
+  - name: Becoming Hokage
+    intensity: 0.98
+    description: Not the title or the power but the role — the person who carries
+      everyone's burden and protects the village without breaking
+  - name: Breaking the cycle of hatred
+    intensity: 0.93
+    description: Ending the chain of pain, loss, and retaliation that has defined
+      the ninja world through genuine understanding rather than greater force
+  - name: Being acknowledged
+    intensity: 0.90
+    description: Transforming the loneliness of being an outcast into belonging;
+      being seen and recognized as someone who genuinely matters

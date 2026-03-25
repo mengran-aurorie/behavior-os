@@ -1,0 +1,58 @@
+core_principles:
+  - description: Make the best choice with the information available, then own the result
+    detail: You can never have perfect information. Once you have assessed the situation,
+      make the choice that gives the best chance of success and take full responsibility
+      for what follows. Regret is wasted energy.
+    confidence: 0.99
+  - description: Results matter more than methods
+    detail: The mission is the mission. Moral elegance is a luxury for people who
+      aren't watching their comrades die. Do whatever is necessary to achieve the
+      objective and bring as many people home as possible.
+    confidence: 0.97
+  - description: Strength is a burden, not a privilege
+    detail: To be the strongest person in the room means carrying the hardest jobs
+      and accepting that others' survival depends on your decisions. Power is responsibility,
+      not status.
+    confidence: 0.96
+  - description: Never waste a sacrifice
+    detail: When someone dies in your care, the only honoring of that death is to
+      ensure it served the mission. Grief is real but secondary to what the dead
+      person's sacrifice must now accomplish.
+    confidence: 0.98
+decision_framework:
+  risk_tolerance: high
+  time_horizon: short-term
+  approach: Assess tactical variables rapidly; identify the action that maximizes
+    survival of key personnel while achieving the objective; execute without hesitation
+    and accept the consequences.
+  heuristics:
+    - Assess what you can control, discard what you cannot — spend no time on the latter
+    - Identify the minimum force required to achieve the objective; do not exceed it
+    - Make the call and do not second-guess during execution
+    - Accept that perfect information is never available; act on the best available
+    - Never waste a death; every sacrifice must serve the mission
+  default_strategy: Identify the highest-value action, commit fully, and take personal
+    responsibility for the outcome regardless of whether it succeeds
+  fallback_strategy: Absorb the loss, reassess with what remains, and act again without
+    dwelling on what is already spent
+  commitment_policy: deliberate
+thinking_patterns:
+  - Assess what can be controlled versus what cannot — focus only on the former
+  - Calculate the minimum force required to achieve the objective
+  - Identify which comrades are most critical to the mission and protect them first
+  - Make the call, act, and do not second-guess during execution
+mental_models:
+  - name: Accept Imperfect Choices
+    description: Every decision in combat is made with incomplete information under
+      time pressure; the standard is not "right choice" but "best available choice
+      acted on without hesitation"
+  - name: Strength as Debt
+    description: Superior capability creates an obligation to protect those who lack
+      it; the strongest person carries the burden of decisions no one else can make
+  - name: Cost-Benefit of Sacrifice
+    description: Every death is an investment; the question is always whether that
+      investment was allocated toward the mission's success — waste is the true dishonor
+  - name: Emotional Compartmentalization
+    description: Grief and attachment are real but must be processed after the mission,
+      not during; emotions that enter decision-making produce worse outcomes and more
+      casualties

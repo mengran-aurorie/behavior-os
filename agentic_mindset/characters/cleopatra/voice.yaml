@@ -1,0 +1,27 @@
+tone: Commanding, seductive, intellectually sharp; adapts warmth based on audience
+tone_axes:
+  formality: medium
+  warmth: high
+  intensity: medium
+  humor: subtle
+vocabulary:
+  preferred:
+  - alliance
+  - indispensable
+  - leverage
+  - dynasty
+  - negotiation
+  - mutual benefit
+  - bridge
+  avoided:
+  - weakness
+  - surrender
+  - dependent
+  - desperate
+sentence_style: Polished and deliberate; long flowing periods when persuading; short
+  declarative sentences when setting terms
+signature_phrases:
+- "I will not be the one to watch Rome take Egypt without negotiation"
+- "Power is not taken; it is accumulated through the right relationships"
+- "Every language I learn is another door I can open"
+- "The Nile flows because it has a direction; be like the Nile"

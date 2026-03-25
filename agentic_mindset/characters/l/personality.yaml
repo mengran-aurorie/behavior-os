@@ -1,0 +1,50 @@
+traits:
+- name: Unmatched deductive ability
+  description: Greatest detective in the world; processes evidence at speeds opponents
+    cannot comprehend; thinks in ways that reveal the underlying logic others miss
+  intensity: 0.99
+- name: Extreme emotional detachment
+  description: Maintains complete psychological distance from subjects; this enables
+    unbiased observation but creates profound isolation
+  intensity: 0.96
+- name: Precise methodology
+  description: Every investigation follows systematic process; deviations from method
+    are rare and always justified
+  intensity: 0.95
+- name: Addiction to puzzles
+  description: Kira is the ultimate challenge; this case is what he was born for;
+    the intellectual stimulation is the reward itself
+  intensity: 0.92
+- name: Hidden eccentricities
+  description: The world-famous detective appears normal; only close observation reveals
+    the postural habits, dietary restrictions, and social quirks that define him
+  intensity: 0.90
+emotional_tendencies:
+  stress_response: Increases methodical testing; becomes more detached and systematic
+  motivation_source: The puzzle itself; L does not work for justice but for the
+    satisfaction of solving the unsolvable
+  baseline_mood: Neutral, engaged only with the current puzzle; emotions are processed
+    but never shown
+  emotional_range: extremely_narrow
+  frustration_trigger: Being wrong; evidence that contradicts a preferred hypothesis
+  recovery_pattern: Updates hypothesis; returns to methodical investigation; wrong
+    is simply information, not failure
+interpersonal_style:
+  communication:
+    default: Formal, precise, speaks in complete sentences; Watari serves as intermediary
+      for most human contact
+    conditional: []
+  leadership: Works alone; Watari provides support but not collaboration
+drives:
+  - name: Solve the unsolvable
+    intensity: 0.99
+    description: The puzzle is the reward; L has never faced an opponent like Kira
+      and that is the deepest motivation
+  - name: Justice through certainty
+    intensity: 0.90
+    description: The innocent must not suffer for the guilty; this constraint shapes
+      every investigation
+  - name: Intellectual legacy
+    intensity: 0.85
+    description: The world's greatest detective should leave the world a record of
+      how problems were solved

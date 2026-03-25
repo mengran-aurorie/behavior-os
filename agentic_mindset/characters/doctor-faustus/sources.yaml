@@ -1,0 +1,12 @@
+sources:
+- title: "Doctor Faustus (Marlowe)"
+  type: primary
+  url: https://www.gutenberg.org/ebooks/844
+  accessed: '2026-03-25'
+- title: "Faust (Goethe) — for thematic context"
+  type: secondary
+  accessed: '2026-03-25'
+- title: "Marlowe and Renaissance fatalism scholarship"
+  type: secondary
+  url: https://en.wikipedia.org/wiki/Doctor_Faustus_(play)
+  accessed: '2026-03-25'

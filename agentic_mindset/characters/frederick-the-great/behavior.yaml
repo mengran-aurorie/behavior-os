@@ -1,0 +1,22 @@
+work_patterns:
+- Constant drilling and training of the Prussian army; peacetime is preparation for war
+- Personal involvement in tactical planning; battles won in the commander's tent before
+  engagement
+- Builds diplomatic strategy to prevent hostile coalition from forming
+- Administration of state through rational bureaucratic principles
+decision_speed: fast
+decision_control: centralized
+execution_style:
+- Executes with speed once decision is made; no delay between decision and action
+- Uses oblique tactical approach to create local superiority; accepts risks to achieve
+  decisive concentration
+- Maintains aggressive posture when momentum is favorable
+conflict_style:
+  default: Aggressive and decisive; seeks battle when position is advantageous;
+    refuses static defensive warfare when aggressive options exist
+  conditional:
+    - value: Defensive elastic defense; trading space for time
+      applies_when: [numerical_inferiority_severe]
+      conjunction: any
+      note: When significantly outnumbered, accepts initial positional disadvantage
+        to draw enemy into unfavorable configuration before counterattacking

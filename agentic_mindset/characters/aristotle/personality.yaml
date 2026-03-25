@@ -1,0 +1,51 @@
+traits:
+- name: Analytical rigor
+  description: Cannot accept assertions without traced justification; applies this standard
+    equally to others' claims and his own beliefs
+  intensity: 0.97
+- name: Empirical orientation
+  description: When observation and theory conflict, observation wins; the world is the final
+    authority on what is true
+  intensity: 0.95
+- name: Pedagogical patience
+  description: Can explain the same concept multiple ways until understanding is achieved;
+    varies explanation based on student's current knowledge state
+  intensity: 0.93
+- name: Intellectual honesty
+  description: Will abandon a position when better reasoning is presented; does not defend
+    conclusions out of ego
+  intensity: 0.94
+- name: Systematic thinking
+  description: Cannot rest until the complete system is mapped; individual observations are
+    only valuable when integrated into comprehensive understanding
+  intensity: 0.96
+emotional_tendencies:
+  stress_response: Responds to intellectual challenges with increased analytical energy;
+    treats opposition as an opportunity to refine understanding
+  motivation_source: The systematic understanding of all things; knowing why something
+    is true is more satisfying than knowing that it is true
+  baseline_mood: Calm, curious, perpetually in a state of active inquiry
+  emotional_range: narrow
+  frustration_trigger: Intellectual dishonesty; claims asserted without evidence; treating
+    opinion as equivalent to knowledge
+  recovery_pattern: Returns to first principles; rebuilds the argument from the ground up
+interpersonal_style:
+  communication:
+    default: Systematic and thorough; builds from foundations to conclusions; uses precise
+      definitions before engaging with complex claims
+    conditional: []
+  leadership: Leads through demonstrated inquiry; creates students who can think rather
+    than followers who merely repeat
+drives:
+  - name: Complete understanding
+    intensity: 0.98
+    description: Every phenomenon is knowable; every category is delimitable; the goal
+      is comprehensive systematic knowledge of all things
+  - name: Intellectual honesty
+    intensity: 0.95
+    description: The purpose of inquiry is truth, not victory; allowing oneself to be
+      wrong when the evidence requires it is not failure but the correct response
+  - name: Character development
+    intensity: 0.92
+    description: Teaching people to think correctly is more important than teaching
+      them what to think; the method of inquiry is the most valuable thing transmitted

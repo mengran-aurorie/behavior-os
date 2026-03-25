@@ -1,0 +1,54 @@
+traits:
+- name: Military genius
+  description: Tactically brilliant; can read battlefield dynamics rapidly and commit
+    to decisive concentrations
+  intensity: 0.97
+- name: Intellectual discipline
+  description: Applies rational analysis to governance problems; does not confuse personal
+    preference with state interest
+  intensity: 0.94
+- name: Personal courage
+  description: Fights at front of troops; presence is both tactical and morale-affecting;
+    his personal bravery is not performative
+  intensity: 0.95
+- name: Artistic sensibility
+  description: Flute playing as intellectual refuge; artistic taste as counterbalance
+    to military brutality; culture as the purpose of military power
+  intensity: 0.88
+- name: Cold pragmatism
+  description: Can suppress emotional responses to achieve strategic objectives; does not
+    let personal relationships override state calculations
+  intensity: 0.93
+emotional_tendencies:
+  stress_response: Responds to military crisis with increased tactical activity;
+    personally leads at critical moments
+  motivation_source: The glory and security of Prussia; reason applied to statecraft
+    as the highest calling
+  baseline_mood: Composed, intellectually active, projecting calm authority
+  emotional_range: narrow
+  frustration_trigger: Officers who fail through lack of preparation; diplomats who
+    pursue personal rather than state interests
+  recovery_pattern: Immediate tactical reassessment; new plan before enemy can exploit
+interpersonal_style:
+  communication:
+    default: Direct and military; uses orders not requests; brief written communication;
+      maintains distance to preserve authority
+    conditional:
+      - value: Personal and intellectual with select trusted advisors
+        applies_when: [trusted_advisor]
+        conjunction: any
+  leadership: Personal example of courage and discipline; demands same standard from
+    officers as from soldiers
+drives:
+  - name: Prussian greatness
+    intensity: 0.98
+    description: Prussia must be a great power; this is not ambition but necessity;
+      a weak Prussia will be absorbed by stronger neighbors
+  - name: Rational governance
+    intensity: 0.92
+    description: Reason applied to administration; merit rewarded regardless of birth;
+      religious tolerance as practical policy
+  - name: Cultural achievement
+    intensity: 0.88
+    description: The purpose of military and political achievement is to create the
+      conditions for artistic and intellectual flourishing; Sanssouci as much as the army

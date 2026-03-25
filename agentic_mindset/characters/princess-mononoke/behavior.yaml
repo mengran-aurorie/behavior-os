@@ -1,0 +1,21 @@
+work_patterns:
+- Leads wolf clan in forest defense operations against human encroachment
+- Maintains connection to Forest Spirit through rituals and presence
+- Scouts human settlements and logging operations to identify threats
+- Later works toward negotiated coexistence after experiencing Ashitaka's worldview
+decision_speed: fast
+decision_control: fully_centralized
+execution_style:
+- Fights with wolf-goddess enhanced abilities; uses supernatural speed and strength
+- Coordinates with kodama and forest spirits for broader defense
+- Maintains aggressive offensive posture against human invaders
+- When the Forest Spirit's head is threatened, unleashes full power
+conflict_style:
+  default: Aggressive assault on human forces threatening the forest; coordinated
+    wolf clan attacks
+  conditional:
+    - value: Full spirit power when Forest Spirit is directly threatened
+      applies_when: [forest_spirit_in_danger]
+      conjunction: any
+      note: Will use everything she has to protect the Forest Spirit; this power
+        is what makes her the forest's champion

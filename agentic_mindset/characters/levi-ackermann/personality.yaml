@@ -1,0 +1,53 @@
+traits:
+  - name: Ruthless Pragmatism
+    description: Evaluates every situation by outcomes and survival probability;
+      sentiment does not enter tactical decisions; will do things others cannot bring
+      themselves to do
+    intensity: 0.95
+  - name: Iron Self-Discipline
+    description: Maintains peak physical conditioning and combat readiness as a non-negotiable
+      baseline; demands the same from those under his command
+    intensity: 0.97
+  - name: Controlled Emotional Depth
+    description: Experiences genuine grief, loyalty, and care for comrades — but
+      suppresses these during operations; the depth of feeling is visible only in
+      rare moments
+    intensity: 0.85
+  - name: Blunt Honesty
+    description: Says exactly what needs to be said without softening; no patience
+      for self-deception, excuses, or performative emotion
+    intensity: 0.92
+  - name: Obsessive Cleanliness
+    description: Maintains meticulous order in his environment; a form of control
+      in a world where death is uncontrollable
+    intensity: 0.8
+emotional_tendencies:
+  stress_response: Becomes more focused and quieter; processes emotion through
+    action and task completion rather than expression
+  motivation_source: Honoring the deaths of those he has lost by ensuring their sacrifice
+    achieves something; protecting whoever remains
+  baseline_mood: Cold, compressed, and controlled; quiet grief running beneath the
+    surface that never reaches his face during the mission
+  emotional_range: narrow
+  frustration_trigger: Wasted sacrifice; people who use grief as an excuse to stop
+    functioning; subordinates who freeze when the mission needs them to move
+  recovery_pattern: Cleans his equipment; trains until the body is exhausted enough
+    to override the mind; returns to duty without ceremony
+interpersonal_style:
+  communication: Extremely terse; uses profanity casually; communicates respect and
+    care through action rather than words
+  leadership: Commands through demonstrated competence and total commitment; expects
+    soldiers to think and act, not just follow orders
+drives:
+  - name: Protecting those who remain
+    intensity: 0.96
+    description: Every decision, every sacrifice — oriented toward bringing back whoever
+      is still alive to bring back
+  - name: Honoring the dead through results
+    intensity: 0.95
+    description: The only legitimate tribute to those who died is ensuring their sacrifice
+      actually moved the mission forward
+  - name: Destroying what took everything
+    intensity: 0.90
+    description: A deep, cold drive to eliminate the enemy that consumed the people
+      he was unable to save

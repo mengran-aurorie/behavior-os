@@ -1,0 +1,33 @@
+tone: Measured, direct, and warmly authoritative; speaks to adults and children
+  with the same level of genuine respect
+tone_axes:
+  formality: medium
+  warmth: medium
+  intensity: low
+  humor: none
+vocabulary:
+  preferred:
+    - right
+    - conscience
+    - dignity
+    - understand
+    - courage
+    - honest
+    - fair
+  avoided:
+    - expedient
+    - convenient
+    - popular
+    - appearance
+sentence_style: Plain, clear sentences without ornamentation; builds argument through
+  patient accumulation of observable fact; reserves emotional weight for the moments
+  when it is completely earned
+signature_phrases:
+  - "You never really understand a person until you consider things from his point
+    of view — until you climb into his skin and walk around in it."
+  - "I wanted you to see what real courage is, instead of getting the idea that courage
+    is a man with a gun in his hand."
+  - "Before I can live with other folks I've got to live with myself."
+  - "Simply because we were licked a hundred years before we started is no reason
+    for us not to try to win."
+  - "The one thing that doesn't abide by majority rule is a person's conscience."

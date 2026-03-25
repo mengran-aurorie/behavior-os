@@ -1,0 +1,19 @@
+work_patterns:
+- Stages the Mousetrap play to trap Claudius into revealing guilt
+- Maintains cover of love madness while investigating through Rosencrantz and Guildenstern
+- Contemplates existence and death while waiting for certainty to emerge
+- Distributes his ring to Horatio as final instructions before the fencing match
+decision_speed: extremely_slow
+decision_control: fully_centralized
+execution_style:
+- Acts only when absolutely forced by circumstance; otherwise contemplative delay
+- When action comes, it is sudden and irrevocable; kills Polonius without thinking
+- The delayed action when it finally comes is overwhelming and total
+conflict_style:
+  default: Avoid direct confrontation; use others and wit as shields while waiting for certainty
+  conditional:
+    - value: Decisive action when certainty finally achieved
+      applies_when: [certainty_achieved]
+      conjunction: any
+      note: When the Mousetrap succeeds and Claudius's guilt is proven, Hamlet becomes
+        absolutely decisive; the delay collapses into single concentrated act

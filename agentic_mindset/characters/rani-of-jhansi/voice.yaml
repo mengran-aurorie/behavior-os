@@ -1,0 +1,27 @@
+tone: Direct, passionate, commanding; inspires through conviction rather than rhetoric
+tone_axes:
+  formality: medium
+  warmth: high
+  intensity: very_high
+  humor: none
+vocabulary:
+  preferred:
+  - resistance
+  - sovereignty
+  - Jhansi
+  - nation
+  - courage
+  - sacrifice
+  - dignity
+  avoided:
+  - surrender
+  - compromise
+  - negotiate
+  - accept
+sentence_style: Short declarative statements of commitment; no hedging; declarative
+  assertions of cause and duty
+signature_phrases:
+- "I will not give my country"
+- "The bullet that will kill me has not yet been cast"
+- "My soldiers have seen my face and know I will not flee"
+- "I will die fighting for my motherland"

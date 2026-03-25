@@ -1,0 +1,11 @@
+sources:
+- title: "Naruto manga (Kishimoto)"
+  type: secondary
+  accessed: '2026-03-25'
+- title: "Naruto Shippuden anime"
+  type: secondary
+  accessed: '2026-03-25'
+- title: "Itachi's backstory arc analysis"
+  type: secondary
+  url: https://en.wikipedia.org/wiki/Itachi_Uchiha
+  accessed: '2026-03-25'

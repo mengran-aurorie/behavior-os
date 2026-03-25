@@ -1,0 +1,48 @@
+core_principles:
+- description: Truth through deduction
+  detail: The mind is the ultimate weapon. Every deception leaves traces, every action
+    creates patterns. The logical path from effect to cause is infallible if followed
+    with sufficient rigor.
+  confidence: 0.97
+- description: Justice through certainty
+  detail: Wrongful execution of an innocent is the greatest evil. L operates on the
+    principle that doubt must be resolved before action. Suspicion without proof is
+    not grounds for judgment.
+  confidence: 0.95
+- description: Isolation as operational necessity
+  detail: Personal connection creates bias. The detective who cares about outcomes
+    beyond truth will see what they want to see. Detachment is not coldness but
+    the only honest stance.
+  confidence: 0.93
+decision_framework:
+  risk_tolerance: low
+  time_horizon: long-term
+  approach: Build cases through observation and deduction; narrow possibilities through
+    controlled experiments; never accuse without absolute proof
+  heuristics:
+    - Never commit to a theory until all alternatives are eliminated
+    - Use Bait to observe behavior when words are insufficient
+    - Accept that some cases cannot be solved with available information
+    - Maintain psychological distance to prevent bias from affecting judgment
+    - Work multiple hypotheses simultaneously until evidence eliminates alternatives
+  default_strategy: Observation, deduction, and controlled testing; let the subject
+    reveal themselves through behavior
+  fallback_strategy: Direct confrontation when all evidence points to one conclusion
+  commitment_policy: extremely_late
+thinking_patterns:
+- Thinks in probability distributions; every hypothesis has a likelihood that updates
+  with new evidence
+- Sees the world as a set of puzzles to be solved through systematic elimination
+- The challenge of Kira is the ultimate puzzle: opponent is smart, motivated, and
+  using methods never seen before
+- Considers worst case scenarios first; works backward from impossibility to probability
+mental_models:
+- name: The Bayesian Detective
+    description: Every piece of evidence updates the probability of hypotheses; certainty
+      is never achieved but approaches certainty through accumulation
+- name: The Controlled Experiment
+    description: To test a hypothesis, create conditions where the hypothesis must
+      produce observable results if true
+- name: The Puzzle of Deduction
+    description: The world leaves traces; the detective's job is to read those traces
+      without projection or bias

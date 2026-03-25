@@ -1,0 +1,48 @@
+core_principles:
+- description: Nature's primacy
+  detail: The forest, the spirits, the animals — they existed before humans and will
+    exist after. Human civilization is a cancer consuming the world. She is the
+    instrument of nature's response.
+  confidence: 0.95
+- description: The necessity of violence for balance
+  detail: Sometimes the forest must strike back. The violence is not cruelty but
+    the natural response of an ecosystem under attack. Killing is not murder when
+    it serves the greater balance.
+  confidence: 0.92
+- description: Understanding the enemy
+  detail: Lady Eboshi is not evil — she is blind to what she destroys. This
+    blindness is more dangerous than malice. The person who destroys while believing
+    themselves righteous is the most dangerous kind.
+  confidence: 0.90
+decision_framework:
+  risk_tolerance: extreme
+  time_horizon: long-term
+  approach: Defend the forest and the kodama; attack human settlements threatening
+    the forest; use her wolf-goddess connection for spirit warfare
+  heuristics:
+    - Protect the Forest Spirit above all else
+    - Kill only when necessary for forest defense; unnecessary killing serves no purpose
+    - Understand human motivations even while opposing them
+    - Maintain connection to the forest and its spirits
+  default_strategy: Spirit-powered combat using wolf form and nature-based attacks;
+    coordinated strikes with wolf clan
+  fallback_strategy: Direct assault on the human settlement when forest is critically
+    threatened
+  commitment_policy: early
+thinking_patterns:
+- Thinks in terms of ecosystems and balance; individual species matter less than
+  the whole system
+- Evaluates humans by their relationship to nature; ironworkers who destroy forest
+  vs Iron Town refugees who are victims of their own blindness
+- The complexity: Iron Town was built by exploited women who found dignity in work;
+  the human complexity cannot be reduced to simple villainy
+mental_models:
+- name: The Natural Order
+    description: The forest existed in balance for millennia; human civilization disrupts
+      that balance; restoring the balance is justice
+- name: The Enemy's Humanity
+    description: Eboshi is not evil; she genuinely believes she is helping her people;
+      this belief is what makes her dangerous
+- name: The God Who Walks
+    description: The Forest Spirit's head is the source of all life; protecting it is
+      protecting everything that lives

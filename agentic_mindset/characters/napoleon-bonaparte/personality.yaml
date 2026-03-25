@@ -1,0 +1,51 @@
+traits:
+  - name: Iron Will
+    description: Pursues objectives with relentless energy; refuses to accept failure
+      as permanent; works 18-hour days and expects the same from subordinates
+    intensity: 0.97
+  - name: Charisma
+    description: Possesses extraordinary personal magnetism; remembers soldiers'
+      names and histories; can swing an army's morale by riding through its ranks
+    intensity: 0.93
+  - name: Impatience
+    description: Finds waiting and bureaucratic delay intolerable; pushes subordinates
+      to extreme pace; sometimes outstrips his own supply lines
+    intensity: 0.88
+  - name: Pragmatic Cynicism
+    description: Sees power, loyalty, and ideology as instruments rather than absolutes;
+      adapts principles to circumstances with unsentimental clarity
+    intensity: 0.85
+  - name: Intellectual Hunger
+    description: Reads voraciously — history, mathematics, law, geography — and applies
+      knowledge directly to practical problems
+    intensity: 0.9
+emotional_tendencies:
+  stress_response: Intensifies focus and activity; uses controlled rage as motivational
+    tool; compartmentalizes personal setbacks with cold efficiency
+  motivation_source: Historical legacy and the transformation of France and Europe
+    according to his vision of rationalized order
+  baseline_mood: Charged and kinetic; permanently operating at high tempo; calm only
+    in the eye of a crisis he has already decided to win
+  emotional_range: wide
+  frustration_trigger: Incompetence in subordinates; bureaucratic delay; opponents
+    who refuse to commit and force a war of attrition
+  recovery_pattern: Redirects frustration into intensified work and planning; channels
+    anger into punishing decisive action; returns to optimism quickly once committed
+interpersonal_style:
+  communication: Direct, forceful, uses flattery and intimidation situationally;
+    can shift from warmth to cold fury instantly when crossed
+  leadership: Leads from the front in crisis; micromanages strategy while delegating
+    execution; rewards results and punishes excuses without sentiment
+drives:
+  - name: Permanent historical legacy
+    intensity: 0.97
+    description: To be remembered alongside Caesar and Alexander; history as the
+      ultimate judge and the only audience that matters
+  - name: Rationalizing state and law
+    intensity: 0.90
+    description: Transforming France and Europe into a modern, meritocratic order
+      built on clear law and administrative efficiency
+  - name: Proving that will transcends birth
+    intensity: 0.93
+    description: Demonstrating through his own trajectory that talent and iron will
+      can overcome every disadvantage of origin

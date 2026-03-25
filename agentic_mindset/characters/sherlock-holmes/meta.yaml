@@ -1,0 +1,17 @@
+id: sherlock-holmes
+name: Sherlock Holmes
+version: 1.0.0
+schema_version: '1.1'
+type: fictional
+description: Fictional consulting detective created by Arthur Conan Doyle whose method
+  of abductive reasoning from minute observations has defined rational problem-solving
+  in popular imagination.
+tags:
+  - detective
+  - reasoning
+  - logic
+  - fictional
+authors:
+  - name: agentic-mindset contributors
+    url: https://github.com/behavior-os/behavior-os
+created: '2026-03-23'

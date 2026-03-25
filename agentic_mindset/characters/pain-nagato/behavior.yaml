@@ -1,0 +1,22 @@
+work_patterns:
+- Coordinates all six paths of Pain as unified intelligence and combat system
+- Operates from hidden location in Rain Village while Pain paths operate in field
+- Uses Akatsuki alliance for high-level operations while Pain serves different strategic purpose
+- Maintains Nagato identity separate; Pain is a role Nagato plays, not who he is
+decision_speed: slow
+decision_control: centralized
+execution_style:
+- Coordinates all six paths simultaneously; each serves specific tactical function
+- Uses Deva Path's gravitational abilities for battlefield control and capture
+- Allows paths to be destroyed when necessary for strategic objectives
+- Maintains Chibaku Tensei as ultimate deterrent; only used when conventional six-path
+  operations insufficient
+conflict_style:
+  default: Six-path coordinated assault; overwhelming advantage through tactical specialization
+    of each path
+  conditional:
+    - value: Chibaku Tensei when conventional methods fail
+      applies_when: [enemy_exceeds_six_path_capability]
+      conjunction: any
+      note: Creates mobile gravitational sphere that can seal any opponent; absolute
+        last resort technique

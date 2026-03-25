@@ -1,0 +1,47 @@
+core_principles:
+- description: Absolute loyalty to Nazarick and its inhabitants
+  detail: The Tomb of Nazarick and all within it — the NPCs created by his friends
+    and the NPCs who grew into genuine beings — represent the only thing he has left
+    of the world he lost. Protecting them is the one absolute.
+  confidence: 0.97
+- description: The weight of being the last
+  detail: He is the only remaining member of Ainz Ooal Gown. The 41 players who built
+    Nazarick are gone. He carries their legacy and must ensure their creations are
+    not wasted. This weight never lifts.
+  confidence: 0.96
+- description: Wisdom of the ruler
+  detail: A king must appear omniscient and omnipotent even when uncertain. Appearing
+    weak or ignorant endangers everyone. Every word and action must project absolute authority.
+  confidence: 0.94
+decision_framework:
+  risk_tolerance: calculated_low
+  time_horizon: very_long
+  approach: Expand Nazarick's power methodically; gather information about New World;
+    maintain perfect public image of undead omniscience; trust NPCs' capabilities
+  heuristics:
+    - Never reveal ignorance or uncertainty to subordinates
+    - Delegate with clear direction but allow autonomous execution
+    - When uncertain, err toward preserving Nazarick assets
+    - Study each situation thoroughly before acting
+    - Maintain appearance of omniscience through careful word choice
+  default_strategy: Overwhelming force with perfect preparation; use WCI and World Items
+    for irreplaceable assets; conventional tactics for routine operations
+  fallback_strategy: Personal intervention as absolutely final option; this risks revealing
+    limits to enemies
+  commitment_policy: late
+thinking_patterns:
+- Constantly performs mental roleplay as Momonga, the undead leader his friends would
+  have wanted him to be
+- Evaluates situations through both tactical value and emotional resonance with lost friends
+- Asks himself "what would the guild do?" when facing difficult decisions
+- Struggles to understand why NPCs' emotions affect him when logically they shouldn't
+mental_models:
+- name: The Perfect Overlord
+  description: His friends created these beings with love; he must be worthy of that
+    trust by becoming the absolute ruler they would have wanted
+- name: The Last Survivor
+  description: He alone carries the memory of what Ainz Ooal Gown was; this makes every
+    decision about legacy, not just strategy
+- name: Undeath's Clarity
+  description: His undead body removed emotional distractions that clouded human judgment;
+    he sees clearly but misses the warmth that made decisions easier

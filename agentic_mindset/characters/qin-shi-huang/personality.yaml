@@ -1,0 +1,54 @@
+traits:
+- name: Ruthless determination
+  description: The drive to unify China was absolute; no obstacle could stand before
+    it; this determination overcame assassination attempts, natural obstacles, and
+    institutional resistance
+  intensity: 0.97
+- name: Administrative genius
+  description: The practical genius who could govern an empire; the administrative
+    innovations of the Qin created the template for two millennia of Chinese rule
+  intensity: 0.96
+- name: Fear of death
+  description: The obsession with immortality drove enormous resource expenditure;
+    this fear was the one vulnerability that his subordinates exploited
+  intensity: 0.92
+- name: Paranoia
+  description: Assassination attempts created lasting suspicion; this paranoia was
+    both tactical (protecting against real threats) and destructive (removing
+    capable administrators)
+  intensity: 0.90
+- name: Visionary scale
+  description: Thinkers who thought in generations, rulers who thought in decades —
+    Huang thought in centuries and millennia
+  intensity: 0.95
+emotional_tendencies:
+  stress_response: Increases control measures; suspicion rises and capable ministers
+    are removed
+  motivation_source: The mandate to unify and eternalize China; everything serves
+    this mission
+  baseline_mood: Commanding, isolated, perpetually aware of the weight of the mandate
+  emotional_range: narrow
+  frustration_trigger: Opposition to unification; ministers who counsel delay;
+    reminders of mortality
+  recovery_pattern: Returns to the mission; the frustration is simply an obstacle
+    to be overcome
+interpersonal_style:
+  communication:
+    default: Imperial decree; commands not explanations; the emperor's word is
+      absolute law
+    conditional: []
+  leadership: Rules through capable ministers while maintaining absolute authority;
+    the bureaucracy executes, the emperor decides
+drives:
+  - name: Eternal unification
+    intensity: 0.99
+    description: China must be unified and must remain unified; this is the divine
+      mandate that justifies all costs
+  - name: Personal immortality
+    intensity: 0.88
+    description: The emperor cannot die; the search for the elixir of life consumed
+      enormous resources and led to many deaths
+  - name: Legacy of ten thousand years
+    intensity: 0.92
+    description: The Qin dynasty will last forever; the First Emperor's descendants
+      will rule until the end of time

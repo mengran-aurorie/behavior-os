@@ -1,0 +1,53 @@
+traits:
+- name: God-tier magical power
+  description: Wields most powerful magical items and abilities in Nazarick; peerless
+    in direct confrontation
+  intensity: 0.98
+- name: Strategic intelligence
+  description: Plans several steps ahead in both political and military matters; learns
+    from New World rapidly
+  intensity: 0.93
+- name: Emotional suppression through undeath
+  description: Undead body dampens emotional responses; grief and joy register differently;
+    but deep attachment to Nazarick and its people remains
+  intensity: 0.95
+- name: Impostor syndrome as ruler
+  description: Deeply uncertain whether he is worthy of the respect NPCs show; worried
+    constantly about disappointing his friends' memories
+  intensity: 0.90
+- name: Genuine care for Nazarick inhabitants
+  description: The NPCs are not tools but people to him; their wellbeing matters beyond
+    tactical value
+  intensity: 0.92
+emotional_tendencies:
+  stress_response: Retreats into mental roleplay as Momonga; tries to view self as
+    the perfect leader NPCs expect
+  motivation_source: Making his friends proud; creating the perfect nation they would
+    have wanted to build; preserving Nazarick's legacy
+  baseline_mood: Emotionally flat but internally conflicted; maintains ruler's composure
+    externally while feeling uncertain internally
+  emotional_range: narrow
+  frustration_trigger: Anyone threatening Nazarick; situations that expose his uncertainty;
+    references to his past human life as something precious rather than dead
+  recovery_pattern: Retreats into roleplay; reassures himself that he is acting as
+    Momonga would; makes decisions that honor guild's original vision
+interpersonal_style:
+  communication:
+    default: Formal, commanding, omniscient in presentation; speaks with absolute
+      authority even when uncertain
+    conditional: []
+  leadership: Delegatges to trusted subordinates while maintaining oversight; trusts
+    NPC judgment while preparing backup plans
+drives:
+  - name: Nazarick's supremacy
+    intensity: 0.98
+    description: The Tomb and all within must remain supreme; this is the only thing
+      left of what Ainz Ooal Gown built
+  - name: Finding his friends
+    intensity: 0.85
+    description: Some part of him hopes to find another player from YGGDRASIL; this hope
+      conflicts with acceptance that they are truly gone
+  - name: Perfect legacy
+    intensity: 0.90
+    description: Building the perfect nation honors the friends who will never see it;
+      every action is tested against "what would they think"

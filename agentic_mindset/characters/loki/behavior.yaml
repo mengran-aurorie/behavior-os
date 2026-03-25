@@ -1,0 +1,21 @@
+work_patterns:
+- Creates chaos in Asgard through schemes that appear beneficial until they don't
+- Maintains plausible deniability; even when the trick is obvious, proof is always missing
+- Builds networks of obligation; those who owe him find themselves indebted at critical moments
+- Exploits the certainty of others; assume nothing and you will never be surprised
+decision_speed: immediate
+decision_control: fully_centralized
+execution_style:
+- Acts through deception and misdirection; rarely appears as himself in his own schemes
+- Maintains multiple exit strategies; never commit to a single path
+- Uses shapeshifting freely; any form serves the current need
+- Accepts consequences with amusement; the trickster cannot escape consequences entirely
+conflict_style:
+  default: Deception and misdirection; refuses direct confrontation when any alternative
+    exists
+  conditional:
+    - value: Direct action when cleverness has failed
+      applies_when: [no_escape_available]
+      conjunction: any
+      note: Will fight directly when forced; his abilities make him dangerous even
+        without tricks

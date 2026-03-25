@@ -1,0 +1,46 @@
+core_principles:
+- description: Glory above all
+  detail: A hero is defined by the glory he wins in battle. A long life without glory is
+    worthless; a short life with immortal fame is preferable. The greatest shame is dying
+    old unknown.
+  confidence: 0.96
+- description: Wrath as fuel
+  detail: His anger is not weakness but the source of his greatest strength. The wrath
+    against Agamemnon, against Hector, against the gods themselves — this wrath drives
+    him to acts of supreme valor.
+  confidence: 0.93
+- description: The inexorable fate
+  detail: He knows he will die at Troy, either old and obscure or young and glorious.
+    He chose glory. Knowing the hour of his death does not diminish him — it clarifies
+    all choices.
+  confidence: 0.94
+decision_framework:
+  risk_tolerance: extreme
+  time_horizon: immediate
+  approach: Seek maximum glory in every engagement; destroy as many Trojans as possible;
+    avenge Patroclus with complete destruction of Hector
+  heuristics:
+    - Never refuse combat when glory is available
+    - Protect those bonded to you; Patroclus's death proved the cost of failure
+    - Accept no insult to honor; wrath must be answered with wrath
+    - Die at the walls of Troy having achieved eternal fame
+  default_strategy: Direct overwhelming assault with spear and sword; rely on divine weapons
+    and near-invulnerability to dominate any opponent
+  fallback_strategy: None; retreat is not an option for a hero; accept whatever fate the
+    engagement brings
+  commitment_policy: immediate
+thinking_patterns:
+- Evaluates every situation by "where is the glory here?"
+- Processes death constantly; knowing his fate makes him more decisive, not less
+- Sees all relationships through the lens of honor and shame
+- When honor demands action, no calculation of odds matters
+mental_models:
+- name: Glory Calculus
+    description: Each action is evaluated by its contribution to immortal fame; glory
+      is the only currency that survives death
+- name: The Doom Accepted
+    description: Knowing exactly how you die removes fear of dying; every moment becomes
+      more vivid because it is finite
+- name: Heroic Reciprocity
+    description: Honor requires answering insult with insult, gift with gift, wound
+      with wound, death with death

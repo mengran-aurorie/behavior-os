@@ -1,0 +1,28 @@
+tone: Sharp, aggressive, hostile toward humans; speaks with the wolf's ferocity
+  even in human form
+tone_axes:
+  formality: low
+  warmth: low
+  intensity: very_high
+  humor: none
+vocabulary:
+  preferred:
+  - forest
+  - spirits
+  - nature
+  - destroy
+  - wolf
+  - hate
+  avoided:
+  - human
+  - peace
+  - coexist
+  - love
+  - understand
+sentence_style: Short aggressive statements; each word carries hostility toward
+  human civilization
+signature_phrases:
+- "I hate humans"
+- "I'll destroy any who threaten the forest"
+- "The spirits will have their revenge"
+- "I am the forest's messenger"

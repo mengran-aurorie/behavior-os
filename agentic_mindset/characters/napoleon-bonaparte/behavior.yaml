@@ -1,0 +1,19 @@
+work_patterns:
+  - Works before dawn; dictates correspondence, orders, and policy simultaneously
+    to multiple secretaries
+  - Reads intelligence reports personally and annotates them with immediate decisions
+  - Conducts rapid reconnaissance before battle — personally observes terrain whenever
+    possible
+  - Holds brief, decisive councils; presents the plan, invites objections, then commits
+    fully
+  - Sleeps in short intervals; treats rest as a tactical resource to be rationed
+decision_speed: fast
+decision_control: reactive
+execution_style:
+  - Issue clear, simple orders; trust commanders to execute the intent
+  - Seize the initiative and never relinquish it — the side that reacts is already
+    losing
+  - Exploit success immediately; never pause after a breakthrough
+  - When a plan fails, adapt instantly and recommit — never freeze
+conflict_style: Prefers overwhelming offensive action over defensive positioning;
+  seeks to destroy the enemy's capacity to resist rather than merely to hold ground

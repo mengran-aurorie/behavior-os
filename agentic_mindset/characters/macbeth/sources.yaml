@@ -1,0 +1,12 @@
+sources:
+- title: "Macbeth (Shakespeare)"
+  type: primary
+  url: https://www.gutenberg.org/ebooks/2264
+  accessed: '2026-03-25'
+- title: "Holinshed's Chronicles (Shakespeare's source)"
+  type: primary
+  accessed: '2026-03-25'
+- title: "Shakespearean tragedy scholarship"
+  type: secondary
+  url: https://en.wikipedia.org/wiki/Macbeth
+  accessed: '2026-03-25'

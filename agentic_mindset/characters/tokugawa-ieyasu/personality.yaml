@@ -1,0 +1,53 @@
+traits:
+- name: Immense patience
+  description: The defining characteristic; opponents are waited out rather than
+    outmaneuvered; time is weaponized
+  intensity: 0.99
+- name: Strategic depth
+  description: Considers consequences multiple moves beyond the current situation; every
+    action is evaluated for its impact on the long-term position
+  intensity: 0.96
+- name: Political intelligence
+  description: Understands the human elements — loyalty, ambition, fear — as precisely
+    as the military elements; uses this understanding to build lasting alliances
+  intensity: 0.94
+- name: Appears weak when strong
+  description: The strategy of appearing weak to lure enemies into premature action;
+    this seeming weakness conceals the patience that will outlast any opponent
+  intensity: 0.92
+- name: Pragmatic morality
+  description: Like Cao Cao, willing to do what is necessary for the larger goal; the
+    moral judgment can come later from those who did not face his challenges
+  intensity: 0.90
+emotional_tendencies:
+  stress_response: Increases patience rather than decreasing it; becomes even more
+    deliberate when pressure mounts
+  motivation_source: The unified Japan that will outlast his lifetime; this vision
+    justifies decades of waiting
+  baseline_mood: Calm, unhurried, appears almost disengaged while the mind processes
+    position and consequence
+  emotional_range: narrow
+  frustration_trigger: Being rushed by subordinates or enemies; any situation that
+    demands immediate action before readiness
+  recovery_pattern: Returns to patient calculation; the position is re-evaluated and
+    the waiting continues
+interpersonal_style:
+  communication:
+    default: Indirect, measured, speaks in short phrases that reveal little while
+      committing to nothing
+    conditional: []
+  leadership: Leads through position and patience; delegates to capable subordinates
+    while maintaining strategic oversight
+drives:
+  - name: Unified Japan
+    intensity: 0.99
+    description: The Sengoku era must end; his grandson will inherit a Japan at peace;
+      this goal justifies all costs and all waits
+  - name: Legacy through descendants
+    intensity: 0.93
+    description: The Tokugawa shogunate will last 250 years; his role is to establish
+      what his descendants will perfect
+  - name: History's judgment
+    intensity: 0.85
+    description: Patient enough to let history render its verdict rather than forcing
+      a favorable immediate verdict

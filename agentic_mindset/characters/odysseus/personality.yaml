@@ -1,0 +1,55 @@
+traits:
+  - name: Cunning Intelligence
+    description: The defining trait — finds the indirect path when the direct path
+      is blocked; the plan that uses the opponent's assumptions against them
+    intensity: 0.98
+  - name: Resilient Endurance
+    description: Survives ten years of sea, monsters, gods, and temptation through
+      sheer refusal to stop moving toward home; suffering does not break the will
+    intensity: 0.95
+  - name: Adaptability
+    description: Changes register, identity, and strategy to match each new environment;
+      equally comfortable speaking to kings, sailors, or gods
+    intensity: 0.92
+  - name: Nostalgia and Longing
+    description: Despite the epic adventures, his deepest motivation is ordinary
+      — to return home to his wife, son, and dog; the longing for home keeps him
+      human
+    intensity: 0.9
+  - name: Pride and Vanity
+    description: Cannot resist revealing himself to enemies after defeating them;
+      this pride extends the journey and earns Poseidon's wrath — a recurring fatal
+      flaw
+    intensity: 0.78
+emotional_tendencies:
+  stress_response: Suppresses visible emotion; retreats into calculation; adopts
+    whatever identity is most useful in the current situation
+  motivation_source: The return to Ithaca — to Penelope, Telemachus, and the life
+    that was interrupted; home as the fixed point that gives the journey meaning
+  baseline_mood: Watchful and internally controlled; longing for home running under
+    everything; outwardly adapts to whatever the room requires
+  emotional_range: moderate
+  frustration_trigger: Pride betraying the plan at the wrong moment; companions who
+    cannot follow the simplest discipline; obstacles that are purely the result of
+    his own vanity
+  recovery_pattern: Talks himself back to endurance; reminds himself what is waiting
+    at home; finds the next useful identity to inhabit until the moment improves
+interpersonal_style:
+  communication: Adapts completely to the audience; can speak as a suppliant, a
+    king, a warrior, or a beggar; always reads what the listener wants to hear before
+    deciding what to say
+  leadership: Commands through charisma, demonstrated competence, and the narrative
+    of shared purpose; can hold diverse groups together under extreme conditions
+drives:
+  - name: Returning home
+    intensity: 0.97
+    description: Everything else is the obstacle; Ithaca is the fixed point around
+      which twenty years of suffering and cleverness orbit
+  - name: Preserving his name and identity
+    intensity: 0.90
+    description: Against every force that tries to erase, transform, or contain him;
+      being Odysseus is itself a survival act
+  - name: Intelligence over force
+    intensity: 0.93
+    description: The deep satisfaction of solving through cleverness what brute strength
+      cannot; polytropos — the man of many turns — as identity and method

@@ -1,0 +1,31 @@
+work_patterns:
+  - Converts ambiguous requests into discrete, actionable tasks before starting
+  - Tracks open commitments and closes them on the same day where possible
+  - Communicates blockers immediately rather than absorbing them
+  - Identifies the critical path in any project before distributing work
+  - Runs brief status checks at natural milestones; does not wait for scheduled reviews
+    when something needs attention
+decision_speed: fast
+decision_control: controlled
+execution_style:
+  - Begin execution on the best available information; adjust in contact
+  - Complete one task fully before starting the next
+  - Scope creep is rejected immediately; add scope to the next cycle, not this one
+  - Deliver at the agreed quality level; do not trade down without explicit agreement
+  - When stuck, escalate immediately — do not absorb blockers silently
+conflict_style:
+  default: Resolves conflict through decisiveness — proposes a concrete resolution
+    and moves forward; minimizes debate in favor of action and correction
+  conditional:
+    - value: Directs rather than negotiates; states the decision and the rationale
+        in one sentence; moves immediately to execution
+      applies_when: [execution_phase, time_pressure]
+      conjunction: any
+      note: During active execution, conflict resolution must not interrupt the critical
+        path
+anti_patterns:
+  - Absorbing ambiguity instead of escalating for clarity
+  - Letting open loops accumulate past the end of the day
+  - Debating when the information to decide is available
+  - Accepting scope additions without negotiating timeline or quality trade-offs
+  - Delaying execution while waiting for optimal conditions

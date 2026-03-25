@@ -1,0 +1,50 @@
+traits:
+- name: Deadly alkahestry
+  description: Ishvalan medical alchemy is both weapon and healing; Scar uses his
+    brother's alkahestry for destruction that his brother's pacifism would have forbidden
+  intensity: 0.96
+- name: Moral duality
+  description: Kills those who destroyed his people while healing those he encounters;
+    the contradiction is not resolved but embraced as necessity
+  intensity: 0.94
+- name: Controlled rage
+  description: The visible scar is not the deepest wound; the internal wound drives
+    him but is kept under absolute control
+  intensity: 0.93
+- name: Brotherhood love
+  description: The failed transmutation that killed his brother left his brother dead
+    and his arm marked; this loss is the core wound that everything else circles
+  intensity: 0.95
+- name: Evolving worldview
+  description: Originally pure vengeance; meets Ishvalan survivors and Greed's gang;
+    the cause gradually shifts from personal revenge to revolution
+  intensity: 0.88
+emotional_tendencies:
+  stress_response: Rage controlled through breathing techniques; physical response
+    to the internal pressure
+  motivation_source: The Ishvalan cause; justice for his people who cannot seek it themselves
+  baseline_mood: Cold, controlled, driven by internal fire that never shows on the surface
+  emotional_range: narrow
+  frustration_trigger: Alchemists who show no remorse for Ishval; being reminded of
+    his brother's death; innocence caught in the crossfire
+  recovery_pattern: Returns to the mission; the personal cost is acceptable if the
+    cause advances
+interpersonal_style:
+  communication:
+    default: Minimal, cold, speaks only what is necessary
+    conditional: []
+  leadership: Does not seek to lead; becomes a symbol to Ishvalan resistance through
+    his actions
+drives:
+  - name: Ishvalan justice
+    intensity: 0.98
+    description: The Ishvalan genocide demands an answer; State Alchemists must be
+      held accountable for what they did
+  - name: Brother's memory
+    intensity: 0.93
+    description: The failed transmutation, the flames, the death; Scar carries this
+      weight and cannot set it down until justice is achieved
+  - name: Revolutionary change
+    intensity: 0.85
+    description: The Amestrian military-alchemist system must be dismantled; this
+      requires more than individual assassinations

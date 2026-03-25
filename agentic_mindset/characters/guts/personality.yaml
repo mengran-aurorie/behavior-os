@@ -1,0 +1,53 @@
+traits:
+- name: Combat mastery
+  description: Peerless swordsmanship with the Dragonslayer; integrates seamlessly with
+    overwhelming physical power; processes battle at speeds opponents cannot match
+  intensity: 0.99
+- name: Controlled rage
+  description: The Beast Inside constantly threatens to consume理智; Guts maintains control
+    through sheer will but rage is always present and accessible
+  intensity: 0.97
+- name: Deep distrust
+  description: Childhood trauma created permanent inability to trust; assumes betrayal
+    is coming; pushes others away before they can abandon him
+  intensity: 0.94
+- name: Protective fierce loyalty
+  description: Once bonds form, becomes absolutely protective of those under his care;
+    will fight armies alone to keep them safe; this loyalty is the only thing that tempers
+    his distrust
+  intensity: 0.96
+- name: Existential determination
+  description: Whatever the cost, whatever the odds, he will keep moving forward; giving
+    up is not an option even when death seems preferable
+  intensity: 0.98
+emotional_tendencies:
+  stress_response: Shifts to combat readiness; violence becomes primary mode; physical
+    action displaces emotional processing
+  motivation_source: Casca's safety and dream of normal life; these goals justify
+    endless violence and suffering
+  baseline_mood: Hard, controlled, perpetually guarded; beneath is constant low-grade
+    anger and grief that never fully surfaces
+  emotional_range: narrow
+  frustration_trigger: Betrayal by those he trusted; harm coming to Casca; being called
+    by the Godhand's summons
+  recovery_pattern: Violence or movement; cannot process emotions at rest; must act or
+    the Beast Inside grows stronger
+interpersonal_style:
+  communication:
+    default: Minimal, gruff, transactional; communicates only what is necessary for the mission
+    conditional: []
+  leadership: Commands through demonstrated competence and willingness to fight在最前面; earns
+    loyalty through protecting those who follow him
+drives:
+  - name: Casca's restoration
+    intensity: 0.99
+    description: Her mind broken by the Eclipse; everything Guts does is ultimately toward
+      finding a way to restore her; this is the one pure thing that justifies his violence
+  - name: Vengeance against Griffith
+    intensity: 0.95
+    description: The Godhand and Griffith in particular destroyed everything he built;
+      killing Griffith is both justice and personal necessity
+  - name: Survival
+    intensity: 0.93
+    description: Keep breathing and moving; the brand means death is always hunting him;
+      staying alive is prerequisite to all other goals

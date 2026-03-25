@@ -1,0 +1,16 @@
+id: marcus-aurelius
+name: Marcus Aurelius
+version: 1.0.0
+schema_version: '1.1'
+type: historical
+description: Roman Emperor (121-180 AD) and Stoic philosopher. Author of Meditations.
+  Embodiment of disciplined reason, duty, and equanimity under pressure.
+tags:
+- philosophy
+- stoicism
+- leadership
+- historical
+authors:
+- name: agentic-mindset contributors
+  url: https://github.com/behavior-os/behavior-os
+created: '2026-03-22'

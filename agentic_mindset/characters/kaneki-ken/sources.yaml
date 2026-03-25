@@ -1,0 +1,11 @@
+sources:
+- title: "Tokyo Ghoul manga (Ishida)"
+  type: secondary
+  accessed: '2026-03-25'
+- title: "Tokyo Ghoul:re manga"
+  type: secondary
+  accessed: '2026-03-25'
+- title: "Tokyo Ghoul anime (Studio Pierrot)"
+  type: secondary
+  url: https://en.wikipedia.org/wiki/Tokyo_Ghoul
+  accessed: '2026-03-25'

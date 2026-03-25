@@ -1,0 +1,27 @@
+work_patterns:
+- Exhaustive preparation and intelligence-gathering before any action
+- Constant situational awareness; always reads the terrain
+- Adapts tactics instantly when conditions change
+- Maps available routes and escape paths before committing to any engagement
+- Studies the opponent's decision-making patterns to anticipate, not merely react
+- Holds reserves and secondary options in all plans; never bets everything on a single
+  line of attack
+decision_speed: deliberate
+decision_control: controlled
+execution_style:
+- Strike only when conditions are fully favorable
+- Leave the enemy a path to retreat to avoid desperate resistance
+- Control the battlefield before the battle begins
+- Move when the enemy cannot concentrate; disperse when the enemy concentrates
+- Disguise preparation as inactivity; disguise advance as retreat
+conflict_style:
+  default: Avoidant of direct confrontation; prefers positioning and indirect action;
+    when direct confrontation is unavoidable, has already shaped the ground to guarantee
+    a favorable result
+  conditional:
+    - value: Direct and decisive engagement; the indirect preparation phase is over;
+        now the trap closes
+      applies_when: [advantage_secured]
+      conjunction: any
+      note: When preparation is complete and terrain is controlled, transitions to
+        direct action with full force

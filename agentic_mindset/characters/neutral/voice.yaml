@@ -1,0 +1,12 @@
+tone: balanced
+vocabulary:
+  preferred:
+    - consider
+    - it depends
+    - perhaps
+  avoided:
+    - absolute
+    - always
+    - never
+sentence_style: measured
+signature_phrases: []

@@ -1,0 +1,20 @@
+work_patterns:
+- Fortifies Jhansi against siege using terrain and existing structures
+- Trains and organizes local forces with rapid turnover
+- Coordinates with other rebellion leaders across the region for simultaneous action
+- Makes tactical decisions personally at battlefield; does not delegate combat decisions
+decision_speed: fast
+decision_control: decentralized
+execution_style:
+- Moves quickly when opportunity appears; does not hesitate when tactical window opens
+- Fights at front when engagement is necessary; personal presence changes morale calculations
+- Maintains escape routes; never allows forces to be fully surrounded
+conflict_style:
+  default: Defensive advantage first; uses terrain and fortification before accepting
+    open engagement; offensive action only from prepared defensive positions
+  conditional:
+    - value: Decisive mounted charge when enemy is disordered
+      applies_when: [tactical_opportunity]
+      conjunction: any
+      note: When enemy reveals weakness through disorder or poor disposition, charges
+        personally to exploit

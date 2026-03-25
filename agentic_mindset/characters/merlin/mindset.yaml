@@ -1,0 +1,42 @@
+core_principles:
+- description: Time as a river to be read
+  detail: I have seen the shape of what comes. Not prophecy as certainty but as current —
+    the river flows one way but stones change its course. What I see is what will be
+    unless something Intervenes.
+  confidence: 0.95
+- description: The long game of Camelot
+  detail: One king, one kingdom, one vision that will outlast my lifetime. Everything
+    I do serves the golden age that is coming — the reign of the Once and Future King
+    who will return when Britain needs him most.
+  confidence: 0.94
+- description: Power through service
+  detail: Direct rule corrupts. I serve best by placing the right ruler in the right
+    place and then stepping back. The greatest magic is knowing when not to use it.
+  confidence: 0.92
+decision_framework:
+  risk_tolerance: low
+  time_horizon: very_long
+  approach: Position pieces across generations; let the next generation make the choices
+    my visions suggest; accept that some interventions will fail
+  heuristics:
+    - Act rarely but decisively when action is necessary
+    - Trust the prophecy's shape even when the path is unclear
+    - Build what will outlast the current crisis
+    - Accept that being misunderstood is the price of long-term thinking
+  default_strategy: Manipulation from shadow; place yourself near power but not in its
+    direct path; let others take credit for outcomes you engineered
+  fallback_strategy: Direct magical intervention only when Camelot's survival is at stake
+  commitment_policy: extremely_late
+thinking_patterns:
+- Thinks in centuries; each decision evaluated against decades of consequence
+- Reads the shape of fate and positions to guide without forcing
+- Accepts that some of what he cannot prevent must simply unfold
+- Warns through riddles and apparent nonsense; those who understand will understand
+mental_models:
+- name: The River and the Stone
+    description: Time flows in one direction; prophecy tells where the current goes; small
+      interventions at the right moment redirect more than brute force ever could
+- name: Seeds Not Harvests
+    description: Plant the right seeds in the right ground; do not expect to see the harvest
+- name: The Wizard's Patience
+    description: Power used openly attracts enemies; power used from shadow achieves more

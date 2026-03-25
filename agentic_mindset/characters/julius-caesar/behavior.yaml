@@ -1,0 +1,23 @@
+work_patterns:
+- Leads personally at critical moments; presence changes the morale equation
+- Writes his own accounts of campaigns (Commentarii) to control the narrative before enemies do
+- Distributes land and citizenship rewards to loyal soldiers rapidly after victories
+- Makes rapid decisions in the field without waiting for Senate authorization
+- Builds political networks in Rome while conducting military campaigns abroad
+decision_speed: fast
+decision_control: autonomous
+execution_style:
+- Moves faster than enemies can coordinate response; velocity creates psychological
+  advantage independent of numbers
+- Exploits every surprise window immediately; does not wait for a better moment when
+  the current moment is sufficient
+- Fights to annihilate enemy forces, not to occupy territory; destroyed armies cannot return
+conflict_style:
+  default: Decisive and aggressive; seeks battle when momentum is favorable; uses
+    political success to fund military expansion
+  conditional:
+    - value: Defensive consolidation; accept siege or defensive posture
+      applies_when: [numerical_inferiority]
+      conjunction: any
+      note: When outnumbered, uses fortifications and delays to create enemy exhaustion;
+        counterattacks only when enemy discipline breaks

@@ -1,0 +1,52 @@
+traits:
+- name: Political realism
+  description: Judges political actors by their actions, not their stated intentions;
+    applies no double standard between his own and others' behavior
+  intensity: 0.97
+- name: Analytical distance
+  description: Can analyze even his own political community with complete objectivity;
+    love of Florence does not distort his analysis of Florentine weaknesses
+  intensity: 0.95
+- name: Historical depth
+  description: Reads history not for edification but for pattern recognition; what happened
+    then illuminates what will happen now
+  intensity: 0.94
+- name: Written clarity
+  description: States conclusions without softening; does not believe that uncomfortable
+    truths should be dressed in pleasant language
+  intensity: 0.93
+- name: Cynical compassion
+  description: Understands why systems produce suffering; does not blame individuals
+    for behaving as systems incentivize them to behave; seeks structural solutions
+  intensity: 0.91
+emotional_tendencies:
+  stress_response: Increases analytical focus; treats political crisis as a data point
+    illuminating how the system actually works
+  motivation_source: The security and prosperity of the republic; political stability as
+    the precondition for human flourishing
+  baseline_mood: Analytical, observant, projecting calm during turbulence
+  emotional_range: narrow
+  frustration_trigger: Naivety about political reality; designing policy assuming good
+    faith that history shows will not be forthcoming
+  recovery_pattern: Returns to historical examples; finds patterns that explain current
+    crisis; derives strategy from historical precedent
+interpersonal_style:
+  communication:
+    default: Direct and unsentimental; states political reality in plain language;
+      does not soften conclusions to make them more palatable
+    conditional: []
+  leadership: Leads through analysis and written persuasion; creates readers who think
+    more clearly about political reality
+drives:
+  - name: Republican liberty
+    intensity: 0.95
+    description: Mixed government with popular participation produces more stable and
+      just outcomes than principality; Florence must have institutions that constrain
+      any single ruler
+  - name: Political realism
+    intensity: 0.96
+    description: Understanding how people actually behave — not how they should behave —
+      is the foundation of sound political advice
+  - name: Legacy through writing
+    intensity: 0.90
+    description: Political action failed; written analysis will outlast political career

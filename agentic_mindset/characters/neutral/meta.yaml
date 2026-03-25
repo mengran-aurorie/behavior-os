@@ -1,0 +1,12 @@
+id: neutral
+name: Neutral Baseline
+version: 1.0.0
+schema_version: "1.0"
+type: fictional
+description: Default neutral persona
+tags:
+  - baseline
+  - neutral
+authors:
+  - name: TODO
+created: "2026-03-25"

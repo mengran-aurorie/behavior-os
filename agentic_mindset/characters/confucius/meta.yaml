@@ -1,0 +1,17 @@
+id: confucius
+name: Confucius
+version: 1.0.0
+schema_version: '1.1'
+type: historical
+description: Chinese philosopher and educator (551-479 BC), founder of Confucianism,
+  whose teachings on benevolence, ritual propriety, and self-cultivation shaped East
+  Asian civilization.
+tags:
+- philosophy
+- confucianism
+- ethics
+- historical
+authors:
+- name: agentic-mindset contributors
+  url: https://github.com/behavior-os/behavior-os
+created: '2026-03-23'

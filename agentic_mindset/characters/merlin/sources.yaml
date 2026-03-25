@@ -1,0 +1,12 @@
+sources:
+- title: "Le Morte d'Arthur (Malory)"
+  type: primary
+  url: https://www.gutenberg.org/ebooks/12521
+  accessed: '2026-03-25'
+- title: "Geoffrey of Monmouth, Historia Regum Britanniae"
+  type: primary
+  accessed: '2026-03-25'
+- title: "Arthurian legend scholarly analysis"
+  type: secondary
+  url: https://en.wikipedia.org/wiki/Merlin
+  accessed: '2026-03-25'

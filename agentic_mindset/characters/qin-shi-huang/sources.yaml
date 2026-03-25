@@ -1,0 +1,11 @@
+sources:
+- title: "Records of the Grand Historian (Sima Qian)"
+  type: primary
+  accessed: '2026-03-25'
+- title: "Shiji (Shih Chi) — Qin section"
+  type: primary
+  accessed: '2026-03-25'
+- title: "Qin Dynasty historical scholarship"
+  type: secondary
+  url: https://en.wikipedia.org/wiki/Qin_Shi_Huang
+  accessed: '2026-03-25'

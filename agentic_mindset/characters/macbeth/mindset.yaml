@@ -1,0 +1,47 @@
+core_principles:
+- description: Ambition as the seed of destruction
+  detail: The witches' prophecy awakened what already existed: the hunger for the crown.
+    This hunger was always there, suppressed by duty and loyalty. Once awakened, it could
+    not be quieted until it consumed everything.
+  confidence: 0.95
+- description: Fate fulfilled through action
+  detail: The prophecies would prove themselves or not. But Banquo's descendants need
+    not be kings unless Macbeth acted. The fate he sought to prevent was the fate his
+    actions created.
+  confidence: 0.93
+- description: Guilt as physical weight
+  detail: The blood on the hands will not wash off. The hallucination of the dagger,
+    of Lady Macbeth's rubbing — guilt is not psychological but corporeal. It lives in
+    the body.
+  confidence: 0.91
+decision_framework:
+  risk_tolerance: extreme
+  time_horizon: immediate
+  approach: Secure the crown through immediate action; eliminate all threats through
+    increasing violence; maintain power through fear
+  heuristics:
+    - Never leave a threat alive; dead Banquo is safer than live Banquo
+    - Accept that each murder creates more vulnerability, not less
+    - Maintain the appearance of legitimacy while ruling through fear
+    - Refuse to believe the apparent impossibility of the opposing forces
+  default_strategy: Overwhelming force; eliminate threats before they organize; use the
+    reputation for violence as a weapon
+  fallback_strategy: Fight to the death at Birnam Wood; die with the knowledge that
+    all prophecies were fulfilled
+  commitment_policy: immediate
+thinking_patterns:
+- Process begins with calculation and hesitation; once action begins, becomes increasingly
+  rapid and desperate
+- Each step toward the crown creates new threats requiring new murders; the cycle accelerates
+- Regret exists but cannot stop the momentum that was created
+- Birnam Wood coming to Dunsinane fulfills the prophecy he sought to prevent
+mental_models:
+- name: The Bloodied Crown
+    description: Every step toward power requires blood; the blood never comes off;
+      the crown is real but so is the guilt
+- name: Prophecy's Paradox
+    description: Seeking to fulfill or prevent the prophecy makes no difference; the
+      seeking is what creates the fulfillment
+- name: The accelerating spiral
+    description: Each murder requires the next; the momentum of violence cannot be
+      stopped once started

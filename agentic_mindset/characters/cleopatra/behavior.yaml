@@ -1,0 +1,19 @@
+work_patterns:
+- Studies the language, religion, and customs of foreign visitors before first meeting
+- Builds simultaneous relationships with competing powers to maintain leverage
+- Positions herself as the indispensable bridge between Egypt and foreign interests
+- Collects intelligence on political developments through diplomatic network
+decision_speed: deliberate
+decision_control: controlled
+execution_style:
+- Executes alliance strategy with patience; moves quickly when opportunity window opens
+- Ensures all agreements create mutual obligation; avoids one-way gifts
+- Uses state visits and ceremonies to project power and attract further alliance offers
+conflict_style:
+  default: Avoids direct confrontation; uses alliance networks to make direct conflict
+    unnecessary for her side
+  conditional:
+    - value: Decisive political action; removes the patron who has become a liability
+      applies_when: [resource_critical]
+      conjunction: any
+      note: When a patron becomes more liability than asset, pivots immediately to replacement

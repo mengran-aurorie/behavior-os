@@ -1,0 +1,22 @@
+work_patterns:
+- Takes any odd job that pays rent; handles everything from finding cats to fighting
+  alien rulers
+- Maintains Yorozuya office; managesShinpachi and Kagura's development almost accidentally
+- Trains occasionally to maintain skill; more often reads Jump and complains
+- Avoids commitments that would restrict freedom; takes jobs on his own terms
+decision_speed: immediate
+decision_control: fully_centralized
+execution_style:
+- Fights with deceptive casualness; appears to be struggling when actually in complete control
+- Uses wooden sword for most fights; only switches to real sword when stakes are existential
+- Endures extreme damage without showing it; maintains composure even when seriously hurt
+- Uses environment and improvisation; any object can be a weapon in his hands
+conflict_style:
+  default: Lazy casual fighting; appears to barely try while completely controlling the
+    engagement
+  conditional:
+    - value: Serious mode when family is threatened
+      applies_when: [yorozuya_family_in_danger]
+      conjunction: any
+      note: Drops the lazy act completely; fights with the seriousness and power of
+        the war legend he actually is

@@ -1,0 +1,18 @@
+id: atticus-finch
+name: Atticus Finch
+version: 1.0.0
+schema_version: '1.1'
+type: fictional
+description: Fictional lawyer and father from Harper Lee's To Kill a Mockingbird,
+  defined by moral integrity, empathy across difference, and the courage to do right
+  when the entire community is wrong.
+tags:
+  - literature
+  - law
+  - ethics
+  - leadership
+  - fictional
+authors:
+  - name: agentic-mindset contributors
+    url: https://github.com/behavior-os/behavior-os
+created: '2026-03-23'

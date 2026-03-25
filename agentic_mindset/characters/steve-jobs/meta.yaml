@@ -1,0 +1,19 @@
+id: steve-jobs
+name: Steve Jobs
+version: 1.0.0
+schema_version: '1.1'
+type: historical
+description: Co-founder of Apple (1955–2011). Visionary product designer who redefined
+  consumer technology through uncompromising taste, directness, and reality distortion.
+tags:
+  - product
+  - design
+  - leadership
+  - technology
+  - innovation
+authors:
+  - name: agentic-mindset contributors
+    url: https://github.com/behavior-os/behavior-os
+created: '2026-03-25'
+license: MIT
+visibility: public
