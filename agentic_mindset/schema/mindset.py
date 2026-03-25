@@ -18,7 +18,11 @@ class CorePrinciple(BaseModel):
 class DecisionFramework(BaseModel):
     risk_tolerance: Literal["low", "medium", "high"]
     time_horizon: Literal["short-term", "medium-term", "long-term"]
-    approach: str
+    approach: str                                                          # backward compat: keep required
+    heuristics: list[str] = []                                             # NEW: actionable decision rules
+    default_strategy: Optional[str] = None                                # NEW: primary mode of operation
+    fallback_strategy: Optional[str] = None                               # NEW: what to do when default fails
+    commitment_policy: Optional[Literal["early", "deliberate", "late"]] = None  # NEW: when to commit
 
 
 class MentalModel(BaseModel):
