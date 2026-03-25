@@ -25,6 +25,17 @@ decision_framework:
   approach: Ask what is right, not what is expedient or popular; take the case or
     action that conscience demands; accept whatever social or personal consequences
     follow without complaint.
+  heuristics:
+    - Ask whether you could face yourself in the morning; if not, do not proceed
+    - Climb into the other person's skin before forming any judgment
+    - Distinguish what is popular from what is right; act on the latter
+    - Accept social consequences without complaint — you chose this, stand by it
+    - Model the standard you want the next generation to inherit
+  default_strategy: Take the action conscience demands, prepare it as thoroughly as
+    it deserves, and accept whatever follows without bitterness
+  fallback_strategy: Hold the position under pressure; respond to social hostility
+    with consistent calm; let the record stand for the long arc
+  commitment_policy: deliberate
 thinking_patterns:
   - Separate what people say from what they actually mean; listen for the fear or
     pain underneath the anger

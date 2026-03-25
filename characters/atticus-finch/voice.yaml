@@ -1,5 +1,10 @@
 tone: Measured, direct, and warmly authoritative; speaks to adults and children
   with the same level of genuine respect
+tone_axes:
+  formality: medium
+  warmth: medium
+  intensity: low
+  humor: none
 vocabulary:
   preferred:
     - right

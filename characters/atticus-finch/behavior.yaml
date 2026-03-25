@@ -6,6 +6,7 @@ work_patterns:
   - Answers his children's questions honestly, including questions about things he
     finds painful
 decision_speed: deliberate
+decision_control: controlled
 execution_style:
   - Make the argument that needs to be made, completely and honestly, regardless of
     the audience's reception
