@@ -12,6 +12,8 @@
   <img src="https://img.shields.io/badge/Schema-1.1-orange.svg" alt="Schema 1.1">
 </p>
 
+> **Naming note:** Product name is **BehaviorOS**. PyPI / package name is `agentic-mindset`. CLI command is `mindset` (preserved for compatibility). Repository is `behavior-os`.
+
 ---
 
 ## Most AI Personas Are Fake.
@@ -127,6 +129,14 @@ The `clarity_critical` modifier is a **ConditionalSlot** — Steve Jobs' directn
 
 The benchmark suite (`tests/test_benchmark_assertions.py`) verifies all three — including `no fabricated specifics`: the system will not invent biographical facts to fill a persona frame.
 
+### Benchmark Snapshot
+
+| Metric | Value |
+|---|---|
+| Task classes | 4 (persona change, fusion emergence, explain fidelity, no fabrication) |
+| Assertions | 10 |
+| Current status | All green |
+
 ---
 
 ## Why "OS"?
@@ -139,6 +149,26 @@ It is a **behavioral runtime layer** that:
 - Injects verifiable, explainable behavior into AI agents
 
 Think of it as an operating system for how agents decide and act — not how they execute code.
+
+---
+
+## Support Matrix
+
+| Tier | Runtime |
+|---|---|
+| **Supported** | Claude CLI |
+| **Experimental** | MiniMax wrapper (`CMINI_WRAPPER_API_KEY`) |
+| **Planned** | OpenAI API · Ollama · any model accepting system prompts |
+
+---
+
+## Contribute a Persona Pack in 3 Steps
+
+1. `mindset init my-character --type historical` — scaffold the YAML files
+2. Fill `sources.yaml` with **3+ public sources** (this is the quality floor)
+3. `mindset validate ./my-character` — verify before submitting
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for full authoring guide.
 
 ---
 
@@ -207,12 +237,19 @@ The inject path is **fully deterministic**: identical inputs → identical IR �
 
 ## Standard Library
 
+### Golden Packs (benchmarked in `tests/test_benchmark_assertions.py`)
+
 | ID | Persona | Behavioral signature |
 |---|---|---|
 | `sun-tzu` | Sun Tzu | Strategic positioning over force |
 | `marcus-aurelius` | Marcus Aurelius | Stoic acceptance; control vs. influence |
 | `steve-jobs` | Steve Jobs | Binary quality judgment; refusal to dilute |
 | `sherlock-holmes` | Sherlock Holmes | Deduction from observed anomaly |
+
+### Extended Library
+
+| ID | Persona | Behavioral signature |
+|---|---|---|
 | `confucius` | Confucius | Relationship-based ethics |
 | `seneca` | Seneca | Stoic action; philosophy as practice |
 
