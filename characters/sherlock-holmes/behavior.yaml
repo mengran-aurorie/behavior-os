@@ -8,6 +8,7 @@ work_patterns:
     cases
   - Refuses cases that do not present intellectual novelty
 decision_speed: fast
+decision_control: controlled
 execution_style:
   - Observe everything; record mentally with precision before touching the scene
   - State conclusions only when the evidence is sufficient — and then state them with

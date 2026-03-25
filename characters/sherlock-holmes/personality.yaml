@@ -26,12 +26,28 @@ emotional_tendencies:
     when the case is unsolvable
   motivation_source: The pure intellectual challenge of a problem that resists easy
     solution; justice and virtue are secondary to the game itself
+  baseline_mood: Restless and easily bored between cases; electric and utterly focused
+    when a worthy problem appears
+  emotional_range: narrow
+  frustration_trigger: Inferior reasoning, especially when it is confident; cases that
+    turn out to be trivial; his own mind going unstimulated
+  recovery_pattern: The violin; chemistry experiments; deep file reading; accepts the
+    next impossible case as the only reliable reset
 interpersonal_style:
   communication: Blunt, precise, frequently tactless; gives assessments the listener
     needs rather than what they want; no patience for social performance
   leadership: Directs collaborators with confident authority; Watson and Lestrade
     function best when they stop questioning and simply assist
 drives:
-  - The intellectual pleasure of solving the insoluble
-  - The exposure of deception and the restoration of truth
-  - Avoiding the crushing tedium of a mind without a worthy problem
+  - name: Solving the insoluble
+    intensity: 0.98
+    description: The pure intellectual pleasure of a problem that resists every ordinary
+      approach; the only reliable cure for intolerable boredom
+  - name: Exposing deception
+    intensity: 0.93
+    description: Restoring truth where lies have constructed a false picture; the moral
+      satisfaction of making reality legible
+  - name: Mental stimulation
+    intensity: 0.95
+    description: Avoiding the crushing tedium of a mind without a worthy problem; a
+      difficult case is not just work but the condition for being fully alive
