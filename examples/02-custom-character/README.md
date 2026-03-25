@@ -25,12 +25,15 @@ Each character is a directory of six YAML files:
 
 ```
 ada-lovelace/
-├── meta.yaml          # Identity, type, schema version
-├── mindset.yaml       # Core principles, decision framework, mental models
-├── personality.yaml   # Traits, emotional tendencies, drives
-├── behavior.yaml      # Work patterns, decision speed, conflict style
-├── voice.yaml         # Tone, vocabulary, signature phrases
-└── sources.yaml       # Source material references (minimum 3)
+├── meta.yaml          # Identity, type, schema version, license, visibility
+├── mindset.yaml       # Core principles, decision framework (heuristics, default_strategy,
+│                      #   fallback_strategy, commitment_policy), mental models
+├── personality.yaml   # Traits (+ confidence), emotional tendencies (+ baseline_mood,
+│                      #   emotional_range, frustration_trigger, recovery_pattern),
+│                      #   Drive objects, ConditionalSlot fields
+├── behavior.yaml      # Work patterns, decision_speed, decision_control, conflict style, anti_patterns
+├── voice.yaml         # Tone, tone_axes (formality/warmth/intensity/humor), vocabulary, phrases
+└── sources.yaml       # Source material references (min 3, + evidence_level)
 ```
 
 Browse the files in `ada-lovelace/` to see what a complete pack looks like.

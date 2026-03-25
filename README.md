@@ -27,7 +27,7 @@ Sun Tzu (60%) + Marcus Aurelius (40%)
 
 ## Features
 
-- **Character Packs** — structured YAML profiles covering mindset, personality, behavior, voice, and sources
+- **Character Packs** — structured YAML profiles covering mindset, personality, behavior, voice, and sources; schema enriched with Drive objects, ToneAxes, decision_control, commitment_policy, evidence_level, and more
 - **Fusion Engine** — blend N characters with weighted merging, dominant, or sequential strategies
 - **Behavior IR** — deterministic conflict resolver that produces a typed intermediate representation before rendering; inject and text paths are fully separate
 - **CLI** — `mindset init`, `validate`, `preview`, `list`, `generate`, `run`
@@ -164,12 +164,13 @@ Each character is a directory of six YAML files:
 
 ```
 sun-tzu/
-├── meta.yaml          # Identity, type, schema version
-├── mindset.yaml       # Principles, decision framework, mental models
-├── personality.yaml   # Traits, emotional tendencies, drives
-├── behavior.yaml      # Work patterns, decision speed, conflict style (+ optional anti_patterns)
-├── voice.yaml         # Tone, vocabulary, signature phrases
-└── sources.yaml       # Source material references
+├── meta.yaml          # Identity, type, schema version, license, visibility
+├── mindset.yaml       # Principles, decision framework (heuristics, strategies, commitment_policy), mental models
+├── personality.yaml   # Traits (+ confidence), emotional tendencies (+ baseline_mood, emotional_range,
+│                      #   frustration_trigger, recovery_pattern), Drive objects, ConditionalSlot fields
+├── behavior.yaml      # Work patterns, decision_speed, decision_control, conflict style, anti_patterns
+├── voice.yaml         # Tone, tone_axes (formality/warmth/intensity/humor), vocabulary, signature phrases
+└── sources.yaml       # Source references (+ evidence_level: primary/secondary/tertiary)
 ```
 
 Scaffold a new pack:
