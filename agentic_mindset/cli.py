@@ -14,7 +14,9 @@ from rich.panel import Panel
 from agentic_mindset.pack import CharacterPack, PackLoadError
 from agentic_mindset.registry import CharacterRegistry
 from agentic_mindset.fusion import FusionEngine, FusionStrategy, FusionReport
-from agentic_mindset.context import ContextBlock, render_inject_block
+from agentic_mindset.context import ContextBlock
+from agentic_mindset.resolver.resolver import ConflictResolver
+from agentic_mindset.renderer.inject import render_for_runtime as _render_inject
 
 app = typer.Typer(name="mindset", help="Agentic Mindset CLI")
 console = Console()
@@ -30,25 +32,6 @@ def _format_output(text: str, fmt: str, meta: dict | None = None) -> str:
     if fmt == "debug-json":
         return json.dumps({"meta": meta, "type": "text", "text": text}, indent=2)
     raise ValueError(f"Unknown output format: {fmt!r}")
-
-
-def render_for_runtime(
-    context_block: ContextBlock,
-    fmt: str,
-    weighted_packs: list | None = None,
-) -> str:
-    """Render a compiled mindset for agent runtime injection.
-
-    fmt='inject': produces 5-section behavioral instruction block (requires weighted_packs).
-    fmt='text':   produces plain-text character description (unchanged from v0).
-    """
-    if fmt == "inject":
-        if weighted_packs is None:
-            raise ValueError("weighted_packs required for inject format")
-        return render_inject_block(weighted_packs)
-    if fmt == "text":
-        return context_block.to_prompt(output_format="plain_text")
-    raise ValueError(f"Unknown runtime format: {fmt!r}")
 
 
 def _explain_decision_policy(report: "FusionReport") -> str:
@@ -352,6 +335,69 @@ def generate(
         typer.echo(result_str)
 
 
+def _emit_explain_from_ir(ir: "BehaviorIR") -> None:
+    """Emit structured YAML explain output for the inject path."""
+    slots_data = {}
+    for slot_name, slot in ir.slots.items():
+        slots_data[slot_name] = {
+            "primary": {
+                "value": slot.primary.value,
+                "source": slot.primary.source,
+                "weight": round(slot.primary.weight, 4),
+            },
+            "has_conflict": slot.has_conflict,
+            "modifiers": [
+                {
+                    "value": m.value,
+                    "condition": m.condition,
+                    "conjunction": m.conjunction,
+                    "source": m.source,
+                    "provenance": m.provenance,
+                    **({"note": m.note} if m.note else {}),
+                }
+                for m in slot.modifiers
+            ],
+            "dropped": [
+                {
+                    "value": d.value,
+                    "source": d.source,
+                    "weight": round(d.weight, 4),
+                    "reason": d.reason,
+                }
+                for d in slot.dropped
+            ],
+        }
+    data = {
+        "personas": [{cid: round(w, 4)} for cid, w in ir.preamble.personas],
+        "slots": slots_data,
+    }
+    typer.echo(yaml.dump(data, default_flow_style=False, allow_unicode=True), err=True)
+
+
+def _emit_explain_from_report(
+    report: "FusionReport",
+    weighted_packs: list,
+) -> None:
+    """Emit explain YAML for the text path."""
+    dominant_pack = weighted_packs[0][0]
+    # Populate report.personas from weighted_packs if not already set
+    if not report.personas:
+        report.personas = [(pack.meta.id, weight) for pack, weight in weighted_packs]
+    explain_data = {
+        "personas": [{cid: round(w, 4)} for cid, w in report.personas],
+        "merged": {
+            "decision_policy": _explain_decision_policy(report),
+            "risk_tolerance": dominant_pack.mindset.decision_framework.risk_tolerance,
+            "time_horizon": dominant_pack.mindset.decision_framework.time_horizon,
+        },
+        "removed_conflicts": report.removed_items,
+    }
+    typer.echo(
+        yaml.dump(explain_data, default_flow_style=False, allow_unicode=True),
+        err=True,
+    )
+
+
 @app.command()
 def run(
     runtime: str = typer.Argument(..., help="Runtime name (v0: claude only)"),
@@ -401,34 +447,30 @@ def run(
     engine = FusionEngine(reg)
     chars = list(zip(ids_deduped, weights_deduped))
 
-    # fuse once; report filled only when --explain is requested (Task 6)
-    report = FusionReport() if explain else None
-    block = engine.fuse(chars, strategy=strat, report=report)
+    # Both paths start from prepare_packs for identical normalization.
+    weighted_packs = engine.prepare_packs(chars, strat)
 
-    # prepare_packs only when needed (inject format or explain)
-    needs_packs = (format_ == "inject") or explain
-    # TODO: double I/O — fuse() already calls prepare_packs() internally via fuse_config().
-    # Fix in a future version by surfacing weighted_packs from FusionReport or fuse() return value.
-    weighted_packs_ex = engine.prepare_packs(chars, strat) if needs_packs else None
+    if format_ == "inject":
+        # New path: ConflictResolver → BehaviorIR → ClaudeRenderer
+        ir = ConflictResolver().resolve(weighted_packs)
+        injected = _render_inject(ir, fmt="inject")
 
-    injected = render_for_runtime(block, fmt=format_, weighted_packs=weighted_packs_ex)
+        if explain:
+            _emit_explain_from_ir(ir)
 
-    # --- explain (before subprocess, stderr only) ---
-    if explain:
-        dominant_pack = weighted_packs_ex[0][0]
-        explain_data = {
-            "personas": [{cid: round(w, 4)} for cid, w in report.personas],
-            "merged": {
-                "decision_policy": _explain_decision_policy(report),
-                "risk_tolerance": dominant_pack.mindset.decision_framework.risk_tolerance,
-                "time_horizon": dominant_pack.mindset.decision_framework.time_horizon,
-            },
-            "removed_conflicts": report.removed_items,
-        }
-        typer.echo(
-            yaml.dump(explain_data, default_flow_style=False, allow_unicode=True),
-            err=True,
-        )
+    elif format_ == "text":
+        # Existing path: ContextBlock → to_prompt
+        show_weights = strat != FusionStrategy.sequential
+        report = FusionReport() if explain else None
+        block = ContextBlock.from_packs(weighted_packs, show_weights=show_weights, report=report)
+        injected = block.to_prompt("plain_text")
+
+        if explain:
+            _emit_explain_from_report(report, weighted_packs)
+
+    else:
+        typer.echo(f"Error: unknown format '{format_}'.", err=True)
+        raise typer.Exit(1)
 
     # --- write temp file ---
     fd, tmppath = tempfile.mkstemp(suffix=".txt", prefix="mindset_run_")
