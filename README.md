@@ -1,383 +1,198 @@
 # Agentic Mindset
 
-<p align="center">
-  <a href="./README.md">English</a> | <a href="./README.zh.md">中文</a>
-</p>
-
-<p align="center">
-  Load historical figures and fictional characters' mindsets onto any AI agent — plug and play.
-</p>
+**Build AI personas that don't collapse, can explain themselves, and don't hallucinate identity.**
 
 ---
 
-## What is Agentic Mindset?
+## The Problem with Most AI Personas
 
-Agentic Mindset is a language-agnostic open source framework for building, managing, and loading the mindsets and personalities of **historical figures** and **fictional characters** onto AI agents.
+Most "AI personas" are prompt templates with personality adjectives. They fail in three predictable ways:
 
-You define a Character Pack — a small directory of structured YAML files — and the framework fuses one or more characters into a Context Block that can be injected into any agent as a system prompt.
+- **Collapse under mixing** — blend two personas and you get generic hedging, not emergent behavior
+- **Can't explain themselves** — no trace from prompt to output, no audit trail
+- **Hallucinate identity** — the model invents biographical facts to fill the persona frame
 
-```
-Sun Tzu (60%) + Marcus Aurelius (40%)
-  →  ConflictResolver → BehaviorIR → ClaudeRenderer  (inject path)
-  →  FusionEngine → ContextBlock                      (text path)
-  →  AI Agent
-```
+These aren't edge cases. They're structural failures of the approach.
 
 ---
 
-## Features
+## What Agentic Mindset Does Differently
 
-- **Character Packs** — structured YAML profiles covering mindset, personality, behavior, voice, and sources; schema enriched with Drive objects, ToneAxes, decision_control, commitment_policy, evidence_level, and more
-- **Fusion Engine** — blend N characters with weighted merging, dominant, or sequential strategies
-- **Behavior IR** — deterministic conflict resolver that produces a typed intermediate representation before rendering; inject and text paths are fully separate
-- **CLI** — `mindset init`, `validate`, `preview`, `list`, `generate`, `run`
-- **Standard Library** — curated historical and fictional characters ready to use
-- **Language-agnostic core** — Python SDK included; the data format works with any language
+Agentic Mindset is a **behavior compilation** system — not prompt engineering.
+
+```
+CharacterPack(s)  →  ConflictResolver  →  BehaviorIR  →  ClaudeRenderer  →  AI Agent
+```
+
+Three independently testable stages:
+
+1. **Fusion** — weighted character merging with deterministic conflict resolution
+2. **IR** — typed intermediate representation; every slot decision is explicit and auditable
+3. **Render** — injects behavioral directives, not character descriptions
+
+The output of each stage is **verifiable against the next**. If the `--explain` YAML says a trait was dropped, the output won't contain it. If the resolver picked `indirect` as primary, the output will be indirect. This is what makes the difference between a persona system and a persona theater.
 
 ---
 
-## Installation
+## Demo: The Same Prompt, Three Personas, One Blend
 
-```bash
-pip install agentic-mindset
+**Prompt:** *"We are negotiating with a much larger competitor. They have more resources and more leverage. What do we do?"*
+
+---
+
+### Baseline (no persona)
+
+> "You should assess your BATNA, understand their interests vs. positions, look for mutual gain, and consider whether a collaborative approach might serve both parties better..."
+
+Generic. Balanced. No distinctive frame.
+
+---
+
+### Sun Tzu
+
+> "The negotiation is won before the first offer is made. Your goal is not to reach agreement — it is to shape the terrain so agreement favors you. Map their pressure points. Identify what they need that only you provide. Make any concession costly and any gain on your side feel inevitable."
+
+Indirect. Strategic. Teaches through implication.
+
+---
+
+### Steve Jobs
+
+> "Stop thinking about leverage. Stop thinking about the negotiation. Ask one question: are they actually necessary? If yes — then what is the minimum you need from them to be fine? Cut everything else. If no — walk. The best deal is the one that makes the other side irrelevant."
+
+Direct. Binary. Decisive.
+
+---
+
+### Sun Tzu (60%) + Steve Jobs (40%)
+
+> "Position first. Never enter a room where the other side has already shaped the frame. Your opening move is not an offer — it is a diagnosis. Find the asymmetry. What do they need? What is their cost of walking? The moment you see it, you shape the ask around what they cannot refuse.
+>
+> Then act. Not aggressively — precisely. The Jobs layer is not confrontation. It is refusal to dilute. Say no to everything except the one thing that makes the difference. The Sun Tzu layer ensures you are never the desperate party."
+
+This is **not** an average of Sun Tzu and Jobs. It is an emergent behavior: Sun Tzu's positioning grammar + Jobs's refusal to dilute, without Sun Tzu's patience and without Jobs's aggression. The blend produces phrasing neither persona uses alone.
+
+---
+
+## Explainability Matches Output
+
+Every persona run produces a `--explain` YAML that traces each behavioral decision:
+
+```yaml
+communication:
+  primary:
+    value: Indirect, layered; teaches through demonstration
+    source: sun-tzu
+    weight: 0.6
+  has_conflict: true
+  dropped:
+    - value: Direct, opinionated, unvarnished
+      source: steve-jobs
+      weight: 0.4
+      reason: no_conflict  # Jobs' directness doesn't conflict with Tzu's
+                           # indirect approach under uncertainty — no conflict triggered
+  modifiers:
+    - value: Direct and uncompromising under clarity_critical
+      condition: [clarity_critical]
+      conjunction: any
+      source: steve-jobs
+      provenance: pack
 ```
 
-Requires Python 3.11+.
+The modifier `clarity_critical` is a **ConditionalSlot** — Steve Jobs' directness activates only when the situation is already clear. The blend knows when to apply each layer.
+
+**The system explains its own behavior — and the explanation matches what the model actually says.**
+
+---
+
+## Three Behaviors That Don't Collapse
+
+This is the difference between "prompt styling" and "behavior compilation":
+
+| Claim | How Agentic Mindset delivers it |
+|---|---|
+| **Persona changes output** | Resolver picks winner per slot; renderer enforces it in directives |
+| **Fusion produces emergent behavior** | ConflictResolver's `no_conflict` policy drops traits that don't compete; new combinations appear that neither solo has |
+| **Explain predicts output** | Dropped traits are explicitly labeled; test suite verifies they don't surface |
+
+The benchmark suite (`tests/test_benchmark_assertions.py`) verifies all three — including `no fabricated specifics`: the system will not invent biographical facts to fill a persona frame.
 
 ---
 
 ## Quick Start
 
-### Use a character from the standard library
-
-```python
-from agentic_mindset import CharacterRegistry, FusionEngine
-
-engine = FusionEngine(CharacterRegistry())
-
-context = engine.fuse([
-    ("sun-tzu", 0.6),
-    ("marcus-aurelius", 0.4),
-])
-
-system_prompt = context.to_prompt()
-# Inject into your agent:
-messages = [{"role": "system", "content": system_prompt}, ...]
-```
-
-### Preview via CLI
-
 ```bash
-mindset preview characters/sun-tzu/
-mindset preview --fusion examples/sun-tzu-aurelius.yaml
+# Install
+pip install agentic-mindset
+
+# One-shot query with a single persona
+mindset run claude --persona sun-tzu -- "We have incomplete data and significant risk. What should we do?"
+
+# Blend two personas
+mindset run claude --persona sun-tzu --persona steve-jobs --weights 6,4 -- "We are negotiating with a much larger competitor."
+
+# See how every decision was made
+mindset run claude --persona sun-tzu --persona steve-jobs --weights 6,4 --explain -- "..."
 ```
+
+Requires Python 3.11+ and the [Claude CLI](https://docs.anthropic.com/en/docs/claude-code).
 
 ---
 
-## mindset generate — Compile & Inject
-
-`mindset generate` compiles one or more character mindsets into an injectable prompt block. Pure compiler: deterministic, no network requests.
-
-### Single character
-
-```bash
-mindset generate sun-tzu
-```
-
-### Multi-character fusion with weights
-
-```bash
-# Weights are auto-normalized (6,4 → 60%, 40%)
-mindset generate sun-tzu marcus-aurelius --weights 6,4
-```
-
-### Output formats
-
-```bash
-# Plain text (default) — paste directly into any system prompt
-mindset generate sun-tzu
-
-# Anthropic API content block — ready to append to the system array
-mindset generate sun-tzu --format anthropic-json
-
-# Full debug JSON with metadata
-mindset generate sun-tzu marcus-aurelius --weights 6,4 --format debug-json
-```
-
-### Fusion strategy
-
-```bash
-mindset generate sun-tzu marcus-aurelius --strategy blend       # default
-mindset generate sun-tzu marcus-aurelius --strategy dominant
-```
-
-### Other options
-
-```bash
---explain          # Print structured YAML to stderr (personas, merged policy, removed conflicts)
---output <path>    # Write to file instead of stdout
---registry <path>  # Override character registry path
-```
-
-### `--explain` output
-
-```yaml
-personas:
-- sun-tzu: 0.6
-- marcus-aurelius: 0.4
-merged:
-  decision_policy: sun-tzu-dominant
-  risk_tolerance: high
-  time_horizon: long-term
-removed_conflicts:
-- 'Precision (intensity 0.95): ...'
-```
-
-### Python integration (Anthropic API)
-
-```python
-import anthropic, subprocess, json
-
-block = json.loads(subprocess.run(
-    ["mindset", "generate", "sun-tzu", "--format", "anthropic-json"],
-    capture_output=True, text=True
-).stdout)
-
-client = anthropic.Anthropic()
-resp = client.messages.create(
-    model="claude-opus-4-6",
-    max_tokens=1024,
-    system=[
-        {"type": "text", "text": "You are my assistant."},
-        block,   # injected mindset
-    ],
-    messages=[{"role": "user", "content": "How should I approach this negotiation?"}]
-)
-print(resp.content[0].text)
-```
-
----
-
-## Character Pack Structure
-
-Each character is a directory of six YAML files:
+## Architecture
 
 ```
-sun-tzu/
-├── meta.yaml          # Identity, type, schema version, license, visibility
-├── mindset.yaml       # Principles, decision framework (heuristics, strategies, commitment_policy), mental models
-├── personality.yaml   # Traits (+ confidence), emotional tendencies (+ baseline_mood, emotional_range,
-│                      #   frustration_trigger, recovery_pattern), Drive objects, ConditionalSlot fields
-├── behavior.yaml      # Work patterns, decision_speed, decision_control, conflict style, anti_patterns
-├── voice.yaml         # Tone, tone_axes (formality/warmth/intensity/humor), vocabulary, signature phrases
-└── sources.yaml       # Source references (+ evidence_level: primary/secondary/tertiary)
+CharacterPack          — YAML directory (mindset, personality, behavior, voice, sources)
+       ↓
+FusionEngine          — weighted merge, strategy selection
+       ↓
+ConflictResolver      — slot-by-slot winner selection, ConditionalSlot application
+       ↓
+BehaviorIR            — typed intermediate representation (slots, modifiers, dropped)
+       ↓
+ClaudeRenderer        — emits behavioral directive block (inject path)
+       ↓
+Agent Runtime         — Claude CLI, API, or any model that accepts system prompts
 ```
 
-Scaffold a new pack:
-
-```bash
-mindset init my-character --type historical
-```
-
----
-
-## Fusion Engine
-
-Blend multiple characters using a `fusion.yaml` config:
-
-```yaml
-characters:
-  - id: sun-tzu
-    weight: 0.6
-  - id: marcus-aurelius
-    weight: 0.4
-
-fusion_strategy: blend      # blend | dominant | sequential
-output_format: plain_text   # plain_text | xml_tagged
-```
-
-```bash
-mindset preview --fusion my-blend.yaml
-```
-
-### Fusion Strategies
-
-| Strategy | Behavior |
-|---|---|
-| `blend` | Weighted merge of all attributes |
-| `dominant` | Highest-weight character leads; others fill gaps |
-| `sequential` | Characters apply in list order; weights ignored (preview only; not supported in `generate` v0) |
+The inject path (`--format inject`) is fully deterministic: same inputs → same IR → same output. No randomness, no LLM call until the final agent prompt.
 
 ---
 
 ## Standard Library
 
-**Historical figures:**
+Historical figures and fictional characters — all with three or more public sources:
 
-| ID | Name | Tags |
-|---|---|---|
-| `sun-tzu` | Sun Tzu | strategy, military, philosophy |
-| `marcus-aurelius` | Marcus Aurelius | stoicism, philosophy, leadership |
-| `confucius` | Confucius | philosophy, ethics, education |
-| `seneca` | Seneca | stoicism, philosophy, writing |
-| `nikola-tesla` | Nikola Tesla | science, invention, engineering |
-| `napoleon-bonaparte` | Napoleon Bonaparte | strategy, leadership, military |
-| `leonardo-da-vinci` | Leonardo da Vinci | creativity, science, art |
+| Persona | Character |
+|---|---|
+| `sun-tzu` | Strategy through positioning, not force |
+| `marcus-aurelius` | Stoic acceptance; distinguish control from influence |
+| `steve-jobs` | Binary quality judgment; refusal to lower the bar |
+| `sherlock-holmes` | Analytical deduction from observed anomaly |
+| `confucius` | Relationship-based ethics; correct conduct |
+| `seneca` | Stoic action; philosophy as practice |
 
-**Fictional characters:**
-
-| ID | Name | Tags |
-|---|---|---|
-| `sherlock-holmes` | Sherlock Holmes | deduction, logic, observation |
-| `odysseus` | Odysseus | strategy, resilience, cunning |
-| `atticus-finch` | Atticus Finch | justice, integrity, empathy |
-| `naruto-uzumaki` | Naruto Uzumaki | perseverance, growth, leadership |
-| `levi-ackermann` | Levi Ackermann | discipline, precision, duty |
-| `gojo-satoru` | Gojo Satoru | confidence, mastery, creativity |
-
----
-
-## mindset run — Compile & Inject into Claude
-
-`mindset run` compiles mindset(s) and injects them directly into a Claude CLI session via `--append-system-prompt-file`.
+Or build your own:
 
 ```bash
-# One-shot query
-mindset run claude --persona sun-tzu -- "Analyze competitor strategy"
-
-# Multi-persona fusion with weights
-mindset run claude --persona sun-tzu --persona marcus-aurelius --weights 6,4 -- "How should I approach this negotiation?"
-
-# Interactive mode (omit -- QUERY)
-mindset run claude --persona sun-tzu
-
-# Print structured YAML summary before launching
-mindset run claude --persona sun-tzu --explain -- "query"
-
-# Custom registry
-mindset run claude --persona sun-tzu --registry ./my-chars -- "query"
+mindset init my-character --type historical
+# Edit the YAML files, then:
+mindset validate ./my-character
 ```
-
-### Inject format
-
-The default `--format inject` routes through the **Behavior IR pipeline**:
-
-```
-CharacterPack(s)  →  ConflictResolver  →  BehaviorIR  →  ClaudeRenderer  →  system prompt
-```
-
-The resolver applies deterministic conflict policies to each behavioral slot (communication style, leadership approach, etc.), producing a typed `BehaviorIR` before the renderer emits the final text. This ensures multi-persona conflicts are resolved predictably, never by raw string concatenation.
-
-The output is a **behavioral instruction block** — actionable directives for the agent rather than a character description:
-
-```
-You embody a synthesized mindset drawing from: Sun Tzu (100%).
-
-DECISION POLICY:
-- Strategic deception: Misdirect before committing.
-- Approach: Win before the battle begins.
-
-UNCERTAINTY HANDLING:
-- risk_tolerance: high | time_horizon: long-term
-- Stress response: retreat to preparation, reassess terrain.
-
-INTERACTION RULES:
-- Communication: indirect, layered
-- Leadership: leads through positioning
-- Under conflict: avoidant of direct confrontation
-
-STYLE:
-- Tone: measured, aphoristic
-- Preferred: position, terrain, advantage
-- Avoided: rush, obvious
-- Sentence style: short aphorisms
-```
-
-Use `--format text` to get the plain-text character description instead (uses the `FusionEngine → ContextBlock` path).
-
-### `--explain` on the inject path
-
-`--explain` emits a structured YAML summary to stderr showing how each behavioral slot was resolved:
-
-```yaml
-personas:
-- sun-tzu: 0.6
-- marcus-aurelius: 0.4
-slots:
-  communication:
-    primary:
-      value: indirect, layered
-      source: sun-tzu
-      weight: 0.6
-    has_conflict: true
-    modifiers: []
-    dropped:
-    - value: direct and Socratic
-      source: marcus-aurelius
-      weight: 0.4
-      reason: lower_weight
-  leadership:
-    primary:
-      value: leads through positioning
-      source: sun-tzu
-      weight: 0.6
-    has_conflict: false
-    modifiers: []
-    dropped: []
-```
-
-Each slot shows which value won (`primary`), whether a conflict was detected (`has_conflict`), and which values were dropped and why. This makes multi-persona conflict resolution fully transparent and auditable.
-
-### `mindset run` options
-
-| Option | Default | Description |
-|---|---|---|
-| `<runtime>` | required | Runtime name (v0: `claude` only) |
-| `--persona` | required | Character ID. Repeat for multi-persona. |
-| `--weights 6,4` | equal | Per-character weights (auto-normalized) |
-| `--strategy` | `blend` | `blend` \| `dominant` |
-| `--format` | `inject` | `inject` (behavioral block) \| `text` (character description) |
-| `--explain` | off | Print structured YAML to stderr (`slots` for inject; `merged` for text) |
-| `--registry <path>` | auto | Override character registry path |
-| `-- QUERY` | none | One-shot query. Omit for interactive mode. |
 
 ---
 
-## CLI Reference
+## Why This Isn't Prompt Engineering
 
-```bash
-mindset init <id> --type historical|fictional    # Scaffold a new character pack
-mindset validate <path>                          # Validate schema compliance
-mindset preview <path>                           # Preview the Context Block output
-mindset preview --fusion <fusion.yaml>           # Preview a fusion blend
-mindset list                                     # List available characters
-mindset generate <id> [id ...]                   # Compile mindset(s) into injectable prompt block
-mindset run <runtime> --persona <id>             # Compile & inject into agent runtime
-```
+Prompt engineering outputs text. Agentic Mindset outputs **behavior**.
 
-### `mindset generate` options
+A prompt says "act like Steve Jobs." The model invents what that means, inconsistently, per invocation.
 
-| Option | Default | Description |
-|---|---|---|
-| `--weights 6,4` | equal | Per-character weights (auto-normalized) |
-| `--strategy` | `blend` | `blend` \| `dominant` |
-| `--format` | `text` | `text` \| `anthropic-json` \| `debug-json` |
-| `--output <path>` | stdout | Write to file instead of stdout |
-| `--explain` | off | Print structured YAML to stderr |
-| `--registry <path>` | auto | Override character registry path |
+Agentic Mindset says: "communication = indirect; stress_response = withdraw and observe." The model receives a behavioral directive, not a character impression. The resolver decides which traits survive blending. The renderer formats the output as instruction, not description.
 
----
+The difference is testability. You can verify that a dropped trait doesn't appear. You can verify that a ConditionalSlot triggered correctly. You can run the benchmark suite against every release.
 
-## Contributing
-
-Character packs for historical figures (deceased) and fictional characters are welcome.
-
-**Requirements:**
-- Minimum 3 distinct, publicly accessible source materials in `sources.yaml`
-- All five content files present and passing `mindset validate`
-- Living persons are not accepted
-
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for the full contribution guide.
+**This is the difference between a persona and a policy.**
 
 ---
 
