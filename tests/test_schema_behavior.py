@@ -74,3 +74,42 @@ def test_conflict_style_full_format_accepted():
     )
     assert b.conflict_style.default == "avoidant"
     assert b.conflict_style.conditional[0].value == "confrontational"
+
+
+def test_decision_speed_rejects_impulsive():
+    """impulsive is no longer valid for decision_speed."""
+    from agentic_mindset.schema.behavior import BehaviorSchema
+    from pydantic import ValidationError
+    with pytest.raises(ValidationError):
+        BehaviorSchema(
+            decision_speed="impulsive",
+            conflict_style="avoidant",
+        )
+
+
+def test_decision_control_optional():
+    from agentic_mindset.schema.behavior import BehaviorSchema
+    b = BehaviorSchema(decision_speed="fast", conflict_style="direct")
+    assert b.decision_control is None
+
+
+def test_decision_control_values():
+    from agentic_mindset.schema.behavior import BehaviorSchema
+    for val in ("controlled", "reactive", "impulsive"):
+        b = BehaviorSchema(
+            decision_speed="fast",
+            conflict_style="direct",
+            decision_control=val,
+        )
+        assert b.decision_control == val
+
+
+def test_decision_control_invalid_raises():
+    from agentic_mindset.schema.behavior import BehaviorSchema
+    from pydantic import ValidationError
+    with pytest.raises(ValidationError):
+        BehaviorSchema(
+            decision_speed="fast",
+            conflict_style="direct",
+            decision_control="careful",
+        )

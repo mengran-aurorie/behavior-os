@@ -1,5 +1,5 @@
 import re
-from typing import Literal
+from typing import Literal, Optional
 from pydantic import BaseModel, field_validator
 
 
@@ -18,6 +18,8 @@ class MetaSchema(BaseModel):
     tags: list[str] = []
     authors: list[AuthorSchema] = []
     created: str          # ISO date string YYYY-MM-DD
+    license: Optional[str] = None                                               # NEW: None = unspecified
+    visibility: Literal["public", "private", "internal"] = "public"            # NEW: always has a value
 
     @field_validator("id")
     @classmethod

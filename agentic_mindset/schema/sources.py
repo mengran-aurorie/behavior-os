@@ -4,7 +4,12 @@ from pydantic import BaseModel, field_validator
 
 class Source(BaseModel):
     title: str
-    type: Literal["book", "interview", "article", "talk", "podcast", "screenplay", "manga", "game"]
+    type: Literal[
+        "book", "biography", "interview", "article", "talk",
+        "podcast", "screenplay", "manga", "game",
+        "film", "novel", "essay", "letter", "speech",
+    ]
+    evidence_level: Optional[Literal["primary", "secondary", "tertiary"]] = None  # NEW
     path: Optional[str] = None
     url: Optional[str] = None
     accessed: str

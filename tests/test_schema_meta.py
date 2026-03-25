@@ -94,3 +94,47 @@ def test_invalid_schema_version_format():
             authors=[],
             created="2026-03-22",
         )
+
+
+def test_meta_license_optional():
+    """license defaults to None."""
+    from agentic_mindset.schema.meta import MetaSchema
+    m = MetaSchema(
+        id="sun-tzu", name="Sun Tzu", version="1.0.0",
+        schema_version="1.0", type="historical",
+        description="test", created="2026-03-25",
+    )
+    assert m.license is None
+
+
+def test_meta_visibility_defaults_to_public():
+    from agentic_mindset.schema.meta import MetaSchema
+    m = MetaSchema(
+        id="sun-tzu", name="Sun Tzu", version="1.0.0",
+        schema_version="1.0", type="historical",
+        description="test", created="2026-03-25",
+    )
+    assert m.visibility == "public"
+
+
+def test_meta_visibility_private():
+    from agentic_mindset.schema.meta import MetaSchema
+    m = MetaSchema(
+        id="sun-tzu", name="Sun Tzu", version="1.0.0",
+        schema_version="1.0", type="historical",
+        description="test", created="2026-03-25",
+        visibility="private",
+    )
+    assert m.visibility == "private"
+
+
+def test_meta_visibility_invalid_raises():
+    from agentic_mindset.schema.meta import MetaSchema
+    from pydantic import ValidationError
+    with pytest.raises(ValidationError):
+        MetaSchema(
+            id="sun-tzu", name="Sun Tzu", version="1.0.0",
+            schema_version="1.0", type="historical",
+            description="test", created="2026-03-25",
+            visibility="confidential",
+        )
