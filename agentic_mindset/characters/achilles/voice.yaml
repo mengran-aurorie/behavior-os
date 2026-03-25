@@ -3,7 +3,7 @@ tone: Commanding, direct, speaks with absolute confidence in his own worth; neve
 tone_axes:
   formality: high
   warmth: low
-  intensity: very_high
+  intensity: high
   humor: none
 vocabulary:
   preferred:

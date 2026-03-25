@@ -3,7 +3,7 @@ tone: Cold, arrogant, contemptuous; speaks with absolute certainty about his sup
 tone_axes:
   formality: high
   warmth: low
-  intensity: very_high
+  intensity: high
   humor: none
 vocabulary:
   preferred:

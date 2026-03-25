@@ -3,8 +3,8 @@ tone: Eloquent, philosophical, melancholic; speaks in famous soliloquies that re
 tone_axes:
   formality: high
   warmth: low
-  intensity: moderate
-  humor: dark
+  intensity: medium
+  humor: dry
 vocabulary:
   preferred:
   - to be

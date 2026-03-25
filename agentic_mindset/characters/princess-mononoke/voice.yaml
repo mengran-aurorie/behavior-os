@@ -3,7 +3,7 @@ tone: Sharp, aggressive, hostile toward humans; speaks with the wolf's ferocity
 tone_axes:
   formality: low
   warmth: low
-  intensity: very_high
+  intensity: high
   humor: none
 vocabulary:
   preferred:

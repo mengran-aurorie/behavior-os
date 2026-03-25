@@ -1,9 +1,9 @@
 tone: Authoritative, measured, divine; speaks with certainty born of perfect wisdom;
   never uncertain or emotional
 tone_axes:
-  formality: very_high
+  formality: high
   warmth: low
-  intensity: moderate
+  intensity: medium
   humor: none
 vocabulary:
   preferred:

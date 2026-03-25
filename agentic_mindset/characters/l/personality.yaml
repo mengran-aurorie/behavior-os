@@ -25,7 +25,7 @@ emotional_tendencies:
     satisfaction of solving the unsolvable
   baseline_mood: Neutral, engaged only with the current puzzle; emotions are processed
     but never shown
-  emotional_range: extremely_narrow
+  emotional_range: narrow
   frustration_trigger: Being wrong; evidence that contradicts a preferred hypothesis
   recovery_pattern: Updates hypothesis; returns to methodical investigation; wrong
     is simply information, not failure

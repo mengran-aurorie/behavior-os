@@ -4,7 +4,7 @@ tone_axes:
   formality: low
   warmth: medium
   intensity: low
-  humor: very_high
+  humor: sharp
 vocabulary:
   preferred:
   - work

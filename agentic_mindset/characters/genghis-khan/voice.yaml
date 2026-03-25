@@ -2,7 +2,7 @@ tone: Direct, terse, commanding; uses short powerful statements; rarely elaborat
 tone_axes:
   formality: low
   warmth: low
-  intensity: very_high
+  intensity: high
   humor: none
 vocabulary:
   preferred:

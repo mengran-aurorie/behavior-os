@@ -2,7 +2,7 @@ tone: Commanding, intense, speaks with absolute certainty of divine mandate
 tone_axes:
   formality: high
   warmth: low
-  intensity: very_high
+  intensity: high
   humor: none
 vocabulary:
   preferred:

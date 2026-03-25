@@ -1,8 +1,8 @@
 tone: Imperial, commanding, absolute; speaks as the voice of heaven's mandate
 tone_axes:
-  formality: very_high
+  formality: high
   warmth: low
-  intensity: very_high
+  intensity: high
   humor: none
 vocabulary:
   preferred:

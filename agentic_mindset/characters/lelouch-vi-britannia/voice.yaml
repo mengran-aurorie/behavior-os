@@ -1,8 +1,8 @@
 tone: Commanding, rhetorically powerful as Zero; cold and distant as Lelouch
 tone_axes:
   formality: high
-  warmth: low_as_Lelouch_high_as_Zero
-  intensity: very_high
+  warmth: low
+  intensity: high
   humor: none
 vocabulary:
   preferred:

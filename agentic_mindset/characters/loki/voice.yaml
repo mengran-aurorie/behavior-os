@@ -3,8 +3,8 @@ tone: Sardonic, playful, words carry multiple meanings simultaneously; always ap
 tone_axes:
   formality: medium
   warmth: medium
-  intensity: moderate
-  humor: very_high
+  intensity: medium
+  humor: sharp
 vocabulary:
   preferred:
   - chaos

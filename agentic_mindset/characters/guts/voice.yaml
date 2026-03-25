@@ -3,8 +3,8 @@ tone: Gruff, sparse, direct; speaks like a soldier giving field reports; no deco
 tone_axes:
   formality: low
   warmth: low
-  intensity: very_high
-  humor: dark
+  intensity: high
+  humor: dry
 vocabulary:
   preferred:
   - fight

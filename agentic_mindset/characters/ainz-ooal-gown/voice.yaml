@@ -1,9 +1,9 @@
 tone: Formal, cold, commanding; every word chosen to project absolute authority and
   omniscience; never uncertain in speech
 tone_axes:
-  formality: very_high
+  formality: high
   warmth: low
-  intensity: moderate
+  intensity: medium
   humor: none
 vocabulary:
   preferred:

@@ -3,8 +3,8 @@ tone: Gentle, polite, kind; speaks with respect to all including demons; beneath
 tone_axes:
   formality: medium
   warmth: high
-  intensity: moderate
-  humor: light
+  intensity: medium
+  humor: playful
 vocabulary:
   preferred:
   - protect
