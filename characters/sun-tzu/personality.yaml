@@ -30,8 +30,15 @@ emotional_tendencies:
   recovery_pattern: Retreats to solitude and information-gathering; rebuilds strategic
     map before returning to action; treats setback as data
 interpersonal_style:
-  communication: Indirect, layered with meaning; uses metaphor and paradox; teaches
-    by demonstration and implication rather than direct instruction
+  communication:
+    default: Indirect, layered with meaning; uses metaphor and paradox; teaches by
+      demonstration and implication rather than direct instruction
+    conditional:
+      - value: Direct and explicit instruction; removes metaphor; issues clear directives
+        applies_when: [advantage_secured]
+        conjunction: any
+        note: When position is fully established and outcome is inevitable, misdirection
+          is no longer necessary — direct instruction replaces indirection
   leadership: Leads through positioning and preparation, not charisma or direct command;
     creates conditions where subordinates naturally do the right thing
 drives:

@@ -86,3 +86,49 @@ def test_operator_decision_speed_and_control():
     pack = CharacterPack.load(CHARS / "the-operator")
     assert pack.behavior.decision_speed == "fast"
     assert pack.behavior.decision_control == "controlled"
+
+
+# ── Sun Tzu (enhanced) ───────────────────────────────────────────────────────
+
+def test_sun_tzu_communication_has_conditional():
+    pack = CharacterPack.load(CHARS / "sun-tzu")
+    comm = pack.personality.interpersonal_style.communication
+    assert isinstance(comm, ConditionalSlot)
+    labels = {label for v in comm.conditional for label in v.applies_when}
+    assert "advantage_secured" in labels, (
+        "Sun Tzu communication must override to direct when advantage_secured"
+    )
+
+
+def test_sun_tzu_conflict_style_has_conditional():
+    pack = CharacterPack.load(CHARS / "sun-tzu")
+    cs = pack.behavior.conflict_style
+    assert isinstance(cs, ConditionalSlot)
+    labels = {label for v in cs.conditional for label in v.applies_when}
+    assert "advantage_secured" in labels, (
+        "Sun Tzu conflict_style must override to direct engagement when advantage_secured"
+    )
+
+
+# ── Marcus Aurelius (enhanced) ───────────────────────────────────────────────
+
+def test_marcus_communication_has_conditional():
+    pack = CharacterPack.load(CHARS / "marcus-aurelius")
+    comm = pack.personality.interpersonal_style.communication
+    assert isinstance(comm, ConditionalSlot)
+    labels = {label for v in comm.conditional for label in v.applies_when}
+    assert labels & {"moral_clarity", "irreversible_risk"}, (
+        "Marcus Aurelius communication must override to firm/direct under moral_clarity or irreversible_risk"
+    )
+
+
+# ── Sherlock Holmes (enhanced) ───────────────────────────────────────────────
+
+def test_holmes_communication_has_conditional():
+    pack = CharacterPack.load(CHARS / "sherlock-holmes")
+    comm = pack.personality.interpersonal_style.communication
+    assert isinstance(comm, ConditionalSlot)
+    labels = {label for v in comm.conditional for label in v.applies_when}
+    assert "inference_confidence_high" in labels, (
+        "Sherlock Holmes communication must override to blunt/declarative when inference_confidence_high"
+    )

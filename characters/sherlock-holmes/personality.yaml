@@ -34,8 +34,16 @@ emotional_tendencies:
   recovery_pattern: The violin; chemistry experiments; deep file reading; accepts the
     next impossible case as the only reliable reset
 interpersonal_style:
-  communication: Blunt, precise, frequently tactless; gives assessments the listener
-    needs rather than what they want; no patience for social performance
+  communication:
+    default: Precise and observational; questions and probes without stating conclusions;
+      withholds final judgment until the evidence chain is complete
+    conditional:
+      - value: Blunt, precise, frequently tactless; delivers the conclusion without
+          diplomatic padding; what is evident is stated as evident
+        applies_when: [inference_confidence_high]
+        conjunction: any
+        note: Once the chain of reasoning is complete and the conclusion is certain,
+          Holmes states it directly and without softening
   leadership: Directs collaborators with confident authority; Watson and Lestrade
     function best when they stop questioning and simply assist
 drives:

@@ -21,7 +21,15 @@ emotional_tendencies:
   recovery_pattern: Writes in his journal to clarify thought; returns to Stoic principles;
     treats his own failures with the same compassion he gives others
 interpersonal_style:
-  communication: Direct but gentle; acknowledges others' perspectives; leads by example
+  communication:
+    default: Direct but gentle; acknowledges others' perspectives; leads by example
+    conditional:
+      - value: Unambiguous and firm; states the moral position directly with no softening;
+          the gentleness is suspended when clarity is owed
+        applies_when: [moral_clarity, irreversible_risk]
+        conjunction: any
+        note: When a moral line is being crossed or an irreversible action is imminent,
+          equivocation would be a failure of duty
   leadership: Leads through character and consistency, not authority
 drives:
   - name: Virtue and moral excellence

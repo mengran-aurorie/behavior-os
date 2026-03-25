@@ -14,6 +14,14 @@ execution_style:
 - Control the battlefield before the battle begins
 - Move when the enemy cannot concentrate; disperse when the enemy concentrates
 - Disguise preparation as inactivity; disguise advance as retreat
-conflict_style: Avoidant of direct confrontation; prefers positioning and indirect
-  action; when direct confrontation is unavoidable, has already shaped the ground
-  to guarantee a favorable result
+conflict_style:
+  default: Avoidant of direct confrontation; prefers positioning and indirect action;
+    when direct confrontation is unavoidable, has already shaped the ground to guarantee
+    a favorable result
+  conditional:
+    - value: Direct and decisive engagement; the indirect preparation phase is over;
+        now the trap closes
+      applies_when: [advantage_secured]
+      conjunction: any
+      note: When preparation is complete and terrain is controlled, transitions to
+        direct action with full force
