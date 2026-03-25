@@ -40,7 +40,7 @@ The standard library accepts:
 ### Setup
 
 ```bash
-git clone https://github.com/behavior-os/behavior-os
+git clone https://github.com/mengran-aurorie/behavior-os
 cd behavior-os
 pip install -e ".[dev]"
 ```

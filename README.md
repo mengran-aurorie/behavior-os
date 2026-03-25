@@ -3,6 +3,10 @@
 **Compile behavior, not prompts.**
 
 <p align="center">
+  <a href="./README.md">English</a> | <a href="./README.zh.md">中文</a>
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/Python-3.11+-blue.svg" alt="Python 3.11+">
   <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT License">
   <img src="https://img.shields.io/badge/Schema-1.1-orange.svg" alt="Schema 1.1">
