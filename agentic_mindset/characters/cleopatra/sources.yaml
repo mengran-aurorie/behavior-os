@@ -1,12 +1,10 @@
 sources:
-- title: "The Cleopatra Pact: Her Political Strategy"
+- title: 'The Cleopatra Pact: Her Political Strategy'
   type: book
   accessed: '2026-03-25'
-- title: "Plutarch: Life of Antony"
-  type: primary
+- title: 'Plutarch: Life of Antony'
   url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0244
   accessed: '2026-03-25'
-- title: "Cassius Dio: Roman History"
-  type: primary
+- title: 'Cassius Dio: Roman History'
   url: https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Cassius_Dio/home.html
   accessed: '2026-03-25'

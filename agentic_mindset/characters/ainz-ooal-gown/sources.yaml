@@ -1,11 +1,8 @@
 sources:
-- title: "Overlord light novel (Maruyama)"
-  type: secondary
+- title: Overlord light novel (Maruyama)
   accessed: '2026-03-25'
-- title: "Overlord anime (Madhouse)"
-  type: secondary
+- title: Overlord anime (Madhouse)
   accessed: '2026-03-25'
-- title: "Overlord wiki character analysis"
-  type: secondary
+- title: Overlord wiki character analysis
   url: https://en.wikipedia.org/wiki/Overlord_(novel_series)
   accessed: '2026-03-25'

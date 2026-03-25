@@ -1,13 +1,10 @@
 sources:
-- title: "The Iliad (Homer)"
-  type: primary
+- title: The Iliad (Homer)
   url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0134
   accessed: '2026-03-25'
-- title: "The Odyssey (Homer)"
-  type: primary
+- title: The Odyssey (Homer)
   url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0133
   accessed: '2026-03-25'
-- title: "Greek mythology scholarly analysis"
-  type: secondary
+- title: Greek mythology scholarly analysis
   url: https://en.wikipedia.org/wiki/Athena
   accessed: '2026-03-25'

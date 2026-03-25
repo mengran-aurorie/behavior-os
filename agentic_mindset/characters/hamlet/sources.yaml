@@ -1,9 +1,7 @@
 sources:
-- title: "Hamlet (Shakespeare)"
-  type: primary
+- title: Hamlet (Shakespeare)
   url: https://www.gutenberg.org/ebooks/2265
   accessed: '2026-03-25'
-- title: "Shakespearean tragedy scholarship"
-  type: secondary
+- title: Shakespearean tragedy scholarship
   url: https://en.wikipedia.org/wiki/Hamlet
   accessed: '2026-03-25'

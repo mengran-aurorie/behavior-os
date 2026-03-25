@@ -1,11 +1,8 @@
 sources:
-- title: "Prose Edda (Snorri Sturluson)"
-  type: primary
+- title: Prose Edda (Snorri Sturluson)
   accessed: '2026-03-25'
-- title: "Poetic Edda"
-  type: primary
+- title: Poetic Edda
   accessed: '2026-03-25'
-- title: "Norse mythology scholarly analysis"
-  type: secondary
+- title: Norse mythology scholarly analysis
   url: https://en.wikipedia.org/wiki/Loki
   accessed: '2026-03-25'

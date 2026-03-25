@@ -1,11 +1,8 @@
 sources:
-- title: "Dragon Ball Z manga (Toriyama)"
-  type: secondary
+- title: Dragon Ball Z manga (Toriyama)
   accessed: '2026-03-25'
-- title: "Dragon Ball Super anime"
-  type: secondary
+- title: Dragon Ball Super anime
   accessed: '2026-03-25'
-- title: "Dragon Ball wiki character analysis"
-  type: secondary
+- title: Dragon Ball wiki character analysis
   url: https://en.wikipedia.org/wiki/Vegeta
   accessed: '2026-03-25'

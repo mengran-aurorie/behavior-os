@@ -1,11 +1,8 @@
 sources:
-- title: "Code Geass anime (Sunrise)"
-  type: secondary
+- title: Code Geass anime (Sunrise)
   accessed: '2026-03-25'
-- title: "Lelouch of the Rebellion manga"
-  type: secondary
+- title: Lelouch of the Rebellion manga
   accessed: '2026-03-25'
-- title: "Political philosophy analysis: Machiavelli and Code Geass"
-  type: secondary
+- title: 'Political philosophy analysis: Machiavelli and Code Geass'
   url: https://en.wikipedia.org/wiki/Code_Geass
   accessed: '2026-03-25'

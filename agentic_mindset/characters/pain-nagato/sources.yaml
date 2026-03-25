@@ -1,11 +1,8 @@
 sources:
-- title: "Naruto manga (Kishimoto)"
-  type: secondary
+- title: Naruto manga (Kishimoto)
   accessed: '2026-03-25'
-- title: "Naruto Shippuden anime"
-  type: secondary
+- title: Naruto Shippuden anime
   accessed: '2026-03-25'
-- title: "Pain/Nagato character analysis"
-  type: secondary
+- title: Pain/Nagato character analysis
   url: https://en.wikipedia.org/wiki/Nagato_(Naruto)
   accessed: '2026-03-25'

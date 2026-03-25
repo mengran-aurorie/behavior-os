@@ -1,13 +1,10 @@
 sources:
-- title: "Commentarii de Bello Gallico (Caesar's Gallic Wars)"
-  type: primary
+- title: Commentarii de Bello Gallico (Caesar's Gallic Wars)
   url: https://www.perseus.tufts.edu/hopper/text?doc=Caesar%3AGallic%20Wars
   accessed: '2026-03-25'
-- title: "Suetonius: The Life of Julius Caesar"
-  type: primary
+- title: 'Suetonius: The Life of Julius Caesar'
   url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0002
   accessed: '2026-03-25'
 - title: Plutarch's Life of Caesar
-  type: secondary
   url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0245
   accessed: '2026-03-25'

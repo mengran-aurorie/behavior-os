@@ -1,11 +1,8 @@
 sources:
-- title: "The Callback of Attila the Hun (Priscus)"
-  type: primary
+- title: The Callback of Attila the Hun (Priscus)
   accessed: '2026-03-25'
-- title: "Roman histories of the Hunnic invasions (Ammianus Marcellinus)"
-  type: primary
+- title: Roman histories of the Hunnic invasions (Ammianus Marcellinus)
   accessed: '2026-03-25'
-- title: "Late Antiquity scholarship"
-  type: secondary
+- title: Late Antiquity scholarship
   url: https://en.wikipedia.org/wiki/Attila_the_Hun
   accessed: '2026-03-25'

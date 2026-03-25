@@ -1,12 +1,9 @@
 sources:
-- title: "The Iliad (Homer)"
-  type: primary
+- title: The Iliad (Homer)
   url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0134
   accessed: '2026-03-25'
-- title: "Achilles Tatius, Life of Achilles"
-  type: secondary
+- title: Achilles Tatius, Life of Achilles
   accessed: '2026-03-25'
-- title: "Classical reception studies of Homeric heroism"
-  type: secondary
+- title: Classical reception studies of Homeric heroism
   url: https://en.wikipedia.org/wiki/Achilles
   accessed: '2026-03-25'

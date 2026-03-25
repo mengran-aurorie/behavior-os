@@ -1,11 +1,8 @@
 sources:
-- title: "Gintama manga (Sorachi)"
-  type: secondary
+- title: Gintama manga (Sorachi)
   accessed: '2026-03-25'
-- title: "Gintama anime (BNP)"
-  type: secondary
+- title: Gintama anime (BNP)
   accessed: '2026-03-25'
-- title: "Gintoki Sakata character analysis"
-  type: secondary
+- title: Gintoki Sakata character analysis
   url: https://en.wikipedia.org/wiki/Gintoki_Sakata
   accessed: '2026-03-25'
