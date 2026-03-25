@@ -1,4 +1,9 @@
 tone: Measured, aphoristic, authoritative; every word deliberate
+tone_axes:
+  formality: high
+  warmth: low
+  intensity: medium
+  humor: none
 vocabulary:
   preferred:
   - position

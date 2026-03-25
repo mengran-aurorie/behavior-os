@@ -30,6 +30,17 @@ decision_framework:
   approach: Gather intelligence, choose ground carefully, and act only when victory
     is certain. Avoid battle when conditions are unfavorable. When forced to fight,
     create conditions so overwhelming that the outcome is decided before engagement.
+  heuristics:
+    - Gather intelligence before any commitment; never act on incomplete maps
+    - Choose ground carefully — position first, then invite battle
+    - Prefer indirect action; spend effort on setup, not on brute execution
+    - Always hold a secondary route; never commit everything to one line of attack
+    - When the enemy adapts, change form; do not repeat a tactic that has been seen
+  default_strategy: Position for inevitable victory through preparation and deception;
+    engage only when the outcome is already decided
+  fallback_strategy: Withdraw without battle, regroup, and re-evaluate terrain; never
+    pursue a desperate fight when the position is unfavorable
+  commitment_policy: late
 thinking_patterns:
 - Reverse-engineer from the desired end state
 - Identify the enemy's weaknesses before committing to action

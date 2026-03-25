@@ -7,6 +7,7 @@ work_patterns:
 - Holds reserves and secondary options in all plans; never bets everything on a single
   line of attack
 decision_speed: deliberate
+decision_control: controlled
 execution_style:
 - Strike only when conditions are fully favorable
 - Leave the enemy a path to retreat to avoid desperate resistance

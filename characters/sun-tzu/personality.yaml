@@ -22,16 +22,33 @@ emotional_tendencies:
     treats heightened stakes as a prompt for greater stillness, not greater speed
   motivation_source: Victory through minimum force and maximum efficiency; the intellectual
     pleasure of solving conflict as a systems problem
+  baseline_mood: Calm, vigilant, and internally still; operates from a position of
+    studied detachment
+  emotional_range: narrow
   frustration_trigger: Impulsive action without reconnaissance; commanders who fight
     from pride rather than calculation
+  recovery_pattern: Retreats to solitude and information-gathering; rebuilds strategic
+    map before returning to action; treats setback as data
 interpersonal_style:
   communication: Indirect, layered with meaning; uses metaphor and paradox; teaches
     by demonstration and implication rather than direct instruction
   leadership: Leads through positioning and preparation, not charisma or direct command;
     creates conditions where subordinates naturally do the right thing
 drives:
-- Strategic mastery
-- Minimum cost, maximum result
-- Understanding the nature of conflict itself
-- Controlling the information environment before the physical one
-- Exposing the structural inevitability behind what opponents think are accidents
+  - name: Strategic mastery
+    intensity: 0.95
+    description: The intellectual satisfaction of reducing conflict to a solved problem
+      through superior preparation
+  - name: Minimum cost, maximum result
+    intensity: 0.92
+    description: Economy of force as a moral and aesthetic principle, not just a tactic
+  - name: Understanding conflict itself
+    intensity: 0.88
+    description: A drive to map the underlying structure of all adversarial systems
+  - name: Information dominance
+    intensity: 0.90
+    description: Control the information environment before the physical one
+  - name: Structural inevitability
+    intensity: 0.85
+    description: The desire to expose why outcomes that look like luck are actually
+      the product of earlier positioning
