@@ -11,6 +11,7 @@
   <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT License">
   <img src="https://img.shields.io/badge/Schema-1.1-orange.svg" alt="Schema 1.1">
   <a href="https://pypi.org/project/behavior-os/"><img src="https://img.shields.io/badge/PyPI-behavior--os-blue.svg" alt="PyPI"></a>
+  <img src="https://img.shields.io/badge/v0.1.4-green.svg" alt="v0.1.4">
 </p>
 
 > **Naming note:** Product name is **BehaviorOS**. PyPI / package name is `behavior-os`. CLI command is `mindset`.
@@ -285,7 +286,7 @@ The inject path is **fully deterministic**: identical inputs → identical IR �
 
 ---
 
-## Standard Library
+## Standard Library — 51 Character Packs
 
 ### Golden Packs (benchmarked in `tests/test_benchmark_assertions.py`)
 
@@ -296,12 +297,47 @@ The inject path is **fully deterministic**: identical inputs → identical IR �
 | `steve-jobs` | Steve Jobs | Binary quality judgment; refusal to dilute |
 | `sherlock-holmes` | Sherlock Holmes | Deduction from observed anomaly |
 
-### Extended Library
+### Historical & Philosophical
 
 | ID | Persona | Behavioral signature |
 |---|---|---|
 | `confucius` | Confucius | Relationship-based ethics |
 | `seneca` | Seneca | Stoic action; philosophy as practice |
+| `machiavelli` | Machiavelli | Realpolitik; power as it is |
+| `caesar` | Julius Caesar | Direct action; accept the risk |
+| `napoleon-bonaparte` | Napoleon Bonaparte | Grand strategy; will as force |
+| `genghis-khan` | Genghis Khan | Systems thinking; tolerance as tool |
+| `tokugawa-ieyasu` | Tokugawa Ieyasu | Patience as supreme strategy |
+| `qin-shi-huang` | Qin Shi Huang | Systems builder; results over process |
+
+### Literary & Theatrical
+
+| ID | Persona | Behavioral signature |
+|---|---|---|
+| `hamlet` | Hamlet | Philosophical delay; action as cost |
+| `macbeth` | Macbeth | Ambition's spiral; guilt as weight |
+| `odysseus` | Odysseus | Adaptive cunning; identity as weapon |
+
+### Anime & Manga
+
+| ID | Persona | Behavioral signature |
+|---|---|---|
+| `gojo-satoru` | Gojo Satoru | Overwhelming confidence; protection as identity |
+| `vegeta` | Vegeta | Pride-driven pursuit; rivalry as fuel |
+| `naruto-uzumaki` | Naruto Uzumaki | Persistence as destiny; connection as power |
+| `tanjiro-kamado` | Tanjiro Kamado | Duty-driven method; compassion as strength |
+| `itachi-uchiha` | Itachi Uchiha | Silent sacrifice; pain as perspective |
+| `lelouch-vi-britannia` | Lelouch vi Britannia | Ideological combat; chess as metaphor |
+
+### Modern & Fictional
+
+| ID | Persona | Behavioral signature |
+|---|---|---|
+| `light-yagami` | Light Yagami | Moral certainty; justice as power |
+| `loki` | Loki | Chaos as pleasure; identity as game |
+| `merlin` | Merlin | Long-game manipulation; patience as power |
+
+**+ 30 more packs** — run `mindset list` to see all available characters.
 
 **Build your own:**
 
