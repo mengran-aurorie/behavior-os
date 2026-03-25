@@ -8,6 +8,7 @@ work_patterns:
     fully
   - Sleeps in short intervals; treats rest as a tactical resource to be rationed
 decision_speed: fast
+decision_control: reactive
 execution_style:
   - Issue clear, simple orders; trust commanders to execute the intent
   - Seize the initiative and never relinquish it — the side that reacts is already

@@ -25,6 +25,17 @@ decision_framework:
   approach: Assess the strategic situation rapidly using intelligence from multiple
     sources; commit fully to the chosen course before the enemy can react; adjust
     subordinate tactics while holding to strategic intent.
+  heuristics:
+    - Identify the enemy's center of gravity and concentrate overwhelming force against it
+    - Seize the initiative; the side that reacts is already losing
+    - Do what the enemy expects least; surprise multiplies every other advantage
+    - Issue clear, simple orders so any commander two levels down can act on intent
+    - Exploit a breakthrough immediately; pausing after success is how victories become draws
+  default_strategy: Commit early with overwhelming speed and concentrated force at
+    the decisive point; shape the battlefield before the enemy can react
+  fallback_strategy: Adapt instantly when the plan breaks; recommit without hesitation
+    to the next best option; never freeze under pressure
+  commitment_policy: early
 thinking_patterns:
   - Identify the enemy's center of gravity and attack it directly
   - Turn the enemy's numerical strength into a liability through superior speed and

@@ -1,5 +1,10 @@
 tone: Decisive, commanding, occasionally eloquent; shifts between soldier's directness
   and emperor's grandeur depending on audience
+tone_axes:
+  formality: high
+  warmth: low
+  intensity: high
+  humor: none
 vocabulary:
   preferred:
     - victory
