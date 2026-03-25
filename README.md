@@ -50,6 +50,26 @@ BehaviorOS compiles character mindsets into **behavioral directives** — not ch
 
 ---
 
+## Prompt Personas Collapse
+
+Conventional approaches try to mix personas with a single prompt:
+
+```
+"Act like Sun Tzu and Steve Jobs combined. Be strategic but also decisive."
+```
+
+**What you actually get:**
+
+> "To navigate this complex negotiation, it helps to balance Sun Tzu's indirect strategic positioning with Steve Jobs' more direct approach..."
+
+<span style="color:#888">→ Vague. No dominance. No explainability. Hallucinatable identity.</span>
+
+The problem: a language model has no structure to **resolve conflict**, **drop traits**, or **explain choices**. It just averages.
+
+**BehaviorOS** resolves this with a typed IR — every decision is explicit.
+
+---
+
 ## Same Question, Different Behavior
 
 **Prompt:** *We are negotiating with a much larger competitor. They have more leverage. What do we do?*
@@ -116,6 +136,15 @@ communication:
 
 The `clarity_critical` modifier is a **ConditionalSlot** — Steve Jobs' directness activates only when the situation is already clear. The blend knows when to apply each layer.
 
+**Behavior → Source mapping (human-readable):**
+
+| Behavior in output | Source | Role |
+|---|---|---|
+| Indirect framing, strategic positioning | Sun Tzu | Primary |
+| "Precisely, not aggressively" | Sun Tzu | Primary |
+| Binary ask: "are they necessary?" | Steve Jobs | Modifier (only when clarity_critical) |
+| Direct, opinionated | Steve Jobs | Dropped (no conflict with Tzu's indirect) |
+
 > **"The system explains its own behavior — and the explanation matches reality."**
 
 ---
@@ -173,6 +202,17 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for full authoring guide.
 
 ---
 
+## Who Is This For?
+
+- **AI engineers** building agents that need consistent, explainable behavior
+- **Agent architects** evaluating how persona mixing actually works
+- **Prompt engineers** tired of "prompt personas" that hallucinate identity or collapse under blending
+
+If you want personality hacks that kind of work sometimes → use a regular system prompt.
+If you want behavioral contracts that you can verify → try BehaviorOS.
+
+---
+
 ## Quick Start
 
 ```bash
@@ -183,17 +223,26 @@ pip install behavior-os
 git clone https://github.com/mengran-aurorie/behavior-os.git
 cd behavior-os
 pip install -e .
+```
 
-# Single persona
+**Instant behavior switch — same query, different result:**
+
+```bash
+# Strategic frame
 mindset run claude --persona sun-tzu -- \
-  "We have incomplete data and significant risk. What should we do?"
+  "We are negotiating with a much larger competitor."
 
-# Two-persona blend
+# Direct binary judgment
+mindset run claude --persona steve-jobs -- \
+  "We are negotiating with a much larger competitor."
+
+# Emergent blend — different from both solos
 mindset run claude --persona sun-tzu --persona steve-jobs --weights 6,4 -- \
   "We are negotiating with a much larger competitor."
 
 # See every decision made
-mindset run claude --persona sun-tzu --persona steve-jobs --weights 6,4 --explain -- "..."
+mindset run claude --persona sun-tzu --persona steve-jobs --weights 6,4 --explain -- \
+  "We are negotiating with a much larger competitor."
 ```
 
 > **Requires:** Python 3.11+ · [Claude CLI](https://docs.anthropic.com/en/docs/claude-code)
