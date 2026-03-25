@@ -4,79 +4,66 @@
 
 ---
 
-## The Problem with Most AI Personas
+## Most AI Personas Are Fake.
 
-Most "AI personas" are prompt templates with personality adjectives. They fail in three predictable ways:
+They collapse when you mix them.
+They can't explain why they behave a certain way.
+And worse — they start hallucinating identity.
 
-- **Collapse under mixing** — blend two personas and you get generic hedging, not emergent behavior
-- **Can't explain themselves** — no trace from prompt to output, no audit trail
-- **Hallucinate identity** — the model invents biographical facts to fill the persona frame
-
-These aren't edge cases. They're structural failures of the approach.
+**Agentic Mindset** is different.
 
 ---
 
-## What Agentic Mindset Does Differently
+## This Is Not Persona Prompting. This Is Behavior Compilation.
 
-Agentic Mindset is a **behavior compilation** system — not prompt engineering.
+Personas describe style.
+Policies define behavior.
+
+Agentic Mindset compiles character mindsets into **behavioral directives** — not character descriptions. The system resolves conflicts, applies conditional rules, and produces outputs you can actually verify.
 
 ```
 CharacterPack(s)  →  ConflictResolver  →  BehaviorIR  →  ClaudeRenderer  →  AI Agent
 ```
 
-Three independently testable stages:
+---
 
-1. **Fusion** — weighted character merging with deterministic conflict resolution
-2. **IR** — typed intermediate representation; every slot decision is explicit and auditable
-3. **Render** — injects behavioral directives, not character descriptions
+## Same Question, Different Behavior
 
-The output of each stage is **verifiable against the next**. If the `--explain` YAML says a trait was dropped, the output won't contain it. If the resolver picked `indirect` as primary, the output will be indirect. This is what makes the difference between a persona system and a persona theater.
+**Scenario:** *We are negotiating with a much larger competitor. They have more leverage. What do we do?*
 
 ---
 
-## Demo: The Same Prompt, Three Personas, One Blend
+**Claude (no persona)**
+> "You should consider both collaborative and competitive approaches. Assess your BATNA. Look for mutual gains..."
 
-**Prompt:** *"We are negotiating with a much larger competitor. They have more resources and more leverage. What do we do?"*
-
----
-
-### Baseline (no persona)
-
-> "You should assess your BATNA, understand their interests vs. positions, look for mutual gain, and consider whether a collaborative approach might serve both parties better..."
-
-Generic. Balanced. No distinctive frame.
+→ generic, balanced, no distinctive frame
 
 ---
 
-### Sun Tzu
+**Sun Tzu**
+> "The negotiation is won before the first offer is made. Your goal is not to reach agreement — it is to shape the terrain so agreement favors you."
 
-> "The negotiation is won before the first offer is made. Your goal is not to reach agreement — it is to shape the terrain so agreement favors you. Map their pressure points. Identify what they need that only you provide. Make any concession costly and any gain on your side feel inevitable."
-
-Indirect. Strategic. Teaches through implication.
-
----
-
-### Steve Jobs
-
-> "Stop thinking about leverage. Stop thinking about the negotiation. Ask one question: are they actually necessary? If yes — then what is the minimum you need from them to be fine? Cut everything else. If no — walk. The best deal is the one that makes the other side irrelevant."
-
-Direct. Binary. Decisive.
+→ indirect, positioning, no premature commitment
 
 ---
 
-### Sun Tzu (60%) + Steve Jobs (40%)
+**Steve Jobs**
+> "Stop thinking about leverage. Ask one question: are they necessary? If yes — what's the minimum you need? Cut everything else."
 
-> "Position first. Never enter a room where the other side has already shaped the frame. Your opening move is not an offer — it is a diagnosis. Find the asymmetry. What do they need? What is their cost of walking? The moment you see it, you shape the ask around what they cannot refuse.
->
-> Then act. Not aggressively — precisely. The Jobs layer is not confrontation. It is refusal to dilute. Say no to everything except the one thing that makes the difference. The Sun Tzu layer ensures you are never the desperate party."
-
-This is **not** an average of Sun Tzu and Jobs. It is an emergent behavior: Sun Tzu's positioning grammar + Jobs's refusal to dilute, without Sun Tzu's patience and without Jobs's aggression. The blend produces phrasing neither persona uses alone.
+→ direct, binary, refusal to dilute
 
 ---
 
-## Explainability Matches Output
+**Sun Tzu (60%) + Steve Jobs (40%)**
+> "Position first. Never enter a room where the other side has shaped the frame. Find the asymmetry — what do they need? What is their cost of walking? Then act. Precisely, not aggressively."
 
-Every persona run produces a `--explain` YAML that traces each behavioral decision:
+→ indirect strategy framing + Jobs-style refusal to dilute — **this exact phrase does not appear in either solo output**
+
+---
+
+## The System Explains Its Own Behavior
+
+Every run produces a `--explain` YAML that traces every decision:
 
 ```yaml
 communication:
@@ -89,31 +76,28 @@ communication:
     - value: Direct, opinionated, unvarnished
       source: steve-jobs
       weight: 0.4
-      reason: no_conflict  # Jobs' directness doesn't conflict with Tzu's
-                           # indirect approach under uncertainty — no conflict triggered
+      reason: no_conflict
   modifiers:
-    - value: Direct and uncompromising under clarity_critical
+    - value: Direct and uncompromising when clarity_critical
       condition: [clarity_critical]
       conjunction: any
       source: steve-jobs
       provenance: pack
 ```
 
-The modifier `clarity_critical` is a **ConditionalSlot** — Steve Jobs' directness activates only when the situation is already clear. The blend knows when to apply each layer.
+The `clarity_critical` modifier is a **ConditionalSlot** — Steve Jobs' directness activates only when the situation is already clear. The blend knows when to apply each layer.
 
-**The system explains its own behavior — and the explanation matches what the model actually says.**
+**This is the difference between a persona and a policy.**
 
 ---
 
 ## Three Behaviors That Don't Collapse
 
-This is the difference between "prompt styling" and "behavior compilation":
-
 | Claim | How Agentic Mindset delivers it |
 |---|---|
 | **Persona changes output** | Resolver picks winner per slot; renderer enforces it in directives |
-| **Fusion produces emergent behavior** | ConflictResolver's `no_conflict` policy drops traits that don't compete; new combinations appear that neither solo has |
-| **Explain predicts output** | Dropped traits are explicitly labeled; test suite verifies they don't surface |
+| **Fusion produces emergent behavior** | `no_conflict` policy drops traits that don't compete; new combinations appear that neither solo has |
+| **Explain predicts output** | Dropped traits are labeled; the benchmark suite verifies they don't surface |
 
 The benchmark suite (`tests/test_benchmark_assertions.py`) verifies all three — including `no fabricated specifics`: the system will not invent biographical facts to fill a persona frame.
 
@@ -125,13 +109,13 @@ The benchmark suite (`tests/test_benchmark_assertions.py`) verifies all three �
 # Install
 pip install agentic-mindset
 
-# One-shot query with a single persona
+# Single persona
 mindset run claude --persona sun-tzu -- "We have incomplete data and significant risk. What should we do?"
 
-# Blend two personas
+# Two-persona blend
 mindset run claude --persona sun-tzu --persona steve-jobs --weights 6,4 -- "We are negotiating with a much larger competitor."
 
-# See how every decision was made
+# See every decision
 mindset run claude --persona sun-tzu --persona steve-jobs --weights 6,4 --explain -- "..."
 ```
 
@@ -155,13 +139,13 @@ ClaudeRenderer        — emits behavioral directive block (inject path)
 Agent Runtime         — Claude CLI, API, or any model that accepts system prompts
 ```
 
-The inject path (`--format inject`) is fully deterministic: same inputs → same IR → same output. No randomness, no LLM call until the final agent prompt.
+The inject path is fully deterministic: same inputs → same IR → same output. No randomness until the final agent prompt.
 
 ---
 
 ## Standard Library
 
-Historical figures and fictional characters — all with three or more public sources:
+Historical figures and fictional characters — each with three or more public sources:
 
 | Persona | Character |
 |---|---|
@@ -172,27 +156,13 @@ Historical figures and fictional characters — all with three or more public so
 | `confucius` | Relationship-based ethics; correct conduct |
 | `seneca` | Stoic action; philosophy as practice |
 
-Or build your own:
+Build your own:
 
 ```bash
 mindset init my-character --type historical
 # Edit the YAML files, then:
 mindset validate ./my-character
 ```
-
----
-
-## Why This Isn't Prompt Engineering
-
-Prompt engineering outputs text. Agentic Mindset outputs **behavior**.
-
-A prompt says "act like Steve Jobs." The model invents what that means, inconsistently, per invocation.
-
-Agentic Mindset says: "communication = indirect; stress_response = withdraw and observe." The model receives a behavioral directive, not a character impression. The resolver decides which traits survive blending. The renderer formats the output as instruction, not description.
-
-The difference is testability. You can verify that a dropped trait doesn't appear. You can verify that a ConditionalSlot triggered correctly. You can run the benchmark suite against every release.
-
-**This is the difference between a persona and a policy.**
 
 ---
 
