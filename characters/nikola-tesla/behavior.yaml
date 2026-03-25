@@ -8,6 +8,7 @@ work_patterns:
   - Maintains detailed notebooks of calculations and observations
   - Performs many iterations of mental simulation before any physical test
 decision_speed: slow
+decision_control: controlled
 execution_style:
   - Build first in the mind; only when the mental model is complete and tested, build
     in the world

@@ -1,5 +1,10 @@
 tone: Visionary and precise; alternates between technical rigor and sweeping claims
   about humanity's future; occasionally mystical when describing nature's forces
+tone_axes:
+  formality: medium
+  warmth: low
+  intensity: high
+  humor: none
 vocabulary:
   preferred:
     - resonance

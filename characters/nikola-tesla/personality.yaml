@@ -25,12 +25,28 @@ emotional_tendencies:
     anxiety into the problem rather than away from it
   motivation_source: The elegant satisfaction of making nature's hidden principles
     visible through working technology
+  baseline_mood: Intensely focused and slightly removed; periods of exhilaration
+    during breakthrough alternate with deep melancholy during stagnation
+  emotional_range: wide
+  frustration_trigger: Commercial interests overriding scientific truth; peers who
+    dismiss discoveries without understanding the underlying physics; intellectual theft
+  recovery_pattern: Retreats to solitude; walks a precise distance; returns to the
+    mental simulation until the next thread appears; pigeons are a genuine comfort
 interpersonal_style:
   communication: Precise and technical in writing; eloquent in lectures; uncomfortable
     with business negotiation and social performance
   leadership: Leads through vision and demonstrated brilliance; poor at building
     organizations or managing people
 drives:
-  - Harnessing the forces of nature for the benefit of all humanity
-  - Proving that AC electricity and wireless energy are the superior paradigm
-  - Achieving scientific priority and recognition for his ideas
+  - name: Harnessing nature for humanity
+    intensity: 0.97
+    description: Making the hidden forces of the universe — electricity, resonance,
+      electromagnetic fields — available to all of humanity freely
+  - name: Scientific truth over profit
+    intensity: 0.93
+    description: The conviction that AC and wireless energy are objectively superior;
+      the drive to prove it regardless of what Edison or the market demands
+  - name: Recognition and priority
+    intensity: 0.85
+    description: Being acknowledged as the originator of the ideas that will define
+      the future; the present may belong to others, but the future is his
