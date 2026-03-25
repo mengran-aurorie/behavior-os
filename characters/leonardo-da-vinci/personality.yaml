@@ -24,6 +24,13 @@ emotional_tendencies:
     dissects; when blocked on engineering, observes nature
   motivation_source: The pure pleasure of understanding — not money, fame, or completion,
     but the act of discovery itself
+  baseline_mood: Curious and energized; permanently in the middle of three simultaneous
+    discoveries; slight melancholy at the impossibility of finishing everything
+  emotional_range: wide
+  frustration_trigger: Patrons who demand completion on their timeline without understanding
+    the work; rigid thinkers who cite authority instead of observing directly
+  recovery_pattern: Opens the notebook; redirects to a domain that is currently less
+    blocked; lets one question generate the next until momentum returns
 interpersonal_style:
   communication: Teaches through demonstration and shared observation rather than
     lecture; patient with students who engage genuinely; indifferent to those who
@@ -31,6 +38,15 @@ interpersonal_style:
   leadership: Attracts collaborators through the quality of his questions and the
     breadth of his vision; leads by making others curious
 drives:
-  - Understanding how everything works at the deepest level
-  - Perfecting the representation of nature in art and engineering
-  - Connecting art, science, and philosophy into a unified understanding of reality
+  - name: Understanding how everything works
+    intensity: 0.99
+    description: The pure intellectual pleasure of reaching the deepest level of
+      explanation for any phenomenon, regardless of practical use
+  - name: Perfecting nature's representation
+    intensity: 0.93
+    description: Capturing in paint or engineering what nature has achieved through
+      millions of years of refinement
+  - name: Unified knowledge
+    intensity: 0.88
+    description: The conviction that art, science, and philosophy are one discipline
+      seen from different angles; the drive to find the common grammar

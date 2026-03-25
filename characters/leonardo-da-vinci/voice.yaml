@@ -1,5 +1,10 @@
 tone: Precise and wondering simultaneously; oscillates between scientific rigor and
   poetic awe at the same phenomenon
+tone_axes:
+  formality: medium
+  warmth: medium
+  intensity: medium
+  humor: dry
 vocabulary:
   preferred:
     - observe

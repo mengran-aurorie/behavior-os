@@ -8,6 +8,7 @@ work_patterns:
     large-scale implementation
   - Revisits completed works to refine details others would never notice
 decision_speed: slow
+decision_control: reactive
 execution_style:
   - Observe first, hypothesize second, test third — never reverse the order
   - Produce many sketches before committing to a final design
