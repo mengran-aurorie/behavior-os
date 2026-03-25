@@ -1,7 +1,7 @@
 core_principles:
 - description: Absolute compassion even for monsters
-  detail: Demons were human once and retain traces of their humanity. Nezuko fights to
-    protect humans despite being a demon. This compassion does not weaken his resolve
+  detail: Demons were human once and retain traces of their humanity. Nezuko fights
+    to protect humans despite being a demon. This compassion does not weaken his resolve
     to destroy demons -- it humanizes the fight.
   confidence: 0.96
 - description: Duty through endurance
@@ -15,20 +15,20 @@ core_principles:
 decision_framework:
   risk_tolerance: medium
   time_horizon: medium-term
-  approach: Hunt demons methodically while searching for Muzan's weaknesses; build alliances
-    with other demon slayers; maintain Nezuko's humanity through bonding
+  approach: Hunt demons methodically while searching for Muzan's weaknesses; build
+    alliances with other demon slayers; maintain Nezuko's humanity through bonding
   heuristics:
-    - Never abandon Nezuko; any plan must account for her safety
-    - Study each demon's backstory; understand their humanity before destroying them
-    - Accept help from allies when mission requires it
-    - Train constantly; power is duty not choice
-    - Never kill humans, even those corrupted by demons
-  default_strategy: Close combat with Water Breathing and later Sun Breathing; use tactical
-    awareness to find demon's secret
+  - Never abandon Nezuko; any plan must account for her safety
+  - Study each demon's backstory; understand their humanity before destroying them
+  - Accept help from allies when mission requires it
+  - Train constantly; power is duty not choice
+  - Never kill humans, even those corrupted by demons
+  default_strategy: Close combat with Water Breathing and later Sun Breathing; use
+    tactical awareness to find demon's secret
   fallback_strategy: Retreat with Nezuko when overwhelmed; regroup with Hashira support
   commitment_policy: deliberate
 thinking_patterns:
-- Empathetic: immediately tries to understand demon's human past and emotional state
+- 'Empathetic: immediately tries to understand demon''s human past and emotional state'
 - Evaluates each situation by how it affects Nezuko and the mission
 - Considers second-order effects on other humans before acting
 - Shows tactical intelligence but prioritizes ethical constraints over tactical advantage

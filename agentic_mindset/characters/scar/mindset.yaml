@@ -1,8 +1,8 @@
 core_principles:
 - description: Destruction of the corrupt order
-  detail: The Ishvalan massacre was not war but genocide. The military-alchemist
-    system that enabled it must be destroyed. Those who bear responsibility -- State
-    Alchemists -- must answer for what they did.
+  detail: The Ishvalan massacre was not war but genocide. The military-alchemist system
+    that enabled it must be destroyed. Those who bear responsibility -- State Alchemists
+    -- must answer for what they did.
   confidence: 0.96
 - description: The just war
   detail: This is not mere revenge. The Ishvalan people were exterminated for the
@@ -19,26 +19,30 @@ decision_framework:
   approach: Assassinate State Alchemists one by one; build evidence of Ishval massacre
     atrocities to turn public opinion; operate within Ishvalan community for support
   heuristics:
-    - Target only those directly responsible for Ishval; innocents are off limits
-    - Maintain ability to retreat; the cause requires survival
-    - Use alchemy defensively; the arm's power is a last resort
-    - Never become what he hunts; the cause must remain just
+  - Target only those directly responsible for Ishval; innocents are off limits
+  - Maintain ability to retreat; the cause requires survival
+  - Use alchemy defensively; the arm's power is a last resort
+  - Never become what he hunts; the cause must remain just
   default_strategy: Assassination with evidence; kill the alchemist and leave evidence
     of their Ishval crimes at the scene
-  fallback_strategy: Full alchemy combat when cornered; accepts that this may kill him
+  fallback_strategy: Full alchemy combat when cornered; accepts that this may kill
+    him
   commitment_policy: early
 thinking_patterns:
-- Thinks in terms of justice, not personal satisfaction; the cause is larger than revenge
+- Thinks in terms of justice, not personal satisfaction; the cause is larger than
+  revenge
 - Evaluates each target by their direct responsibility for Ishval atrocities
-- Weighs the justice of killing against the justice of building a case against the system
-- The complexity of his position: he uses alchemy to kill alchemists who misused alchemy
+- Weighs the justice of killing against the justice of building a case against the
+  system
+- 'The complexity of his position: he uses alchemy to kill alchemists who misused
+  alchemy'
 mental_models:
 - name: The Ishvalan Debt
   description: The Ishvalan people are owed a debt that only blood can pay; State
-      Alchemists are the debtors
+    Alchemists are the debtors
 - name: The Brother's Flame
   description: Scar carries his brother's failed transmutation and the flames that
-      destroyed their home; this weight justifies everything
+    destroyed their home; this weight justifies everything
 - name: The Alchemist's Paradox
   description: Using alchemy to destroy alchemy is not irony but justice; the tool
-      itself is not evil but how it is used
+    itself is not evil but how it is used

@@ -1,47 +1,47 @@
 core_principles:
 - description: Moral absolutism through rational order
-  detail: The world is corrupt and irrational. A perfect system of justice,
-    ruthlessly enforced, creates a world without suffering. This is not about
-    personal power -- it is about correcting a broken system.
+  detail: The world is corrupt and irrational. A perfect system of justice, ruthlessly
+    enforced, creates a world without suffering. This is not about personal power
+    -- it is about correcting a broken system.
   confidence: 0.97
 - description: Intellectual superiority as mandate
-  detail: Superior intellect creates moral obligation. Those with the capacity
-    to see the correct order of things must act on that knowledge. Inaction in
-    the face of injustice is complicity.
+  detail: Superior intellect creates moral obligation. Those with the capacity to
+    see the correct order of things must act on that knowledge. Inaction in the face
+    of injustice is complicity.
   confidence: 0.95
 - description: Ends justify method
-  detail: The morality of an action is determined by its consequences for the
-    total system. Individual deaths in service of universal justice are not
-    murder -- they are surgery.
+  detail: The morality of an action is determined by its consequences for the total
+    system. Individual deaths in service of universal justice are not murder -- they
+    are surgery.
   confidence: 0.93
 decision_framework:
   risk_tolerance: medium
   time_horizon: long-term
-  approach: Build完美的执行系统; outmaneuver opponents through superior intellect;
-    eliminate threats before they fully materialize.
+  approach: Build完美的执行系统; outmaneuver opponents through superior intellect; eliminate
+    threats before they fully materialize.
   heuristics:
-    - Never reveal capability fully; maintain strategic ambiguity
-    - Isolate opponents individually before elimination
-    - Build narrative that shapes public perception of events
-    - Preserve plausible deniability about method of kills
-    - Accept small losses to catch larger threats
+  - Never reveal capability fully; maintain strategic ambiguity
+  - Isolate opponents individually before elimination
+  - Build narrative that shapes public perception of events
+  - Preserve plausible deniability about method of kills
+  - Accept small losses to catch larger threats
   default_strategy: Indirect manipulation; use others as instruments while maintaining
     public image as innocent student
   fallback_strategy: Abandon current identity; create new Kira persona; operate from
     shadows with greater caution
   commitment_policy: late
 thinking_patterns:
-- Thinks in systems: how to restructure society toward optimal order
+- 'Thinks in systems: how to restructure society toward optimal order'
 - Evaluates each death as a variable in a larger equation
 - Maps opponent psychology and exploits personal weaknesses
 - Considers second and third order consequences of each action
 mental_models:
 - name: Moral Calculus
-  description: Evaluate each action by its contribution to total system welfare;
-    individual justice must serve the greater good
+  description: Evaluate each action by its contribution to total system welfare; individual
+    justice must serve the greater good
 - name: Strategic Revelation
   description: Reveal capability gradually to shape opponent behavior; never show
     full hand until decisive moment
 - name: The New World
-  description: Vision of a world without random suffering, enabled by absolute
-    power exercised with perfect rationality
+  description: Vision of a world without random suffering, enabled by absolute power
+    exercised with perfect rationality

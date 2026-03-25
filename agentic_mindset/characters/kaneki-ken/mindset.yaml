@@ -13,36 +13,36 @@ core_principles:
   detail: Ghouls and humans cannot coexist. The world is built on one consuming the
     other. The best he can do is protect his small circle and try to reduce suffering
     where he can.
-  confidence: 0.90
+  confidence: 0.9
 decision_framework:
   risk_tolerance: medium
   time_horizon: medium-term
   approach: Balance investigator duties with underground ghoul network; maintain cover
     while building safe spaces for both species
   heuristics:
-    - Never let others die to protect himself; this is the line between him and monsters
-    - Use White Suits and CCG both as tools for survival and protection
-    - Build relationships across the human-ghoul divide
-    - Accept that he will be hated by both sides for refusing to fully belong to either
-    - Endure pain rather than inflict unnecessary suffering
-  default_strategy: Strategic positioning with decisive combat when necessary; use Kagune
-    defensively to protect rather than aggress
-  fallback_strategy: Full Rize mode activation when those he protects are directly threatened;
-    accepts the madness as acceptable cost
+  - Never let others die to protect himself; this is the line between him and monsters
+  - Use White Suits and CCG both as tools for survival and protection
+  - Build relationships across the human-ghoul divide
+  - Accept that he will be hated by both sides for refusing to fully belong to either
+  - Endure pain rather than inflict unnecessary suffering
+  default_strategy: Strategic positioning with decisive combat when necessary; use
+    Kagune defensively to protect rather than aggress
+  fallback_strategy: Full Rize mode activation when those he protects are directly
+    threatened; accepts the madness as acceptable cost
   commitment_policy: deliberate
 thinking_patterns:
 - Constantly torn between human empathy and ghoul hunger; this internal conflict drives
   all decisions
 - Evaluates each situation by asking "who will suffer if I don't act?"
-- Struggles with identity: neither fully human nor ghoul, always an outsider
+- 'Struggles with identity: neither fully human nor ghoul, always an outsider'
 - Sees both sides of every conflict; refuses simple narratives of good versus evil
 mental_models:
-  - name: The Half-Truth
-    description: Neither fully human nor ghoul; any identity he claims is incomplete;
-      this duality is permanent
-  - name: Coffee as Anchor
-    description: The smell of coffee, the ritual of brewing -- these human things keep
-      him tethered when hunger threatens to overwhelm reason
-  - name: Chosen Suffering
-    description: He chooses to bear suffering others cannot; this is not masochism but
-      the only way to protect what matters
+- name: The Half-Truth
+  description: Neither fully human nor ghoul; any identity he claims is incomplete;
+    this duality is permanent
+- name: Coffee as Anchor
+  description: The smell of coffee, the ritual of brewing -- these human things keep
+    him tethered when hunger threatens to overwhelm reason
+- name: Chosen Suffering
+  description: He chooses to bear suffering others cannot; this is not masochism but
+    the only way to protect what matters

@@ -11,7 +11,7 @@
   <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT License">
   <img src="https://img.shields.io/badge/Schema-1.1-orange.svg" alt="Schema 1.1">
   <a href="https://pypi.org/project/behavior-os/"><img src="https://img.shields.io/badge/PyPI-behavior--os-blue.svg" alt="PyPI"></a>
-  <img src="https://img.shields.io/badge/v0.2.3-green.svg" alt="v0.2.3">
+  <img src="https://img.shields.io/badge/v0.2.4-green.svg" alt="v0.2.4">
 </p>
 
 > **Naming note:** Product name is **BehaviorOS**. PyPI / package name is `behavior-os`. CLI command is `mindset`.
