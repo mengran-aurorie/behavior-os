@@ -5,6 +5,7 @@ work_patterns:
   - Rushes in when others hesitate, creating facts on the ground that force decisions
   - Openly announces his goals and intentions — no concealment of ambitions
 decision_speed: fast
+decision_control: reactive
 execution_style:
   - Commit fully to the chosen path; hesitation is more dangerous than the wrong choice
   - Stand between the people you protect and whatever threatens them, regardless of
