@@ -70,13 +70,19 @@ mindset generate sun-tzu > sun_tzu_prompt.txt
 mindset generate sun-tzu marcus-aurelius --weights 6,4 --explain
 ```
 
-The `--explain` flag prints a compilation summary to stderr:
+The `--explain` flag prints a structured YAML compilation summary to stderr
+(`generate` uses the text path, so the output includes a `merged` key):
 
-```
-Characters: sun-tzu (60%), marcus-aurelius (40%)
-Strategy:   blend
-Format:     text
-Schema:     1.0
+```yaml
+personas:
+- sun-tzu: 0.6
+- marcus-aurelius: 0.4
+merged:
+  decision_policy: sun-tzu-dominant
+  risk_tolerance: high
+  time_horizon: long-term
+removed_conflicts:
+- 'Patience (intensity 0.9): Waits for optimal moment'
 ```
 
 The fused prompt block blends both characters' thinking frameworks, personality
@@ -102,6 +108,45 @@ mindset run claude \
   --weights 6,4 \
   "How should I approach this negotiation?"
 ```
+
+`mindset run` uses the **inject path** by default (`--format inject`). This
+routes through `ConflictResolver → BehaviorIR → ClaudeRenderer`, which
+resolves conflicting behavioral slots deterministically before rendering.
+
+Add `--explain` to see how each slot was resolved:
+
+```bash
+mindset run claude \
+  --persona sun-tzu \
+  --persona marcus-aurelius \
+  --weights 6,4 \
+  --explain \
+  "How should I approach this negotiation?"
+```
+
+The inject-path `--explain` output (to stderr) shows resolved `slots` rather
+than a `merged` summary:
+
+```yaml
+personas:
+- sun-tzu: 0.6
+- marcus-aurelius: 0.4
+slots:
+  communication:
+    primary:
+      value: indirect, layered
+      source: sun-tzu
+      weight: 0.6
+    has_conflict: true
+    modifiers: []
+    dropped:
+    - value: direct and Socratic
+      source: marcus-aurelius
+      weight: 0.4
+      reason: lower_weight
+```
+
+Each slot shows the winning value, conflict flag, and dropped alternatives.
 
 ---
 

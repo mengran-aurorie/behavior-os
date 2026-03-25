@@ -64,14 +64,17 @@ directories in the current directory."
 mindset generate ada-lovelace --registry . --explain
 ```
 
-The `--explain` flag prints a compilation summary to stderr before the prompt
-block appears on stdout:
+The `--explain` flag prints a structured YAML summary to stderr before the
+prompt block appears on stdout (`generate` uses the text path):
 
-```
-Characters: ada-lovelace (100%)
-Strategy:   blend
-Format:     text
-Schema:     1.0
+```yaml
+personas:
+- ada-lovelace: 1.0
+merged:
+  decision_policy: ada-lovelace-dominant
+  risk_tolerance: medium
+  time_horizon: long-term
+removed_conflicts: []
 ```
 
 The prompt block (stdout) begins with a section like:
@@ -94,7 +97,31 @@ mindset run claude --persona ada-lovelace --registry . "How would you approach d
 Claude will respond with Ada Lovelace's behavioral overlay applied — precise,
 iterative, first-principles reasoning.
 
-> **Note:** `run` uses `--format inject` by default (equivalent to `text` in v0). If you add `--explain`, you will see `Format: inject` in the summary — this is expected and correct.
+`run` uses `--format inject` by default. This routes through the Behavior IR
+pipeline (`ConflictResolver → BehaviorIR → ClaudeRenderer`), producing a
+5-section behavioral instruction block rather than a narrative character
+description. Add `--explain` to see how each behavioral slot was resolved:
+
+```bash
+mindset run claude --persona ada-lovelace --registry . --explain \
+  "How would you approach designing a system you don't fully understand yet?"
+```
+
+The inject-path `--explain` output (stderr) shows `slots`, not `merged`:
+
+```yaml
+personas:
+- ada-lovelace: 1.0
+slots:
+  communication:
+    primary:
+      value: precise and layered
+      source: ada-lovelace
+      weight: 1.0
+    has_conflict: false
+    modifiers: []
+    dropped: []
+```
 
 **Interactive mode** (omit the query argument to launch a live Claude session):
 

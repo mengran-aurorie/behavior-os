@@ -17,7 +17,10 @@ Agentic Mindset is a language-agnostic open source framework for building, manag
 You define a Character Pack — a small directory of structured YAML files — and the framework fuses one or more characters into a Context Block that can be injected into any agent as a system prompt.
 
 ```
-Sun Tzu (60%) + Marcus Aurelius (40%)  →  Context Block  →  AI Agent
+Sun Tzu (60%) + Marcus Aurelius (40%)
+  →  ConflictResolver → BehaviorIR → ClaudeRenderer  (inject path)
+  →  FusionEngine → ContextBlock                      (text path)
+  →  AI Agent
 ```
 
 ---
@@ -26,6 +29,7 @@ Sun Tzu (60%) + Marcus Aurelius (40%)  →  Context Block  →  AI Agent
 
 - **Character Packs** — structured YAML profiles covering mindset, personality, behavior, voice, and sources
 - **Fusion Engine** — blend N characters with weighted merging, dominant, or sequential strategies
+- **Behavior IR** — deterministic conflict resolver that produces a typed intermediate representation before rendering; inject and text paths are fully separate
 - **CLI** — `mindset init`, `validate`, `preview`, `list`, `generate`, `run`
 - **Standard Library** — curated historical and fictional characters ready to use
 - **Language-agnostic core** — Python SDK included; the data format works with any language
@@ -255,7 +259,15 @@ mindset run claude --persona sun-tzu --registry ./my-chars -- "query"
 
 ### Inject format
 
-The default `--format inject` produces a **behavioral instruction block** — actionable directives for the agent rather than a character description:
+The default `--format inject` routes through the **Behavior IR pipeline**:
+
+```
+CharacterPack(s)  →  ConflictResolver  →  BehaviorIR  →  ClaudeRenderer  →  system prompt
+```
+
+The resolver applies deterministic conflict policies to each behavioral slot (communication style, leadership approach, etc.), producing a typed `BehaviorIR` before the renderer emits the final text. This ensures multi-persona conflicts are resolved predictably, never by raw string concatenation.
+
+The output is a **behavioral instruction block** — actionable directives for the agent rather than a character description:
 
 ```
 You embody a synthesized mindset drawing from: Sun Tzu (100%).
@@ -280,7 +292,40 @@ STYLE:
 - Sentence style: short aphorisms
 ```
 
-Use `--format text` to get the plain-text character description instead.
+Use `--format text` to get the plain-text character description instead (uses the `FusionEngine → ContextBlock` path).
+
+### `--explain` on the inject path
+
+`--explain` emits a structured YAML summary to stderr showing how each behavioral slot was resolved:
+
+```yaml
+personas:
+- sun-tzu: 0.6
+- marcus-aurelius: 0.4
+slots:
+  communication:
+    primary:
+      value: indirect, layered
+      source: sun-tzu
+      weight: 0.6
+    has_conflict: true
+    modifiers: []
+    dropped:
+    - value: direct and Socratic
+      source: marcus-aurelius
+      weight: 0.4
+      reason: lower_weight
+  leadership:
+    primary:
+      value: leads through positioning
+      source: sun-tzu
+      weight: 0.6
+    has_conflict: false
+    modifiers: []
+    dropped: []
+```
+
+Each slot shows which value won (`primary`), whether a conflict was detected (`has_conflict`), and which values were dropped and why. This makes multi-persona conflict resolution fully transparent and auditable.
 
 ### `mindset run` options
 
@@ -291,7 +336,7 @@ Use `--format text` to get the plain-text character description instead.
 | `--weights 6,4` | equal | Per-character weights (auto-normalized) |
 | `--strategy` | `blend` | `blend` \| `dominant` |
 | `--format` | `inject` | `inject` (behavioral block) \| `text` (character description) |
-| `--explain` | off | Print structured YAML to stderr |
+| `--explain` | off | Print structured YAML to stderr (`slots` for inject; `merged` for text) |
 | `--registry <path>` | auto | Override character registry path |
 | `-- QUERY` | none | One-shot query. Omit for interactive mode. |
 
