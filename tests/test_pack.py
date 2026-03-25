@@ -1,5 +1,4 @@
 import pytest
-import shutil
 import warnings
 import yaml
 from pathlib import Path
@@ -50,7 +49,6 @@ def test_current_schema_version_loads_cleanly(minimal_pack_dir):
 
 def test_old_schema_version_emits_warning(minimal_pack_dir):
     """schema_version 1.0 is supported but emits SchemaVersionWarning."""
-    import yaml
     data = yaml.safe_load((minimal_pack_dir / "meta.yaml").read_text())
     data["schema_version"] = "1.0"
     (minimal_pack_dir / "meta.yaml").write_text(yaml.dump(data))
@@ -67,7 +65,6 @@ def test_old_schema_version_emits_warning(minimal_pack_dir):
 
 def test_unknown_schema_version_raises(minimal_pack_dir):
     """Unrecognised schema_version is a hard error."""
-    import yaml
     data = yaml.safe_load((minimal_pack_dir / "meta.yaml").read_text())
     data["schema_version"] = "9.9"
     (minimal_pack_dir / "meta.yaml").write_text(yaml.dump(data))

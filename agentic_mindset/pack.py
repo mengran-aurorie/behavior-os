@@ -47,7 +47,7 @@ def _check_schema_version(meta: MetaSchema) -> None:
             "The pack will load but consider upgrading to the latest schema. "
             "See docs/migrations/1.0-to-1.1.md for the migration guide.",
             SchemaVersionWarning,
-            stacklevel=3,
+            stacklevel=4,
         )
 
 
