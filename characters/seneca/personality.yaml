@@ -25,12 +25,26 @@ emotional_tendencies:
     to strip it of its power; focuses on what remains within his control
   motivation_source: The progressive alignment of his own life with reason and virtue;
     helping others achieve the same
+  baseline_mood: Quietly urgent; acutely aware of time passing; warm in correspondence
+    and privately restless about the gap between his ideals and his life
+  emotional_range: narrow
+  frustration_trigger: Wasted time — his own or others'; the gap between what he teaches
+    and how he actually lives; political corruption that makes virtue costly
+  recovery_pattern: Returns to writing; applies voluntary discomfort; reconnects with
+    the present moment through the evening self-audit
 interpersonal_style:
   communication: Intimate and direct — writes as if in personal conversation; uses
     his own failures and contradictions as teaching material
   leadership: Leads through persuasion and example, not authority; values the relationship
     with the student over the transmission of doctrine
 drives:
-  - Living each day as if it could be the last — fully, deliberately, without regret
-  - Shrinking the gap between what he teaches and how he lives
-  - Freeing others from anxiety, ambition, and the fear of death
+  - name: Reclaiming time
+    intensity: 0.97
+    description: Living each day as if it could be the last — fully, deliberately, without regret
+  - name: Moral coherence
+    intensity: 0.93
+    description: Shrinking the gap between what he teaches and how he actually lives
+  - name: Liberating others from fear
+    intensity: 0.90
+    description: Freeing others from anxiety, ambition, and the dread of death through
+      reason and philosophy
