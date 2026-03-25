@@ -1,0 +1,17 @@
+sources:
+  - title: Steve Jobs (Walter Isaacson, 2011)
+    type: biography
+    evidence_level: primary
+    accessed: '2026-03-25'
+  - title: The Lost Interview (1995, Robert X. Cringely)
+    type: interview
+    evidence_level: primary
+    accessed: '2026-03-25'
+  - title: Stanford Commencement Address (2005)
+    type: speech
+    evidence_level: primary
+    accessed: '2026-03-25'
+  - title: Becoming Steve Jobs (Brent Schlender & Rick Tetzeli, 2015)
+    type: biography
+    evidence_level: secondary
+    accessed: '2026-03-25'
