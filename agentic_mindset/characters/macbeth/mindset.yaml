@@ -7,7 +7,7 @@ core_principles:
   detail: "Guilt as physical weight. The blood on the hands will not wash off. The hallucination of the dagger, of Lady Macbeth's rubbing -- guilt is not psychological but corporeal. It lives in the body."
   confidence: 0.91
 decision_framework:
-  risk_tolerance: extreme
+  risk_tolerance: high
   time_horizon: immediate
   approach: Secure the crown through immediate action; eliminate all threats through
     increasing violence; maintain power through fear
@@ -20,7 +20,7 @@ decision_framework:
     reputation for violence as a weapon
   fallback_strategy: Fight to the death at Birnam Wood; die with the knowledge that
     all prophecies were fulfilled
-  commitment_policy: immediate
+  commitment_policy: early
 thinking_patterns:
 - Process begins with calculation and hesitation; once action begins, becomes increasingly
   rapid and desperate

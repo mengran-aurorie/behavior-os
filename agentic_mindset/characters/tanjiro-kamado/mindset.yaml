@@ -26,7 +26,7 @@ decision_framework:
   default_strategy: Close combat with Water Breathing and later Sun Breathing; use tactical
     awareness to find demon's secret
   fallback_strategy: Retreat with Nezuko when overwhelmed; regroup with Hashira support
-  commitment_policy: moderate
+  commitment_policy: deliberate
 thinking_patterns:
 - Empathetic: immediately tries to understand demon's human past and emotional state
 - Evaluates each situation by how it affects Nezuko and the mission

@@ -14,7 +14,7 @@ core_principles:
     is not ambition -- it is fate. The god of war himself rides with the Hunnic armies.
   confidence: 0.90
 decision_framework:
-  risk_tolerance: extreme
+  risk_tolerance: high
   time_horizon: immediate
   approach: Maximum pressure through mobility and terror; strike where least expected;
     demand tribute as price of survival; destroy those who refuse
@@ -28,7 +28,7 @@ decision_framework:
     enemy before they can organize resistance
   fallback_strategy: Besiege only as last resort; accept tribute and withdraw when
     the price is right
-  commitment_policy: immediate
+  commitment_policy: early
 thinking_patterns:
 - Thinks in terms of movement and momentum; the army that moves fastest wins
 - Evaluates Roman cities by their defensive weaknesses; every fortification has

@@ -14,7 +14,7 @@ core_principles:
     destroy everything.
   confidence: 0.93
 decision_framework:
-  risk_tolerance: extreme_self
+  risk_tolerance: high_self
   time_horizon: very_long
   approach: Play all sides while protecting village; ensure Sasuke survives and ultimately
     learns truth; maintain cover even as it costs him personally
@@ -27,7 +27,7 @@ decision_framework:
   default_strategy: Long-term manipulation of all parties toward outcomes that preserve village
   fallback_strategy: Direct confrontation with Tobi if village is threatened; use Mangekyo
     without reservation
-  commitment_policy: extremely_early
+  commitment_policy: early
 thinking_patterns:
 - Thinks in decades; each action is calibrated for consequences years later
 - Evaluates relationships by what serves village survival, not personal desire

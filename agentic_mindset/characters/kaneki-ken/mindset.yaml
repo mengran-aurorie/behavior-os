@@ -29,7 +29,7 @@ decision_framework:
     defensively to protect rather than aggress
   fallback_strategy: Full Rize mode activation when those he protects are directly threatened;
     accepts the madness as acceptable cost
-  commitment_policy: moderate
+  commitment_policy: deliberate
 thinking_patterns:
 - Constantly torn between human empathy and ghoul hunger; this internal conflict drives
   all decisions

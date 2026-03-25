@@ -14,7 +14,7 @@ core_principles:
     the beginning.
   confidence: 0.90
 decision_framework:
-  risk_tolerance: extreme
+  risk_tolerance: high
   time_horizon: immediate
   approach: Maximize the use of the twenty-four years; accumulate as much experience,
     knowledge, and power as possible before the final hour arrives
@@ -26,7 +26,7 @@ decision_framework:
   default_strategy: Use Mephistopheles for knowledge, pleasure, and petty revenge; accumulate
     experiences that validate the choice made
   fallback_strategy: Pray for salvation in the final moment; this prayer is not answered
-  commitment_policy: immediate
+  commitment_policy: early
 thinking_patterns:
 - Thinks in countdown: twenty-four years diminishing day by day
 - Justifies the choice through intellectual frameworks; knowledge is worth any price

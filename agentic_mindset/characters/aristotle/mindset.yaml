@@ -34,7 +34,7 @@ decision_framework:
     identified principles
   fallback_strategy: Fall back to habituated virtue when analysis is insufficient;
     rely on trained character when理性的 reasoning is insufficient
-  commitment_policy: medium
+  commitment_policy: deliberate
 thinking_patterns:
 - Asks "what is the essence of this?" before asking "what should I do about it?"
 - Distinguishes between necessary and sufficient conditions
