@@ -10,9 +10,10 @@
   <img src="https://img.shields.io/badge/Python-3.11+-blue.svg" alt="Python 3.11+">
   <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT License">
   <img src="https://img.shields.io/badge/Schema-1.1-orange.svg" alt="Schema 1.1">
+  <a href="https://pypi.org/project/behavior-os/"><img src="https://img.shields.io/badge/PyPI-behavior--os-blue.svg" alt="PyPI"></a>
 </p>
 
-> **Naming note:** Product name is **BehaviorOS**. PyPI / package name is `agentic-mindset`. CLI command is `mindset` (preserved for compatibility). Repository is `behavior-os`.
+> **Naming note:** Product name is **BehaviorOS**. PyPI / package name is `behavior-os`. CLI command is `mindset`.
 
 ---
 
@@ -175,12 +176,12 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for full authoring guide.
 ## Quick Start
 
 ```bash
-# Clone and install
+# Install from PyPI
+pip install behavior-os
+
+# Or for development: clone and editable install
 git clone https://github.com/mengran-aurorie/behavior-os.git
 cd behavior-os
-pip install .
-
-# Or editable mode for development
 pip install -e .
 
 # Single persona
