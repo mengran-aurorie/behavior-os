@@ -2,8 +2,11 @@ sources:
 - title: Le Morte d'Arthur (Malory)
   url: https://www.gutenberg.org/ebooks/12521
   accessed: '2026-03-25'
+  type: book
 - title: Geoffrey of Monmouth, Historia Regum Britanniae
   accessed: '2026-03-25'
+  type: book
 - title: Arthurian legend scholarly analysis
   url: https://en.wikipedia.org/wiki/Merlin
   accessed: '2026-03-25'
+  type: book

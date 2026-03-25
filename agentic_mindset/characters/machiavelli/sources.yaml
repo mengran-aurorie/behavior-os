@@ -2,8 +2,11 @@ sources:
 - title: The Prince (Il Principe)
   url: https://www.gutenberg.org/ebooks/1232
   accessed: '2026-03-25'
+  type: book
 - title: Discourses on Livy
   url: https://www.gutenberg.org/ebooks/1232
   accessed: '2026-03-25'
+  type: book
 - title: 'Machiavelli: Political Works (Florentine Histories)'
   accessed: '2026-03-25'
+  type: book

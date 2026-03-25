@@ -2,9 +2,12 @@ sources:
 - title: Nicomachean Ethics
   url: https://classics.mit.edu/Aristotle/nicomachaen.html
   accessed: '2026-03-25'
+  type: book
 - title: Organon (Categories, De Interpretatione, Prior Analytics)
   url: https://classics.mit.edu/Aristotle/categories.html
   accessed: '2026-03-25'
+  type: book
 - title: Politics
   url: https://classics.mit.edu/Aristotle/politics.html
   accessed: '2026-03-25'
+  type: book

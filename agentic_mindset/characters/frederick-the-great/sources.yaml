@@ -2,9 +2,12 @@ sources:
 - title: 'Frederick the Great: Military Instructions'
   url: https://www.gutenberg.org/ebooks/46159
   accessed: '2026-03-25'
+  type: book
 - title: Frederick's Political Testament
   url: https://www.britannica.com/biography/Frederick-II-king-of-Prussia
   accessed: '2026-03-25'
+  type: book
 - title: 'Thomas Carlyle: History of Frederick the Great'
   url: https://www.gutenberg.org/ebooks/53512
   accessed: '2026-03-25'
+  type: book

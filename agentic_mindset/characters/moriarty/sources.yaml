@@ -2,8 +2,11 @@ sources:
 - title: The Complete Sherlock Holmes (Doyle)
   url: https://www.gutenberg.org/ebooks/4363
   accessed: '2026-03-25'
+  type: book
 - title: The Final Problem
   accessed: '2026-03-25'
+  type: book
 - title: Sherlock Holmes scholarly analysis
   url: https://en.wikipedia.org/wiki/Professor_Moriarty
   accessed: '2026-03-25'
+  type: book

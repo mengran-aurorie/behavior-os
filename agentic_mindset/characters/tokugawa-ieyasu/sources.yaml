@@ -2,8 +2,11 @@ sources:
 - title: Tokugawa Ieyasu historical records
   url: https://en.wikipedia.org/wiki/Tokugawa_Ieyasu
   accessed: '2026-03-25'
+  type: book
 - title: Taiheiki (chronicle of his era)
   accessed: '2026-03-25'
+  type: book
 - title: Sekigahara campaign histories
   url: https://en.wikipedia.org/wiki/Battle_of_Sekigahara
   accessed: '2026-03-25'
+  type: book

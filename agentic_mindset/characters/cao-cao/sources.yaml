@@ -2,8 +2,11 @@ sources:
 - title: Romance of the Three Kingdoms (Luo Guanzhong)
   url: https://en.wikipedia.org/wiki/Romance_of_the_Three_Kingdoms
   accessed: '2026-03-25'
+  type: book
 - title: Records of the Three Kingdoms (Chen Shou)
   accessed: '2026-03-25'
+  type: book
 - title: Three Kingdoms period scholarship
   url: https://en.wikipedia.org/wiki/Cao_Cao
   accessed: '2026-03-25'
+  type: book

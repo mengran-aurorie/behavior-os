@@ -1,8 +1,11 @@
 sources:
 - title: Princess Mononoke film (Studio Ghibli, Miyazaki)
   accessed: '2026-03-25'
+  type: film
 - title: 'Princess Mononoke: The Art of the Film'
   accessed: '2026-03-25'
+  type: film
 - title: Miyazaki's ecological themes analysis
   url: https://en.wikipedia.org/wiki/Princess_Mononoke
   accessed: '2026-03-25'
+  type: book

@@ -2,9 +2,12 @@ sources:
 - title: 'Plato: Dialogues (Apology, Phaedo, Gorgias, Meno)'
   url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0181
   accessed: '2026-03-25'
+  type: book
 - title: 'Xenophon: Memorabilia'
   url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0203
   accessed: '2026-03-25'
+  type: book
 - title: 'Aristophanes: The Clouds (as primary source for historical reception)'
   url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0183
   accessed: '2026-03-25'
+  type: book

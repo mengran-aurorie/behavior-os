@@ -1,8 +1,11 @@
 sources:
 - title: Death Note manga (Ohba & Obata)
   accessed: '2026-03-25'
+  type: manga
 - title: Death Note anime adaptation
   accessed: '2026-03-25'
+  type: screenplay
 - title: 'Philosophical analysis: Kantian ethics and Death Note'
   url: https://en.wikipedia.org/wiki/Death_Note
   accessed: '2026-03-25'
+  type: book

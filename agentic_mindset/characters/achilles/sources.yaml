@@ -2,8 +2,11 @@ sources:
 - title: The Iliad (Homer)
   url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0134
   accessed: '2026-03-25'
+  type: book
 - title: Achilles Tatius, Life of Achilles
   accessed: '2026-03-25'
+  type: book
 - title: Classical reception studies of Homeric heroism
   url: https://en.wikipedia.org/wiki/Achilles
   accessed: '2026-03-25'
+  type: book

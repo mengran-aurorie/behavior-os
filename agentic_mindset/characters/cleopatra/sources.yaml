@@ -5,6 +5,8 @@ sources:
 - title: 'Plutarch: Life of Antony'
   url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0244
   accessed: '2026-03-25'
+  type: book
 - title: 'Cassius Dio: Roman History'
   url: https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Cassius_Dio/home.html
   accessed: '2026-03-25'
+  type: book

@@ -1,8 +1,11 @@
 sources:
 - title: Tokyo Ghoul manga (Ishida)
   accessed: '2026-03-25'
+  type: manga
 - title: Tokyo Ghoul:re manga
   accessed: '2026-03-25'
+  type: manga
 - title: Tokyo Ghoul anime (Studio Pierrot)
   url: https://en.wikipedia.org/wiki/Tokyo_Ghoul
   accessed: '2026-03-25'
+  type: screenplay

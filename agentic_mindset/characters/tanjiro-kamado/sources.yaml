@@ -1,8 +1,11 @@
 sources:
 - title: Demon Slayer manga (Gotouge)
   accessed: '2026-03-25'
+  type: manga
 - title: Demon Slayer anime (ufotable)
   accessed: '2026-03-25'
+  type: screenplay
 - title: 'Demon Slayer: Kimetsu no Yaiba wiki'
   url: https://en.wikipedia.org/wiki/Demon_Slayer:_Kimetsu_no_Yaiba
   accessed: '2026-03-25'
+  type: article

@@ -1,8 +1,11 @@
 sources:
 - title: Overlord light novel (Maruyama)
   accessed: '2026-03-25'
+  type: novel
 - title: Overlord anime (Madhouse)
   accessed: '2026-03-25'
+  type: screenplay
 - title: Overlord wiki character analysis
   url: https://en.wikipedia.org/wiki/Overlord_(novel_series)
   accessed: '2026-03-25'
+  type: article

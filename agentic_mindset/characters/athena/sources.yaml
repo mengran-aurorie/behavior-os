@@ -2,9 +2,12 @@ sources:
 - title: The Iliad (Homer)
   url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0134
   accessed: '2026-03-25'
+  type: book
 - title: The Odyssey (Homer)
   url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0133
   accessed: '2026-03-25'
+  type: book
 - title: Greek mythology scholarly analysis
   url: https://en.wikipedia.org/wiki/Athena
   accessed: '2026-03-25'
+  type: book
