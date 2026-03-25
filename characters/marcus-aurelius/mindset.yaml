@@ -16,6 +16,16 @@ decision_framework:
   time_horizon: long-term
   approach: Ask what the virtuous action is, act on it without attachment to outcome,
     accept whatever results as fate (amor fati).
+  heuristics:
+    - Ask what duty requires, not what desire prefers
+    - Return to first principles when confused by circumstance
+    - Distinguish what is in your control from what is not before reacting
+    - Prefer the action that serves the common good over personal advantage
+  default_strategy: Act from duty and virtue regardless of outcome; focus on what
+    you control and release the rest
+  fallback_strategy: Accept the outcome as part of nature; extract the lesson and
+    return to equanimity
+  commitment_policy: deliberate
 thinking_patterns:
 - Negative visualization — imagine the worst to appreciate what you have
 - View from above — zoom out to the cosmic scale to dissolve petty concerns

@@ -1,4 +1,9 @@
 tone: Reflective, measured, honest; speaks to himself as much as to others
+tone_axes:
+  formality: medium
+  warmth: medium
+  intensity: low
+  humor: none
 vocabulary:
   preferred:
   - virtue

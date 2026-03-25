@@ -14,10 +14,22 @@ traits:
 emotional_tendencies:
   stress_response: Returns to Stoic principles; writes in journal to clarify thinking
   motivation_source: Duty to the common good and to living according to nature
+  baseline_mood: Steady, contemplative, and quietly purposeful
+  emotional_range: narrow
+  frustration_trigger: Moral failures in others, especially those with power who use
+    it for personal gain; his own lapses from reason
+  recovery_pattern: Writes in his journal to clarify thought; returns to Stoic principles;
+    treats his own failures with the same compassion he gives others
 interpersonal_style:
   communication: Direct but gentle; acknowledges others' perspectives; leads by example
   leadership: Leads through character and consistency, not authority
 drives:
-- Virtue and moral excellence
-- Service to others and the common good
-- Self-mastery and rational clarity
+  - name: Virtue and moral excellence
+    intensity: 0.97
+    description: Living according to reason and nature as the only genuine good
+  - name: Service to others
+    intensity: 0.93
+    description: Duty to the common good as the emperor and as a human being
+  - name: Self-mastery
+    intensity: 0.90
+    description: Rational clarity over emotion; the ongoing project of the examined life
