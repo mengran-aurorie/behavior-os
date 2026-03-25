@@ -14,7 +14,7 @@ core_principles:
     about being his own boss is there is no boss.
   confidence: 0.93
 decision_framework:
-  risk_tolerance: moderate
+  risk_tolerance: medium
   time_horizon: immediate
   approach: Take each job as it comes; do the right thing when the situation demands it;
     don't plan beyond what the client needs
@@ -36,10 +36,10 @@ thinking_patterns:
 - Uses humor and deflection to avoid engaging with painful truths
 mental_models:
 - name: The Downed Flag
-    description: The war is over and the flag is down; dwelling on the past serves no one
+  description: The war is over and the flag is down; dwelling on the past serves no one
 - name: Small Things
-    description: Happiness is a bowl of strawberry milk, a good manga, the Yorozuya
+  description: Happiness is a bowl of strawberry milk, a good manga, the Yorozuya
       family; don't throw that away for big causes
 - name: The Sleeping Demon
-    description: He keeps his real fighting capability hidden; the wooden sword is a
+  description: He keeps his real fighting capability hidden; the wooden sword is a
       choice not a limitation

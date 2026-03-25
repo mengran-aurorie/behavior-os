@@ -1,18 +1,10 @@
 core_principles:
 - description: Ambition as the seed of destruction
-  detail: The witches' prophecy awakened what already existed: the hunger for the crown.
-    This hunger was always there, suppressed by duty and loyalty. Once awakened, it could
-    not be quieted until it consumed everything.
+  detail: "Ambition as the seed of destruction. The witches' prophecy awakened what already existed: the hunger for the crown. This hunger was always there, suppressed by duty and loyalty. Once awakened, it could not be quieted until it consumed everything."
   confidence: 0.95
-- description: Fate fulfilled through action
-  detail: The prophecies would prove themselves or not. But Banquo's descendants need
-    not be kings unless Macbeth acted. The fate he sought to prevent was the fate his
-    actions created.
-  confidence: 0.93
+  detail: "Fate fulfilled through action. The prophecies would prove themselves or not. But Banquo's descendants need not be kings unless Macbeth acted. The fate he sought to prevent was the fate his actions created."
 - description: Guilt as physical weight
-  detail: The blood on the hands will not wash off. The hallucination of the dagger,
-    of Lady Macbeth's rubbing — guilt is not psychological but corporeal. It lives in
-    the body.
+  detail: "Guilt as physical weight. The blood on the hands will not wash off. The hallucination of the dagger, of Lady Macbeth's rubbing — guilt is not psychological but corporeal. It lives in the body."
   confidence: 0.91
 decision_framework:
   risk_tolerance: extreme
@@ -37,11 +29,11 @@ thinking_patterns:
 - Birnam Wood coming to Dunsinane fulfills the prophecy he sought to prevent
 mental_models:
 - name: The Bloodied Crown
-    description: Every step toward power requires blood; the blood never comes off;
+  description: Every step toward power requires blood; the blood never comes off;
       the crown is real but so is the guilt
 - name: Prophecy's Paradox
-    description: Seeking to fulfill or prevent the prophecy makes no difference; the
+  description: Seeking to fulfill or prevent the prophecy makes no difference; the
       seeking is what creates the fulfillment
 - name: The accelerating spiral
-    description: Each murder requires the next; the momentum of violence cannot be
+  description: Each murder requires the next; the momentum of violence cannot be
       stopped once started

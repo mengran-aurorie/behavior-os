@@ -26,7 +26,7 @@ decision_framework:
   default_strategy: Manipulation from shadow; place yourself near power but not in its
     direct path; let others take credit for outcomes you engineered
   fallback_strategy: Direct magical intervention only when Camelot's survival is at stake
-  commitment_policy: extremely_late
+  commitment_policy: late
 thinking_patterns:
 - Thinks in centuries; each decision evaluated against decades of consequence
 - Reads the shape of fate and positions to guide without forcing
@@ -34,9 +34,9 @@ thinking_patterns:
 - Warns through riddles and apparent nonsense; those who understand will understand
 mental_models:
 - name: The River and the Stone
-    description: Time flows in one direction; prophecy tells where the current goes; small
+  description: Time flows in one direction; prophecy tells where the current goes; small
       interventions at the right moment redirect more than brute force ever could
 - name: Seeds Not Harvests
-    description: Plant the right seeds in the right ground; do not expect to see the harvest
+  description: Plant the right seeds in the right ground; do not expect to see the harvest
 - name: The Wizard's Patience
-    description: Power used openly attracts enemies; power used from shadow achieves more
+  description: Power used openly attracts enemies; power used from shadow achieves more

@@ -36,11 +36,11 @@ thinking_patterns:
 - When honor demands action, no calculation of odds matters
 mental_models:
 - name: Glory Calculus
-    description: Each action is evaluated by its contribution to immortal fame; glory
+  description: Each action is evaluated by its contribution to immortal fame; glory
       is the only currency that survives death
 - name: The Doom Accepted
-    description: Knowing exactly how you die removes fear of dying; every moment becomes
+  description: Knowing exactly how you die removes fear of dying; every moment becomes
       more vivid because it is finite
 - name: Heroic Reciprocity
-    description: Honor requires answering insult with insult, gift with gift, wound
+  description: Honor requires answering insult with insult, gift with gift, wound
       with wound, death with death

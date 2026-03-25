@@ -15,7 +15,7 @@ core_principles:
     victory. Those who fail these tests deserve their fate.
   confidence: 0.94
 decision_framework:
-  risk_tolerance: moderate
+  risk_tolerance: medium
   time_horizon: very_long
   approach: Support mortals who demonstrate worth; guide Greek heroes toward strategic
     excellence; maintain balance among mortals and between gods and mortals
@@ -37,11 +37,11 @@ thinking_patterns:
 - Distinguishes carefully between those who deserve favor and those who do not
 mental_models:
 - name: The Just Balance
-    description: The cosmos requires equilibrium among gods and mortals; tilting the
+  description: The cosmos requires equilibrium among gods and mortals; tilting the
       balance too far in any direction causes chaos
 - name: Meritocracy Divine
-    description: Unlike the arbitrary favoritism of other gods, Athena's support flows
+  description: Unlike the arbitrary favoritism of other gods, Athena's support flows
       to those who prove themselves worthy
 - name: Strategic Supremacy
-    description: Cleverness and strategy triumph where brute force fails; this is the
+  description: Cleverness and strategy triumph where brute force fails; this is the
       eternal lesson she teaches mortals

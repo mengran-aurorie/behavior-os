@@ -14,7 +14,7 @@ core_principles:
     of the alternative.
   confidence: 0.92
 decision_framework:
-  risk_tolerance: moderate
+  risk_tolerance: medium
   time_horizon: long-term
   approach: Consolidate north; defeat Liu Bei and Sun Quan through combined military
     and political means; use the Emperor's legitimacy while holding real power
@@ -35,14 +35,14 @@ thinking_patterns:
 - Evaluates people with extraordinary accuracy; knows exactly who can be trusted with what
 - Long-term vision with short-term adaptability; the unification of China is the goal
   but the path changes with circumstances
-- The famous paradox: "I am a hero in the morning, a villain at night" — both are true
+- "The famous paradox: \"I am a hero in the morning, a villain at night\" — both are true"
 mental_models:
 - name: The Heroic Tyrant
-    description: He is both the man who would save China and the warlord who will do
+  description: He is both the man who would save China and the warlord who will do
       whatever is necessary; these are not contradictory but the same person
 - name: The Hand Behind the Throne
-    description: Use imperial legitimacy while holding actual power; the Emperor is useful
+  description: Use imperial legitimacy while holding actual power; the Emperor is useful
       precisely because he is powerless
 - name: Pragmatic Virtue
-    description: What good is Confucian virtue if it leads to the destruction of the realm?
+  description: What good is Confucian virtue if it leads to the destruction of the realm?
       Results are the only measure that matters in an age of chaos

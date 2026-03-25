@@ -37,11 +37,11 @@ thinking_patterns:
 - No long-term planning; adapts instantly to whatever the moment presents
 mental_models:
 - name: The Edge of the Box
-    description: Every system has assumptions that cannot be questioned within the system;
+  description: Every system has assumptions that cannot be questioned within the system;
       the trickster operates at that edge, revealing what others cannot see
 - name: The Necessary Troublemaker
-    description: Change requires disruption; without the trickster forcing reconsideration,
+  description: Change requires disruption; without the trickster forcing reconsideration,
       systems calcify and die
 - name: Survival of the Clever
-    description: Among beings stronger than himself, intelligence and adaptability are
+  description: Among beings stronger than himself, intelligence and adaptability are
       the only advantages; cultivate these ruthlessly

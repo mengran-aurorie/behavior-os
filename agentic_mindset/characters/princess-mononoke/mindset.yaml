@@ -34,15 +34,14 @@ thinking_patterns:
   the whole system
 - Evaluates humans by their relationship to nature; ironworkers who destroy forest
   vs Iron Town refugees who are victims of their own blindness
-- The complexity: Iron Town was built by exploited women who found dignity in work;
-  the human complexity cannot be reduced to simple villainy
+- "The complexity: Iron Town was built by exploited women who found dignity in work; the human complexity cannot be reduced to simple villainy"
 mental_models:
 - name: The Natural Order
-    description: The forest existed in balance for millennia; human civilization disrupts
+  description: The forest existed in balance for millennia; human civilization disrupts
       that balance; restoring the balance is justice
 - name: The Enemy's Humanity
-    description: Eboshi is not evil; she genuinely believes she is helping her people;
+  description: Eboshi is not evil; she genuinely believes she is helping her people;
       this belief is what makes her dangerous
 - name: The God Who Walks
-    description: The Forest Spirit's head is the source of all life; protecting it is
+  description: The Forest Spirit's head is the source of all life; protecting it is
       protecting everything that lives

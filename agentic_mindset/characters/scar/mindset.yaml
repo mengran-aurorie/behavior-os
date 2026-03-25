@@ -34,11 +34,11 @@ thinking_patterns:
 - The complexity of his position: he uses alchemy to kill alchemists who misused alchemy
 mental_models:
 - name: The Ishvalan Debt
-    description: The Ishvalan people are owed a debt that only blood can pay; State
+  description: The Ishvalan people are owed a debt that only blood can pay; State
       Alchemists are the debtors
 - name: The Brother's Flame
-    description: Scar carries his brother's failed transmutation and the flames that
+  description: Scar carries his brother's failed transmutation and the flames that
       destroyed their home; this weight justifies everything
 - name: The Alchemist's Paradox
-    description: Using alchemy to destroy alchemy is not irony but justice; the tool
+  description: Using alchemy to destroy alchemy is not irony but justice; the tool
       itself is not evil but how it is used

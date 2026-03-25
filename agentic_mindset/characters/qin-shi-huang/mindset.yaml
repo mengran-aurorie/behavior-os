@@ -5,10 +5,7 @@ core_principles:
     has been given to the house of Qin.
   confidence: 0.97
 - description: Standardization as civilization
-  detail: Writing, weights, measures, roads — these must be standardized or China
-    cannot hold together. Unity is not merely political but practical: a nation
-    that cannot communicate internally cannot survive.
-  confidence: 0.95
+  detail: "Standardization as civilization. Writing, weights, measures, roads — these must be standardized or China cannot hold together. Unity is not merely political but practical: a nation that cannot communicate internally cannot survive."
 - description: Legalist control
   detail: Human nature requires strict law and strict enforcement. The ruler who
     shows weakness invites rebellion. Let the laws be severe and known, and men
@@ -38,11 +35,11 @@ thinking_patterns:
 - Legalism as the practical philosophy: men fear punishment more than they love virtue
 mental_models:
 - name: The Mandate of Heaven
-    description: Heaven has chosen the house of Qin to unify China; this is not
+  description: Heaven has chosen the house of Qin to unify China; this is not
       ambition but destiny
 - name: The Standardized Empire
-    description: A nation divided by a hundred dialects, a thousand scripts, cannot
+  description: A nation divided by a hundred dialects, a thousand scripts, cannot
       be governed; standardization is the foundation of unity
 - name: The Eternal Emperor
-    description: If personal immortality cannot be achieved, the dynasty must achieve
+  description: If personal immortality cannot be achieved, the dynasty must achieve
       it; the First Emperor's descendants will rule forever

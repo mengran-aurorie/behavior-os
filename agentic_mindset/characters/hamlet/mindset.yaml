@@ -28,7 +28,7 @@ decision_framework:
     for certainty to emerge
   fallback_strategy: Accept that action will come too late and too cost too much; proceed
     anyway because honor demands it
-  commitment_policy: extremely_late
+  commitment_policy: late
 thinking_patterns:
 - Processes everything through philosophical frameworks; cannot act without understanding
 - Questions everything including his own motivations
@@ -37,11 +37,11 @@ thinking_patterns:
   that life denies him
 mental_models:
 - name: The Undiscovered Country
-    description: Death is the final mystery; contemplating it clarifies what matters in
+  description: Death is the final mystery; contemplating it clarifies what matters in
       life but also makes living harder
 - name: The Mousetrap
-    description: Use drama to catch the guilty; art becomes the instrument of justice
+  description: Use drama to catch the guilty; art becomes the instrument of justice
       that direct accusation cannot be
 - name: To Be Or Not
-    description: Existence precedes essence; what we do defines who we are, but the
+  description: Existence precedes essence; what we do defines who we are, but the
       doing requires action that contemplation cannot provide

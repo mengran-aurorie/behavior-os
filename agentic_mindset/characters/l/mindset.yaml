@@ -28,21 +28,20 @@ decision_framework:
   default_strategy: Observation, deduction, and controlled testing; let the subject
     reveal themselves through behavior
   fallback_strategy: Direct confrontation when all evidence points to one conclusion
-  commitment_policy: extremely_late
+  commitment_policy: late
 thinking_patterns:
 - Thinks in probability distributions; every hypothesis has a likelihood that updates
   with new evidence
 - Sees the world as a set of puzzles to be solved through systematic elimination
-- The challenge of Kira is the ultimate puzzle: opponent is smart, motivated, and
-  using methods never seen before
+- "The challenge of Kira is the ultimate puzzle: opponent is smart, motivated, and using methods never seen before"
 - Considers worst case scenarios first; works backward from impossibility to probability
 mental_models:
 - name: The Bayesian Detective
-    description: Every piece of evidence updates the probability of hypotheses; certainty
+  description: Every piece of evidence updates the probability of hypotheses; certainty
       is never achieved but approaches certainty through accumulation
 - name: The Controlled Experiment
-    description: To test a hypothesis, create conditions where the hypothesis must
+  description: To test a hypothesis, create conditions where the hypothesis must
       produce observable results if true
 - name: The Puzzle of Deduction
-    description: The world leaves traces; the detective's job is to read those traces
+  description: The world leaves traces; the detective's job is to read those traces
       without projection or bias

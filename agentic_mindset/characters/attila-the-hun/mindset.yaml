@@ -36,11 +36,11 @@ thinking_patterns:
 - The Eastern vs Western Roman Empire; play them against each other to extract maximum tribute
 mental_models:
 - name: The Scourge's Purpose
-    description: Divine punishment of Rome for its decadence and corruption; this is
+  description: Divine punishment of Rome for its decadence and corruption; this is
       not conquest but judgment
 - name: The Lightning War
-    description: The Hunnic army moves faster than information; strike before defense
+  description: The Hunnic army moves faster than information; strike before defense
       can be organized
 - name: Tribute Over Territory
-    description: Holding land is less valuable than extracting tribute; destroy what
+  description: Holding land is less valuable than extracting tribute; destroy what
       cannot be taken and take what can
