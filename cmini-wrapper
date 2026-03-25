@@ -1,0 +1,52 @@
+#!/bin/bash
+# cmini-wrapper — runtime wrapper for mindset run
+# Translates claude's --append-system-prompt-file convention to MiniMax-M2.7 via cmini interface.
+#
+# Usage: cmini-wrapper --append-system-prompt-file <file> [query]
+
+set -e
+
+export ANTHROPIC_BASE_URL="https://api.minimax.io/anthropic"
+export ANTHROPIC_AUTH_TOKEN="${MINIMAX_API_KEY}"
+
+SYSTEM_PROMPT_FILE=""
+QUERY=""
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --append-system-prompt-file)
+      SYSTEM_PROMPT_FILE="$2"
+      shift 2
+      ;;
+    --model)
+      # ignore claude's --model flag; we always use MiniMax-M2.7
+      shift 2
+      ;;
+    -*)
+      shift
+      ;;
+    *)
+      QUERY="$1"
+      shift
+      ;;
+  esac
+done
+
+if [[ -z "$SYSTEM_PROMPT_FILE" ]]; then
+  echo "Error: cmini-wrapper requires --append-system-prompt-file <file>" >&2
+  exit 1
+fi
+
+SYSTEM_PROMPT=$(cat "$SYSTEM_PROMPT_FILE")
+
+if [[ -n "$QUERY" ]]; then
+  PROMPT="${SYSTEM_PROMPT}
+
+---
+
+User query: ${QUERY}"
+else
+  PROMPT="$SYSTEM_PROMPT"
+fi
+
+echo "$PROMPT" | claude --model "MiniMax-M2.7" --print --bare --no-session-persistence
