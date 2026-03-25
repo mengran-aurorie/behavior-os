@@ -77,10 +77,11 @@ class ContextBlock:
                 elif report is not None:
                     report.removed_items.append(line)
             for d in pers.drives:
-                if d not in personality:
-                    personality.append(d)
+                s = str(d)
+                if s not in personality:
+                    personality.append(s)
                 elif report is not None:
-                    report.removed_items.append(d)
+                    report.removed_items.append(s)
 
             beh = pack.behavior
             for wp in beh.work_patterns:
