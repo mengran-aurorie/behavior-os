@@ -50,7 +50,11 @@ cmini-wrapper
 
 # Claude Code
 .claude/
+.claude/workspace/
 .worktrees/
+
+# Local harness context — do not commit
+CLAUDE.md
 
 # aurorie-teams runtime workspace — local only, do not commit
 .claude/workspace/
