@@ -1,7 +1,7 @@
 id: sun-tzu
 name: Sun Tzu
 version: 1.0.0
-schema_version: '1.0'
+schema_version: '1.1'
 type: historical
 description: Chinese military strategist (544-496 BC), author of The Art of War.
   Master of strategic patience, deception, and winning without direct conflict.
