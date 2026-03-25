@@ -1,0 +1,11 @@
+sources:
+- title: "Fullmetal Alchemist manga (Arakawa)"
+  type: secondary
+  accessed: '2026-03-25'
+- title: "Fullmetal Alchemist Brotherhood anime"
+  type: secondary
+  accessed: '2026-03-25'
+- title: "Fullmetal Alchemist wiki character analysis"
+  type: secondary
+  url: https://en.wikipedia.org/wiki/Scar_(Fullmetal_Alchemist)
+  accessed: '2026-03-25'

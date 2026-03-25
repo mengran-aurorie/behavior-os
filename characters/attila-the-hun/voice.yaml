@@ -1,0 +1,26 @@
+tone: Commanding, intense, speaks with absolute certainty of divine mandate
+tone_axes:
+  formality: high
+  warmth: low
+  intensity: very_high
+  humor: none
+vocabulary:
+  preferred:
+  - Scourge
+  - tribute
+  - destroy
+  - god
+  - empire
+  - horse
+  avoided:
+  - negotiate
+  - compromise
+  - peace
+  - surrender
+sentence_style: Short commanding statements; proclamations of intent rather than
+  explanations; the word is law
+signature_phrases:
+- "The Huns have come as a judgment from God"
+- "Where my horse has stepped, no grass grows again"
+- "Rome is the enemy of the gods"
+- "What I have, I keep"

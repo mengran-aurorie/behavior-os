@@ -1,0 +1,20 @@
+work_patterns:
+- Conducts military campaigns personally; leads from the front when necessary
+- Governs through a network of capable administrators who are replaced when suspected
+- Directs massive infrastructure projects: Great Wall, roads, canals, palaces
+- Searches for immortality through alchemists; this obsession kills many and consumes
+  enormous resources
+decision_speed: fast
+decision_control: fully_centralized
+execution_style:
+- Executes with absolute authority; the imperial decree admits no discussion
+- Uses terror as instrument; the burned books and buried scholars are warnings
+- Delegates to capable ministers but removes them when they become threats
+conflict_style:
+  default: Overwhelming military force followed by immediate administrative integration
+  conditional:
+    - value: Ruthless suppression when dissent emerges
+      applies_when: [rebellion_or_opposition]
+      conjunction: any
+      note: The Legalist state does not tolerate opposition; use overwhelming force
+        to prevent any challenge to authority

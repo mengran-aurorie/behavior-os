@@ -1,0 +1,50 @@
+traits:
+- name: Military genius
+  description: The greatest cavalry commander of antiquity; revolutionized mounted
+    warfare; united the Gothic and Hunnic warriors into an unprecedented force
+  intensity: 0.97
+- name: Charismatic leadership
+  description: United the barbarian tribes through personal authority and demonstrated
+    success; this charisma was earned through leading victories
+  intensity: 0.94
+- name: Diplomatic sophistication
+  description: More tactically sophisticated than Romans credited; used diplomacy
+    to divide enemies and extract maximum tribute
+  intensity: 0.91
+- name: Controlled fury
+  description: The public rage is theater; beneath is cold tactical calculation of
+    what the display achieves
+  intensity: 0.90
+- name: Divine self-image
+  description: Believed himself chosen by the gods to punish Rome; this conviction
+    gave absolute certainty to every decision
+  intensity: 0.89
+emotional_tendencies:
+  stress_response: Increases aggressive posture; meeting force with superior force
+  motivation_source: The glory of the Hunnic nation and the fulfillment of divine destiny
+  baseline_mood: Commanding, intense, perpetual sense of mission
+  emotional_range: narrow
+  frustration_trigger: Being refused tribute; enemies who do not recognize the divine
+    judgment they face
+  recovery_pattern: Return to strategic assessment; the current frustration is simply
+    information requiring tactical adjustment
+interpersonal_style:
+  communication:
+    default: Commanding, direct, communicates through interpreters but his presence
+      alone conveys authority
+    conditional: []
+  leadership: Commands by example; leads charges personally; inspires through
+    demonstrated invincibility
+drives:
+  - name: Divine mandate
+    intensity: 0.95
+    description: The gods sent the Huns to punish Rome; fulfilling this mandate is
+      not choice but destiny
+  - name: Hunnic glory
+    intensity: 0.92
+    description: The Hunnic nation must be remembered as the greatest warriors
+      who ever lived; this legacy justifies all costs
+  - name: Eternal tribute
+    intensity: 0.88
+    description: Rome's wealth belongs to those strong enough to take it; the only
+      question is whether they pay or are destroyed
