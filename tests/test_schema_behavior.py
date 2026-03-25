@@ -1,4 +1,5 @@
 from agentic_mindset.schema.behavior import BehaviorSchema
+from agentic_mindset.schema.personality import ConditionalSlot
 import pytest
 from pydantic import ValidationError
 
@@ -45,10 +46,6 @@ def test_anti_patterns_accepts_list():
     assert "Do not rush to conclusions" in b.anti_patterns
 
 
-from agentic_mindset.schema.behavior import BehaviorSchema
-from agentic_mindset.schema.personality import ConditionalSlot
-
-
 def test_conflict_style_plain_string_is_promoted():
     b = BehaviorSchema(
         work_patterns=["Prepare"],
@@ -78,8 +75,6 @@ def test_conflict_style_full_format_accepted():
 
 def test_decision_speed_rejects_impulsive():
     """impulsive is no longer valid for decision_speed."""
-    from agentic_mindset.schema.behavior import BehaviorSchema
-    from pydantic import ValidationError
     with pytest.raises(ValidationError):
         BehaviorSchema(
             decision_speed="impulsive",
@@ -88,13 +83,11 @@ def test_decision_speed_rejects_impulsive():
 
 
 def test_decision_control_optional():
-    from agentic_mindset.schema.behavior import BehaviorSchema
     b = BehaviorSchema(decision_speed="fast", conflict_style="direct")
     assert b.decision_control is None
 
 
 def test_decision_control_values():
-    from agentic_mindset.schema.behavior import BehaviorSchema
     for val in ("controlled", "reactive", "impulsive"):
         b = BehaviorSchema(
             decision_speed="fast",
@@ -105,8 +98,6 @@ def test_decision_control_values():
 
 
 def test_decision_control_invalid_raises():
-    from agentic_mindset.schema.behavior import BehaviorSchema
-    from pydantic import ValidationError
     with pytest.raises(ValidationError):
         BehaviorSchema(
             decision_speed="fast",
