@@ -40,3 +40,14 @@ def test_jobs_conflict_style_has_conditional():
 def test_jobs_decision_speed_is_fast():
     pack = CharacterPack.load(CHARS / "steve-jobs")
     assert pack.behavior.decision_speed == "fast"
+
+
+def test_jobs_decision_control_is_controlled():
+    pack = CharacterPack.load(CHARS / "steve-jobs")
+    assert pack.behavior.decision_control == "controlled"
+
+
+def test_jobs_decision_framework():
+    pack = CharacterPack.load(CHARS / "steve-jobs")
+    assert pack.mindset.decision_framework.risk_tolerance == "high"
+    assert pack.mindset.decision_framework.time_horizon == "long-term"
