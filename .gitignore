@@ -38,8 +38,9 @@ htmlcov/
 .env
 .env.*
 
-# LLM provider keys (never commit)
+# LLM provider keys and runtime wrappers (never commit)
 *.key
+cmini-wrapper
 
 # Character pack backups (created by mindset migrate)
 **/.backup/

@@ -21,6 +21,13 @@ class ClaudeRenderer(InjectRenderer):
     def render(self, ir: BehaviorIR) -> str:
         sections: list[str] = [ir.preamble.text, ""]
 
+        # GROUNDEDNESS POLICY — prevents persona fabrications in blends
+        sections.append("GROUNDEDNESS POLICY:")
+        sections.append("- Persona overlays shape decision behavior and interaction style.")
+        sections.append("- Do NOT invent biographical facts, quotes, or anecdotes.")
+        sections.append("- If referencing historical actions, ensure they are publicly documented.")
+        sections.append("")
+
         # DECISION POLICY
         if ir.decision_policy_items:
             sections.append("DECISION POLICY:")
