@@ -1,5 +1,10 @@
-tone: Variable — adapts completely to audience; in his own voice: measured, direct,
-  with understated menace in moments of revealed power
+tone: "Variable — adapts completely to audience; in his own voice: measured, direct,\
+  \ with understated menace in moments of revealed power"
+tone_axes:
+  formality: medium
+  warmth: medium
+  intensity: medium
+  humor: dry
 vocabulary:
   preferred:
     - cunning

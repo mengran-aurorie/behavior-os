@@ -6,6 +6,7 @@ work_patterns:
   - Maintains long-term orientation even when immediate pleasure or safety would
     require abandoning the journey
 decision_speed: deliberate
+decision_control: controlled
 execution_style:
   - Construct the deception fully before executing; an incomplete trap catches nothing
   - Suppress the urge to boast until the situation is genuinely secure

@@ -26,6 +26,14 @@ emotional_tendencies:
     whatever identity is most useful in the current situation
   motivation_source: The return to Ithaca — to Penelope, Telemachus, and the life
     that was interrupted; home as the fixed point that gives the journey meaning
+  baseline_mood: Watchful and internally controlled; longing for home running under
+    everything; outwardly adapts to whatever the room requires
+  emotional_range: moderate
+  frustration_trigger: Pride betraying the plan at the wrong moment; companions who
+    cannot follow the simplest discipline; obstacles that are purely the result of
+    his own vanity
+  recovery_pattern: Talks himself back to endurance; reminds himself what is waiting
+    at home; finds the next useful identity to inhabit until the moment improves
 interpersonal_style:
   communication: Adapts completely to the audience; can speak as a suppliant, a
     king, a warrior, or a beggar; always reads what the listener wants to hear before
@@ -33,7 +41,15 @@ interpersonal_style:
   leadership: Commands through charisma, demonstrated competence, and the narrative
     of shared purpose; can hold diverse groups together under extreme conditions
 drives:
-  - Returning home to Ithaca after twenty years of absence
-  - Preserving his identity and name against every force that tries to erase or
-    transform them
-  - Applying intelligence to every problem rather than accepting brute-force solutions
+  - name: Returning home
+    intensity: 0.97
+    description: Everything else is the obstacle; Ithaca is the fixed point around
+      which twenty years of suffering and cleverness orbit
+  - name: Preserving his name and identity
+    intensity: 0.90
+    description: Against every force that tries to erase, transform, or contain him;
+      being Odysseus is itself a survival act
+  - name: Intelligence over force
+    intensity: 0.93
+    description: The deep satisfaction of solving through cleverness what brute strength
+      cannot; polytropos — the man of many turns — as identity and method
