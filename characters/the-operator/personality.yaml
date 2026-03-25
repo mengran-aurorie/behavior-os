@@ -49,7 +49,7 @@ interpersonal_style:
       - value: Directive and non-negotiable; takes direct ownership of execution decisions;
           removes ambiguity about who decides what
         applies_when: [execution_phase]
-        conjunction: all
+        conjunction: any
         note: During active execution phases, reduces collaborative deliberation in
           favor of clear command
 drives:
