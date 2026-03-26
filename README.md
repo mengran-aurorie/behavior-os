@@ -428,6 +428,67 @@ mindset validate ./my-character
 
 ---
 
+## Roadmap
+
+### Phase 1 ✅ — Runtime (v0.1–v0.2)
+**Behavior runtime with FusionEngine and ConflictResolver.**
+
+- CLI with `mindset run`, `mindset generate`, `mindset validate`
+- FusionEngine: weighted merge of multiple personas
+- ConflictResolver: slot-by-slot winner selection with ConditionalSlots
+- BehaviorIR: typed intermediate representation with full explain
+- Benchmark suite: 4 task classes, 10 assertions, all green
+- 51 character packs in standard library
+
+### Phase 2 ✅ — Compiler (v0.3)
+**Source → Pack Compiler. Compile unstructured sources into full Character Packs.**
+
+- `mindset compile` CLI command
+- 8-module pipeline: extraction → normalization → typing → schema mapping → pack builder
+- Mock-LLM CI testing (no API keys required)
+- Quality Gates: contradictions, coverage (≥0.60), evidence (≥0.50)
+- Provenance tracing through every pipeline stage
+- Full test suite: 397 tests, all passing
+
+**See [`docs/compiler-v0-spec.md`](./docs/compiler-v0-spec.md) for the full specification.**
+
+### Phase 3 — Compiler Validation & Benchmarking (v0.4)
+**Establish compiler as a measurable, benchmarked system.**
+
+| Milestone | Status | Description |
+|---|---|---|
+| Benchmark Corpus v0 | ✅ | Steve Jobs, Sun Tzu, Marcus Aurelius — 3 personas with source texts, draft packs, reviewed packs, READMEs |
+| Compiler Benchmark Schema | ✅ | [`docs/compiler-benchmark-schema.md`](./docs/compiler-benchmark-schema.md) — v0.1 schema with v1 targets |
+| Correction Taxonomy | ✅ | [`docs/compiler-correction-taxonomy.md`](./docs/compiler-correction-taxonomy.md) — 5 patterns, P0/P1/P2 priorities |
+| Validation Report | ✅ | [`docs/compiler-validation.md`](./docs/compiler-validation.md) |
+| Compiled vs Manual | ✅ | [`docs/validation/steve-jobs-compiled-vs-manual.md`](./docs/validation/steve-jobs-compiled-vs-manual.md) |
+| v1 Entry Conditions | 🔲 | coverage≥0.65, evidence≥0.30, max_corrections≤4 |
+
+**Compiler v1 Targets:**
+- Coverage ≥ 0.65 (from ~0.25 baseline)
+- Evidence ≥ 0.30 (from ~0.00 baseline)
+- Max corrections ≤ 4 per 3-source compile (from 6)
+- ≥ 1/3 corpus personas capture ConditionalSlots in draft
+
+**v1 Roadmap (ordered by priority):**
+1. **Pre-processing** — strip metadata headers before extraction → eliminates parsing artifacts
+2. **Slot coverage prompt** — explicit instruction to distribute across all schema slots → eliminates schema distribution errors
+3. **Named concept extraction** — second pass specifically for frameworks/models → closes missing slot inference gap
+4. **Conditional trigger extraction** — separate pipeline stage for conditionals → weak conditional capture
+5. **Quote preservation** — cross-source validation + verbatim quote extraction → provenance under-linking
+
+### Phase 4 — Stable Behaviors & Pack Registry
+- Stable Behavior IDs — cross-persona canonical behavior matching
+- Pack Registry — curated, reviewed packs with stable IDs
+- Pack Diff — version-over-version behavior change detection
+
+### Phase 5 — Ecosystem
+- OpenAI / Ollama adapters
+- SDK for programmatic pack authoring
+- Community pack submission pipeline
+
+---
+
 ## License
 
 MIT
