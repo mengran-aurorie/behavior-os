@@ -476,7 +476,11 @@ mindset validate ./my-character
 | Behavioral consistency | untested | ≥ 0.90 |
 | Behavioral distinctiveness | untested | ≥ baseline threshold |
 
-> **Why distinctiveness matters:** A compiler that "improves" by smoothing out sharp edges produces average behavior. Jobs packs that sound reasonable are worse than Jobs packs that sound like Jobs. Distinctiveness = how far the output stands from a generic GPT response.
+**Distinctiveness** is measured on two axes:
+- **Inter-persona divergence** — Jobs vs Marcus vs Sun Tzu must differ meaningfully on behavioral axes
+- **Baseline divergence** — compiled packs must differ from GPT baseline, not collapse to generic
+
+> A compiler that "improves" by smoothing sharp edges produces average behavior. Jobs packs that sound reasonable are worse than Jobs packs that sound like Jobs.
 
 **v1 Roadmap (P0 → P2):**
 
@@ -491,7 +495,8 @@ The compiler works. Now it needs a path into users' hands.
 
 | Milestone | Description |
 |---|---|
-| **Signature Demo** | `mindset run` same input across opposing personas → "Same input. Three decision systems." — the viral demo that makes people forward this to colleagues |
+| **Signature Demo** | "Same input. Different decisions. Because the system is different." — `mindset run` across opposing personas; the demo that makes people forward this to colleagues |
+| **Decision Impact Demo** | "The decision you make depends on the system you use." — Hiring Decision Simulator: same candidate profile, three personas → three hiring outcomes. Triggers founders, PMs, investors. |
 | **5-minute quickstart** | `git clone` → `pip install` → `mindset compile` → `mindset run` in 5 minutes |
 | **Template pack** | `examples/template/` — starter sources.yaml + README for new authors |
 | **Use cases** | Decision simulation · Strategy exploration · Persona alignment · Agent consistency control |
@@ -503,6 +508,11 @@ The compiler works. Now it needs a path into users' hands.
 
 BehaviorOS aims to become the behavior layer for AI — the way AWS is compute, Stripe is payments, and Twilio is communications.
 
+Initial integration targets:
+- **Agent frameworks** — embed behavior runtime into AI agent pipelines
+- **Decision copilots** — simulation layer for high-stakes decisions
+- **Simulation tools** — multi-persona scenario exploration
+
 - `mindset compare` — system-level comparison across any personas
 - Pack Registry — curated, reviewed packs with stable IDs
 - Pack Diff — version-over-version behavior change detection
@@ -512,7 +522,7 @@ BehaviorOS aims to become the behavior layer for AI — the way AWS is compute, 
 
 ### What's Next
 
-> We solved the system. Now we need to solve distribution.
+> Behavior is no longer the bottleneck. Distribution is.
 
 v1 is the last major engineering milestone. Everything after is adoption.
 
