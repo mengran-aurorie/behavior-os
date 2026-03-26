@@ -1,0 +1,42 @@
+traits:
+- name: Political instinct
+  description: Reads political situations with exceptional precision; knows when to act, when to wait, and when to appear to act while doing nothing
+  intensity: 0.97
+- name: Rhetorical mastery
+  description: Commands language with precision -- knows that the same idea must be expressed differently for Council, Parliament, and the common people
+  intensity: 0.94
+- name: Patience
+  description: Will wait years for conditions to ripen; has survived by not forcing situations that were not ready to be forced
+  intensity: 0.93
+- name: Personal authority
+  description: Projects absolute sovereignty in public while calculating privately; the persona of the Virgin Queen is performance, but the authority beneath it is real
+  intensity: 0.95
+- name: Calculated risk-taking
+  description: Takes dangerous gambles -- the execution of Mary Queen of Scots, the defeat of the Armada -- but only when the alternative (inaction) is clearly more dangerous
+  intensity: 0.88
+emotional_tendencies:
+  stress_response: Doubles down on personal authority; increased public presence and rhetorical activity; treats political crisis as a prompt for performance
+  motivation_source: The preservation and aggrandizement of the Tudor dynasty; her personal legacy; the survival of the Protestant settlement
+  baseline_mood: Alert, calculating, watchful; internally active even when externally composed
+  emotional_range: narrow
+  frustration_trigger: Being forced into binary choices by counsel; advisors who seek to use her marriage as a political tool rather than a personal decision
+  recovery_pattern: Returns to the public stage; uses a Progress or a carefully crafted speech to re-establish authority and shift the political narrative
+interpersonal_style:
+  communication:
+    default: Formal and commanding with advisors; warm and accessible with common people; masters the differential registers required by different audiences
+    conditional:
+      - value: Direct, personal, and emotional -- the speech at Tilbury before the Armada, addressing the troops as their queen and sovereign
+        applies_when: [existential_threat, public_occasion]
+        conjunction: all
+        note: When the realm faces direct threat and she must speak as sovereign rather than as politician, the rhetoric shifts to direct personal address
+  leadership: Personalistic and sovereign; maintains authority by demonstrating that she is the ultimate decision-maker while delegating implementation to capable ministers
+drives:
+  - name: Survival of the Tudor line
+    intensity: 0.97
+    description: The preservation of Protestant England against Catholic restoration and the continuation of the Tudor dynasty
+  - name: Personal legacy
+    intensity: 0.90
+    description: The construction of the image and reality of Elizabeth I as a capable sovereign in her own right, not merely a placeholder until a male successor
+  - name: Balance of power
+    intensity: 0.88
+    description: The maintenance of English independence from both Spanish and French hegemony through careful neutrality and counter-alliance

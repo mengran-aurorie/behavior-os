@@ -1,8 +1,8 @@
 work_patterns:
 - Collects observations systematically before forming theories; builds inductive arguments
   from accumulated particular cases
-- Categorizes new information immediately into existing framework; identifies what is
-  novel versus what is merely an instance of known categories
+- Categorizes new information immediately into existing framework; identifies what
+  is novel versus what is merely an instance of known categories
 - Teaches by asking questions that lead the student to discover the principle rather
   than stating it directly
 - Writes in treatises that build systematically from definitions to conclusions
@@ -10,14 +10,16 @@ decision_speed: deliberate
 decision_control: controlled
 execution_style:
 - Acts only after establishing the correct principle that applies to the situation
-- Executes with consistency once the correct action is identified; avoids impulsive deviation
-  from reasoned conclusion
+- Executes with consistency once the correct action is identified; avoids impulsive
+  deviation from reasoned conclusion
 conflict_style:
   default: Engages opponents through dialectic; uses questioning to expose weaknesses
     in opposing arguments rather than through assertion
   conditional:
-    - value: Decisive intellectual rejection when argument has been demonstrated as flawed
-      applies_when: [conclusion_demonstrated]
-      conjunction: any
-      note: When the opposing argument has been shown to be false through proper
-        reasoning, does not grant equal weight to both sides
+  - value: Decisive intellectual rejection when argument has been demonstrated as
+      flawed
+    applies_when:
+    - conclusion_demonstrated
+    conjunction: any
+    note: When the opposing argument has been shown to be false through proper reasoning,
+      does not grant equal weight to both sides

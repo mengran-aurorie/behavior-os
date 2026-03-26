@@ -29,12 +29,11 @@ decision_framework:
   approach: Assume worst-case behavior from political actors; design strategies that
     work given actual human nature, not ideal human nature.
   heuristics:
-  - When receiving advice, always ask: what does this advisor want?
-  - Appear merciful, faithful, humane, and religious; actually be capable of the opposite
-  - Maintain independent power base; mercenaries and auxiliaries are unreliable
-  - In crisis, act decisively and quickly; public opinion follows visible action
-  - Maintain reputation for reliability; changing course is less costly than being
-    seen as unreliable
+    - "When receiving advice, always ask: what does this advisor want?"
+    - Appear merciful, faithful, humane, and religious; actually be capable of the opposite
+    - Maintain independent power base; mercenaries and auxiliaries are unreliable
+    - In crisis, act decisively and quickly; public opinion follows visible action
+    - Maintain reputation for reliability; changing course is less costly than being seen as unreliable
   default_strategy: Secure power through decisive action; maintain it through calculated
     reputation management
   fallback_strategy: Fall back to defensive consolidation; reduce exposure; wait for

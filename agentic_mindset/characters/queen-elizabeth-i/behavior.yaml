@@ -1,0 +1,20 @@
+work_patterns:
+- Rules through a combination of the Privy Council, Parliament, and personal presence; uses all three instruments differently depending on the issue
+- Conducts the Royal Progresses each summer -- travels the country to be seen, to assess local conditions, and to build personal loyalty
+- Masters the rhetoric of the Tudor monarch -- speeches, proclamations, and symbolic acts are tools of governance
+- Cultivates a network of spies and informers across Europe; maintains intelligence on threats from Spain, France, and Scotland
+- Works through able ministers (Cecil, Walsingham) while keeping final decision-making authority personal
+decision_speed: deliberate
+decision_control: controlled
+execution_style:
+- Acts publicly and symbolically when internal coherence of the realm is at stake
+- Acts through intermediaries and deniability when international pressure is involved
+- Weights carefully the public cost of any decision; unpopular decisions require public justification in terms the common people understand
+- Uses language with precision -- speeches and proclamations are written with as much care as any policy
+conflict_style:
+  default: Balance and counterweight; let opposing forces neutralize each other while maintaining the appearance of impartiality
+  conditional:
+    - value: Direct public assertion of royal will; appear personally before the people to rally support
+      applies_when: [existential_threat, council_divided]
+      conjunction: any
+      note: When the realm faces existential threat and the council is split, bypass the council and appeal directly to the people -- the sovereign's performance before the nation is itself a source of power

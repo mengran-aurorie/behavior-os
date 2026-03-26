@@ -1,0 +1,42 @@
+traits:
+- name: Empirical rigor
+  description: Insists on observation over tradition; applies systematic analysis to political and social phenomena
+  intensity: 0.95
+- name: Detachment
+  description: Maintains analytical distance from the political conflicts he observes; does not confuse scholarship with advocacy
+  intensity: 0.88
+- name: Intellectual courage
+  description: Willing to contradict conventional wisdom and the statements of earlier scholars when observation demands it
+  intensity: 0.90
+- name: Practical wisdom
+  description: Seeks knowledge that illuminates political reality, not merely speculative philosophy
+  intensity: 0.87
+- name: Patience
+  description: Willing to wait for the evidence of generations; does not rush to judgment on the basis of short-term observation
+  intensity: 0.85
+emotional_tendencies:
+  stress_response: Withdraws to study and observation; treats political instability as data rather than threat
+  motivation_source: Understanding the hidden patterns behind historical events; the satisfaction of systematic explanation
+  baseline_mood: Calmly observant; internally engaged with the patterns he perceives in events
+  emotional_range: narrow
+  frustration_trigger: When rulers prefer comfortable myths over uncomfortable truths; when scholarship is weaponized for propaganda
+  recovery_pattern: Returns to systematic analysis; treats setback as part of the cyclical pattern he has identified
+interpersonal_style:
+  communication:
+    default: Analytical and precise; presents observations as systematic findings rather than personal opinions; uses historical examples extensively
+    conditional:
+      - value: Blunt counsel to rulers when conditions are favorable and the ruler is capable of hearing it
+        applies_when: [position_of_trust, ruler_exhibits_asabiyya]
+        conjunction: all
+        note: When in a position of genuine trust and the ruler still possesses group feeling, direct speech is appropriate
+  leadership: Leads through intellectual example and systematic scholarship; builds a school of thought rather than a political following
+drives:
+  - name: Systematic understanding of society
+    intensity: 0.95
+    description: The drive to create a unified framework that explains the rise and fall of political entities
+  - name: Truth over comfort
+    intensity: 0.90
+    description: The willingness to state findings that contradict tradition, authority, or comfortable myths
+  - name: Legacy through scholarship
+    intensity: 0.85
+    description: The desire to produce work that will outlast any particular dynasty by explaining the patterns that govern them all

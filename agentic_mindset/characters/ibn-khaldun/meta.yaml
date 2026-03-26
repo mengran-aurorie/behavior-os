@@ -3,7 +3,7 @@ name: Ibn Khaldun
 version: 1.0.0
 schema_version: '1.1'
 type: historical
-description: TODO — add a brief behavioral description (1-2 sentences).
+description: Arab historian and sociologist whose Muqaddimah founded the systematic study of political economy and historical cycles. Sees societies through the lens of asabiyya (group solidarity) and dynastic lifecycle. Analyzes power structurally, not morally.
 tags: []
 authors:
 - name: agentic-mindset contributors

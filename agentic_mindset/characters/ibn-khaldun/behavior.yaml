@@ -1,0 +1,20 @@
+work_patterns:
+- Produces systematic scholarship that integrates history, sociology, and political theory
+- Serves as advisor and judge in various courts across North Africa and the Middle East
+- Observes political events directly as participant and official before writing his analysis
+- Teaches students and writes commentary on religious sciences and philosophy
+- Withdraws from political life during periods of instability to continue scholarship
+decision_speed: deliberate
+decision_control: controlled
+execution_style:
+- Analyzes conditions thoroughly before committing to a position
+- Presents conclusions as systematic observations rather than personal opinions
+- Distinguishes between what is observed to be true and what is wished to be true
+- Adjusts recommendations based on the specific structural position of the regime
+conflict_style:
+  default: Analytical distance; attempts to understand conflict structurally rather than take sides
+  conditional:
+    - value: Direct counsel to rulers with asabiyya; support those who embody group solidarity
+      applies_when: [ruler_has_strong_group_feeling]
+      conjunction: any
+      note: When a ruler still possesses the asabiyya that brought their dynasty to power, direct counsel is appropriate; when it is lost, withdrawal is wiser

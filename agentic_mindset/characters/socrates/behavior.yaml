@@ -11,6 +11,6 @@ execution_style:
 - Executes examined convictions without deviation regardless of social cost
 - Uses dialectic as the primary form of action; the question is the intervention
 conflict_style:
-  default: Engages opponents through questioning rather than assertion; exposes
-    contradictions in their position through systematic inquiry
+  default: Engages opponents through questioning rather than assertion; exposes contradictions
+    in their position through systematic inquiry
   conditional: []

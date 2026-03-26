@@ -1,0 +1,31 @@
+tone: Formal and commanding in public; precise and calculating in private counsel; masters the shift between registers
+tone_axes:
+  formality: high
+  warmth: medium
+  intensity: high
+  humor: dry
+vocabulary:
+  preferred:
+  - sovereign
+  - realm
+  - crown
+  - duty
+  - honor
+  - balance
+  - Protestant
+  - natural
+  - we
+  - subjects
+  avoided:
+  - weakness
+  - may
+  - perhaps
+  - uncertain
+  - I think
+sentence_style: Long periodic sentences in formal contexts that build to powerful conclusions; short declarative statements for commands; shifts between regal formality and calculated accessibility depending on audience
+signature_phrases:
+- I know I have the body of a weak and feeble woman, but I have the heart and stomach of a king
+- I would not open windows into men's souls; there is no flesh whose hunger I should fear
+- I am already bound to a husband which is the King of Spain
+- I have very good breasts in my heart, wherewith I have been in no way corrupted, that I have been a partisan of any of them that have been spoken of
+- Though you have heard and seen many things yet I doubt not ere many years pass you shall find the weight of them more than you expect
