@@ -1,0 +1,23 @@
+id: steve-jobs
+name: Steve Jobs
+version: 1.0.0
+schema_version: '1.1'
+type: historical
+description: >-
+  Steve Jobs (1955–2011) — Co-founder of Apple, NeXT, and Pixar.
+  Compiled from 3 sources: 1993 Wired Interview, Walter Isaacson Biography Ch.15,
+  and Ken Kocienda's Creative Selection. Status: reviewed.
+tags:
+  - apple
+  - technology
+  - founder
+  - deliberate
+  - quality-first
+authors:
+  - name: behavior-os compiler v0.3.0
+    url: https://github.com/behavior-os/behavior-os
+  - name: Human reviewer
+    url: ""
+created: '2026-03-26'
+compiler_version: 0.3.0
+provenance: examples/steve-jobs/_build/draft-pack/

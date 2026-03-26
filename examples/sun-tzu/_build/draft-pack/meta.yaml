@@ -1,0 +1,49 @@
+# Sun Tzu — Compiler Provenance
+# This file tracks the compiler output and human review corrections
+
+provenance:
+  compiler_version: 0.3.0
+  compilation_date: 2026-03-26
+  draft_pack: ./
+
+extraction:
+  extraction_count: 18
+  sources_processed: 3
+
+normalization:
+  canonical_count: 8
+  breakdown:
+    confirmed: 8
+    ambiguous: 0
+    contradictory: 0
+
+quality_scores:
+  coverage: 0.28
+  evidence: 0.00
+  status: warning
+
+quality_gates:
+  contradictions: pass
+  coverage: warning
+  evidence: warning
+  review_items: 8
+
+# Human review corrections applied:
+# 1. Removed cb-005 "Variants" (parsing artifact, not a real behavior)
+# 2. Re-distributed behaviors across appropriate schema slots:
+#    - core_principles: 4 (kept from compiler)
+#    - decision_framework: added (compiler didn't produce this)
+#    - thinking_patterns: added (compiler didn't produce this)
+#    - mental_models: added (compiler didn't produce this)
+# 3. Added decision_framework fields from source analysis
+# 4. Added thinking_patterns from strategic assessment principles
+# 5. Added mental_models: Empty Fort, Shi (Strategic Advantage)
+# 6. Corrected source titles (from "Source 1" → actual titles)
+
+review_items:
+  corrections_made:
+    - Removed "Variants" parsing artifact
+    - Re-assigned behavior types (all were "core_principle" → distributed)
+    - Added decision_framework fields from source analysis
+    - Added thinking_patterns from strategic assessment
+    - Added mental_models from Sun Tzu's five factors framework

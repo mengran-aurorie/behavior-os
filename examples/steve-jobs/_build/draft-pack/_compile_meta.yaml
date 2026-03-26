@@ -1,0 +1,58 @@
+provenance:
+  canonical_count: 8
+  extraction_count: 16
+  quality_status: warning
+  scores:
+    coverage: 0.23529411764705882
+    evidence: 0.0
+review_items:
+  ambiguous: []
+  contradictions: []
+  medium_confidence:
+  - canonical_form: Ruthlessly eliminates, delays, or refuses work that doesn't meet
+      quality standards or serve core purpose
+    confidence: medium
+    id: cb-001
+    slot_path: core_principles
+    value: Ruthlessly eliminates, delays, or refuses work that doesn't meet quality
+      standards or serve core purpose
+  - canonical_form: Prioritizes product excellence and company interests over sentiment,
+      relationships, or short-term considerations
+    confidence: medium
+    id: cb-002
+    slot_path: core_principles
+    value: Prioritizes product excellence and company interests over sentiment, relationships,
+      or short-term considerations
+  - canonical_form: Communicates expectations and criticism directly without personalizing
+      attacks
+    confidence: medium
+    id: cb-003
+    slot_path: core_principles
+    value: Communicates expectations and criticism directly without personalizing
+      attacks
+  - canonical_form: Changes positions when presented with superior reasoning
+    confidence: medium
+    id: cb-004
+    slot_path: core_principles
+    value: Changes positions when presented with superior reasoning
+  - canonical_form: Hires people to think independently and debate rather than follow
+      instructions
+    confidence: medium
+    id: cb-005
+    slot_path: core_principles
+    value: Hires people to think independently and debate rather than follow instructions
+  - canonical_form: Waits for the right component, partnership, or moment before acting
+    confidence: medium
+    id: cb-006
+    slot_path: core_principles
+    value: Waits for the right component, partnership, or moment before acting
+  - canonical_form: Pushes hard against obstacles that block product interests
+    confidence: medium
+    id: cb-007
+    slot_path: core_principles
+    value: Pushes hard against obstacles that block product interests
+  - canonical_form: Variants
+    confidence: medium
+    id: cb-008
+    slot_path: core_principles
+    value: Variants

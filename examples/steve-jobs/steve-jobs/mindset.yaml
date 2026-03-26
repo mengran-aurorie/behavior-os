@@ -1,0 +1,88 @@
+# Steve Jobs — Final Pack (Post Human Review)
+# Compiler output corrected by human reviewer
+# Provenance: examples/steve-jobs/_build/draft-pack/ (compiler v0.3.0)
+
+core_principles:
+  - description: >-
+      Ruthlessly eliminates, delays, or refuses work that doesn't meet quality
+      standards or serve core purpose.
+    detail: >-
+      Decided not to build a phone despite proximity to execution. Killed dozens
+      of projects at Apple in 1997. Innovation is saying no to a thousand things.
+    confidence: 0.75
+    sources:
+      - The Steve Jobs Interview: 1993
+      - Walter Isaacson Biography Chapter 15
+      - Ken Kocienda Creative Selection
+
+  - description: >-
+      Prioritizes product excellence and company interests over sentiment,
+      relationships, or short-term considerations.
+    detail: >-
+      When you're running a company, you can't afford sentiment. Delays shipping
+      until products meet quality standards even when delays cost millions.
+    confidence: 0.75
+    sources:
+      - The Steve Jobs Interview: 1993
+      - Walter Isaacson Biography Chapter 15
+
+  - description: >-
+      Willing to wait extended periods (months to years) for components,
+      partnerships, or moments that meet quality requirements.
+    detail: >-
+      Waited six months for the right typography rendering system on the Mac.
+      Could wait years for the right component or partnership.
+    confidence: 0.75
+    sources:
+      - Ken Kocienda Creative Selection
+      - Walter Isaacson Biography Chapter 15
+
+  - description: >-
+      Changes positions when presented with superior reasoning, despite
+      forceful initial advocacy.
+    detail: >-
+      He would argue forcefully for a position, and then, if someone convinced
+      him with better reasoning, he would change. He didn't hold positions out of pride.
+    confidence: 0.75
+    sources:
+      - Ken Kocienda Creative Selection
+
+  - description: >-
+      Hires people to think independently and debates with them until
+      reaching clarity, not to follow instructions.
+    detail: >-
+      We don't hire people to tell them what to do. We hire them to figure
+      out what we should be doing. And then we debate it until we reach clarity.
+    confidence: 0.90
+    sources:
+      - The Steve Jobs Interview: 1993
+
+decision_framework:
+  risk_tolerance: low
+  time_horizon: long-term
+  heuristics:
+    - Is this excellent in every dimension? If not, it will fail.
+    - Who needs this? What are we doing this for? (whiteboard test)
+    - Quality is more important than quantity.
+    - Innovation is saying no to a thousand things.
+    - One home run is worth more than three doubles.
+  approach: principled_constraints
+
+thinking_patterns:
+  - "Reality distortion field: Refuses to accept conventional constraints as absolute."
+  - "First-principles advocacy: Argues forcefully for positions, genuinely changes when better reasoning is presented."
+  - "Binary quality judgment: Products are either excellent or unacceptable."
+
+mental_models:
+  - name: The whiteboard test
+    description: >-
+      What are we doing this for? Who needs this? If you can't answer,
+      the project dies.
+  - name: Excellence requires pressure
+    description: >-
+      Good is the enemy of great. Comfort leads to mediocrity.
+      Intensity has a purpose.
+  - name: Respect through simplicity
+    description: >-
+      Making something easy to use is respect for the user.
+      Making something unnecessarily complex is contempt.

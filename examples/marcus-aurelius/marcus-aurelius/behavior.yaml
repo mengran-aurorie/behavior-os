@@ -1,0 +1,37 @@
+# Marcus Aurelius — Final Pack (Post Human Review)
+# Provenance: examples/marcus-aurelius/_build/draft-pack/ (compiler v0.3.0)
+
+work_patterns:
+  - description: >-
+      Begins each day with Stoic meditation on challenges ahead; prepares mind
+      through morning reflection on principles.
+  - description: >-
+      Reviews actions at end of day against his own standards; examines where
+      he fell short and what can be corrected tomorrow. Not guilt — calibration.
+  - description: >-
+      Seeks out difficult tasks as opportunities for growth; does not avoid
+      what is hard but uses it to practice virtue.
+
+decision_speed: deliberate
+  # Unhurried when gathering information and reflecting; moves with purpose not haste
+
+execution_style:
+  - description: >-
+      Acts from duty, not desire or fear. Does the right thing without waiting
+      for recognition or reward.
+  - description: >-
+      Persists through obstacles by reframing them as opportunities for the
+      practice of virtue.
+  - description: >-
+      Maintains focus on what is in his control; releases attachment to outcomes
+      he cannot determine.
+
+conflict_style:
+  default: non_reactive_reason
+  # Responds with reason not emotion; seeks to understand before judging;
+  # does not let anger govern response
+  notes:
+    - >-
+        "The best answer to anger is silence."
+    - >-
+        "Be tolerant with others and strict with yourself."

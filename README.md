@@ -11,7 +11,7 @@
   <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT License">
   <img src="https://img.shields.io/badge/Schema-1.1-orange.svg" alt="Schema 1.1">
   <a href="https://pypi.org/project/behavior-os/"><img src="https://img.shields.io/badge/PyPI-behavior--os-blue.svg" alt="PyPI"></a>
-  <img src="https://img.shields.io/badge/v0.2.5-green.svg" alt="v0.2.5">
+  <img src="https://img.shields.io/badge/v0.3.0-green.svg" alt="v0.3.0">
 </p>
 
 > **Naming note:** Product name is **BehaviorOS**. PyPI / package name is `behavior-os`. CLI command is `mindset`.
@@ -241,6 +241,90 @@ mindset run claude --persona sun-tzu --persona steve-jobs --weights 6,4 --explai
 ```
 
 > **Requires:** Python 3.11+ · [Claude CLI](https://docs.anthropic.com/en/docs/claude-code)
+
+---
+
+## From Sources to Behavior Packs
+
+Not just a standard library — **compile your own.**
+
+```bash
+# Step 1: Compile sources → draft pack
+mindset compile ./examples/steve-jobs/sources.yaml \
+  --name "Steve Jobs" --id steve-jobs --output ./build/jobs --explain
+
+# Step 2: Review quality gates in ./build/jobs/_compile_meta.yaml
+#         Correct the draft in ./build/jobs/draft-pack/
+
+# Step 3: Validate and run
+mindset validate ./build/jobs
+mindset run claude --persona ./build/jobs -- "How should I pitch this product?"
+```
+
+> **No sources?** Use [`examples/steve-jobs/`](./examples/steve-jobs/) as a reference — it contains a complete end-to-end example with sources, compile output, human review corrections, and the final pack.
+
+See [`examples/steve-jobs/README.md`](./examples/steve-jobs/README.md) for the full walkthrough.
+
+---
+
+## Source → Pack Compiler (Phase 2)
+
+Compile unstructured sources (book excerpts, interviews, speeches, letters) into full Character Packs with provenance tracing and human review.
+
+**From sources to pack in one command:**
+
+```bash
+mindset compile sources.yaml \
+  --name "Steve Jobs" \
+  --id steve-jobs \
+  --output ./packs \
+  --explain
+```
+
+The compiler does not replace the author — it generates a **high-quality first draft** for human review.
+
+**Pipeline:**
+```
+Sources (txt/md/yaml)
+        │
+        ▼
+[Step 1: LLM Extraction]          ExtractedBehavior[]
+[Step 2: LLM Normalization]       CanonicalBehavior[] (clustered, deduplicated)
+[Step 2b: Behavior Typing]       behavior_type buffer (core_principle / decision_policy / ...)
+[Step 3: Schema Mapping]          SlotWithProvenance[] (→ mindset / personality / behavior / voice)
+[Step 4: Pack Builder]            YAML pack files + provenance + review queue
+```
+
+**Quality Gate** — every compile produces a `compile_status`:
+
+```yaml
+compile_status:
+  status: pass | warning | fail
+  coverage: 0.78          # weighted slot fill
+  evidence: 0.71         # provenance depth
+  gates:
+    contradictions: 0 → PASS
+    coverage: 0.78 ≥ 0.60 → PASS
+    evidence: 0.71 ≥ 0.50 → PASS
+```
+
+**Review queue** — contradictions and ambiguous mappings are exported as YAML for human resolution before the pack enters the standard library.
+
+See [`docs/compiler-v0-spec.md`](./docs/compiler-v0-spec.md) for full specification.
+
+---
+
+## CLI Commands
+
+| Command | Description |
+|---------|-------------|
+| `mindset init <id>` | Scaffold a new character pack |
+| `mindset compile <sources> --name X --id Y` | **NEW** Compile sources → pack |
+| `mindset validate <pack>` | Validate pack against schema |
+| `mindset preview <pack>` | Preview Context Block |
+| `mindset list` | List available characters |
+| `mindset generate <ids...>` | Compile → injectable prompt block |
+| `mindset run <runtime> --persona <ids...>` | Compile + inject into agent runtime |
 
 ---
 

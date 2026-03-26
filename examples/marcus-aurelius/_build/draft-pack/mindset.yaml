@@ -1,0 +1,31 @@
+# Marcus Aurelius — Compiler Draft Pack (Pre Human Review)
+# Provenance: examples/marcus-aurelius/_build/draft-pack/ (compiler v0.3.0)
+
+core_principles:
+- description: Focus only on what is within your control — your thoughts, judgments, and actions. Everything else is indifferent.
+  detail: Focus only on what is within your control — your thoughts, judgments, and actions. Everything else is indifferent.
+  confidence: 0.75
+- description: The only true good is virtue; the only true evil is vice. External things are neither good nor bad.
+  detail: The only true good is virtue; the only true evil is vice. External things are neither good nor bad.
+  confidence: 0.75
+- description: The impediment to action advances action. What stands in the way becomes the way.
+  detail: The impediment to action advances action. What stands in the way becomes the way.
+  confidence: 0.75
+- description: Contemplate death regularly to clarify what matters and act with urgency on what is right.
+  detail: Contemplate death regularly to clarify what matters and act with urgency on what is right.
+  confidence: 0.75
+- description: Act from duty and virtue regardless of outcome; focus on what you control and release the rest.
+  detail: Act from duty and virtue regardless of outcome; focus on what you control and release the rest.
+  confidence: 0.75
+- description: Accept the things to which fate binds you, and love the people with whom fate brings you together.
+  detail: Accept the things to which fate binds you, and love the people with whom fate brings you together.
+  confidence: 0.75
+- description: The soul becomes dyed the color of its thoughts.
+  detail: The soul becomes dyed the color of its thoughts.
+  confidence: 0.75
+- description: Variants
+  detail: Variants
+  confidence: 0.75
+decision_framework: {}
+thinking_patterns: []
+mental_models: []

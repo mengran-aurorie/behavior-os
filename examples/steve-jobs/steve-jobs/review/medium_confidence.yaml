@@ -1,0 +1,83 @@
+medium_confidence:
+- canonical_form: Publicly articulates clear standards when individuals fail to meet
+    expectations.
+  confidence: medium
+  id: cb-012
+  slot_path: interpersonal_style.communication
+  value: Direct, public accountability through clear articulation of standards when
+    expectations are not met
+- canonical_form: Declines market opportunities that don't serve core strategic priorities,
+    even when proximate to existing capabilities.
+  confidence: medium
+  id: cb-001
+  slot_path: core_principles
+  value: Declines market opportunities that don't serve core strategic priorities,
+    even when proximate to existing capabilities.
+- canonical_form: Eliminates projects and initiatives that cannot demonstrate clear
+    purpose and user need.
+  confidence: medium
+  id: cb-002
+  slot_path: core_principles
+  value: Eliminates projects and initiatives that cannot demonstrate clear purpose
+    and user need.
+- canonical_form: Repeatedly rejects work product until it meets uncompromising quality
+    standards.
+  confidence: medium
+  id: cb-003
+  slot_path: core_principles
+  value: Repeatedly rejects work product until it meets uncompromising quality standards.
+- canonical_form: Willing to wait extended periods (months to years) for components
+    or systems that meet quality requirements.
+  confidence: medium
+  id: cb-004
+  slot_path: core_principles
+  value: Willing to wait extended periods (months to years) for components or systems
+    that meet quality requirements.
+- canonical_form: Delays product releases to achieve quality standards, accepting
+    financial costs.
+  confidence: medium
+  id: cb-005
+  slot_path: core_principles
+  value: Delays product releases to achieve quality standards, accepting financial
+    costs.
+- canonical_form: Changes positions when presented with superior reasoning or better
+    arguments.
+  confidence: medium
+  id: cb-006
+  slot_path: core_principles
+  value: Changes positions when presented with superior reasoning or better arguments.
+- canonical_form: Challenges engineering decisions that add cost or complexity without
+    proportional user benefit.
+  confidence: medium
+  id: cb-007
+  slot_path: core_principles
+  value: Challenges engineering decisions that add cost or complexity without proportional
+    user benefit.
+- canonical_form: Applies intense pressure on individuals when they block product
+    interests, persisting until obstacles are resolved.
+  confidence: medium
+  id: cb-008
+  slot_path: core_principles
+  value: Applies intense pressure on individuals when they block product interests,
+    persisting until obstacles are resolved.
+- canonical_form: Hires employees to think independently and engages in structured
+    debate until achieving team clarity.
+  confidence: medium
+  id: cb-009
+  slot_path: core_principles
+  value: Hires employees to think independently and engages in structured debate until
+    achieving team clarity.
+- canonical_form: Delivers direct critical feedback in meetings without personal attacks
+    on individuals.
+  confidence: medium
+  id: cb-010
+  slot_path: core_principles
+  value: Delivers direct critical feedback in meetings without personal attacks on
+    individuals.
+- canonical_form: Follows up personally after harsh meetings to apologize if approach
+    was too intense.
+  confidence: medium
+  id: cb-011
+  slot_path: core_principles
+  value: Follows up personally after harsh meetings to apologize if approach was too
+    intense.

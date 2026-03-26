@@ -1,0 +1,37 @@
+# Steve Jobs — Final Pack (Post Human Review)
+# Provenance: examples/steve-jobs/_build/draft-pack/ (compiler v0.3.0)
+
+work_patterns:
+  - description: >-
+      Iterative rejection: Rejects work repeatedly until it meets exacting standards.
+      "He would reject your work repeatedly, not because he lacked vision, but because
+      he could see exactly what he wanted."
+  - description: >-
+      Whiteboard interrogation: "What are we doing this for? Who needs this?" If
+      you can't answer, the project dies.
+  - description: >-
+      Personal follow-up: After brutal sessions, often calls later to apologize if
+      approach was too harsh.
+
+decision_speed: deliberate  # Deliberate and patient when waiting for right conditions, decisive when blocking obstacles to product excellence
+
+execution_style:
+  - description: >-
+      Ruthless when blocked: "When blocked by someone who he believed was acting against
+      the product's interests, he would push hard, sometimes too hard."
+  - description: >-
+      Patient for quality: Could wait six months or years for the right component,
+      partnership, or moment.
+  - description: >-
+      Zero tolerance for mediocrity: "Quality is more important than quantity. I'd
+      rather have one great product than ten mediocre ones."
+
+conflict_style:
+  default: pressure_until_resolution  # Conflict resolved through direct confrontation focused on the work, not the person
+  notes:
+    - >-
+        "He could be brutal in meetings. If your work wasn't good enough, he would
+        say so directly."
+    - >-
+        "After a brutal session, he would often call you later and say he was sorry
+        if he had been too harsh."

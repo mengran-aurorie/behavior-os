@@ -1,0 +1,44 @@
+# Sun Tzu — Source Coverage Report
+# Generated: 2026-03-26
+
+sources_processed: 3
+source_list:
+  - "The Art of War — Lionel Giles Translation (1910)"
+  - "The Art of War — Strategic Principles"
+  - "Contemporary Strategic Application of Sun Tzu"
+
+source_utilization:
+  # How many extractions came from each source
+  giles_translation: 7
+  strategic_principles: 6
+  contemporary_usage: 5
+
+quote_attribution:
+  # Sun Tzu sources are largely paraphrased in this compile
+  # The Art of War is well-known enough that paraphrase is acceptable
+  # but direct quote extraction would strengthen the pack
+  direct_quotes: 0
+  paraphrased: 18
+
+key_principles_extracted:
+  - "All warfare is based on deception"
+  - "Supreme excellence consists in breaking the enemy's resistance without fighting"
+  - "Know yourself and know your enemy"
+  - "Speed is the essence of war"
+  - "Water shapes itself to the vessel"
+  - "In the midst of chaos, there is also opportunity"
+
+source_gaps:
+  # Behaviors documented in manual pack but not extracted by compiler:
+  - "Empty Fort Strategy" — documented in sources but not extracted
+  - "Shi (Strategic Advantage)" — core concept not named
+  - "Five Factors evaluation" — not extracted
+  - "Xing (Configuration of Forces)" — not extracted
+  - "Zheng and Qi (Conventional and Unconventional)" — not extracted
+  - Anti-patterns not captured
+
+recommendation: >-
+  The compiler extracted the most prominent behavioral principles. Missing are
+  the named frameworks (Empty Fort, Shi, Five Factors) which are somewhat
+  implicit in the source material. A second-pass extraction focused on named
+  concepts would close this gap.

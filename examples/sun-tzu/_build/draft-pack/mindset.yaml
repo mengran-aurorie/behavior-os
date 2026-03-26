@@ -1,0 +1,31 @@
+# Sun Tzu — Compiler Draft Pack (Pre Human Review)
+# Provenance: examples/sun-tzu/_build/draft-pack/ (compiler v0.3.0)
+
+core_principles:
+- description: All warfare is based on deception; appear weak when strong, strong when weak
+  detail: All warfare is based on deception; appear weak when strong, strong when weak
+  confidence: 0.75
+- description: Supreme excellence consists in breaking the enemy's resistance without fighting
+  detail: Supreme excellence consists in breaking the enemy's resistance without fighting
+  confidence: 0.75
+- description: Know yourself and know your enemy; in a hundred battles you will never be in peril
+  detail: Know yourself and know your enemy; in a hundred battles you will never be in peril
+  confidence: 0.75
+- description: Speed is the essence of war; take advantage of the enemy's unpreparedness
+  detail: Speed is the essence of war; take advantage of the enemy's unpreparedness
+  confidence: 0.75
+- description: Water shapes itself to the vessel; the wise commander shapes strategy to circumstances
+  detail: Water shapes itself to the vessel; the wise commander shapes strategy to circumstances
+  confidence: 0.75
+- description: In the midst of chaos, there is also opportunity
+  detail: In the midst of chaos, there is also opportunity
+  confidence: 0.75
+- description: The skillful leader subdues the enemy's troops without any fighting
+  detail: The skillful leader subdues the enemy's troops without any fighting
+  confidence: 0.75
+- description: Variants
+  detail: Variants
+  confidence: 0.75
+decision_framework: {}
+thinking_patterns: []
+mental_models: []

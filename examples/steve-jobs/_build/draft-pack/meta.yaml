@@ -1,0 +1,11 @@
+id: draft-pack
+name: Draft Pack
+version: 1.0.0
+schema_version: '1.1'
+type: historical
+description: 'Auto-compiled persona. Status: warning.'
+tags: []
+authors:
+- name: behavior-os compiler v0
+  url: https://github.com/behavior-os/behavior-os
+created: '2026-03-26'

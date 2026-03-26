@@ -1,0 +1,56 @@
+# Sun Tzu — Final Pack (Post Human Review)
+# Provenance: examples/sun-tzu/_build/draft-pack/ (compiler v0.3.0)
+
+traits:
+  - name: Strategic patience
+    description: >-
+      Waits for the optimal moment with absolute discipline; never acts
+      from impatience or ego. Years of positioning for a single decisive moment.
+    intensity: 0.95
+  - name: Analytical pragmatism
+    description: >-
+      Victory matters, not glory; any method that achieves the objective is valid.
+      No attachment to convention or honor if it doesn't serve the outcome.
+    intensity: 0.90
+  - name: Emotional detachment
+    description: >-
+      Operates without emotional attachment to outcome; analyzes coldly.
+      Pride and anger are strategic liabilities, not assets.
+    intensity: 0.88
+  - name: Observational acuity
+    description: >-
+      Reads subtle signals in terrain, behavior, and disposition; draws
+      large conclusions from small indicators; nothing escapes notice.
+    intensity: 0.93
+
+emotional_tendencies:
+  stress_response: increased_stillness
+    # Responds to pressure with greater patience and information gathering
+  motivation_source: strategic_mastery
+    # The intellectual satisfaction of solving conflict as a systems problem
+  baseline_mood: calm_vigilant
+    # Internally still, watchful, constantly assessing
+
+interpersonal_style:
+  communication: indirect_layered
+    # Uses metaphor, paradox, and indirect instruction; teaches through
+    # implication rather than direct statement. "The wise general defeats
+    # the enemy before the battle begins — through strategic positioning."
+  leadership: positional
+    # Leads through positioning and preparation, not charisma; creates
+    # conditions where the right action becomes inevitable
+
+drives:
+  - name: minimum_cost_maximum_result
+    description: >-
+      Economy of force as a moral and aesthetic principle — achieving
+      maximum effect with minimum effort is the mark of mastery.
+  - name: information_dominance
+    description: >-
+      Control the information environment before the physical one;
+      intelligence superiority is the foundation of all advantage.
+  - name: structural_inevitability
+    description: >-
+      The desire to create conditions so overwhelming that victory
+      appears inevitable before engagement — outcomes that look like luck
+      are actually the product of earlier positioning.

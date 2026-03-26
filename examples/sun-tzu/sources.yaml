@@ -1,0 +1,28 @@
+# Sun Tzu — Source Provenance
+# Used to compile this character pack
+
+sources:
+  - title: "The Art of War — Lionel Giles Translation (1910)"
+    type: book
+    url: "https://suntzusaid.com/book/"
+    evidence_level: primary
+    accessed: '2026-03-26'
+    notes: >-
+      Public domain translation. Sun Tzu's original strategic principles
+      including deception, positioning, indirect approach, and strategic patience.
+
+  - title: "The Art of War — Strategic Principles"
+    type: book
+    evidence_level: primary
+    accessed: '2026-03-26'
+    notes: >-
+      Second translation with additional strategic context. Covers core
+      principles: know yourself, timing, patience, leadership, and assessment.
+
+  - title: "Contemporary Strategic Application of Sun Tzu"
+    type: commentary
+    evidence_level: secondary
+    accessed: '2026-03-26'
+    notes: >-
+      Modern strategic analysis of Sun Tzu's principles applied to business
+      competition, negotiation, and competitive positioning.

@@ -1,0 +1,27 @@
+# Marcus Aurelius — Source Provenance
+
+sources:
+  - title: "Meditations — Gregory Hays Translation (2002)"
+    type: book
+    evidence_level: primary
+    accessed: '2026-03-26'
+    notes: >-
+      Primary source. Marcus Aurelius's private journal, written while on campaign.
+      Direct access to his Stoic philosophy and self-examination practice.
+
+  - title: "Meditations — George Long Translation (1862)"
+    type: book
+    url: "https://www.gutenberg.org/ebooks/2680"
+    evidence_level: primary
+    accessed: '2026-03-26'
+    notes: >-
+      Public domain translation. Provides additional Stoic philosophical context
+      including dichotomy of control and virtue ethics framework.
+
+  - title: "How to Think Like a Roman Emperor (Donald Robertson, 2019)"
+    type: book
+    evidence_level: secondary
+    accessed: '2026-03-26'
+    notes: >-
+      Modern commentary applying Marcus Aurelius's philosophy to leadership.
+      Contextualizes his Stoic practice within his role as Roman emperor.

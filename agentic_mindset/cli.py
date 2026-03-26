@@ -502,3 +502,122 @@ def run(
             os.unlink(tmppath)
         except OSError:
             pass  # best-effort cleanup
+
+
+@app.command()
+def compile(
+    sources: list[Path] = typer.Argument(..., help="Source file(s) — txt, md, or YAML with sources list"),
+    output: Path = typer.Option(Path("."), "--output", help="Output directory for generated pack"),
+    persona_name: str = typer.Option(..., "--name", help="Display name for the persona (e.g. 'Steve Jobs')"),
+    persona_id: str = typer.Option(..., "--id", help="Pack ID in kebab-case (e.g. 'steve-jobs')"),
+    type_: str = typer.Option("historical", "--type", help="historical or fictional"),
+    model: str = typer.Option("claude-sonnet-4-20250514", "--model", help="LLM model to use"),
+    explain: bool = typer.Option(False, "--explain", help="Show detailed compilation summary"),
+    verbose: bool = typer.Option(False, "--verbose", help="Print step-by-step progress"),
+):
+    """Compile unstructured sources into a BehaviorOS character pack."""
+    from pathlib import Path
+    import yaml
+    from agentic_mindset.compiler.compile import compile_pack, CompilerInput, CompilerConfig
+    from agentic_mindset.compiler.schemas import SourceInput
+    from agentic_mindset.compiler import pack_builder
+
+    # Load sources from input files
+    source_inputs: list[SourceInput] = []
+    for src_path in sources:
+        if not src_path.exists():
+            console.print(f"[red]Source file not found:[/red] {src_path}")
+            raise typer.Exit(1)
+
+        text = src_path.read_text(encoding="utf-8").strip()
+        if not text:
+            console.print(f"[yellow]Skipping empty file:[/yellow] {src_path}")
+            continue
+
+        # If it's a YAML file with sources list, parse it
+        if src_path.suffix in (".yaml", ".yml"):
+            try:
+                data = yaml.safe_load(text)
+                if isinstance(data, dict) and "sources" in data:
+                    for s in data["sources"]:
+                        source_inputs.append(SourceInput(
+                            title=s.get("title", src_path.stem),
+                            text=s.get("text", ""),
+                            type=s.get("type", "book"),
+                            url=s.get("url"),
+                        ))
+                    continue
+            except yaml.YAMLError:
+                pass  # treat as plain text
+
+        # Plain text file
+        source_inputs.append(SourceInput(
+            title=src_path.stem,
+            text=text[:5000],  # cap at 5000 chars per source
+            type="book",
+        ))
+
+    if not source_inputs:
+        console.print("[red]No source content loaded.[/red]")
+        raise typer.Exit(1)
+
+    config = CompilerConfig(model=model, verbose=verbose)
+    input_data = CompilerInput(
+        sources=source_inputs,
+        persona_name=persona_name,
+        persona_id=persona_id,
+        type_=type_,
+    )
+
+    if verbose:
+        console.print(f"[dim]Compiling {len(source_inputs)} sources with model {model}...[/dim]")
+
+    try:
+        result = compile_pack(input_data, config)
+    except Exception as e:
+        console.print(f"[red]Compilation failed:[/red] {e}")
+        raise typer.Exit(1)
+
+    # Write pack files
+    pack_dir = output / persona_id
+    pack_builder.build_pack(result, pack_dir, type_=type_)
+
+    # Quality summary
+    gate = result.quality_gate
+    status_color = {
+        "pass": "green",
+        "warning": "yellow",
+        "fail": "red",
+    }.get(gate.status.value, "yellow")
+
+    if explain:
+        console.print(f"\n[dim]Compilation summary for:[/dim] {persona_name} ({persona_id})")
+        console.print(f"  Extraction:     {result.extraction_count} behaviors from {len(source_inputs)} sources")
+        console.print(f"  Normalization: {result.canonical_count} canonical behaviors")
+        breakdown = result.status_breakdown
+        confirmed = breakdown.get("confirmed", 0)
+        ambiguous = breakdown.get("ambiguous", 0)
+        contradictory = breakdown.get("contradictory", 0)
+        console.print(f"    — confirmed: {confirmed}  ambiguous: {ambiguous}  contradictory: {contradictory}")
+        console.print(f"  Mapped slots:  {result.scores.slot_count}")
+        console.print(f"  Coverage:      {result.scores.coverage:.2f}")
+        console.print(f"  Evidence:      {result.scores.evidence:.2f}")
+        console.print(f"  Quality gate:  [{status_color}]{gate.status.value}[/{status_color}]")
+        for g_name, attr in [("contradictions", "contradictions_gate"), ("coverage", "coverage"), ("evidence", "evidence_gate"), ("conditional_candidates", "conditional_candidates_gate")]:
+            g = getattr(gate, attr)
+            c = {"pass": "green", "warning": "yellow", "fail": "red"}.get(g.status.value, "yellow")
+            console.print(f"    {g_name}: [{c}]{g.status.value}[/{c}] — {g.detail}")
+
+        review_total = gate.review_required
+        if review_total > 0:
+            console.print(f"\n[yellow]Review required:[/yellow] {review_total} items")
+            if gate.contradictions_gate.status.value == "fail":
+                console.print(f"  [red]Contradictions must be resolved before this pack can be merged.[/red]")
+        else:
+            console.print(f"\n[{status_color}]Pack quality: {gate.status.value}[/{status_color}]")
+        console.print(f"\nDraft written to: {pack_dir}/")
+        console.print(f"Run `mindset validate {pack_dir}` to validate the generated pack.")
+    else:
+        console.print(f"[{status_color}]✓ Pack compiled:[/] {pack_dir}/")
+        if gate.status.value != "pass":
+            console.print(f"[yellow]  Quality: {gate.status.value} — run with --explain for details[/yellow]")

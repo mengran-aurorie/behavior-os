@@ -1,0 +1,55 @@
+# Sun Tzu — Compiler Explain Output
+# Generated: 2026-03-26
+
+extraction:
+  behaviors: 18
+  sources: 3
+
+normalization:
+  canonical_behaviors: 8
+  breakdown:
+    confirmed: 8
+
+typing:
+  types_assigned:
+    core_principle: 8
+
+mapping:
+  slots: 8
+  slot_breakdown:
+    core_principles: 7
+    # cb-008 "Variants" is a parsing artifact, not a real behavior
+
+quality_gate:
+  status: warning
+  contradictions: pass
+  coverage: warning
+  evidence: warning
+  review_items: 8
+
+scores:
+  coverage: 0.28
+  evidence: 0.00
+
+# What the compiler got right:
+# - Extracted strategic deception, "win before battle", "know yourself and enemy"
+# - Captured patience and adaptability themes correctly
+# - All 8 behaviors correctly identified as behavioral principles
+#
+# What needed human correction:
+# - cb-008 "Variants" is not a real behavior — metadata parsed as content
+# - All behaviors typed as core_principle — misses decision_framework, mental_models
+# - No decision_framework fields produced
+# - No thinking_patterns produced
+# - No mental_models produced (should include: Empty Fort, Shi, Five Factors)
+# - Evidence score is 0.00 (paraphrased, not quoted)
+#
+# Human corrections applied:
+# 1. Removed cb-008 (Variants parsing artifact)
+# 2. Re-typed several behaviors:
+#    - "Water shapes itself..." → mental_model
+#    - "Speed is the essence..." → thinking_patterns
+#    - "Know yourself and enemy" → decision_framework heuristic
+# 3. Added missing decision_framework fields
+# 4. Added thinking_patterns from strategic assessment principles
+# 5. Added mental_models: Empty Fort Strategy, Shi (Strategic Advantage)

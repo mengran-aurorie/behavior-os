@@ -1,0 +1,23 @@
+id: marcus-aurelius
+name: Marcus Aurelius
+version: 1.0.0
+schema_version: '1.1'
+type: historical
+description: >-
+  Marcus Aurelius (121–180 AD) — Roman Emperor and Stoic philosopher.
+  Compiled from 3 sources: Meditations (Hays), Meditations (Long), and
+  How to Think Like a Roman Emperor. Status: reviewed.
+tags:
+  - roman
+  - philosophy
+  - stoic
+  - deliberate
+  - virtue-ethics
+authors:
+  - name: behavior-os compiler v0.3.0
+    url: https://github.com/behavior-os/behavior-os
+  - name: Human reviewer
+    url: ""
+created: '2026-03-26'
+compiler_version: 0.3.0
+provenance: examples/marcus-aurelius/_build/draft-pack/

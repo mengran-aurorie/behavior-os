@@ -1,0 +1,23 @@
+id: sun-tzu
+name: Sun Tzu
+version: 1.0.0
+schema_version: '1.1'
+type: historical
+description: >-
+  Sun Tzu (544–496 BC) — Ancient Chinese military strategist, author of The Art of War.
+  Compiled from 3 sources: Giles translation, Strategic Principles, and Contemporary Usage.
+  Status: reviewed.
+tags:
+  - military
+  - strategy
+  - ancient
+  - indirect
+  - positioning
+authors:
+  - name: behavior-os compiler v0.3.0
+    url: https://github.com/behavior-os/behavior-os
+  - name: Human reviewer
+    url: ""
+created: '2026-03-26'
+compiler_version: 0.3.0
+provenance: examples/sun-tzu/_build/draft-pack/

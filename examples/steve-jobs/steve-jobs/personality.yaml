@@ -1,0 +1,45 @@
+# Steve Jobs — Final Pack (Post Human Review)
+# Provenance: examples/steve-jobs/_build/draft-pack/ (compiler v0.3.0)
+
+traits:
+  - name: Intensity
+    description: >-
+      Extreme pressure applied to achieve excellence. Not dominance for its own sake —
+      intensity has a purpose: excellence.
+    intensity: 0.95
+  - name: Directness
+    description: >-
+      Blunt communication about standards and work quality without softening.
+      "Some people call that being harsh. I call it being honest."
+    intensity: 0.90
+  - name: Intellectual_humility
+    description: >-
+      Despite forceful advocacy for positions, genuinely changes when presented with
+      superior reasoning. Doesn't hold positions out of pride.
+    intensity: 0.85
+  - name: Patience_for_quality
+    description: >-
+      Willing to wait months or years for the right component, partnership, or technical
+      solution. No patience for work that isn't excellent when delivered.
+    intensity: 0.90
+
+emotional_tendencies:
+  stress_response: intensified_pressure  # Responds to obstacles with increased intensity, not retreat
+  motivation_source: perfection  # Driven by product excellence, not money or power
+  baseline_mood: demanding  # Maintains high standards and pressure as default state
+
+interpersonal_style:
+  communication: direct_criticism_without_personalization  # "He could be brutal in meetings... He never attacked the person — only the work."
+  leadership: whiteboard_test  # Asks "What are we doing this for? Who needs this?" — if you can't answer, the project dies
+  negotiation: conviction_then_flexibility  # Argues forcefully from conviction, but genuinely changes when better reasoning is presented
+
+drives:
+  - name: perfection_in_products
+    description: >-
+      "He would delay shipping a product until it was right, even when delays cost millions."
+  - name: clarity_through_debate
+    description: >-
+      "We hire them to figure out what we should be doing. And then we debate it until we reach clarity."
+  - name: excellence_over_comfort
+    description: >-
+      "Good is the enemy of great." Maintains pressure as default.

@@ -1,0 +1,33 @@
+core_principles:
+- description: Ruthlessly eliminates, delays, or refuses work that doesn't meet quality
+    standards or serve core purpose
+  detail: Ruthlessly eliminates, delays, or refuses work that doesn't meet quality
+    standards or serve core purpose
+  confidence: 0.75
+- description: Prioritizes product excellence and company interests over sentiment,
+    relationships, or short-term considerations
+  detail: Prioritizes product excellence and company interests over sentiment, relationships,
+    or short-term considerations
+  confidence: 0.75
+- description: Communicates expectations and criticism directly without personalizing
+    attacks
+  detail: Communicates expectations and criticism directly without personalizing attacks
+  confidence: 0.75
+- description: Changes positions when presented with superior reasoning
+  detail: Changes positions when presented with superior reasoning
+  confidence: 0.75
+- description: Hires people to think independently and debate rather than follow instructions
+  detail: Hires people to think independently and debate rather than follow instructions
+  confidence: 0.75
+- description: Waits for the right component, partnership, or moment before acting
+  detail: Waits for the right component, partnership, or moment before acting
+  confidence: 0.75
+- description: Pushes hard against obstacles that block product interests
+  detail: Pushes hard against obstacles that block product interests
+  confidence: 0.75
+- description: Variants
+  detail: Variants
+  confidence: 0.75
+decision_framework: {}
+thinking_patterns: []
+mental_models: []

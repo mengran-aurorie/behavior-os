@@ -1,0 +1,30 @@
+# Steve Jobs — Source Provenance
+# Used to compile this character pack
+
+sources:
+  - title: "The Steve Jobs Interview: 1993"
+    type: interview
+    url: "https://www.wired.com/archives/steve-jobs-1993"
+    evidence_level: primary
+    accessed: '2026-03-26'
+    notes: >-
+      First-hand interview account. Jobs directly articulates his philosophy
+      on innovation, quality, hiring, and standards.
+
+  - title: "Steve Jobs — Walter Isaacson, Chapter 15"
+    type: biography
+    url: "https://www.simonandschuster.com/books/Steve-Jobs/Walter-Isaacson/9781451648539"
+    evidence_level: secondary
+    accessed: '2026-03-26'
+    notes: >-
+      Second-hand biographical account. Isaacson describes Jobs' philosophy
+      and behaviors with contextual framing.
+
+  - title: "Creative Selection — Ken Kocienda"
+    type: biography
+    evidence_level: primary
+    accessed: '2026-03-26'
+    notes: >-
+      First-hand colleague account from Ken Kocienda, who worked directly
+      with Jobs on the early Mac team. Describes day-to-day behaviors,
+      meeting dynamics, and Jobs' management style.

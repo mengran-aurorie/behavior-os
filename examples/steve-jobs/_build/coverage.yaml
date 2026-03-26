@@ -1,0 +1,40 @@
+# Steve Jobs — Coverage Report
+# Generated: 2026-03-26
+
+by_source:
+  - source: The Steve Jobs Interview: 1993
+    total: ~5
+    used: ~3
+    note: Interview source, high confidence extraction
+  - source: Walter Isaacson — Steve Jobs Biography, Chapter 15
+    total: ~6
+    used: ~3
+    note: Biography source, medium confidence extraction
+  - source: Creative Selection — Ken Kocienda
+    total: ~5
+    used: ~2
+    note: Colleague account, medium-high confidence extraction
+
+extraction_count: 16
+canonical_count: 8
+slot_count: 8
+total_slots: 9
+coverage: 0.24
+evidence: 0.00
+
+# Coverage analysis:
+# - 24% of available schema slots filled
+# - 0 evidence score (no behavior had >= 2 source confirmations)
+# - Evidence threshold: 0.50, Coverage threshold: 0.60
+# - Quality gate: WARNING (both thresholds below minimum)
+#
+# Why evidence is 0.00:
+# - Each canonical had evidence from only 1-2 extractions
+# - LLM extraction grouped behaviors differently than sources
+# - Cross-source confirmation would require more sophisticated clustering
+#
+# Source utilization:
+# - Source 1 (Wired): ~60% utilized
+# - Source 2 (Isaacson): ~50% utilized
+# - Source 3 (Kocienda): ~40% utilized
+# - Overall: ~50% of extracted behaviors made it into canonicals

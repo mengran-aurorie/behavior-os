@@ -1,0 +1,39 @@
+# Marcus Aurelius — Source Coverage Report
+# Generated: 2026-03-26
+
+sources_processed: 3
+source_list:
+  - "Meditations — Gregory Hays Translation (2002)"
+  - "Meditations — George Long Translation (1862)"
+  - "How to Think Like a Roman Emperor (Donald Robertson)"
+
+source_utilization:
+  meditations_hays: 7
+  meditations_long: 4
+  roman_emperor_book: 5
+
+quote_attribution:
+  direct_quotes: 0
+  paraphrased: 16
+
+key_principles_extracted:
+  - "Focus only on what is within your control"
+  - "The obstacle is the way"
+  - "Virtue is the only true good"
+  - "Contemplate death to clarify what matters"
+  - "Act from duty regardless of outcome"
+
+source_gaps:
+  # Not extracted by compiler:
+  - "Logos" — the rational principle underlying all reality (named mental model)
+  - "Amor Fati" — active love of whatever happens (named concept)
+  - "Negative visualization" — specific Stoic practice
+  - "View from above" — zooming out to cosmic perspective
+  - "Self-examination" — daily review practice
+
+recommendation: >-
+  Marcus Aurelius has many named Stoic frameworks (Logos, Amor Fati, etc.)
+  that are somewhat implicit in source text. A second-pass focused on named
+  concepts would surface these. The philosophical nature of sources makes
+  this a harder extraction than Steve Jobs (explicit behaviors) but easier
+  than pure doctrine.

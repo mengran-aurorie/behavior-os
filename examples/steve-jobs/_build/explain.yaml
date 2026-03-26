@@ -1,0 +1,54 @@
+# Steve Jobs — Compiler Explain Output
+# Generated: 2026-03-26
+
+extraction:
+  behaviors: 16
+  sources: 3
+
+normalization:
+  canonical_behaviors: 8
+  breakdown:
+    confirmed: 8
+
+typing:
+  types_assigned:
+    core_principle: 8
+
+mapping:
+  slots: 8
+  slot_breakdown:
+    core_principles: 7
+    # cb-008 "Variants" is a parsing artifact, not a real behavior
+
+quality_gate:
+  status: warning
+  contradictions: pass
+  coverage: warning
+  evidence: warning
+  review_items: 8
+
+scores:
+  coverage: 0.24
+  evidence: 0.00
+
+# What the compiler got right:
+# - Extracted 16 behavioral signals across 3 sources
+# - Normalized to 8 confirmed canonical behaviors
+# - All 8 typed as core_principle (appropriate for Jobs' character)
+# - Mapped 7 meaningful slots + 1 parsing artifact (cb-008 "Variants")
+#
+# What needed human correction:
+# - cb-008 "Variants" is not a real behavior — metadata parsed as content
+# - All behaviors typed as core_principle — misses decision_policy, communication types
+# - No behaviors mapped to decision_framework (only heuristics)
+# - No conflict or emotional_tendencies slots filled
+# - Evidence score is 0.00 (single-source extraction, no cross-validation)
+#
+# Human corrections applied:
+# 1. Removed cb-008 (Variants parsing artifact)
+# 2. Re-typed several behaviors:
+#    - "Ruthlessly eliminates..." → decision_policy
+#    - "Changes positions..." → communication
+#    - "Pushes hard..." → conflict_style
+# 3. Added missing decision_framework fields
+# 4. All medium_confidence behaviors retained for review

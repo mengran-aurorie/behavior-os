@@ -1,0 +1,81 @@
+# Sun Tzu — Final Pack (Post Human Review)
+# Compiler output corrected by human reviewer
+# Provenance: examples/sun-tzu/_build/draft-pack/ (compiler v0.3.0)
+
+core_principles:
+  - description: >-
+      Supreme excellence consists in breaking the enemy's resistance without fighting.
+      The best victory is when the enemy surrenders before the battle begins.
+    detail: >-
+      The supreme art of war is to subdue the enemy without fighting at all.
+      Victorious warriors win first and then go to war; defeated warriors
+      go to war first and then seek to win.
+    confidence: 0.75
+    sources:
+      - The Art of War — Lionel Giles Translation
+      - The Art of War — Strategic Principles
+
+  - description: >-
+      All warfare is based on deception. Appear weak when you are strong,
+      and strong when you are weak.
+    detail: >-
+      Hold out baits to entice the enemy. Feign disorder, and crush him.
+      When able to attack, we must seem unable; when using our forces,
+      we must seem inactive.
+    confidence: 0.75
+    sources:
+      - The Art of War — Lionel Giles Translation
+      - Contemporary Strategic Application of Sun Tzu
+
+  - description: >-
+      Know yourself and know your enemy; in a hundred battles you will never
+      be in peril.
+    detail: >-
+      The reason the enlightened ruler and the wise general conquer the enemy
+      where they engage — it is because they have knowledge of the enemy's dispositions.
+    confidence: 0.75
+    sources:
+      - The Art of War — Lionel Giles Translation
+      - The Art of War — Strategic Principles
+
+  - description: >-
+      Speed is the essence of war. Take advantage of the enemy's unpreparedness;
+      travel by unexpected routes and strike where no precautions have been taken.
+    detail: >-
+      He who occupies the ground first and awaits the enemy will be at ease;
+      he who awaits the enemy at the ground he has chosen will be tired.
+    confidence: 0.75
+    sources:
+      - The Art of War — Lionel Giles Translation
+
+decision_framework:
+  risk_tolerance: medium
+  time_horizon: long-term
+  heuristics:
+    - Gather intelligence before any commitment; never act on incomplete information
+    - Choose ground carefully; position first, then invite battle
+    - Prefer indirect action; spend effort on setup, not on brute execution
+    - Always hold a secondary route; never commit everything to one line of attack
+    - When the enemy adapts, change form; do not repeat a tactic that has been seen
+  approach: principled_constraints
+
+thinking_patterns:
+  - "Reverse-engineer from desired end state: work backward from victory to present action"
+  - "Identify the enemy's weaknesses before committing; exploit asymmetry"
+  - "Use the enemy's momentum and strength against them — redirect, don't oppose"
+  - "Seek positions where small forces achieve disproportionate effects"
+  - "In the midst of chaos, there is also opportunity — disorder creates openings"
+
+mental_models:
+  - name: Empty Fort Strategy
+    description: >-
+      Use apparent vulnerability to create uncertainty and hesitation in opponents.
+      What appears weak may be strong; what appears empty may be a trap.
+  - name: Shi (Strategic Advantage)
+    description: >-
+      Position yourself so that circumstances naturally carry you to victory.
+      The wise commander shapes the situation; the unwise commander is shaped by it.
+  - name: The Five Factors
+    description: >-
+      Evaluate any situation across: moral law, heaven, earth, commander, and method.
+      Victory requires superiority across all five factors, not just military strength.
