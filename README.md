@@ -34,6 +34,17 @@
 
 BehaviorOS compiles character mindsets into **behavioral directives** — not character descriptions. The system resolves conflicts, applies conditional rules, and produces outputs you can actually verify.
 
+**BehaviorOS is NOT:**
+- a prompt library
+- a persona simulator
+- a style transfer tool
+- an agent framework
+
+**BehaviorOS IS:**
+- a behavior compiler — turns text into executable decision systems
+- a decision system runtime — resolves conflicts, applies rules, produces consistent decisions
+- a policy layer — enforces behavioral constraints without modifying the model
+
 | # | Stage | What it does |
 |---|---|---|
 | 1 | CharacterPack(s) | Source character mindsets (mindset, personality, behavior, voice) |
@@ -497,13 +508,14 @@ The compiler works. Now it needs a path into users' hands.
 | Milestone | Description |
 |---|---|
 | **Signature Demo** | "Same input. Different decisions. Because the system is different." — `mindset run` across opposing personas; the demo that makes people forward this to colleagues |
-| **Decision Impact Demo** | "You don't make decisions. The system you run does." — Same candidate profile, three personas, three hiring decisions. Triggers founders, PMs, investors. |
+| **Decision Impact Demo** | "You think you're making decisions. You're running a system." — Same candidate profile, three personas, three hiring decisions. Triggers founders, PMs, investors. |
+| **Decision Review** | "Why did that decision fail?" — Run your past decision through Jobs / Marcus / Tzu. Get deviation analysis + alternative paths. First use case that creates repeat usage, not just one-time demos. |
 | **5-minute quickstart** | `git clone` → `pip install` → `mindset compile` → `mindset run` in 5 minutes |
 | **Template pack** | `examples/template/` — starter sources.yaml + README for new authors |
 | **Use cases** | Decision simulation · Strategy exploration · Persona alignment · Agent consistency control |
 | **Behavior comparison** | `mindset compare <persona1> <persona2>` — cross-persona behavioral axis comparison |
 | **Pack sharing** | `docs/packs/` — community-submitted packs with review workflow |
-| **Shareable output** | `mindset run --share` — generates a decision summary that can be pasted into Twitter, Slack, or a blog. Becomes a self-propagating distribution channel. |
+| **Shareable output** | `mindset run --share` — generates a decision summary with `#BehaviorOS` attribution, pasteable into Twitter, Slack, or a blog. Every shared output is a distribution event. |
 
 ### Phase 5 — Behavior Layer
 **BehaviorOS as the behavior layer for AI systems.**
@@ -514,11 +526,12 @@ Initial integration targets:
 - **Agent frameworks** — embed behavior runtime into AI agent pipelines
 - **Decision copilots** — simulation layer for high-stakes decisions
 - **Simulation tools** — multi-persona scenario exploration
-- **Policy Injection Layer** — BehaviorOS can act as a policy layer injected into any LLM agent, controlling decision logic without modifying the model
+- **Policy Injection Layer** — BehaviorOS wraps any LLM call, enforces a decision policy before generation. Think middleware, interceptor, or guardrail — but for decision logic, not content safety.
 
 - `mindset compare` — system-level comparison across any personas
 - Pack Registry — curated, reviewed packs with stable IDs
 - Pack Diff — version-over-version behavior change detection
+- **Behavior Spec** — a Behavior Spec for defining executable decision systems (core_principles, decision_policy, communication). Even v1 is a reference point; the goal is future compatibility with any behavior definition format.
 - Embeddable in agent frameworks; policy-as-code for behavior
 - OpenAI / Ollama adapters
 - Community pack submission pipeline
