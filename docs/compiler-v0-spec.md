@@ -30,6 +30,9 @@ Extracted Behaviors (raw candidates)
 Canonical Behaviors (confirmed / ambiguous / contradictory)
         │
         ▼
+[Step 2b: Behavior Typing]          ← Buffer layer: behavior_type before schema
+        │
+        ▼
 [Step 3: Schema Mapping]
         │
         ▼
@@ -175,6 +178,60 @@ For each cluster of behaviors:
 
 ---
 
+## Step 2b: Behavior Typing Layer
+
+### Why a Buffer Layer
+
+Schema slots are **rigid**; canonical behaviors are **fluid**. Directly mapping unstable canonical forms to rigid slots risks cascading errors.
+
+Behavior Typing introduces a **semantic buffer layer** between canonical form and schema slot:
+
+```
+Canonical Behavior
+        │
+        ▼
+behavior_type (semantic category)
+        │
+        ▼
+Schema Mapping (now has stable input)
+```
+
+### Behavior Types
+
+| behavior_type | Description | Examples |
+|---|---|---|
+| `core_principle` | Foundational belief that drives all behavior | "clarity is supreme", "force is inevitable" |
+| `decision_policy` | How the person approaches decisions | "70% information commit", "wait for certainty" |
+| `communication` | How the person communicates | "direct to the point of bluntness", "uses metaphor" |
+| `conflict` | How the person handles conflict | "destroys rivals completely", "avoids confrontation" |
+| `emotional` | Emotional patterns and triggers | "baseline calm", "erupts when blocked" |
+| `drive` | What the person is motivated by | "legacy over profit", "winning as identity" |
+| `execution` | How the person gets things done | "personally leads", "delegates everything" |
+
+### Schema
+
+```yaml
+canonical_behaviors:
+  - id: cb-001
+    canonical_form: "clarity-first; rejects ambiguity"
+    behavior_type: communication  # typed before schema mapping
+    slot_target: interpersonal_style.communication
+    variants: [...]
+    status: confirmed
+```
+
+### Typing Prompt Guidance
+
+```
+For each canonical behavior:
+1. Classify into one of: core_principle, decision_policy, communication, conflict, emotional, drive, execution
+2. The behavior_type is stable — it does NOT change based on schema fit
+3. If a behavior could fit multiple types, pick the most central one
+4. Mark confidence: high (clear type) | medium (ambiguous)
+```
+
+---
+
 ## Step 3: Schema Mapping
 
 ### Goal
@@ -248,6 +305,27 @@ Detect context-triggered behaviors and generate ConditionalSlot structures.
 - **Flag remaining potential conditionals for human review**
 - Deferred: full condition inference from context patterns
 
+### Implicit Condition Signals (v0.5 Enhancement)
+
+Some behaviors have **extreme tendency markers** that suggest conditionality without explicit conditions:
+
+| Marker | Example | Flag |
+|---|---|---|
+| `always` / `never` | "He **always** pushes for clarity" | `conditional_candidate: true` |
+| `refuses to` / `insists on` | "He **refuses to** compromise on design" | `conditional_candidate: true` |
+| `without exception` | "He acts **without exception**" | `conditional_candidate: true` |
+
+**Rule:** When a behavior contains these markers but has **no explicit condition**, flag as `conditional_candidate: true` for human review. Do NOT auto-generate the condition — flag for human inference.
+
+```yaml
+# In canonical behavior schema:
+canonical_form: "clarity-first; refuses to accept ambiguity"
+conditional_candidate: true   # flagged: "refuses to" implies context-dependent boundary
+conditional_note: "What makes him relax this standard? Personal relationships? High stakes?"
+```
+
+This ensures the signal is not lost even when the condition is implicit.
+
 ---
 
 ## Step 5: Provenance Model
@@ -295,6 +373,24 @@ decision_framework:
 1. **Trust** — user sees why each behavior is in the pack
 2. **Contestability** — user can challenge a mapping by pointing to a specific quote
 3. **Coverage analysis** — which source sections were not used?
+
+### Source Coverage Reporting
+
+Every compile run outputs which portions of each source were used:
+
+```yaml
+source_coverage:
+  total_quotes_extracted: 45
+  quotes_used_in_slots: 31
+  quotes_unused: 14
+  unused_sections:
+    - source_ref: steve-jobs-walter-isaacson
+      sections: ["early life", "personal relationships", "family"]
+    - source_ref: steve-jobs-interview-1993
+      sections: ["career before Apple"]
+```
+
+This upgrades provenance from a **trace system** (slot → quote) to a **coverage system** (can answer: what did we miss?).
 
 ---
 
@@ -408,6 +504,107 @@ mindset review my-pack/
 
 ---
 
+## Enhancement A: Stable Behavior IDs (→ v1)
+
+Canonical behavior IDs are currently local (`cb-001`). Upgrade to content-addressable IDs:
+
+```python
+behavior_id = hashlib.sha256(canonical_form.lower().strip().encode()).hexdigest()[:8]
+# "clarity-first; rejects ambiguity" → beh_9f3a2c1b
+```
+
+**Benefits:**
+- **Cross-persona alignment**: same behavior in different personas gets same ID
+- **Behavior graph**: can query "which personas have behavior beh_9f3a2c1b?"
+- **Pack diff**: diff is now behavior-ID-based, not string-based
+- **Provenance reuse**: a proven behavior can be referenced across packs
+
+---
+
+## Enhancement B: Pack Diff
+
+Compare two packs at the behavior level:
+
+```bash
+mindset diff jobs-pack/ musk-pack/
+```
+
+```
+decision_policy:
+  jobs: clarity-first → commits at 70%
+  musk: speed-first → commits at 60%
+  overlap: none (different axes)
+
+communication:
+  jobs: direct (evidenced: 4 quotes)
+  musk: direct but volatile (evidenced: 2 quotes)
+  overlap: beh_9f3a2c1b "anti-hedging" (both)
+
+conflict:
+  jobs: destroys opposition fully
+  musk: destroys opposition fully
+  overlap: beh_a1b2c3d "ruthless when blocked" (canonical match)
+```
+
+**Output structure:**
+```yaml
+overlap:
+  - behavior_id: beh_9f3a2c1b
+    canonical: "anti-hedging"
+    in: [jobs, musk]
+different:
+  - axis: decision.commitment_threshold
+      jobs: "70%"
+      musk: "60%"
+uniquely_in:
+  jobs: [beh_d4e5f6, beh_e5f6g7]
+  musk: [beh_h6i7j8]
+```
+
+---
+
+## Enhancement C: Compile Quality Gate
+
+Every compile run outputs a deterministic `compile_status`:
+
+```yaml
+compile_status:
+  status: pass | warning | fail
+  scores:
+    coverage: 0.78
+    evidence: 0.71
+  gates:
+    contradictions:
+      count: 0
+      threshold: 0
+      status: pass
+    coverage:
+      score: 0.78
+      threshold: 0.60
+      status: pass
+    evidence:
+      score: 0.71
+      threshold: 0.50
+      status: pass
+    conditional_candidates:
+      count: 3
+      status: warning  # flagged for review, not blocking
+  review_required: 3 items
+```
+
+**Gate Rules:**
+
+| Gate | Threshold | Fails if |
+|---|---|---|
+| `contradictions` | 0 | any contradiction unresolved |
+| `coverage` | 0.60 | score below threshold |
+| `evidence` | 0.50 | score below threshold |
+| `conditional_candidates` | — | never fails; only warns |
+
+A pack with `fail` status cannot be merged into the standard library without human sign-off.
+
+---
+
 ## Deferred: Conditional Detection v1
 
 Full condition inference from contextual patterns, not just contrast markers.
@@ -425,12 +622,17 @@ Not in v0 scope because:
 |---|---|---|
 | Extraction (三元组) | ✅ | behavior + trigger + quote + confidence |
 | Semantic Normalization | ✅ | LLM-based; no hard-coded dedup |
+| Behavior Typing Layer | ✅ | behavior_type buffer before schema mapping |
 | Schema Mapping | ✅ | Canonical → slots |
-| Conditional v0.5 | ✅ | Contrast markers only |
-| Provenance Trace | ✅ | quote_id → slot_id |
+| Conditional v0.5 | ✅ | Contrast markers + implicit condition flag |
+| Provenance Trace | ✅ | quote_id → behavior_id → slot_id |
+| Source Coverage Report | ✅ | used/unused quotes per source |
 | Coverage Score | ✅ | Weighted slot coverage |
 | Evidence Score | ✅ | Provenance count per slot |
 | Review UX | ✅ | Priority-ordered review queue |
+| Quality Gate | ❌ Enhancement B | compile_status: pass/warning/fail |
+| Stable Behavior IDs | ❌ Enhancement A | hash-based cross-persona IDs |
+| Pack Diff | ❌ Enhancement C | behavior-level pack comparison |
 | Conditional v1 | ❌ Deferred | Full context inference |
 | Auto-benchmark | ❌ Deferred | v2+ |
 | Dynamic slot weights | ❌ Deferred | v2+ |
