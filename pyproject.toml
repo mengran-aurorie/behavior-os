@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "behavior-os"
-version = "0.2.4"
+version = "0.2.5"
 description = "BehaviorOS — compile behavior, not prompts. A behavioral runtime for AI agents."
 requires-python = ">=3.11"
 dependencies = [
