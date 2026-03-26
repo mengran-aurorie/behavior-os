@@ -398,6 +398,157 @@ def _emit_explain_from_report(
     )
 
 
+# ── Shared helpers for --share output ─────────────────────────────────────────
+# v1 share format: designed for scanability, screenshotability, and tweetability.
+# DO NOT change this format without a major version bump.
+
+_TAGLINE = "You think you're making decisions.\nYou're running a system."
+
+# Maps persona_id → (short_decision, reasoning_snippet)
+# These are hand-crafted for shareability — short, punchy, human-readable.
+# TODO(v7.1+): _SHARE_DECISIONS is a separate truth source from pack data.
+# Over time these can drift. Consider deriving share_card from pack fields
+# (decision_framework.approach, core_principles, signature_phrases) with
+# optional override map. Pack == truth; share is a filtered view.
+_SHARE_DECISIONS: dict[str, tuple[str, str]] = {
+    "steve-jobs": ("Ship now.", "Speed beats perfection."),
+    "marcus-aurelius": ("Do not ship.", "Integrity is not a trade-off.", '"The impediment to action advances action."'),
+    "sun-tzu": ("Only if it wins.", "Act only with advantage."),
+    "sherlock-holmes": ("Gather facts first.", "Eliminate the impossible first."),
+    "the-operator": ("Ship at 70%.", "Done beats perfect."),
+    "confucius": ("Seek harmony.", "Relationships shape outcomes."),
+    "seneca": ("Act now.", "Time is the most finite resource."),
+    "machiavelli": ("Consolidate power first.", "Fear beats love — use both."),
+    "julius-caesar": ("Act. Accept the risk.", "Fortune favors the bold."),
+    "napoleon-bonaparte": ("Strike the decisive point.", "Speed and will create advantage."),
+    "genghis-khan": ("Absorb or destroy.", "Tolerance is a tool, not a weakness."),
+    "tokugawa-ieyasu": ("Wait. Let others move first.", "Patience reveals the winning ground."),
+    "hamlet": ("Think before acting.", "Action without clarity costs more."),
+    "macbeth": ("Beware ambition's price.", "Guilt compounds faster than power."),
+    "odysseus": ("Adapt. Identity is a weapon.", "Cunning beats strength when cunning is needed."),
+    "gojo-satoru": ("Dominate.", "Power solves problems created by insufficient power."),
+    "vegeta": ("Fight. Always.", "Pride is not a weakness — losing is."),
+    "naruto-uzumaki": ("Connect first.", "Persistence beats talent when talent quits."),
+    "tanjiro-kamado": ("Protect. Then act.", "Compassion is not a weakness in a cruel world."),
+    "itachi-uchiha": ("Endure. For the outcome.", "Silent sacrifice outweighs loud pride."),
+    "lelouch-vi-britannia": ("Shape the board.", "Win the war, not just the battle."),
+    "light-yagami": ("Judge. Then act.", "Certainty in outcome justifies the cost."),
+    "loki": ("Chaos reveals opportunity.", "Identity is a game — play to win."),
+    "merlin": ("Plan decades ahead.", "The best manipulation is one they never saw."),
+}
+
+
+def _synthesize_share_card(
+    pack: "CharacterPack",
+) -> tuple[str, str, str]:
+    """Returns (decision, reason, signal) for share output.
+
+    decision: short imperative (1-5 words). Derived from persona-specific map or approach.
+    reason: natural-language one-liner. Derived from top core_principle.
+    signal: short quote (≤ 40 chars preferred). From signature_phrases.
+    """
+    pid = pack.meta.id
+    custom_sig: str | None = None
+
+    # Decision + reason + optional custom signal: use persona-specific map if available
+    if pid in _SHARE_DECISIONS:
+        entry = _SHARE_DECISIONS[pid]
+        decision = entry[0]
+        reason = entry[1]
+        custom_sig = entry[2] if len(entry) > 2 else None
+    else:
+        # Fallback: derive from approach field
+        approach = pack.mindset.decision_framework.approach.lower()
+        if any(k in approach for k in ["decide what the product", "clarity", "binary", "ship"]):
+            decision = "Ship."
+            reason = "Quality and speed both matter — ship and iterate."
+        elif any(k in approach for k in ["virtuous", "duty", "principled", "integrity"]):
+            decision = "Delay."
+            reason = "The right choice takes time. Integrity is not negotiable."
+        elif any(k in approach for k in ["intelligence", "ground", "terrain", "strategic", "advantage"]):
+            decision = "Depends."
+            reason = "The right move depends on the terrain."
+        else:
+            decision = "Evaluate."
+            reason = "Gather context. Then decide."
+            custom_sig = None
+
+    # Signal: use custom from map, or pick shortest from pack (if no custom)
+    sig = custom_sig if custom_sig else ""
+    if not sig and pack.voice.signature_phrases:
+        # Use shortest quote for cleaner share output
+        raw = min(pack.voice.signature_phrases, key=len)
+        MAX_LEN = 42
+        if len(raw) <= MAX_LEN:
+            sig = f'"{raw}"'
+        else:
+            # Word-boundary truncation at MAX_LEN
+            chunk = raw[:MAX_LEN]
+            last_space = chunk.rfind(" ")
+            if last_space > 8:
+                truncated = chunk[:last_space]
+            else:
+                truncated = chunk
+            sig = f'"{truncated}..."'
+
+    return decision, reason, sig
+
+
+def _format_share_output(
+    weighted_packs: list,
+    query: Optional[str],
+) -> str:
+    """Format per-persona behavioral profiles as shareable markdown.
+
+    v1 share format — do not change without major version bump.
+    """
+    lines: list[str] = []
+
+    # Tagline: split for visual impact
+    lines.append("You think you're making decisions.")
+    lines.append("You're running a system.")
+    lines.append("")
+
+    # Query
+    if query:
+        lines.append(f"Query:")
+        lines.append(f"{query}")
+        lines.append("")
+
+    # System count — use tension-building header for multi-persona
+    n = len(weighted_packs)
+    if n >= 3:
+        lines.append("Same question.")
+        lines.append("Three incompatible decisions.")
+    elif n == 2:
+        lines.append("Same question.")
+        lines.append("Two different realities.")
+    else:
+        systems_word = "system" if n == 1 else "systems"
+        lines.append(f"Same question. {n} {systems_word}.")
+    lines.append("")
+    lines.append("---")
+
+    # Per-persona cards (no labels, no indentation — pure content)
+    for pack, _weight in weighted_packs:
+        name = pack.meta.name
+        decision, reason, sig = _synthesize_share_card(pack)
+
+        lines.append(f"\n{name}")
+        lines.append(decision)
+        lines.append(reason)
+        if sig:
+            lines.append(sig)
+
+    lines.append("")
+    lines.append("---")
+    lines.append("")
+    lines.append("#BehaviorOS")
+    lines.append("")
+
+    return "\n".join(lines)
+
+
 @app.command()
 def run(
     runtime: str = typer.Argument(..., help="Runtime name (v0: claude only)"),
@@ -407,6 +558,7 @@ def run(
     format_: str = typer.Option("inject", "--format", help="text | inject (v0: equivalent)"),
     registry: Optional[Path] = typer.Option(None, "--registry", help="Override registry path"),
     explain: bool = typer.Option(False, "--explain", help="Print compilation summary to stderr"),
+    share: bool = typer.Option(False, "--share", help="Format decisions as shareable markdown (skip Claude runtime)"),
     query: Optional[str] = typer.Argument(None, help="One-shot query. Omit for interactive mode."),
 ):
     """Compile mindset(s) and inject into an agent runtime."""
@@ -449,6 +601,12 @@ def run(
 
     # Both paths start from prepare_packs for identical normalization.
     weighted_packs = engine.prepare_packs(chars, strat)
+
+    # --share: skip runtime, format per-persona behavioral profiles as shareable markdown
+    if share:
+        output = _format_share_output(weighted_packs, query)
+        typer.echo(output)
+        raise typer.Exit(0)
 
     if format_ == "inject":
         # New path: ConflictResolver → BehaviorIR → ClaudeRenderer
