@@ -34,20 +34,14 @@
 
 BehaviorOS compiles character mindsets into **behavioral directives** — not character descriptions. The system resolves conflicts, applies conditional rules, and produces outputs you can actually verify.
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  CharacterPack(s)  →  ConflictResolver  →  BehaviorIR           │
-│                                          →  ClaudeRenderer       │
-│                                          →  AI Agent            │
-└─────────────────────────────────────────────────────────────────┘
-```
-
-| Stage | What it does |
-|---|---|
-| **FusionEngine** | Weighted merge of N characters with deterministic conflict resolution |
-| **ConflictResolver** | Slot-by-slot winner selection; ConditionalSlot application |
-| **BehaviorIR** | Typed intermediate representation — every decision is explicit |
-| **ClaudeRenderer** | Emits behavioral directives, not character descriptions |
+| # | Stage | What it does |
+|---|---|---|
+| 1 | CharacterPack(s) | Source character mindsets (mindset, personality, behavior, voice) |
+| 2 | FusionEngine | Weighted merge of N characters with deterministic conflict resolution |
+| 3 | ConflictResolver | Slot-by-slot winner selection; ConditionalSlot application |
+| 4 | BehaviorIR | Typed intermediate representation — every decision is explicit |
+| 5 | ClaudeRenderer | Emits behavioral directives, not character descriptions |
+| 6 | AI Agent | Executes behavioral directives (Claude CLI, API, or any model) |
 
 ---
 
@@ -296,6 +290,7 @@ The inject path is **fully deterministic**: identical inputs → identical IR �
 | `marcus-aurelius` | Marcus Aurelius | Stoic acceptance; control vs. influence |
 | `steve-jobs` | Steve Jobs | Binary quality judgment; refusal to dilute |
 | `sherlock-holmes` | Sherlock Holmes | Deduction from observed anomaly |
+| `the-operator` | The Operator | Execution-first; commits at 70% information |
 
 ### Historical & Philosophical
 
