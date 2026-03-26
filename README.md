@@ -16,7 +16,7 @@
 
 > **Naming note:** Product name is **BehaviorOS**. PyPI / package name is `behavior-os`. CLI command is `mindset`.
 
----
+**BehaviorOS compiles human behavior into executable decision systems.**
 
 ## Most AI Personas Are Fake.
 
@@ -476,9 +476,10 @@ mindset validate ./my-character
 | Behavioral consistency | untested | ≥ 0.90 |
 | Behavioral distinctiveness | untested | ≥ baseline threshold |
 
-**Distinctiveness** is measured on two axes:
+**Distinctiveness** is measured on three axes:
 - **Inter-persona divergence** — Jobs vs Marcus vs Sun Tzu must differ meaningfully on behavioral axes
 - **Baseline divergence** — compiled packs must differ from GPT baseline, not collapse to generic
+- **Decision divergence** — same input must produce different decision paths and conclusions, not just different writing styles
 
 > A compiler that "improves" by smoothing sharp edges produces average behavior. Jobs packs that sound reasonable are worse than Jobs packs that sound like Jobs.
 
@@ -496,12 +497,13 @@ The compiler works. Now it needs a path into users' hands.
 | Milestone | Description |
 |---|---|
 | **Signature Demo** | "Same input. Different decisions. Because the system is different." — `mindset run` across opposing personas; the demo that makes people forward this to colleagues |
-| **Decision Impact Demo** | "The decision you make depends on the system you use." — Hiring Decision Simulator: same candidate profile, three personas → three hiring outcomes. Triggers founders, PMs, investors. |
+| **Decision Impact Demo** | "You don't make decisions. The system you run does." — Same candidate profile, three personas, three hiring decisions. Triggers founders, PMs, investors. |
 | **5-minute quickstart** | `git clone` → `pip install` → `mindset compile` → `mindset run` in 5 minutes |
 | **Template pack** | `examples/template/` — starter sources.yaml + README for new authors |
 | **Use cases** | Decision simulation · Strategy exploration · Persona alignment · Agent consistency control |
 | **Behavior comparison** | `mindset compare <persona1> <persona2>` — cross-persona behavioral axis comparison |
 | **Pack sharing** | `docs/packs/` — community-submitted packs with review workflow |
+| **Shareable output** | `mindset run --share` — generates a decision summary that can be pasted into Twitter, Slack, or a blog. Becomes a self-propagating distribution channel. |
 
 ### Phase 5 — Behavior Layer
 **BehaviorOS as the behavior layer for AI systems.**
@@ -512,6 +514,7 @@ Initial integration targets:
 - **Agent frameworks** — embed behavior runtime into AI agent pipelines
 - **Decision copilots** — simulation layer for high-stakes decisions
 - **Simulation tools** — multi-persona scenario exploration
+- **Policy Injection Layer** — BehaviorOS can act as a policy layer injected into any LLM agent, controlling decision logic without modifying the model
 
 - `mindset compare` — system-level comparison across any personas
 - Pack Registry — curated, reviewed packs with stable IDs
@@ -522,7 +525,7 @@ Initial integration targets:
 
 ### What's Next
 
-> Behavior is no longer the bottleneck. Distribution is.
+> We solved behavior. Now the only problem left is getting people to notice.
 
 v1 is the last major engineering milestone. Everything after is adoption.
 
