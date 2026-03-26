@@ -474,40 +474,47 @@ mindset validate ./my-character
 | Evidence | ~0.00 | ≥ 0.30 |
 | Max corrections | 6 | ≤ 4 |
 | Behavioral consistency | untested | ≥ 0.90 |
+| Behavioral distinctiveness | untested | ≥ baseline threshold |
+
+> **Why distinctiveness matters:** A compiler that "improves" by smoothing out sharp edges produces average behavior. Jobs packs that sound reasonable are worse than Jobs packs that sound like Jobs. Distinctiveness = how far the output stands from a generic GPT response.
 
 **v1 Roadmap (P0 → P2):**
 
 - **P0 — Foundation** — Pre-processing (strip metadata headers) + Slot coverage prompt → eliminates parsing artifacts and schema distribution errors
 - **P1 — Coverage** — Named concept extraction (second pass for frameworks/models) + Inference guard (mark inferred slots `confidence: low`, `provenance: inferred`, exclude from evidence score)
-- **P2 — Sophistication** — Behavioral consistency test + Conditional trigger extraction + Quote preservation
+- **P2 — Sophistication** — Behavioral distinctiveness test + Conditional trigger extraction + Quote preservation
 
 ### Phase 4.5 🔥 — Adoption Loop
-**From "system is good" to "system is used."**
+**From "system is built" to "system is used."**
 
 The compiler works. Now it needs a path into users' hands.
 
 | Milestone | Description |
 |---|---|
+| **Signature Demo** | `mindset run` same input across opposing personas → "Same input. Three decision systems." — the viral demo that makes people forward this to colleagues |
 | **5-minute quickstart** | `git clone` → `pip install` → `mindset compile` → `mindset run` in 5 minutes |
 | **Template pack** | `examples/template/` — starter sources.yaml + README for new authors |
-| **Use-case demos** | Non-technical demos showing behavioral differences: negotiation, product decisions, hiring |
+| **Use cases** | Decision simulation · Strategy exploration · Persona alignment · Agent consistency control |
 | **Behavior comparison** | `mindset compare <persona1> <persona2>` — cross-persona behavioral axis comparison |
 | **Pack sharing** | `docs/packs/` — community-submitted packs with review workflow |
 
-### Phase 5 — Behavior Platform
-**Turn BehaviorOS from a tool into a system people build on.**
+### Phase 5 — Behavior Layer
+**BehaviorOS as the behavior layer for AI systems.**
+
+BehaviorOS aims to become the behavior layer for AI — the way AWS is compute, Stripe is payments, and Twilio is communications.
 
 - `mindset compare` — system-level comparison across any personas
 - Pack Registry — curated, reviewed packs with stable IDs
 - Pack Diff — version-over-version behavior change detection
+- Embeddable in agent frameworks; policy-as-code for behavior
 - OpenAI / Ollama adapters
 - Community pack submission pipeline
 
 ### What's Next
 
-> The system is no longer the risk. The risk is whether people understand it, try it, and spread it.
+> We solved the system. Now we need to solve distribution.
 
-The v1 roadmap is the last major engineering milestone. Everything after is adoption.
+v1 is the last major engineering milestone. Everything after is adoption.
 
 ---
 
