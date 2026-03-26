@@ -452,7 +452,7 @@ mindset validate ./my-character
 
 **See [`docs/compiler-v0-spec.md`](./docs/compiler-v0-spec.md) for the full specification.**
 
-### Phase 3 — Compiler Validation & Benchmarking (v0.4)
+### Phase 3 ✅ — Compiler Validation & Benchmarking (v0.3–v0.4)
 **Establish compiler as a measurable, benchmarked system.**
 
 | Milestone | Status | Description |
@@ -462,30 +462,52 @@ mindset validate ./my-character
 | Correction Taxonomy | ✅ | [`docs/compiler-correction-taxonomy.md`](./docs/compiler-correction-taxonomy.md) — 5 patterns, P0/P1/P2 priorities |
 | Validation Report | ✅ | [`docs/compiler-validation.md`](./docs/compiler-validation.md) |
 | Compiled vs Manual | ✅ | [`docs/validation/steve-jobs-compiled-vs-manual.md`](./docs/validation/steve-jobs-compiled-vs-manual.md) |
-| v1 Entry Conditions | 🔲 | coverage≥0.65, evidence≥0.30, max_corrections≤4 |
 
-**Compiler v1 Targets:**
-- Coverage ≥ 0.65 (from ~0.25 baseline)
-- Evidence ≥ 0.30 (from ~0.00 baseline)
-- Max corrections ≤ 4 per 3-source compile (from 6)
-- ≥ 1/3 corpus personas capture ConditionalSlots in draft
+### Phase 4 — Compiler v1 (Quality)
+**Close the gap from baseline to production-quality compiler.**
 
-**v1 Roadmap (ordered by priority):**
-1. **Pre-processing** — strip metadata headers before extraction → eliminates parsing artifacts
-2. **Slot coverage prompt** — explicit instruction to distribute across all schema slots → eliminates schema distribution errors
-3. **Named concept extraction** — second pass specifically for frameworks/models → closes missing slot inference gap
-4. **Conditional trigger extraction** — separate pipeline stage for conditionals → weak conditional capture
-5. **Quote preservation** — cross-source validation + verbatim quote extraction → provenance under-linking
+**v1 Targets:**
 
-### Phase 4 — Stable Behaviors & Pack Registry
-- Stable Behavior IDs — cross-persona canonical behavior matching
+| Metric | v0 Baseline | v1 Target |
+|---|---|---|
+| Coverage | ~0.25 | ≥ 0.65 |
+| Evidence | ~0.00 | ≥ 0.30 |
+| Max corrections | 6 | ≤ 4 |
+| Behavioral consistency | untested | ≥ 0.90 |
+
+**v1 Roadmap (P0 → P2):**
+
+- **P0 — Foundation** — Pre-processing (strip metadata headers) + Slot coverage prompt → eliminates parsing artifacts and schema distribution errors
+- **P1 — Coverage** — Named concept extraction (second pass for frameworks/models) + Inference guard (mark inferred slots `confidence: low`, `provenance: inferred`, exclude from evidence score)
+- **P2 — Sophistication** — Behavioral consistency test + Conditional trigger extraction + Quote preservation
+
+### Phase 4.5 🔥 — Adoption Loop
+**From "system is good" to "system is used."**
+
+The compiler works. Now it needs a path into users' hands.
+
+| Milestone | Description |
+|---|---|
+| **5-minute quickstart** | `git clone` → `pip install` → `mindset compile` → `mindset run` in 5 minutes |
+| **Template pack** | `examples/template/` — starter sources.yaml + README for new authors |
+| **Use-case demos** | Non-technical demos showing behavioral differences: negotiation, product decisions, hiring |
+| **Behavior comparison** | `mindset compare <persona1> <persona2>` — cross-persona behavioral axis comparison |
+| **Pack sharing** | `docs/packs/` — community-submitted packs with review workflow |
+
+### Phase 5 — Behavior Platform
+**Turn BehaviorOS from a tool into a system people build on.**
+
+- `mindset compare` — system-level comparison across any personas
 - Pack Registry — curated, reviewed packs with stable IDs
 - Pack Diff — version-over-version behavior change detection
-
-### Phase 5 — Ecosystem
 - OpenAI / Ollama adapters
-- SDK for programmatic pack authoring
 - Community pack submission pipeline
+
+### What's Next
+
+> The system is no longer the risk. The risk is whether people understand it, try it, and spread it.
+
+The v1 roadmap is the last major engineering milestone. Everything after is adoption.
 
 ---
 
